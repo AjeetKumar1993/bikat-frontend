@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form id="tourForm">
+        <label for="id">Tour Details:</label>
+       
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="region">Region:</label>
+        <input type="text" id="region" name="region" required><br><br>
+
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required><br><br>
+
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" required><br><br>
+
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade" required><br><br>
+
+        <div class="multi-input-row">
+            <div>
+                <label for="altitude">Altitude:</label>
+                <input type="number" id="altitude" name="altitude" required><br><br>
+            </div>
+            <div>
+                <label for="day">Day:</label>
+                <input type="number" id="day" name="day" required><br><br>
+            </div>
+            <div>
+                <label for="night">Night:</label>
+                <input type="number" id="night" name="night" required><br><br>
+            </div>
+        </div>
+
+        <div class="multi-input-row">
+            <div>
+                <label for="distance">Distance:</label>
+                <input type="number" id="distance" name="distance" required><br><br>
+            </div>
+            <div>
+                <label for="minimumAge">Minimum Age:</label>
+                <input type="number" id="minimumAge" name="minimumAge" required><br><br>
+            </div>
+            <div>
+                <label for="maximumGroupSize">Maximum Group Size:</label>
+                <input type="number" id="maximumGroupSize" name="maximumGroupSize" required><br><br>
+            </div>
+        </div>
+
+        <div class="multi-input-row">
+            <div>
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required><br><br>
+            </div>
+            <div>
+                <label for="gst">GST:</label>
+                <input type="number" id="gst" name="gst" required><br><br>
+            </div>
+        </div>
+
+        <label for="priceFromTo">Price From-To(String):</label>
+        <input type="text" id="priceFromTo" name="priceFromTo" required><br><br>
+
+        <label for="overview">Overview:</label>
+        <textarea id="overview" name="overview" required></textarea><br><br>
+
+        <label for="shortOverview">Short Overview:</label>
+        <textarea id="shortOverview" name="shortOverview" required></textarea><br><br>
+        
+        <label for="inclusion">Inclusion:</label>
+        <div id="inclusion">
+            <div class="rule">
+                 
+                
+            </div>
+        </div>
+        <button type="button" onclick="addMore('inclusion')">Add</button><br><br>
+
+
+        <label for="exclusion">Exclusion:</label>
+        <div id="exclusion">
+            <div class="rule">
+               
+                
+            </div>
+        </div>
+        <button type="button" onclick="addMore('exclusion')">Add</button><br><br>
+        
+
+        <label for="highlight">Highlight:</label>
+        <div id="highlight">
+            <div class="rule">
+               
+            </div>
+        </div>
+        <button type="button" onclick="addMore('highlight')">Add</button><br><br>
+
+        <label for="cancelPolicy">Cancel Policy:</label>
+        <div id="cancelPolicy">
+            <div class="rule">
+               
+                
+            </div>
+        </div>
+        <button type="button" onclick="addMore('cancelPolicy')">Add </button><br><br>
+
+        <label for="packingList">Packing List:</label>
+        <div id="packingList">
+            <div class="rule">
+               
+                
+            </div>
+        </div>
+        <button type="button" onclick="addMore('packingList')">Add</button><br><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <label for="tourImage">Tour Image:</label> <span id="statusIcon" class="status-icon">&#10004;</span>
+        <input type="file" id="tourImage" name="tourImage" accept="image/*" onchange="previewImage(event)" required><br>
+        <img id="imagePreview" class="image-preview"><br>
+        <button type="button" onclick="uploadTourImages('tourImage')">Upload Image</button><br><br>
+        
+
+
+
+        <label for="gallery">Gallery:</label><span id="statusIcon2" class="status-icon">&#10004;</span>
+        <input type="file" id="tourImages" name="tourImages" accept="image/*" multiple onchange="previewImages(event)" required><br>
+        <div id="imagePreviewContainer" class="image-preview-container"></div><br>
+        <button type="button" onclick="uploadTourImages('tourImages')">Upload Images</button><br><br>
+
+        <label for="itinerary">Itinerary:</label>
+        <div id="itinerary">
+            <div class="rule">
+            </div>
+        </div>
+        <button type="button" onclick="addItinery()">Add</button><br><br>
+
+
+        <label for="availableDate">Available Date:</label>
+        <textarea id="availableDate" name="availableDate" required></textarea><br><br>
+
+        <label for="active">Active:</label>
+        <input type="checkbox" id="active" name="active"><br><br>
+
+        <label for="availableDate">Related Tour:</label>
+        <div class="checkboxes" id="checkboxes">
+            <label>Loading...</label>
+        </div>
+
+
+        <button type="submit">Submit</button>
+    </form>
+    
+
+    <script src="js/script.js"></script>
+</body>
+</html>

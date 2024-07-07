@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Travel - My Account </title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.0/dist/aos.css" rel="stylesheet">
+    
+
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Kaushan+Script&family=Nothing+You+Could+Do&family=Open+Sans:wght@300;400;500;600&family=PT+Sans+Narrow:wght@700&family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+
+
+    
+
+   
+  </head>
+
+<body>
+  <header>
+    <div class="main-menu-div float-start w-100">
+      
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+              <img src="images/logo.png" class="delf" alt="logo"/>
+              <img src="images/logo-color.png" class="color-logo" alt="logo"/>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" href="#mobilemenu"  aria-controls="offcanvasExample">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="listing.html">Explore</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="discover.html">Discover</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tour-package.html">Tour Packgaes</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Help & Visas</a>
+              </li>
+            </ul>
+            
+          </div>
+  
+          <div class="right-src ">
+              <ul class="d-flex align-items-center list-unstyled mb-0">
+                <li>
+                  <a href="my-account.html" class="lgn-btn"> 
+                  <i class="far fa-user"></i>
+                  </a>
+                </li>
+               
+              </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+ <div class="banner-home float-start sub-page-banner">
+     <div class="banner-slider-m">
+         
+      <img src="images/banner-t.jpg" class="d-block w-100" alt="...">
+
+     </div>
+
+     <div class="banner-content">
+       <div class="container">
+          <h1 class="text-center">
+            My Account
+          </h1>
+        
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">My Account </li>
+            </ol>
+          </nav>
+
+       </div>
+     </div>
+
+     
+     
+
+    
+ </div>
+
+<section class="body-part">
+     <div class="account-apge-design">
+      
+          <div class="container">
+
+            <div class="row g-lg-5">
+                <div class="col-lg-3">
+                    <div class="account-left-div">
+                        <div class="profile-pic">
+                            <label class="-label" for="file">
+                              <span class="glyphicon glyphicon-camera"></span>
+                              <span><i class="fas fa-pen"></i></span>
+                            </label>
+                            <input id="file" type="file" onchange="loadFile(event)"/>
+                            <img src="images/Profile.jpg" id="output" width="200" />
+                        </div>
+                        <h5 class="pas-name mt-3">Rose Smith 
+                            <span class="d-block mt-2"> Personal Profile </span>
+                        </h5>
+
+                        <div class="nav flex-column nav-pills mt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                             data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" 
+                             aria-selected="true"> <i class="fas fa-user"></i> Profile</button>
+                            <button class="nav-link" id="v-pills-profile-tab" 
+                            data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab"
+                             aria-controls="v-pills-profile" aria-selected="false">
+                             <i class="fas fa-briefcase"></i> My Trips</button>
+                            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                             data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
+                              aria-selected="false"> <i class="fas fa-wallet"></i> My Wallet</button>
+                            
+                              
+                            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                              data-bs-target="#v-pills-copons" type="button" role="tab" aria-controls="v-pills-messages"
+                               aria-selected="false"> <i class="fas fa-ticket-alt"></i> My Couplons</button>
+
+                           
+                            <button  class="nav-link" id="adminPanelId" > <i class="fas fa-user"></i>Admin Panel</button>
+                            
+
+                            <button class="nav-link" id="logOut"
+                               aria-selected="false"> <i class="fas fa-sign-out-alt"></i> Logout</button>
+                            
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-9">
+
+                    <div class="tab-content bd-account-6 mt-5 mt-lg-0" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class="profile-divsb">
+                                 <div class="top-bnds-1">
+                                    <div class="pogress2">
+                                        <h6 class="d-flex justify-content-between mb-2 col-lg-6"> Complete your Profile <span>75%</span> </h6>
+                                        <div class="progress col-lg-6">
+                                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+
+                                        <div class="varify-divb  mt-4">
+                                            <div class="d-md-flex justify-content-between col-md-12 col-xl-7">
+                                                <div class="col verrit">
+                                                <i class="fas fa-check-circle"></i> Verified Email ID
+                                                </div>
+    
+                                                <div class="col verrit">
+                                                <i class="fas fa-check-circle"></i> Verified Mobile Number
+                                                </div>
+                                           </div>
+                                           
+   
+                                       </div>
+
+                                    </div>
+
+                                   
+                                 </div>
+
+                                 <button type="button" class="btn mt-4 ms-auto sub-divbn1 c-link js-toggleForm ml-auto d-table"> <i class="fas fa-edit"></i> Edit Profile </button>
+                                 <div class="form">
+                                    <div class="bd-f-div my-4">
+                                    
+                                        <div class="comon-account-div">
+                                            <h5> Profile </h5>
+                                            <p> Basic info, for a faster booking experience </p>
+                                            <div class="form-group">
+                                                <label> Name </label>
+                                                <input type="text" id="name" class="form-control"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> BirthDay </label>
+                                                <input type="text" id="birthday" class="form-control"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Gender </label>
+                                                <select id="gender" class="form-select" aria-label="Default select example">
+                                                    <option selected>Select </option>
+                                                    <option value="MALE">Male</option>
+                                                    <option value="FEMALE">Female</option>
+                                                    <option value="OTHER">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Marital Status </label>
+                                                <select id="marital_status" class="form-select" aria-label="Default select example">
+                                                    <option selected>Select</option>
+                                                    <option value="MARRIED">Married</option>
+                                                    <option value="UNMARRIED">Unmarried</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bd-f-div">
+                                    
+                                        <div class="comon-account-div">
+                                            <h5> Login Details </h5>
+                                            <p> Manage your email address mobile number and password </p>
+                                            <div class="form-group">
+                                                <label> Mobile Number </label>
+                                                <input id="mobile_number" type="text" class="form-control"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Email Id </label>
+                                                <input type="email" id="emailId" class="form-control"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Password </label>
+                                                <input type="password" class="form-control"/>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="bd-f-div">
+                                    
+                                        <div class="comon-account-div">
+                                            <h5> Basic Info </h5>
+                                            <p> Manage your email address mobile number and password </p>
+                                            <div class="form-group">
+                                                <label> Adddress </label>
+                                                <input type="text" id="address" class="form-control"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Select Country </label>
+                                                <select id="country_select" name="country" class="form-select">
+                                                    <option value="AF">Afghanistan</option>
+                                                    <option value="AX">Åland Islands</option>
+                                                    <option value="AL">Albania</option>
+                                                    <option value="DZ">Algeria</option>
+                                                    <option value="AS">American Samoa</option>
+                                                    <option value="AD">Andorra</option>
+                                                    <option value="AO">Angola</option>
+                                                    <option value="AI">Anguilla</option>
+                                                    <option value="AQ">Antarctica</option>
+                                                    <option value="AG">Antigua and Barbuda</option>
+                                                    <option value="AR">Argentina</option>
+                                                    <option value="AM">Armenia</option>
+                                                    <option value="AW">Aruba</option>
+                                                    <option value="AU">Australia</option>
+                                                    <option value="AT">Austria</option>
+                                                    <option value="AZ">Azerbaijan</option>
+                                                    <option value="BS">Bahamas</option>
+                                                    <option value="BH">Bahrain</option>
+                                                    <option value="BD">Bangladesh</option>
+                                                    <option value="BB">Barbados</option>
+                                                    <option value="BY">Belarus</option>
+                                                    <option value="BE">Belgium</option>
+                                                    <option value="BZ">Belize</option>
+                                                    <option value="BJ">Benin</option>
+                                                    <option value="BM">Bermuda</option>
+                                                    <option value="BT">Bhutan</option>
+                                                    <option value="BO">Bolivia, Plurinational State of</option>
+                                                    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                                    <option value="BA">Bosnia and Herzegovina</option>
+                                                    <option value="BW">Botswana</option>
+                                                    <option value="BV">Bouvet Island</option>
+                                                    <option value="BR">Brazil</option>
+                                                    <option value="IO">British Indian Ocean Territory</option>
+                                                    <option value="BN">Brunei Darussalam</option>
+                                                    <option value="BG">Bulgaria</option>
+                                                    <option value="BF">Burkina Faso</option>
+                                                    <option value="BI">Burundi</option>
+                                                    <option value="KH">Cambodia</option>
+                                                    <option value="CM">Cameroon</option>
+                                                    <option value="CA">Canada</option>
+                                                    <option value="CV">Cape Verde</option>
+                                                    <option value="KY">Cayman Islands</option>
+                                                    <option value="CF">Central African Republic</option>
+                                                    <option value="TD">Chad</option>
+                                                    <option value="CL">Chile</option>
+                                                    <option value="CN">China</option>
+                                                    <option value="CX">Christmas Island</option>
+                                                    <option value="CC">Cocos (Keeling) Islands</option>
+                                                    <option value="CO">Colombia</option>
+                                                    <option value="KM">Comoros</option>
+                                                    <option value="CG">Congo</option>
+                                                    <option value="CD">Congo, the Democratic Republic of the</option>
+                                                    <option value="CK">Cook Islands</option>
+                                                    <option value="CR">Costa Rica</option>
+                                                    <option value="CI">Côte d'Ivoire</option>
+                                                    <option value="HR">Croatia</option>
+                                                    <option value="CU">Cuba</option>
+                                                    <option value="CW">Curaçao</option>
+                                                    <option value="CY">Cyprus</option>
+                                                    <option value="CZ">Czech Republic</option>
+                                                    <option value="DK">Denmark</option>
+                                                    <option value="DJ">Djibouti</option>
+                                                    <option value="DM">Dominica</option>
+                                                    <option value="DO">Dominican Republic</option>
+                                                    <option value="EC">Ecuador</option>
+                                                    <option value="EG">Egypt</option>
+                                                    <option value="SV">El Salvador</option>
+                                                    <option value="GQ">Equatorial Guinea</option>
+                                                    <option value="ER">Eritrea</option>
+                                                    <option value="EE">Estonia</option>
+                                                    <option value="ET">Ethiopia</option>
+                                                    <option value="FK">Falkland Islands (Malvinas)</option>
+                                                    <option value="FO">Faroe Islands</option>
+                                                    <option value="FJ">Fiji</option>
+                                                    <option value="FI">Finland</option>
+                                                    <option value="FR">France</option>
+                                                    <option value="GF">French Guiana</option>
+                                                    <option value="PF">French Polynesia</option>
+                                                    <option value="TF">French Southern Territories</option>
+                                                    <option value="GA">Gabon</option>
+                                                    <option value="GM">Gambia</option>
+                                                    <option value="GE">Georgia</option>
+                                                    <option value="DE">Germany</option>
+                                                    <option value="GH">Ghana</option>
+                                                    <option value="GI">Gibraltar</option>
+                                                    <option value="GR">Greece</option>
+                                                    <option value="GL">Greenland</option>
+                                                    <option value="GD">Grenada</option>
+                                                    <option value="GP">Guadeloupe</option>
+                                                    <option value="GU">Guam</option>
+                                                    <option value="GT">Guatemala</option>
+                                                    <option value="GG">Guernsey</option>
+                                                    <option value="GN">Guinea</option>
+                                                    <option value="GW">Guinea-Bissau</option>
+                                                    <option value="GY">Guyana</option>
+                                                    <option value="HT">Haiti</option>
+                                                    <option value="HM">Heard Island and McDonald Islands</option>
+                                                    <option value="VA">Holy See (Vatican City State)</option>
+                                                    <option value="HN">Honduras</option>
+                                                    <option value="HK">Hong Kong</option>
+                                                    <option value="HU">Hungary</option>
+                                                    <option value="IS">Iceland</option>
+                                                    <option value="IN">India</option>
+                                                    <option value="ID">Indonesia</option>
+                                                    <option value="IR">Iran, Islamic Republic of</option>
+                                                    <option value="IQ">Iraq</option>
+                                                    <option value="IE">Ireland</option>
+                                                    <option value="IM">Isle of Man</option>
+                                                    <option value="IL">Israel</option>
+                                                    <option value="IT">Italy</option>
+                                                    <option value="JM">Jamaica</option>
+                                                    <option value="JP">Japan</option>
+                                                    <option value="JE">Jersey</option>
+                                                    <option value="JO">Jordan</option>
+                                                    <option value="KZ">Kazakhstan</option>
+                                                    <option value="KE">Kenya</option>
+                                                    <option value="KI">Kiribati</option>
+                                                    <option value="KP">Korea, Democratic People's Republic of</option>
+                                                    <option value="KR">Korea, Republic of</option>
+                                                    <option value="KW">Kuwait</option>
+                                                    <option value="KG">Kyrgyzstan</option>
+                                                    <option value="LA">Lao People's Democratic Republic</option>
+                                                    <option value="LV">Latvia</option>
+                                                    <option value="LB">Lebanon</option>
+                                                    <option value="LS">Lesotho</option>
+                                                    <option value="LR">Liberia</option>
+                                                    <option value="LY">Libya</option>
+                                                    <option value="LI">Liechtenstein</option>
+                                                    <option value="LT">Lithuania</option>
+                                                    <option value="LU">Luxembourg</option>
+                                                    <option value="MO">Macao</option>
+                                                    <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                                                    <option value="MG">Madagascar</option>
+                                                    <option value="MW">Malawi</option>
+                                                    <option value="MY">Malaysia</option>
+                                                    <option value="MV">Maldives</option>
+                                                    <option value="ML">Mali</option>
+                                                    <option value="MT">Malta</option>
+                                                    <option value="MH">Marshall Islands</option>
+                                                    <option value="MQ">Martinique</option>
+                                                    <option value="MR">Mauritania</option>
+                                                    <option value="MU">Mauritius</option>
+                                                    <option value="YT">Mayotte</option>
+                                                    <option value="MX">Mexico</option>
+                                                    <option value="FM">Micronesia, Federated States of</option>
+                                                    <option value="MD">Moldova, Republic of</option>
+                                                    <option value="MC">Monaco</option>
+                                                    <option value="MN">Mongolia</option>
+                                                    <option value="ME">Montenegro</option>
+                                                    <option value="MS">Montserrat</option>
+                                                    <option value="MA">Morocco</option>
+                                                    <option value="MZ">Mozambique</option>
+                                                    <option value="MM">Myanmar</option>
+                                                    <option value="NA">Namibia</option>
+                                                    <option value="NR">Nauru</option>
+                                                    <option value="NP">Nepal</option>
+                                                    <option value="NL">Netherlands</option>
+                                                    <option value="NC">New Caledonia</option>
+                                                    <option value="NZ">New Zealand</option>
+                                                    <option value="NI">Nicaragua</option>
+                                                    <option value="NE">Niger</option>
+                                                    <option value="NG">Nigeria</option>
+                                                    <option value="NU">Niue</option>
+                                                    <option value="NF">Norfolk Island</option>
+                                                    <option value="MP">Northern Mariana Islands</option>
+                                                    <option value="NO">Norway</option>
+                                                    <option value="OM">Oman</option>
+                                                    <option value="PK">Pakistan</option>
+                                                    <option value="PW">Palau</option>
+                                                    <option value="PS">Palestinian Territory, Occupied</option>
+                                                    <option value="PA">Panama</option>
+                                                    <option value="PG">Papua New Guinea</option>
+                                                    <option value="PY">Paraguay</option>
+                                                    <option value="PE">Peru</option>
+                                                    <option value="PH">Philippines</option>
+                                                    <option value="PN">Pitcairn</option>
+                                                    <option value="PL">Poland</option>
+                                                    <option value="PT">Portugal</option>
+                                                    <option value="PR">Puerto Rico</option>
+                                                    <option value="QA">Qatar</option>
+                                                    <option value="RE">Réunion</option>
+                                                    <option value="RO">Romania</option>
+                                                    <option value="RU">Russian Federation</option>
+                                                    <option value="RW">Rwanda</option>
+                                                    <option value="BL">Saint Barthélemy</option>
+                                                    <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                                                    <option value="KN">Saint Kitts and Nevis</option>
+                                                    <option value="LC">Saint Lucia</option>
+                                                    <option value="MF">Saint Martin (French part)</option>
+                                                    <option value="PM">Saint Pierre and Miquelon</option>
+                                                    <option value="VC">Saint Vincent and the Grenadines</option>
+                                                    <option value="WS">Samoa</option>
+                                                    <option value="SM">San Marino</option>
+                                                    <option value="ST">Sao Tome and Principe</option>
+                                                    <option value="SA">Saudi Arabia</option>
+                                                    <option value="SN">Senegal</option>
+                                                    <option value="RS">Serbia</option>
+                                                    <option value="SC">Seychelles</option>
+                                                    <option value="SL">Sierra Leone</option>
+                                                    <option value="SG">Singapore</option>
+                                                    <option value="SX">Sint Maarten (Dutch part)</option>
+                                                    <option value="SK">Slovakia</option>
+                                                    <option value="SI">Slovenia</option>
+                                                    <option value="SB">Solomon Islands</option>
+                                                    <option value="SO">Somalia</option>
+                                                    <option value="ZA">South Africa</option>
+                                                    <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                                    <option value="SS">South Sudan</option>
+                                                    <option value="ES">Spain</option>
+                                                    <option value="LK">Sri Lanka</option>
+                                                    <option value="SD">Sudan</option>
+                                                    <option value="SR">Suriname</option>
+                                                    <option value="SJ">Svalbard and Jan Mayen</option>
+                                                    <option value="SZ">Swaziland</option>
+                                                    <option value="SE">Sweden</option>
+                                                    <option value="CH">Switzerland</option>
+                                                    <option value="SY">Syrian Arab Republic</option>
+                                                    <option value="TW">Taiwan, Province of China</option>
+                                                    <option value="TJ">Tajikistan</option>
+                                                    <option value="TZ">Tanzania, United Republic of</option>
+                                                    <option value="TH">Thailand</option>
+                                                    <option value="TL">Timor-Leste</option>
+                                                    <option value="TG">Togo</option>
+                                                    <option value="TK">Tokelau</option>
+                                                    <option value="TO">Tonga</option>
+                                                    <option value="TT">Trinidad and Tobago</option>
+                                                    <option value="TN">Tunisia</option>
+                                                    <option value="TR">Turkey</option>
+                                                    <option value="TM">Turkmenistan</option>
+                                                    <option value="TC">Turks and Caicos Islands</option>
+                                                    <option value="TV">Tuvalu</option>
+                                                    <option value="UG">Uganda</option>
+                                                    <option value="UA">Ukraine</option>
+                                                    <option value="AE">United Arab Emirates</option>
+                                                    <option value="GB">United Kingdom</option>
+                                                    <option value="US">United States</option>
+                                                    <option value="UM">United States Minor Outlying Islands</option>
+                                                    <option value="UY">Uruguay</option>
+                                                    <option value="UZ">Uzbekistan</option>
+                                                    <option value="VU">Vanuatu</option>
+                                                    <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                                    <option value="VN">Viet Nam</option>
+                                                    <option value="VG">Virgin Islands, British</option>
+                                                    <option value="VI">Virgin Islands, U.S.</option>
+                                                    <option value="WF">Wallis and Futuna</option>
+                                                    <option value="EH">Western Sahara</option>
+                                                    <option value="YE">Yemen</option>
+                                                    <option value="ZM">Zambia</option>
+                                                    <option value="ZW">Zimbabwe</option>
+                                                  </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Postal Code / Zipcode</label>
+                                                <input type="text" id="pincode" class="form-control"/>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+                            <ul class="nav nav-pills mb-3 mt-3 mt-lg-0" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                                   type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                                   <i class="fas fa-briefcase"></i> Upcoming Booking</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" 
+                                  data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" 
+                                  aria-selected="false">
+                                  <i class="fas fa-briefcase"></i> Cancelled Booking</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" 
+                                  data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                   aria-selected="false">
+                                   <i class="fas fa-briefcase"></i> Completed Booking</button>
+                                </li>
+                              </ul>
+                              <div class="tab-content mt-5" id="pills-tabContent">
+                                <div class="tab-pane px-3 fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                  <div class="full-widh12">
+                                    <table id="example" class="table table-striped" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Packages Name</th>
+                                                <th>Duration</th>
+                                                <th>Pricing</th>
+                                                <th>Check In</th>
+                                                <th>Check Out</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="bookingList">
+                                           
+
+                                         </tbody>   
+                                           
+                                            
+                                           
+                                    </table>
+                                  </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                    <div class="emtp-text">
+                                      <figure class="empt-box-img">
+                                        <img src="images/cart-is-empty-2100980-1763838.webp" alt="empt"/>
+                                      </figure>
+                                        <h5> Looks empty, you've no cancelled bookings. </h5>
+                                        <p> Great! Looks like you’ve no cancelled bookings. </p>
+                                        <a href="#" class="btn submit-bnt mt-2"> Start Booking Now </a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                  <table id="example2" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Packages Name</th>
+                                            <th>Duration</th>
+                                            <th>Pricing</th>
+                                            <th>Check In</th>
+                                            <th>Check Out</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="pack-divsbn">
+                                                    <figure>
+                                                        <img src="images/d-thums-nx3.jpg" alt="mn"/>
+                                                    </figure>
+                                                    <span> Australia </span>
+                                                </a>
+                                            </td>
+                                            <td>15 Days </td>
+                                            <td>$320,800</td>
+                                            <td>2011-04-25</td>
+                                            <td>2011-04-25</td>
+                                            <td>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    
+                                                    <span>Confirm </span>
+                                                    <div class="dropdown">
+                                                        <button class="btn p-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                          <li><a class="dropdown-item" href="#">Cancel Booking</a></li>
+                                                          <li><a class="dropdown-item" href="#">Delete Trip</a></li>
+                                                        
+                                                        </ul>
+                                                      </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+            
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="pack-divsbn">
+                                                    <figure>
+                                                        <img src="images/d-thums-nx4.jpg" alt="mn"/>
+                                                    </figure>
+                                                    <span> Rome </span>
+                                                </a>
+                                            </td>
+                                            <td>15 Days </td>
+                                            <td>$320,800</td>
+                                            <td>2011-04-25</td>
+                                            <td>2011-04-25</td>
+                                            <td>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    
+                                                    <span>Confirm </span>
+                                                    <div class="dropdown">
+                                                        <button class="btn p-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                          <li><a class="dropdown-item" href="#">Cancel Booking</a></li>
+                                                          <li><a class="dropdown-item" href="#">Delete Trip</a></li>
+                                                        
+                                                        </ul>
+                                                      </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+            
+            
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="pack-divsbn">
+                                                    <figure>
+                                                        <img src="images/d-thums-nx1.jpg" alt="mn"/>
+                                                    </figure>
+                                                    <span> Japan </span>
+                                                </a>
+                                            </td>
+                                            <td>15 Days </td>
+                                            <td>$320,800</td>
+                                            <td>2011-04-25</td>
+                                            <td>2011-04-25</td>
+                                            <td>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    
+                                                    <span>Confirm </span>
+                                                    <div class="dropdown">
+                                                        <button class="btn p-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                          <li><a class="dropdown-item" href="#">Cancel Booking</a></li>
+                                                          <li><a class="dropdown-item" href="#">Delete Trip</a></li>
+                                                        
+                                                        </ul>
+                                                      </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+            
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="pack-divsbn">
+                                                    <figure>
+                                                        <img src="images/d-thums-nx2.jpg" alt="mn"/>
+                                                    </figure>
+                                                    <span> China </span>
+                                                </a>
+                                            </td>
+                                            <td>15 Days </td>
+                                            <td>$320,800</td>
+                                            <td>2011-04-25</td>
+                                            <td>2011-04-25</td>
+                                            <td>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    
+                                                    <span>Confirm </span>
+                                                    <div class="dropdown">
+                                                        <button class="btn p-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                          <li><a class="dropdown-item" href="#">Cancel Booking</a></li>
+                                                          <li><a class="dropdown-item" href="#">Delete Trip</a></li>
+                                                        
+                                                        </ul>
+                                                      </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                       
+                                        
+                                       
+                                       
+                                </table>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                            <div class="pogress2 wal-tbn ">
+                               <div class="d-md-flex align-items-center justify-content-between">
+                                 <div class="d-flex mb-4 mb-lg-0">
+                                    <figure class="m-0">
+                                      <img src="images/584026.png" alt="mpn"/>
+                                    </figure>
+                                    <div class="wl-tests">
+                                      <h1> Wallet Balance </h1>
+                                      <h2> ₹ 0 </h2>
+                                      
+                                    </div>
+
+                                    
+                                    
+                                 </div>
+                                 <button class="btn submit-bnt"> <i class="fas fa-rupee-sign"></i> Add Mony</button>
+                               </div> 
+
+                               <hr/> 
+                               <div class="trans-divs mt-4">
+                                  <h3> Recent Transactions </h3>
+
+                                  <ul class="nav nav-pills mb-3 p-0" id="pills-tab" role="tablist">
+                                    <li class="nav-item " role="presentation">
+                                      <button class="nav-link active" id="pills-home-tab"
+                                       data-bs-toggle="pill" data-bs-target="#All" type="button"
+                                        role="tab" aria-controls="pills-home" aria-selected="true">All</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="pills-profile-tab"
+                                       data-bs-toggle="pill" data-bs-target="#recive" type="button" 
+                                       role="tab" aria-controls="pills-profile" aria-selected="false">Recive</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" 
+                                      data-bs-target="#spent" type="button" role="tab" aria-controls="pills-contact" 
+                                      aria-selected="false">Spent</button>
+                                    </li>
+                                  </ul>
+                                  <div class="tab-content pt-4" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="all" role="tabpanel" 
+                                    aria-labelledby="pills-home-tab">
+                                  
+                                    <div class="comon-cash">
+                                       <h6 class="mb-2">Jun 25, 2022 </h6>
+                                       <div class="d-md-flex justify-content-between">
+                                          <h5 class="titel-es d-flex">
+                                           <figure>
+                                             <img src="images/1043445.png" alt="pnm"/>
+                                           </figure>  Cash added
+                                          </h5>
+                                          <h4 class="ad-price">+1000</h4>
+                                       </div>
+                                    </div>
+
+                                    <div class="comon-cash">
+                                      <h6 class="mb-2">Jun 25, 2022 </h6>
+                                      <div class="d-md-flex justify-content-between">
+                                         <h5 class="titel-es d-flex">
+                                          <figure>
+                                            <img src="images/1043445.png" alt="pnm"/>
+                                          </figure>  Cash added
+                                         </h5>
+                                         <h4 class="ad-price">+1000</h4>
+                                      </div>
+                                   </div>
+
+
+                                   <div class="comon-cash">
+                                    <h6 class="mb-2">Jun 25, 2022 </h6>
+                                    <div class="d-md-flex justify-content-between">
+                                       <h5 class="titel-es d-flex">
+                                        <figure>
+                                          <img src="images/1043445.png" alt="pnm"/>
+                                        </figure>  Cash added
+                                       </h5>
+                                       <h4 class="ad-price">+2000</h4>
+                                    </div>
+                                  </div>
+
+
+                                 <div class="comon-cash">
+                                  <h6 class="mb-2">Jun 25, 2022 </h6>
+                                  <div class="d-md-flex justify-content-between">
+                                     <h5 class="titel-es d-flex">
+                                      <figure>
+                                        <img src="images/1043445.png" alt="pnm"/>
+                                      </figure>  Cash expired
+                                     </h5>
+                                     <h4 class="ad-price">-800</h4>
+                                  </div>
+                                </div>
+
+                                  </div>
+                                    <div class="tab-pane fade" id="recive" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                      <div class="comon-cash">
+                                        <h6 class="mb-2">Jun 25, 2022 </h6>
+                                        <div class="d-md-flex justify-content-between">
+                                           <h5 class="titel-es d-flex">
+                                            <figure>
+                                              <img src="images/1043445.png" alt="pnm"/>
+                                            </figure>  Cash added
+                                           </h5>
+                                           <h4 class="ad-price">+2000</h4>
+                                        </div>
+                                      </div>
+
+                                      <div class="comon-cash">
+                                        <h6 class="mb-2">Jun 25, 2022 </h6>
+                                        <div class="d-md-flex justify-content-between">
+                                           <h5 class="titel-es d-flex">
+                                            <figure>
+                                              <img src="images/1043445.png" alt="pnm"/>
+                                            </figure>  Cash added
+                                           </h5>
+                                           <h4 class="ad-price">+2000</h4>
+                                        </div>
+                                      </div>
+
+
+                                      <div class="comon-cash">
+                                        <h6 class="mb-2">Jun 25, 2022 </h6>
+                                        <div class="d-md-flex justify-content-between">
+                                           <h5 class="titel-es d-flex">
+                                            <figure>
+                                              <img src="images/1043445.png" alt="pnm"/>
+                                            </figure>  Cash added
+                                           </h5>
+                                           <h4 class="ad-price">+2000</h4>
+                                        </div>
+                                      </div>
+
+
+
+
+
+                                    </div>
+                                    <div class="tab-pane fade" id="spent" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                      <div class="comon-cash">
+                                        <h6 class="mb-2">Jun 25, 2022 </h6>
+                                        <div class="d-md-flex justify-content-between">
+                                           <h5 class="titel-es d-flex">
+                                            <figure>
+                                              <img src="images/1043445.png" alt="pnm"/>
+                                            </figure>  Cash expired
+                                           </h5>
+                                           <h4 class="ad-price">+2000</h4>
+                                        </div>
+                                      </div>
+
+                                      <div class="comon-cash">
+                                        <h6 class="mb-2">Jun 25, 2022 </h6>
+                                        <div class="d-md-flex justify-content-between">
+                                           <h5 class="titel-es d-flex">
+                                            <figure>
+                                              <img src="images/1043445.png" alt="pnm"/>
+                                            </figure>  Cash expired
+                                           </h5>
+                                           <h4 class="ad-price">+2000</h4>
+                                        </div>
+                                      </div>
+
+
+                                      <div class="comon-cash">
+                                        <h6 class="mb-2">Jun 25, 2022 </h6>
+                                        <div class="d-md-flex justify-content-between">
+                                           <h5 class="titel-es d-flex">
+                                            <figure>
+                                              <img src="images/1043445.png" alt="pnm"/>
+                                            </figure>  Cash expired
+                                           </h5>
+                                           <h4 class="ad-price">+2000</h4>
+                                        </div>
+                                      </div>
+
+
+                                      <div class="comon-cash">
+                                        <h6 class="mb-2">Jun 25, 2022 </h6>
+                                        <div class="d-md-flex justify-content-between">
+                                           <h5 class="titel-es d-flex">
+                                            <figure>
+                                              <img src="images/1043445.png" alt="pnm"/>
+                                            </figure>  Cash expired
+                                           </h5>
+                                           <h4 class="ad-price">+2000</h4>
+                                        </div>
+                                      </div>
+
+
+                                    </div>
+                                  </div>
+
+                               </div>
+
+                            </div>
+                            <div class="bd-f-div">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            What is My Cash?
+                                        </button>
+                                      </h2>
+                                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            When does My Cash expire?
+                                        </button>
+                                      </h2>
+                                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            What is Reward Bonus?
+                                        </button>
+                                      </h2>
+                                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-copons" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+
+                            <div class="row row-cols-1 row-cols-lg-2 gy-5 g-lg-5">
+                               <div class="col">
+                                  <div class="comon-copon">
+                                      <figure>
+                                        <img src="images/istockphoto-1315152008-612x612 (1).jpg" alt="amd"/>
+                                        <figcaption class="text-center">
+                                          30%off
+                                          
+                                        </figcaption>
+                                      </figure>
+                                      <div class="conp-text">
+                                          <div class="vou">
+                                             <h5> Voucher Code </h5>
+                                             <h3> SNMB </h3>
+                                          </div>
+                                          <p>Coupon Exprire 09/22 </p>
+                                          <a href="#" class="btn appy-btn"> Apply Code </a>
+                                      </div>
+                                  </div>
+                               </div>
+
+                               <div class="col">
+                                <div class="comon-copon">
+                                    <figure>
+                                      <img src="images/of-bg2.jpg" alt="amd"/>
+                                      <figcaption class="text-center">
+                                        30%off
+                                        
+                                      </figcaption>
+                                    </figure>
+                                    <div class="conp-text">
+                                        <div class="vou">
+                                           <h5> Voucher Code </h5>
+                                           <h3> SNMB </h3>
+                                        </div>
+                                        <p>Coupon Exprire 09/22 </p>
+                                        <a href="#" class="btn appy-btn"> Apply Code </a>
+                                    </div>
+                                </div>
+                               </div>
+
+                               <div class="col">
+                                <div class="comon-copon">
+                                    <figure>
+                                      <img src="images/of-bg3.jpg" alt="amd"/>
+                                      <figcaption class="text-center">
+                                        30%off
+                                        
+                                      </figcaption>
+                                    </figure>
+                                    <div class="conp-text">
+                                        <div class="vou">
+                                           <h5> Voucher Code </h5>
+                                           <h3> SNMB </h3>
+                                        </div>
+                                        <p>Coupon Exprire 09/22 </p>
+                                        <a href="#" class="btn appy-btn"> Apply Code </a>
+                                    </div>
+                                </div>
+                               </div>
+
+
+                               <div class="col">
+                                <div class="comon-copon">
+                                    <figure>
+                                      <img src="images/istockphoto-1315152008-612x612 (1).jpg" alt="amd"/>
+                                      <figcaption class="text-center">
+                                        30%off
+                                        
+                                      </figcaption>
+                                    </figure>
+                                    <div class="conp-text">
+                                        <div class="vou">
+                                           <h5> Voucher Code </h5>
+                                           <h3> SNMB </h3>
+                                        </div>
+                                        <p>Coupon Exprire 09/22 </p>
+                                        <a href="#" class="btn appy-btn"> Apply Code </a>
+                                    </div>
+                                </div>
+                               </div>
+
+
+                               <div class="col">
+                                <div class="comon-copon">
+                                    <figure>
+                                      <img src="images/istockphoto-1315152008-612x612 (1).jpg" alt="amd"/>
+                                      <figcaption class="text-center">
+                                        30%off
+                                        
+                                      </figcaption>
+                                    </figure>
+                                    <div class="conp-text">
+                                        <div class="vou">
+                                           <h5> Voucher Code </h5>
+                                           <h3> SNMB </h3>
+                                        </div>
+                                        <p>Coupon Exprire 09/22 </p>
+                                        <a href="#" class="btn appy-btn"> Apply Code </a>
+                                    </div>
+                                </div>
+                               </div>
+
+                               <div class="col">
+                                <div class="comon-copon">
+                                    <figure>
+                                      <img src="images/of-bg.jpg" alt="amd"/>
+                                      <figcaption class="text-center">
+                                        50%off
+                                        
+                                      </figcaption>
+                                    </figure>
+                                    <div class="conp-text">
+                                        <div class="vou">
+                                           <h5> Voucher Code </h5>
+                                           <h3> SNMB </h3>
+                                        </div>
+                                        <p>Coupon Exprire 09/22 </p>
+                                        <a href="#" class="btn appy-btn"> Apply Code </a>
+                                    </div>
+                                </div>
+                               </div>
+
+
+                            </div>
+
+
+                        </div>
+                       
+                    </div>
+
+                    
+                </div>
+            </div>
+             
+            
+            
+
+          </div>
+
+        
+
+        
+          <div class="subcribe-part pt-2 subpage-sub2">
+           
+            <div class="inside-nms">
+              <div class="container">
+                  <div class="row align-items-center gx-lg-5">
+                     <div class="col-lg-7 left-tes-5">
+                         <h2>We Provide Top Destinations <span> Expecially For You Book Now and Enjoy! </span></h2>
+                         <div class="d-flex align-items-center mt-3">
+                            <i class="fas fa-phone-volume"></i>
+                             <h6 class="ms-2"> 
+                              <span class="d-block"> Call Now </span> 
+                              
+                              855 333 4444</h6>
+                         </div>
+                     </div>
+                     <div class="col-lg-5">
+                      <div class="testimonal-div">
+                          <h6> TESTIMONIALS </h6>
+                          <h3> Travelers Reviews </h3>
+  
+                          <div class="sub-page-testmonials owl-carousel owl-theme mt-0">
+  
+                            <div class="items-ts">
+                             
+                                
+                                <p class="mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                                  industry's standard dummy text ever since the 1500s "</p>
+      
+                                
+  
+                                <div class="d-md-flex mt-3">
+                                  <figure>
+                                    <img src="images/team3.jpg" alt="tm"/>
+                                  </figure>
+                                  <h5> 
+                                    <span class="rt-t mt-3 d-table mb-1">
+                                      <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                      <i class="far fa-star"></i>
+                                    </span>
+                                    Rose Wistan 
+                                    <span class="d-block"> Tss CEO, Japan </span>
+                                  </h5>
+                                </div>
+      
+                             
+                               
+                            </div>
+  
+                            <div class="items-ts">
+                             
+                                
+                              <p class="mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                                industry's standard dummy text ever since the 1500s "</p>
+    
+                              
+  
+                              <div class="d-md-flex mt-3">
+                                <figure>
+                                  <img src="images/team4.jpg" alt="tm"/>
+                                </figure>
+                                <h5> 
+                                  <span class="rt-t mt-3 d-table mb-1">
+                                    <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                  </span>
+                                  Rose Wistan 
+                                  <span class="d-block"> Tss CEO, Japan </span>
+                                </h5>
+                              </div>
+    
+                           
+                             
+                          </div>
+  
+  
+                          </div>
+  
+  
+                      </div>
+                     </div>
+                  </div>
+                  
+              </div>
+            </div>
+             
+              
+          </div>
+
+
+     </div>
+</section>
+
+
+ 
+<footer>
+ 
+  
+  
+  <div class="footer-link-div float-start">
+      <div class="container">
+         <div class="row row-cols-1 row-cols-md-2  row-cols-lg-4">
+            <div class="col">
+               <div class="comon-footer-div pt-4">
+                   <a href="#">
+                      <img src="images/logo.png" alt="logo"/>
+                   </a>
+                   <p class="mt-2"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                 
+                   <ul class="m-0 mt-2 list-unstyled d-flex">
+                    <li>
+                      <a href="#"> <i class="fab fa-facebook"></i> </a>
+                    </li>
+                    <li class="mx-3">
+                     <a href="#"> <i class="fab fa-twitter"></i> </a>
+                     
+                    </li>
+                    <li>
+                     <a href="#"> <i class="fab fa-instagram"></i> </a>
+                     
+                    </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col">
+              <div class="comon-footer-div pt-4 d-grid justify-content-md-center">
+                  <h5 class="text-white">UseFull Links
+                  </h5>
+                  <ul class="list-unstyled mt-4">
+                    <li>
+                      <a href="#"> <i class="fas fa-angle-right"></i>  About </a>
+                    </li>
+                    <li>
+                      <a href="#"> <i class="fas fa-angle-right"></i> Discover
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#"> <i class="fas fa-angle-right"></i> Explore
+                      </a>
+                    </li>
+                    
+                   
+                  </ul>
+              </div>
+            </div>
+            <div class="col">
+              <div class="comon-footer-div pt-4 justify-content-md-start  d-grid">
+                  <h5 class="text-white">Support Links</h5>
+                  <ul class="list-unstyled mt-4 no-code-div">
+                    <li>
+                      <a href="#"> <i class="fas fa-angle-right"></i> Help
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#"> <i class="fas fa-angle-right"></i> Terms & Condition
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#"> <i class="fas fa-angle-right"></i> Ask & Qusetion
+                      </a>
+                    </li>
+
+                   
+                 
+                  </ul>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="comon-footer-div pt-4 d-grid justify-content-md-end">
+                <h5 class="text-white">Contact
+                </h5>
+                  <ul class="contact-link list-unstyled mt-4">
+                    <li> <i class="fas fa-map-marker-alt"></i> <span>1800 Washington Blvd, Suite #421
+                   </span> </li>
+                 
+                    <li> <i class="fas fa-map-marker-alt"></i> <span> Baltimore, MD 21230 
+                   </span> </li>
+                   <li> <i class="fas fa-phone-alt"></i> <span> 410.277.9781
+                   </span> </li>
+                   <li><i class="fas fa-envelope"></i> <span>  contactus@archsystemsinc.com </span> </li>
+                   
+
+                  </ul>
+                
+                
+              </div>
+           </div>
+           
+         </div>
+         <hr/>
+          <div class="d-lg-flex justify-content-center">
+            <p class="text-center text-white"> Copyright © 2022 Travel Agency. All Rights Reserved.</p>
+            
+          </div>
+      </div>
+      
+  </div>
+</footer>
+
+
+
+
+
+<!-- mobile menu -->
+<div class="offcanvas offcanvas-start mobile-menu-div" tabindex="-1" id="mobilemenu" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="close-menu" data-bs-dismiss="offcanvas" aria-label="Close">
+      <span> Close </span> <i class="fas fa-long-arrow-alt-right"></i>
+     </button>
+  </div>
+  <div class="offcanvas-body">
+    
+    <div class="head-contact">
+      <a href="index.html" class="logo-side">
+      <img src="images/logo-color.png" alt="logo">
+      </a>
+      
+      <div class="mobile-menu-sec mt-3">
+         <ul class="list-unstyled">
+            <li >
+               <a href="explore.html" > Explore </a>
+            </li>
+            <li >
+               <a href="discover.html"> Discover </a>
+            </li>
+            
+            <li >
+               <a href="tour-package.html">  Tour Packages  </a>
+            </li>
+            <li >
+               <a href="about.html"> About  </a>
+            </li>
+            <li>
+             <a href="contact.html"> Help & Visas  </a>
+            </li>
+         </ul>
+      </div>
+      
+      <ul class="side-media list-unstyled">
+         <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+         <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+         <li> <a href="#"> <i class="fab fa-google-plus-g"></i> </a> </li>
+         <li> <a href="#"> <i class="fab fa-instagram"></i> </a> </li>
+      </ul>
+   </div>
+   
+  </div>
+</div>
+
+
+
+
+<!-- login Modal -->
+<div class="modal fade login-div-modal" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+      </div>
+      <div class="modal-body">
+         
+        <div id="login-td-div" class="com-div-md">
+          <span class="text-center d-table m-auto user-icon"> <i class="fas fa-user-circle"></i> </span>
+          <h5 class="text-center mb-3"> Sign In </h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+          <div class="login-modal-pn">
+          
+            <div class="cm-select-login mt-3">
+              <div class="country-dp">
+                
+                <input type="email" class="form-control" placeholder="Username Or Email" alt="pn" id="emailOrPhone">
+              </div>
+              <div class="phone-div">
+                
+                 <input type="password" class="form-control" placeholder="Password" alt="pn" id="password">
+              </div>
+              
+           
+            </div>
+            
+            
+            
+            <button class="btn continue-bn" id="loginBtn"> <i class="fas fa-lock"></i> SIGN IN </button>
+         </div>
+
+         <p class="text-center  mt-3">  
+          <a data-bs-toggle="modal" class="regster-bn" data-bs-target="#lostpsModal" data-bs-dismiss="modal"> Lost Password ? </a>  </p>
+          
+          
+           <p class="text-center  mt-3"> Do not have an account? 
+             <a data-bs-toggle="modal" class="regster-bn" data-bs-target="#registerModal" data-bs-dismiss="modal"> Register </a>  </p>
+        </div>
+
+      
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- register Modal -->
+
+<div class="modal fade login-div-modal" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+      </div>
+      <div class="modal-body">
+        <div id="login-td-div" class="com-div-md">
+          <span class="text-center d-table m-auto user-icon"> <i class="fas fa-user-circle"></i> </span>
+          <h5 class="text-center mb-3"> Register </h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+          <div class="login-modal-pn">
+          
+           <div class="cm-select-login mt-3">
+            <div class="country-dp">
+               
+              <input type="text" class="form-control" id="fullName" placeholder="Full Name" alt="pn">
+            </div>
+            <div class="phone-div">
+             
+               <input type="email" class="form-control" id="emailOrPhoneId" placeholder="Email or Phone Number" alt="pn">
+            </div>
+            <div class="phone-div">
+          
+              <input type="password" class="form-control" id="passwordId" placeholder="Create Password" alt="pn">
+            </div>
+            <div class="phone-div">
+          
+             <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" alt="pn">
+           </div>
+             
+            <div class="forget2 mt-3 ml-3 d-flex justify-content-between">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1"> By clicking Register, you agree to our
+                  Terms of Use
+                  and
+                  Cookie Policy</label>
+             </div>
+          
+           </div>
+           
+           
+           
+           <button   id="registerBtn" class="btn continue-bn"> Register </button>
+         </div>
+
+           <p class="text-center  mt-3"> Do not have an account? 
+             <a data-bs-toggle="modal" class="regster-bn" data-bs-target="#loginModal" data-bs-dismiss="modal"> Login </a>  </p>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!-- lost password -->
+
+<div class="modal fade login-div-modal" id="lostpsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <div id="login-td-div" class="com-div-md">
+          <span class="text-center d-table m-auto user-icon"> <i class="fas fa-user-circle"></i> </span>
+          <h5 class="text-center mb-3"> Forget Your Password? </h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+          <div class="login-modal-pn">
+          <p> We'll email you a link to reset your password</p>
+           <div class="cm-select-login mt-3">
+             
+             <div class="phone-div">
+              
+                <input type="email" class="form-control" placeholder="Enter Your Email " alt="pn">
+             </div>
+             
+          
+           </div>
+           
+           
+           
+           <button class="btn continue-bn"> Send Me a password reset Link </button>
+         </div>
+
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+<script src="js/bootstrap.bundle.min.js" ></script>
+<script src="js/jquery.min.js" ></script>
+<script src="js/pages/my-account.js" ></script>
+<script src="js/jquery.fancybox.min.js"></script>
+</script>
+<!-- Owl Carousel -->
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    AOS.init({
+      offset: 100,
+      easing: 'ease',
+      delay: 0,
+      once: true,
+      duration: 800,
+    
+    });
+    
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+<script>
+    var loadFile = function (event) {
+    var image = document.getElementById("output");
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
+  
+  </script>
+
+</body>
+</html>

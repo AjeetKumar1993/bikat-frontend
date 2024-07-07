@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Bikat</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#add-tour" onclick="showTab('add-tour')">Add Tour</a>
+        <a href="#edit-tour" onclick="showTab('edit-tour')">Tours</a>
+        <a href="#add-date" onclick="showTab('add-date')">Dates</a>
+       <!-- <a href="#delete-tour" onclick="showTab('delete-tour')">Delete Tour</a> -->
+    </div>
+    <div class="main-content">
+        <div id="add-tour" class="tab-content">
+           
+            <form id="tourForm">
+                <label for="id">Tour Details:</label><br>
+               
+                <label for="name">Tour Id:</label>
+                <input type="text" id="tourId" name="tourId" required><br><br>
+        
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+        
+                <label for="region">Region:</label>
+                <input type="text" id="region" name="region" ><br><br>
+        
+                <label for="category">Category:</label>
+                <select id="category" name="category" >
+                    <option value="">Select a category</option>
+                    <option value="wildlife">Wildlife</option>
+                    <option value="holidays">Holidays</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="romantic">Romantic</option>
+                    <option value="vacation">Vacation</option>
+                    <option value="family-tour">Family Tour</option>
+                  </select><br><br>
+        
+                <label for="type">Type:</label>
+                <select id="type" name="type" >
+                    <option value="">Select a Type</option>
+                    <option value="trekking">Trekking</option>
+                    <option value="skiing">Skiing</option>
+                    <option value="scuba diving">Scuba Diving</option>
+                  </select><br><br>
+        
+            
+                <label for="grade">BSR Grade:</label>
+                <select id="grade" name="grade" >
+                    <option value="">Select a BSR Grade</option>
+                    <option value="easy">Easy</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="difficult">Difficult</option>
+                    <option value="technical">Technical</option>
+                
+                  </select><br><br>
+        
+                <div class="multi-input-row">
+                    <div>
+                        <label for="altitude">Altitude:</label>
+                        <input type="number" id="altitude" name="altitude" ><br><br>
+                    </div>
+                    <div>
+                        <label for="day">Day:</label>
+                        <input type="number" id="day" name="day" ><br><br>
+                    </div>
+                    <div>
+                        <label for="night">Night:</label>
+                        <input type="number" id="night" name="night" ><br><br>
+                    </div>
+                </div>
+        
+                <div class="multi-input-row">
+                    <div>
+                        <label for="distance">Distance:</label>
+                        <input type="number" id="distance" name="distance" ><br><br>
+                    </div>
+                    <div>
+                        <label for="minimumAge">Minimum Age:</label>
+                        <input type="number" id="minimumAge" name="minimumAge" ><br><br>
+                    </div>
+                    <div>
+                        <label for="maximumGroupSize">Maximum Group Size:</label>
+                        <input type="number" id="maximumGroupSize" name="maximumGroupSize" ><br><br>
+                    </div>
+                </div>
+        
+                <div class="multi-input-row">
+                    <div>
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" name="price" ><br><br>
+                    </div>
+                    <div>
+                        <label for="gst">GST:</label>
+                        <input type="number" id="gst" name="gst" ><br><br>
+                    </div>
+                </div>
+        
+                <label for="priceFromTo">Price From-To(String):</label>
+                <input type="text" id="priceFromTo" name="priceFromTo" ><br><br>
+        
+                <label for="overview">Overview:</label>
+                <textarea id="overview" name="overview" ></textarea><br><br>
+        
+                <label for="shortOverview">Short Overview:</label>
+                <textarea id="shortOverview" name="shortOverview" ></textarea><br><br>
+                
+                <label for="inclusion">Inclusion:</label>
+                <div id="inclusion">
+                    <div class="rule">
+                         
+                        
+                    </div>
+                </div>
+                <button type="button" onclick="addMore('inclusion')">Add</button><br><br>
+                 
+        
+                <label for="exclusion">Exclusion:</label>
+                <div id="exclusion">
+                    <div class="rule">
+                       
+                        
+                    </div>
+                </div>
+                <button type="button" onclick="addMore('exclusion')">Add</button><br><br>
+                
+        
+                <label for="highlight">Highlight:</label>
+                <div id="highlight">
+                    <div class="rule">
+                       
+                    </div>
+                </div>
+                <button type="button" onclick="addMore('highlight')">Add</button><br><br>
+        
+                <label for="cancelPolicy">Cancel Policy:</label>
+                <div id="cancelPolicy">
+                    <div class="rule">
+                       
+                        
+                    </div>
+                </div>
+                <button type="button" onclick="addMore('cancelPolicy')">Add </button><br><br>
+        
+                <label for="packingList">Packing List:</label>
+                <div id="packingList">
+                    <div class="rule">
+                       
+                        
+                    </div>
+                </div>
+                <button type="button" onclick="addMore('packingList')">Add</button><br><br>
+        
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" ><br><br>
+        
+                <label for="tourImage">Tour Image:</label> <span id="statusIcon" class="status-icon">&#10004;</span>
+                <input type="file" id="tourImage" name="tourImage" accept="image/*" onchange="previewImage(event)" ><br>
+                <img id="imagePreview" class="image-preview"><br>
+                <button type="button" onclick="uploadTourImages('tourImage')">Upload Image</button><br><br>
+                
+        
+        
+        
+                <label for="gallery">Gallery:</label><span id="statusIcon2" class="status-icon">&#10004;</span>
+                <input type="file" id="tourImages" name="tourImages" accept="image/*" multiple onchange="previewImages(event)" ><br>
+                <div id="imagePreviewContainer" class="image-preview-container"></div><br>
+                <button type="button" onclick="uploadTourImages('tourImages')">Upload Images</button><br><br>
+        
+                <label for="itinerary">Itinerary:</label>
+                <div id="itinerary">
+                    
+                </div>
+
+                <br>
+                <button type="button" onclick="addItinerary()">Add Itinerary</button><br><br>
+
+        
+                <label for="active">Active:</label>
+                <input type="checkbox" id="active" name="active"><br><br>
+        
+                <button type="submit">Submit</button>
+            </form>
+            
+        
+        </div>
+        <div id="add-date" class="tab-content hidden">
+            <div id="statusMessage"></div>
+            <h2>Select Tours:</h2>
+            <form id="selectionForm">
+                <label for="options">Select Tours:</label>
+                <select id="options" name="options" multiple>
+                    <!-- Options will be dynamically populated -->
+                </select>
+                <br><br>
+
+                <button type="submit" id="date-form-submit">Submit</button>
+        
+                <h2>Avialable Dates:</h2>
+                <div id="savedDates"></div>
+                
+                <h2>Add a new Date:</h2>
+                <form id="dateForm">
+                    <label for="selectedDate">Date:</label>
+                    <input type="date" id="selectedDate" name="selectedDate">
+                    <br><br>
+                    <button type="submit" id="add-date-submit">Add Date</button>
+                </form>
+        
+            </form>
+           
+           
+        </div>
+        <div id="edit-tour" class="tab-content hidden">
+           
+            <table id="data-table">
+                <thead>
+                  <tr>
+                    <th>Tour Id</th>
+                    <th>Tour Name</th>
+                    <th>Region</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Day/Night</th>
+                    <th>Price</th>
+                    <th>Active</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Rows will be populated dynamically -->
+                </tbody>
+              </table>
+            
+        <div class="edit-popup" id="edit-tour-date-popup">
+    
+            <button class="close" onclick="closeDateEditPopup()">&times;</button>
+            <h2>Avialable dates</h2>
+            <table id="tour-date-view-table">
+                <thead>
+                  <tr>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Rows will be populated dynamically -->
+                </tbody>
+              </table>
+            
+        </div>    
+            <!-- Popup container -->
+        <div class="edit-popup" id="edit-popup">
+            
+            <button class="close" onclick="closeEditPopup()">&times;</button>
+            <h2>Edit Details for <span id="tour-id"></span></h2>
+            <div class="group-header-container">
+                <div class="group-header" onclick="toggleGroup('group-a')">Group A</div>
+                <div class="group-header" onclick="toggleGroup('group-b')">Group B</div>
+                <div class="group-header" onclick="toggleGroup('group-c')">Group C</div>
+                <div class="group-header" onclick="toggleGroup('group-d')">Group D</div>
+                <div class="group-header" onclick="toggleGroup('group-e')">Group E</div>
+                <div class="group-header" onclick="toggleGroup('group-f')">Group F</div>
+                <div class="group-header" onclick="toggleGroup('group-g')">Group G</div>
+                <div class="group-header" onclick="toggleGroup('group-h')">Group H</div>
+                <div class="group-header" onclick="toggleGroup('group-i')">Group I</div>
+                <div class="group-header" onclick="toggleGroup('group-j')">Group J</div>
+                
+            </div>
+           
+            <div id="group-a" class="form-group" style="display: block;">
+                <h2>Group A</h2></br>
+                <label for="edit-tourId">Tour Id:</label>
+                <input type="text" id="edit-tourId">
+                <label for="edit-name">Tour Name:</label>
+                <input type="text" id="edit-name">
+                <label for="edit-region">Region:</label>
+                <input type="text" id="edit-region">
+                <label for="edit-category">Category:</label>
+                <select id="edit-category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="wildlife">Wildlife</option>
+                    <option value="holidays">Holidays</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="romantic">Romantic</option>
+                    <option value="vacation">Vacation</option>
+                    <option value="family-tour">Family Tour</option>
+                  </select>
+                <label for="edit-type">Tpye:</label>
+                <select id="edit-type" name="type" required>
+                    <option value="">Select a Type</option>
+                    <option value="trekking">Trekking</option>
+                    <option value="skiing">Skiing</option>
+                    <option value="scuba diving">Scuba Diving</option>
+                  </select>
+
+                  <label for="edit-grade">BSR Grade:</label>
+                  <select id="edit-grade" name="grade" required>
+                      <option value="">Select a BSR Grade</option>
+                      <option value="easy">Easy</option>
+                      <option value="moderate">Moderate</option>
+                      <option value="difficult">Difficult</option>
+                      <option value="technical">Technical</option>
+                  
+                    </select></br></br>
+               
+                <button id="save-edit-group-a">Save</button>
+            </div>
+            <div id="group-b" class="form-group" style="display: none;">
+                <h2>Group B</h2> </br>
+               
+                <label for="edit-altitude">Altitude:</label>
+                <input type="number" id="edit-altitude">
+
+                <label for="edit-day">Day:</label>
+                <input type="number" id="edit-day">
+                
+                <label for="edit-night">Night:</label>
+                <input type="number" id="edit-night">
+
+                <label for="edit-distance">Distance:</label>
+                <input type="number" id="edit-distance">
+
+                <label for="edit-minimumAge">Minimum Age:</label>
+                <input type="number" id="edit-minimumAge">
+
+                <label for="edit-maximumGroupSize">Maximum Group Size:</label>
+                <input type="number" id="edit-maximumGroupSize"></br>
+
+        
+                <button id="save-edit-group-b">Save</button>
+
+            </div>
+            <div id="group-c" class="form-group" style="display: none;">
+                <h2>Group C</h2> </br></br>
+                  
+                <label for="edit-price">Price:</label>
+                <input type="number" id="edit-price">
+                <label for="edit-gst">GST:</label>
+                <input type="number" id="edit-gst">
+                <label for="edit-priceFromTo">Price From-To:</label>
+                <input type="text" id="edit-priceFromTo"></br>
+
+                <button id="save-edit-group-c">Save</button>
+            </div>
+            <div id="group-d" class="form-group" style="display: none;">
+                <h2>Group D</h2> </br></br>
+                <label for="edit-overview">Overview:</label>
+                <input type="text" id="edit-overview">
+                <label for="edit-shortOverview">Short Overview:</label>
+                <input type="text" id="edit-shortOverview"></br>
+                <button id="save-edit-group-d">Save</button>
+            </div>
+            <div id="group-e" class="form-group" style="display: none;">
+                <h2>Group E</h2> </br>
+               
+                <label for="edit-active">Active:</label>
+                <select id="edit-active" name="active" required>
+                    <option value="">Select a status</option>
+                    <option value="true">TRUE</option>
+                    <option value="false">FALSE</option>
+                </select></br></br>
+                
+                <button id="save-edit-group-e">Save</button>
+            </div>
+            <div id="group-f" class="form-group" style="display: none;">
+                <h2>Group F</h2> </br>
+               
+                <label for="edit-inclusions">Inclusions:</label>
+                
+                <div id="edit-inclusions">
+                    <!-- Checkboxes will be added here -->
+                </div>
+                <form id="checkboxForm">
+                    <label for="inclusionsInput">Add inclusions:</label><br>
+                    <input type="text" id="inclusionsInput" name="inclusionsInput" required>
+                    <button type="button" onclick="generateCheckboxes('inclusionsInput', 'edit-inclusions')">Add</button>
+                    <button type="button" id="save-edit-group-f" onclick="saveGroupF('inclusion')">Save Inclusions</button>
+                </form>
+
+                <label for="edit-exclusions">Exclusions:</label>
+                <div id="edit-exclusions"></div>
+                <form id="checkboxForm">
+                    <label for="exclusionsInput">Add exclusions:</label><br>
+                    <input type="text" id="exclusionsInput" name="exclusionsInput" required>
+                    <button type="button" onclick="generateCheckboxes('exclusionsInput', 'edit-exclusions')">Add</button>
+                    <button type="button" id="save-edit-group-f" onclick="saveGroupF('exclusion')">Save Exclusions</button>
+                </form>
+
+                <label for="edit-highlight">Highlights:</label>
+                <div id="edit-highlight"></div>
+                <form id="checkboxForm">
+                    <label for="highlightInput">Add highlight:</label><br>
+                    <input type="text" id="highlightInput" name="highlightInput" required>
+                    <button type="button" onclick="generateCheckboxes('highlightInput', 'edit-highlight')">Add</button>
+                    <button type="button" id="save-edit-group-f" onclick="saveGroupF('highlight')">Save Highlight</button>
+                </form>
+                <label for="edit-cancelPolicy">Cancel Policy:</label>
+                <div id="edit-cancelPolicy"></div>
+                <form id="checkboxForm">
+                    <label for="cancelPolicyInput">Add cancelPolicy:</label><br>
+                    <input type="text" id="cancelPolicyInput" name="cancelPolicyInput" required>
+                    <button type="button" onclick="generateCheckboxes('cancelPolicyInput', 'edit-cancelPolicy')">Add</button>
+                    <button type="button" id="save-edit-group-f" onclick="saveGroupF('cancelPolicy')">Save Cancel Policy</button>
+                </form>
+                <label for="edit-packingList">Packing List:</label>
+                <div id="edit-packingList"></div>
+                <form id="checkboxForm">
+                    <label for="packingListInput">Add packingList:</label><br>
+                    <input type="text" id="packingListInput" name="packingListInput" required>
+                    <button type="button" onclick="generateCheckboxes('packingListInput', 'edit-packingList')">Add</button>
+                    <button type="button" id="save-edit-group-f" onclick="saveGroupF('packingList')">Save Packing List</button>
+                </form>
+                
+            </div>
+
+            <div id="group-g" class="form-group" style="display: none;">
+                <h2>Related Tour</h2> </br></br>
+                <div id="suggestedTourCheckboxes">
+                    <label>Loading...</label>
+                </div></br>
+                <button id="save-edit-group-g">Save</button>
+            </div>
+
+            <div id="group-h" class="form-group" style="display: none;">
+                <h2>Group H</h2> </br></br>
+                <label for="edit-location">Location:</label>
+                <div id="edit-location"></div></br></br>
+
+                <label for="newLoction">New Location:</label>
+                <input type="text" id="newLocation" name="newLocation"><br><br>
+
+                <button id="save-edit-group-h">Save</button>
+            </div>
+            <div id="group-i" class="form-group" style="display: none;">
+                <h2>Group I</h2> </br></br>
+                <label for="edit-tour-image">Tour Image:</label>
+                <div id="edit-tour-image"></div></br>
+
+                <label for="tourImage">New Tour Image:</label> <span id="statusIcon3" class="status-icon">&#10004;</span>
+                <input type="file" id="newTourImage" name="newTourImage" accept="image/*" onchange="newPreviewImage(event)" required><br>
+                <img id="newImagePreview" class="image-preview"><br>
+                <button type="button" onclick="uploadTourImages('newTourImage')">Upload Image</button><br><br>
+
+                <label for="edit-tour-gallery">Tour Gallery:</label>
+                <div id="edit-tour-gallery"></div></br>
+
+                <label for="gallery">New Gallery:</label><span id="statusIcon4" class="status-icon">&#10004;</span>
+                <input type="file" id="newTourImages" name="newTourImages" accept="image/*" multiple onchange="newPreviewImages(event)" required><br>
+                <div id="newImagePreviewContainer" class="image-preview-container"></div><br>
+                <button type="button" onclick="uploadTourImages('newTourImages')">Upload Images</button><br><br>
+                
+                <button id="save-edit-group-i">Save</button>
+            </div>
+
+            <div id="group-j" class="form-group" style="display: none;">
+                <h2>Group J</h2> </br></br>
+                <label for="edit-itinerary">Itinerary:</label>
+                <div id="edit-itinerary"></div>
+                <button type="button" onclick="editAddItinerary()">Add Itinerary</button><br><br>
+
+                <button id="save-edit-group-j">Save</button>
+            </div>
+
+        </div>
+        
+   
+    </div>
+    <script>
+        function showTab(tabId) {
+            // Hide all tab content
+            var tabs = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.add('hidden');
+            }
+            // Show the selected tab content
+            document.getElementById(tabId).classList.remove('hidden');
+            if(tabId === 'edit-tour'){
+                edit();
+            }
+            if(tabId === 'add-date'){
+               // editDate();
+            }
+        }
+    </script>
+     <script src="js/script.js"></script>
+     <script src="js/itinerary.js"></script>
+     <script src="js/edit-itinerary.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    
+</body>
+</html>

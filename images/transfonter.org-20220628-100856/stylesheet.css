@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Cocogoose Compressed Trial';
+    src: url('CocogooseCompressedTrial-Bold.woff2') format('woff2'),
+        url('CocogooseCompressedTrial-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
