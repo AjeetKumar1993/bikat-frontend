@@ -533,9 +533,9 @@ function populateTable(data) {
 
     // Get the input value and split by comma
     let inputText = document.getElementById(inputId).value.trim();
-    let items = inputText;//.split(',');
+    let item = inputText;//.split(',');
 
-    items.forEach(item => {
+    //items.forEach(item => {
         const checkboxDiv = document.createElement('div');
         checkboxDiv.classList.add('checkbox-container');
 
@@ -553,7 +553,7 @@ function populateTable(data) {
         checkboxDiv.appendChild(label);
    
         document.getElementById(editId).appendChild(checkboxDiv);
-    });
+   // });
   }
 
   // Save edited data
