@@ -12,7 +12,7 @@ function fetchData(tourID){
       return response.json();
     }).then(tourDetails => {
       // use the json
-      console.log(tourDetails);
+    
       
       let image = "images/bg-how.jpg";
       if(tourDetails.tourImage !== null){
@@ -124,7 +124,7 @@ function fetchData(tourID){
     let itineraryData = entriesItinerary.map( ([key, val] = entry) => {
       
       const countWord = intToEnglish(count);
-      console.log(countWord);
+   
       if(count===1){
         expanded = "show";
       }else{
@@ -209,7 +209,7 @@ function fetchData(tourID){
 
   function itineraryCalculator(count){
     const countWord = intToEnglish(count);
-    console.log(countWord);
+
     if(i===1){
       heading1 = "headingOne";
       collapse1 = "collapseOne";
@@ -315,7 +315,7 @@ function fetchData(tourID){
           email: document.getElementById('email').value,
           comment: document.getElementById('reviewText').value
       };
-      console.log(JSON.stringify(formData));
+     
       fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/comments', {
           method: 'POST',
           headers: {
@@ -348,7 +348,7 @@ function fetchData(tourID){
         .then(response => response.json())
         .then(data => {
             const commentsContainer = document.getElementById('comments-container');
-            console.log(data);  
+            
             data.comments.forEach(comment => {
                 // Create the comment HTML structure
                 const commentDiv = document.createElement('div');
@@ -403,7 +403,7 @@ function fetchData(tourID){
 });
 
 
-function createCarouselItem(imageSrc, location, title, price, day, night) {
+function createCarouselItem(imageSrc, location, title, price, day, night, tourId) {
   const item = document.createElement('div');
   item.className = 'comon-items-week';
 
@@ -426,9 +426,10 @@ function createCarouselItem(imageSrc, location, title, price, day, night) {
   divTest1.appendChild(locationSpan);
 
   const titleLink = document.createElement('a');
-  titleLink.href = '#';
+  titleLink.href = 'https://storage.googleapis.com/bikat_adventure/listing-details.html?listId='+tourId;
+  titleLink.target = "_blank";
   titleLink.className = 'titel-cm';
-  titleLink.textContent = title;
+  titleLink.textContent = "→";
   divTest1.appendChild(titleLink);
 
   const priceTag = document.createElement('h5');
@@ -458,17 +459,25 @@ function createCarouselItem(imageSrc, location, title, price, day, night) {
   return item;
 }
 
-async function loadCarouselItems() {
+ function loadCarouselItems() {
   try {
-    const response = await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/tour-suggestion'); // Replace with your API endpoint
-    const data = await response.json();
-
-    const carouselContainer = document.getElementById('carousel-container');
-    data.tours.forEach(item => {
-      const carouselItem = createCarouselItem(item.tourImage, item.region, item.shortOveriew, item.price, item.day, item.night);
-      console.log(carouselItem);
-      carouselContainer.appendChild(carouselItem);
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/tour-suggestion', { 
+      method: 'GET'
+    })
+    .then(response =>  { 
+      return response.json();
+    }).then(data => {
+      const carouselContainer = document.getElementById('carousel-container');
+      data.tours.forEach(item => {
+        const carouselItem = createCarouselItem(item.tourImage, item.region, item.shortOveriew, item.price, item.day, item.night, item.tourId);
+      
+        carouselContainer.appendChild(carouselItem);
+      });
+    }).catch( error => {
+      console.error('Error fetching comments:', error);
     });
+     
+  
   } catch (error) {
     console.error('Error loading carousel items:', error);
   }
