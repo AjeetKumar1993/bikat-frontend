@@ -27,7 +27,6 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
-
    
   </head>
 
@@ -449,7 +448,7 @@
                                       <label> Adult</label>
                                       <div class="qty-input">
                                               <button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
-                                              <input class="product-qty" type="number" name="product-qty" min="2" value="0"/>
+                                              <input class="product-qty" type="number" name="product-qty" min="1" value="0"/>
                                               <button class="qty-count qty-count--add" data-action="add" type="button">+</button>
                                       </div>
                                       <h6 class="age-text"> (12+ yrs) </h6>
@@ -505,120 +504,89 @@
                         <div class="row">
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label> Phone </label>
-                              <input type="text" class="form-control">
+                              <label>Name</label>
+                              <input type="text" class="form-control" required>
                             </div>
                           </div>
 
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label> Postal Code / Zipcode </label>
-                              <input type="text" class="form-control">
+                              <label>Email</label>
+                              <input type="email" class="form-control" required>
                             </div>
                           </div>
-
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label> Email </label>
-                              <input type="text" class="form-control">
+                              <label>Phone</label>
+                              <input type="email" class="form-control" required>
                             </div>
                           </div>
-
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                              <label>Date of Birth</label>
+                              <input type="date" class="form-control" required>
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                              <label>Gender:</label>
+                              <select id="gender" name="gender" class="form-select" required>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                  <option value="other">Other</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                              
+                            </div>
+                          </div>
+                       
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label> Address </label>
                               <input type="text" class="form-control">
                             </div>
                           </div>
-
+                       
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                              <label> Country </label>
+                              <select onchange="print_state('state',this.selectedIndex);" id="country" name ="country" class="form-select"></select>
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                              <label> City</label>
+                              <select name ="state" id ="state" class="form-select"></select>
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                              <label> Postal Code / Zipcode </label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
                         </div>
                       </div>
+                      <div class="comon-steps-div mt-5">
+                        <h2> Book Add Ons </h2>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="form-group" id="addOnsCheckbox">
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>  
 
                       
                       <div class="paymeny comon-steps-div mt-5">
                     
-                        <h2> Payment method  </h2>
-                        <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
-                          <label class="custom-control-label" for="customRadio1">Credit Crads /
-                          Debit Crads </label>
-                        </div>
                         
-                        <div class="account-page-n" id="ac-1">
-      
-      
-                          <div class="row row-cols-1 row-cols-lg-1">
-                            <div class="col">
-                              <div class="form-group mt-3">
-                                <label> Cardholder Name </label>
-                                <input type="text" class="form-control">
-                              </div>
-                            </div>
-                            <div class="col">
-                              <div class="form-group mt-3">
-                                <label> Card Number </label>
-                                <input type="text" class="form-control">
-                              </div>
-                            </div>
-                          </div>
-                          
-      
-                          <div class="d-flex mt-3">
-                            
-                              <div class="left-sec-d1">
-                                  <h4> Ends Date </h4>
-                                <div class="end-date">
-                                  <select class="form-select">
-                                      <option selected="">MM</option>
-                                      <option value="1">Option 1</option>
-                                      <option value="2">Option 2</option>
-                                      <option value="3">Option 3</option>
-                                    </select>
-                                    
-                                    <select class="form-select">
-                                      <option selected="">YYYY</option>
-                                      <option value="1">Option 1</option>
-                                      <option value="2">Option 2</option>
-                                      <option value="3">Option 3</option>
-                                    </select>
-                                </div>
-                              </div>
-                              
-                              <div class="left-sec-d2">
-                                  <h4> CVV</h4>
-                                <div class="cvv">
-                                    <input type="text" class="form-control">
-                                    <span> <i class="fas fa-exclamation-circle"></i> 3 digits</span>
-                                </div>
-                              </div>
-                          </div>
-                          
-                        </div>
-                        
-                        <div class="custom-control custom-radio mt-3">
-                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                          <label class="custom-control-label" for="customRadio2">Online Banking</label>
-                        </div>
-                        
-                        <div class="account-page-n" id="ac-2">
-                          
-                          <div class="form-group">
-                            <label> Select Bank </label>
-                            <select class="form-select">
-                              <option selected="">This is a select menu</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                            </select>
-                                  
-                            
-                          </div>
-                          
-                          
-                          
-                        </div>
-                        
-                        
+                        <div id="paypal-container"></div>
+                      
                       </div>
                   </div>
                 </div>
@@ -632,52 +600,11 @@
                       </div>
                       <hr class="mt-0">
                 
-                      <div class="oder-summary-item">
-
-                        <table class="table checkout-table">
-                          <thead>
-                            <tr>
-                              <th scope="col"> Tour Place </th>
-                              <th scope="col">Duration</th>
-                             
-                            
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <i class="fas fa-map-marker-alt"></i> China
-                              </td>
-                              <td>2 Night/ 3 Days</td>
-                             
-                              
-                            </tr>
-                            
-                            
-                          </tbody>
-                        </table>
-
-                      
-                      </div>
-
-                      <div class="oder-right-details-new">
-                        
-                        <div class="price-sec-order">
-                          <p class="price-am"> Price <span> $250 </span></p>
-                          <p class="discount-am"> Discount price <span> $ 10 </span></p>
-                          <div class="total-price p-0">
-                            <p class="discount-am mb-lg-0"> Total Amount <span> $ 280 </span></p>
-                          </div>
-                          <p class="mt-2"> Including <span class="d-block"> (Lorem ipsum , Transport, Food.) </span> </p>
-                          
-                        </div>
-                        
-                      </div>
-                      
-
+                      <div id="order-summary-container"></div>
+                    
 
                     </div>
-                    <a href="javascript:;" class="form-wizard-next-bt btn w-100 text-center float-right mt-2">Payment now</a>
+                    <a onclick="paypalPayment()" class="form-wizard-next-bt btn w-100 text-center float-right mt-2">Payment now</a>
                     
                   </div>
                 
@@ -1103,6 +1030,8 @@
 <!-- Owl Carousel -->
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/pages/book-now.js"></script>
+<script type= "text/javascript" src = "js/countries.js"></script>
 <script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script>
 <script>
     AOS.init({
@@ -1115,10 +1044,10 @@
     });
     
 </script>
-
+<script language="javascript">print_country("country");</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
-
+<script src="https://www.paypal.com/sdk/js?client-id=AZc7r0Z1W_wwnJ9o489ns7cNiAn5fD5EIfVe49jyg2znEjkCwAjTWis94HxQmjhjPvZa2J_gOJokifcX"></script>
 
 </body>
 </html>

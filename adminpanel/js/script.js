@@ -349,6 +349,7 @@ function populateTable(data) {
                     <button class="dropdown-btn">Actions</button>
                     <div class="dropdown-content">
                         <button class="view-btn" data-id="${item.id}">Date View</button>
+                        <button class="addOns-view-btn" data-id="${item.id}">AddOns View</button>
                         <button class="edit-btn" data-id="${item.id}">Edit</button>
                         <button class="duplicate-btn" data-id="${item.id}">Duplicate</button>
                     </div>
@@ -1019,20 +1020,25 @@ function populateTable(data) {
   }
   function closeDateEditPopup() {
     document.getElementById('edit-tour-date-popup').style.display = 'none';
+  } 
+  function closeAddOnsEditPopup() {
+    document.getElementById('edit-tour-addOns-popup').style.display = 'none';
   }
  // Event delegation for edit buttons
  document.getElementById('data-table').addEventListener('click', function(e) {
     
     if (e.target.classList.contains('edit-btn')) {
-      const id = (e.target.getAttribute('data-id'));
-      openEditPopup(id);
-    }
-    else if (e.target.classList.contains('view-btn')) {
+        const id = (e.target.getAttribute('data-id'));
+        openEditPopup(id);
+    }else if (e.target.classList.contains('view-btn')) {
         const id = (e.target.getAttribute('data-id'));
         viewTourDate(id);
-      }else if (e.target.classList.contains('duplicate-btn')) {
+    }else if (e.target.classList.contains('duplicate-btn')) {
         duplicateRecord(e.target);
-      }
+    }else if (e.target.classList.contains('addOns-view-btn')) {
+        const id = (e.target.getAttribute('data-id'));
+        viewTourAddOns(id);
+    }
 
   });
 
@@ -1151,7 +1157,7 @@ function populateTable(data) {
 }
 
   function updateTourDate(id, isActive){
-        console.log(id);
+      
         const data = {
             active: isActive, // Replace with actual ID value
         };
@@ -1176,12 +1182,48 @@ function populateTable(data) {
         });
     }
   
+    function updateTourAddOns(id, isActive){
+        
+        const data = {
+            active: isActive, // Replace with actual ID value
+        };
+        fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/tour-addOns', {
+            method: 'PATCH',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+        
+            alert('Tour date updated successfully!');
+        
+        })
+        .catch(error => {
+            console.log('Error:'+ error);
+            console.error('Error:', error);
+            alert('Error tour updating!');
+            
+        });
+    }
   function viewTourDate(id) {
    
     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/date')
     .then(response => response.json())
     .then(result => {
         viewDatePopup(result);
+    })
+    .catch(error => {
+        console.error('Error fetching the tours:', error);
+    });
+  }
+  function viewTourAddOns(id) {
+   
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/tour-addOns')
+    .then(response => response.json())
+    .then(result => {
+        viewAddOnPopup(result);
     })
     .catch(error => {
         console.error('Error fetching the tours:', error);
@@ -1220,6 +1262,29 @@ function populateTable(data) {
         row.innerHTML += ` <td><button type="button" style="background-color:blue" onclick="updateTourDate('${item.id}', false)">Disable</button></td>`;
       }else{
         row.innerHTML += ` <td><button type="button" onclick="updateTourDate('${item.id}', true)">Enable</button></td>`;
+      }
+
+      tableBody.appendChild(row);
+    });
+  }
+  function viewAddOnPopup(data){
+
+    document.getElementById('edit-tour-addOns-popup').style.display = 'block';
+    
+    const tableBody = document.querySelector('#tour-addOns-view-table tbody');
+    tableBody.innerHTML = '';
+    
+    data.forEach(item => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${item.addOnsName}</td>
+        <td>${item.price}</td>
+      `;
+
+      if(item.active == true){
+        row.innerHTML += ` <td><button type="button" style="background-color:blue" onclick="updateTourAddOns('${item.id}', false)">Disable</button></td>`;
+      }else{
+        row.innerHTML += ` <td><button type="button" onclick="updateTourAddOns('${item.id}', true)">Enable</button></td>`;
       }
 
       tableBody.appendChild(row);
@@ -1346,14 +1411,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if(data.errorCode == '114'){
             console.log(data);
             alert('Failed: '+ data.errorMessage);
-            window.location.reload(); 
+           
         }
         else{
            
             // Assuming the response from server contains a success message
             statusMessage.textContent = "Saved";
             alert('Saved');
-            window.location.reload(); 
+           
             // Refresh saved dates display after saving
         // fetchAndDisplaySavedDates();
         }

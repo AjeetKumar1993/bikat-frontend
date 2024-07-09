@@ -13,7 +13,9 @@ function fetchData(tourID){
     }).then(tourDetails => {
       // use the json
     
-      
+      document.getElementById('bookNowBtn').dataset.id = id;
+      localStorage.setItem(id, JSON.stringify(tourDetails));
+
       let image = "images/bg-how.jpg";
       if(tourDetails.tourImage !== null){
         image = "https://storage.googleapis.com/bikat_adventure_image/"+tourDetails.tourImage; 
@@ -403,61 +405,6 @@ function fetchData(tourID){
 });
 
 
-function createCarouselItem(imageSrc, location, title, price, day, night, tourId) {
-  const item = document.createElement('div');
-  item.className = 'comon-items-week';
-
-  const figure = document.createElement('figure');
-  const img = document.createElement('img');
-  img.src = "https://storage.googleapis.com/bikat_adventure_image/"+imageSrc;
-  img.alt = title;
-  figure.appendChild(img);
-
-  const wishList = document.createElement('a');
-  wishList.className = 'wish-list';
-  wishList.innerHTML = '<i class="fas fa-heart"></i>';
-
-  const divTest1 = document.createElement('div');
-  divTest1.className = 'div-test1';
-
-  const locationSpan = document.createElement('span');
-  locationSpan.className = 'loactions-ts d-block';
-  locationSpan.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${location}`;
-  divTest1.appendChild(locationSpan);
-
-  const titleLink = document.createElement('a');
-  titleLink.href = 'https://storage.googleapis.com/bikat_adventure/listing-details.html?listId='+tourId;
-  titleLink.target = "_blank";
-  titleLink.className = 'titel-cm';
-  titleLink.textContent = "→";
-  divTest1.appendChild(titleLink);
-
-  const priceTag = document.createElement('h5');
-  priceTag.innerHTML = `₹ ${price} <span>per person</span>`;
-  divTest1.appendChild(priceTag);
-
-  const hr = document.createElement('hr');
-  divTest1.appendChild(hr);
-
-  const btRating = document.createElement('div');
-  btRating.className = 'd-md-flex align-items-center bt-rating justify-content-between';
-
-  const durationSpan = document.createElement('span');
-  durationSpan.innerHTML = `<i class="far fa-clock"></i> ${day} Days/${night} Nights`;
-  btRating.appendChild(durationSpan);
-
-  //const ratingSpan = document.createElement('span');
-  //ratingSpan.innerHTML = `<i class="fas fa-star"></i> ${rating}(Rating)`;
-  //btRating.appendChild(ratingSpan);
-
-  divTest1.appendChild(btRating);
-
-  item.appendChild(figure);
-  item.appendChild(wishList);
-  item.appendChild(divTest1);
-
-  return item;
-}
 
  function loadCarouselItems() {
   try {
@@ -467,12 +414,60 @@ function createCarouselItem(imageSrc, location, title, price, day, night, tourId
     .then(response =>  { 
       return response.json();
     }).then(data => {
-      const carouselContainer = document.getElementById('carousel-container');
-      data.tours.forEach(item => {
-        const carouselItem = createCarouselItem(item.tourImage, item.region, item.shortOveriew, item.price, item.day, item.night, item.tourId);
-      
-        carouselContainer.appendChild(carouselItem);
-      });
+        let carouselContainer = document.getElementById('carousel-container');
+        let html = ` <div class="linke-aloso owl-carousel owl-theme mt-4">`;
+          
+          data.tours.forEach(item => {
+              
+              localStorage.setItem('tourID_'+item.tourId, item.id);
+              redirectHref = `listing-details.html?listId=${item.tourId}`;
+              
+              html +=`<div class="comon-items-week">
+
+                        <figure>
+                            <img src="https://storage.googleapis.com/bikat_adventure_image/${item.tourImage}" alt="png2"/>
+                        </figure>
+                        <a class="wish-list"><i class="fas fa-heart"></i></a>
+                        <div class="div-test1">
+                            <span class="loactions-ts d-block"><i class="fas fa-map-marker-alt"></i> ${item.region}</span>
+                            <a href="${redirectHref}" class="titel-cm">${item.name}</a>
+                            <h5>${item.price} <span>per person</span></h5>
+                            <hr/>
+                            <div class="d-md-flex align-items-center bt-rating justify-content-between">
+                                <span><i class="far fa-clock"></i> ${item.day} D / ${item.night} N</span>
+                                <span><i class="fas fa-star"></i> 5K(Rating)</span>
+                            </div>
+                        </div>
+                      </div>  
+                    `;
+          });
+          
+          html += `</div>`;
+          carouselContainer.innerHTML = html; // Set all HTML at once
+         
+          // Initialize owl-carousel slider after setting HTML
+          $('.linke-aloso').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false,
+                },
+                600: {
+                    items: 2,
+                    nav: false,
+                },
+                1000: {
+                    items: 3,
+                    loop: true,
+                    nav: true,
+                }
+            }
+        });
+    
     }).catch( error => {
       console.error('Error fetching comments:', error);
     });
@@ -485,3 +480,11 @@ function createCarouselItem(imageSrc, location, title, price, day, night, tourId
 
 // Load carousel items on page load
 document.addEventListener('DOMContentLoaded', loadCarouselItems);
+
+
+
+
+function bookTour (){
+  const id = document.getElementById('bookNowBtn').dataset.id;
+  window.location.href = 'book-now.html?id='+id;
+}

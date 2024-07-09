@@ -11,25 +11,26 @@
         <a href="#add-tour" onclick="showTab('add-tour')">Add Tour</a>
         <a href="#edit-tour" onclick="showTab('edit-tour')">Tours</a>
         <a href="#add-date" onclick="showTab('add-date')">Dates</a>
+        <a href="#add-date" onclick="showTab('add-ons')">Add Ons</a>
        <!-- <a href="#delete-tour" onclick="showTab('delete-tour')">Delete Tour</a> -->
     </div>
     <div class="main-content">
         <div id="add-tour" class="tab-content">
            
             <form id="tourForm">
-                <label for="id">Tour Details:</label><br>
+                <label>Tour Details:</label><br>
                
-                <label for="name">Tour Id:</label>
+                <label for="tourId">Tour Id:</label>
                 <input type="text" id="tourId" name="tourId" required><br><br>
         
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required><br><br>
         
                 <label for="region">Region:</label>
-                <input type="text" id="region" name="region" ><br><br>
+                <input type="text" id="region" name="region"><br><br>
         
                 <label for="category">Category:</label>
-                <select id="category" name="category" >
+                <select id="category" name="category">
                     <option value="">Select a category</option>
                     <option value="wildlife">Wildlife</option>
                     <option value="holidays">Holidays</option>
@@ -189,7 +190,7 @@
         </div>
         <div id="add-date" class="tab-content hidden">
             <div id="statusMessage"></div>
-            <h2>Select Tours:</h2>
+           
             <form id="selectionForm">
                 <label for="options">Select Tours:</label>
                 <select id="options" name="options" multiple>
@@ -197,21 +198,65 @@
                 </select>
                 <br><br>
 
-                <button type="submit" id="date-form-submit">Submit</button>
+                <button type="button" id="date-form-submit">Submit</button>
         
-                <h2>Avialable Dates:</h2>
-                <div id="savedDates"></div>
-                
-                <h2>Add a new Date:</h2>
-                <form id="dateForm">
-                    <label for="selectedDate">Date:</label>
-                    <input type="date" id="selectedDate" name="selectedDate">
-                    <br><br>
-                    <button type="submit" id="add-date-submit">Add Date</button>
-                </form>
-        
+              
             </form>
            
+            <form id="dateFormAvialable">
+            <h2>Avialable Dates:</h2>
+            <div id="savedDates"></div>
+            </form>
+          
+            <form id="dateForm">
+                <h2>Add a new Date:</h2>
+                <label for="selectedDate">Date:</label>
+                <input type="date" id="selectedDate" name="selectedDate">
+                <br><br>
+                <button type="button" id="add-date-submit">Add Date</button>
+            </form>
+    
+        </div>
+        <div id="add-ons" class="tab-content hidden">
+            
+            <form id="selectionFormForAdOn">
+
+                <div class="select-container">
+                    <div class="add_ons_select">
+                        <label for="addOns_tour_options">Select Tours:</label>
+                        <select id="addOns_tour_options" name="addOns_tour_options" multiple>
+                        </select>
+                    </div>
+                   
+                        <!-- Options will be dynamically populated -->
+                   
+                    <div class="add_ons_select">
+                        <label for="savedAddOns">Select AddOns:</label>
+                        <select id="savedAddOns" name="savedAddOns">
+                        </select>
+                    </div>
+
+                    <div class="add_ons_select"> 
+                        <label for="addOnsPrice">Enter Price:</label>
+                        <input type="number" id="addOnsPrice" name="addOnsPrice" placeholder="Enter price">
+                    </div>
+                 
+                        <!-- Options will be dynamically populated -->
+                  
+                </div>
+            <br>
+                <button type="button" onclick="addTourAddOns()">Submit</button>
+            
+        
+            </form>
+          
+        
+        <form id="form_add_addOns">
+            <h2>Add a new add ons:</h2>
+            <input type="text" id="add_addOns" name="add_addOns" placeholder="Enter add ons name">
+            <br>
+            <button type="button" onclick="add_AddOns()">Save Add Ons</button>
+        </form>
            
         </div>
         <div id="edit-tour" class="tab-content hidden">
@@ -252,7 +297,26 @@
                 </tbody>
               </table>
             
-        </div>    
+        </div>   
+                   
+        <div class="edit-popup" id="edit-tour-addOns-popup">
+    
+            <button class="close" onclick="closeAddOnsEditPopup()">&times;</button>
+            <h2>AddOns</h2>
+            <table id="tour-addOns-view-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Rows will be populated dynamically -->
+                </tbody>
+              </table>
+            
+        </div>  
             <!-- Popup container -->
         <div class="edit-popup" id="edit-popup">
             
@@ -421,7 +485,7 @@
             <div id="group-g" class="form-group" style="display: none;">
                 <h2>Related Tour</h2> </br></br>
                 <div id="suggestedTourCheckboxes">
-                    <label>Loading...</label>
+                    
                 </div></br>
                 <button id="save-edit-group-g">Save</button>
             </div>
@@ -490,6 +554,7 @@
      <script src="js/script.js"></script>
      <script src="js/itinerary.js"></script>
      <script src="js/edit-itinerary.js"></script>
+     <script src="js/add-ons.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     
 </body>

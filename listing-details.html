@@ -161,8 +161,7 @@
                     <h2 class="mt-5">You May Also Like</h2>
                     
                     <div id="carousel-container"></div>
-
-
+                  
                     <div class="comments-sec1 mt-5">
                          <h2>Comments </h2>
                          <hr/>
@@ -215,7 +214,7 @@
                          </div>
 
                          <div class="comon-filter-news1 mt-5">
-                             <input type="submit" class="btn submit-btn" value="Book Now" id="bookNowBtn"/>
+                             <input type="submit" onclick="bookTour()" class="btn submit-btn" value="Book Now" id="bookNowBtn"/>
                          </div>
                         
                         
@@ -230,7 +229,7 @@
                                 <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-input" required>
                                 <input type="email" id="email" name="email" placeholder="Email Id" class="form-input" required>
                                 <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="form-input" required>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <button type="button" class="submit-btn">Submit</button>
                               </form>
                             </div>
                           </div>
@@ -243,29 +242,10 @@
                             <img src="images/ads-g.jpg" alt="ads"/>
                         </figure>
                     </div>
-                    <div class="similar-packgaes mt-5">
+                    <!-- <div class="similar-packgaes mt-5">
                         <h5> Similar Packgaes </h5>
-                        <div class="pages-slider owl-carousel owl-theme">
-                            <a href="#" class="pc-slider1">
-                                <figure>
-                                    <img src="images/pexels-photo-2915957.jpeg" alt="pn"/>
-                                </figure>
-                                <div class="test-dib ps-3">
-                                    <h6> $120 <span> per person / <i class="far fa-clock"></i> 2 Days Nights</span> </h6>
-                                    <h4 class="mt-2"> It is a long established fact that a reader </h4>
-                                </div>
-                            </a>
-                            <a href="#" class="pc-slider1">
-                                <figure>
-                                    <img src="images/pexels-photo-2873649.jpeg" alt="pn"/>
-                                </figure>
-                                <div class="test-dib ps-3">
-                                    <h6> $120 <span> per person / <i class="far fa-clock"></i> 2 Days Nights</span> </h6>
-                                    <h4 class="mt-2"> It is a long established fact that a reader </h4>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                        <div id="similar-packages-container"></div>
+                    </div> -->
                 </div>
             </div>
           
@@ -699,29 +679,29 @@
 
 <script>
   // Get the modal
-  var modal = document.getElementById('myModal');
+  //var modal = document.getElementById('myModal');
   
   // Get the button that opens the modal
-  var btn = document.getElementById('bookNowBtn');
+  //var btn = document.getElementById('bookNowBtn');
   
   // When the user clicks on the button, open the modal
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
+  // btn.onclick = function() {
+  //   modal.style.display = "block";
+  // }
   
   // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+  // window.onclick = function(event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = "none";
+  //   }
+  // }
   
-  // Prevent form submit for demonstration
-  document.getElementById('bookingForm').onsubmit = function(event) {
-    event.preventDefault();
-    alert('Form submitted!');
-    modal.style.display = "none";
-  }
+  // // Prevent form submit for demonstration
+  // document.getElementById('bookingForm').onsubmit = function(event) {
+  //   event.preventDefault();
+  //   alert('Form submitted!');
+  //   modal.style.display = "none";
+  // }
   </script>
 </body>
 </html>

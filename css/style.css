@@ -2138,10 +2138,10 @@ fieldset.rating.star > label:before {
 .form-wizard .form-control {
     font-weight: 300;
     height: auto !important;
-    padding: 15px;
-    color: #888888;
+    /* padding: 15px; */
+    /* color: #888888; */
     background-color: #fff;
-    border: none;
+    /* border: none; */
 }
 .form-wizard h2 {
     font-size: 23px;
@@ -2151,8 +2151,8 @@ fieldset.rating.star > label:before {
 }
 .comon-steps-div .form-select {
     background-color: #f1f1f1;
-    padding: 15px;
-    border: none;
+    /* padding: 15px;
+    border: none; */
 }
 .form-wizard .form-group {
     position: relative;
@@ -3883,56 +3883,10 @@ height: 100%;
 overflow: auto;
 background-color: rgba(0,0,0,0.4);
 }
-.comon-items-week {
-      border: 1px solid #ddd;
-      padding: 10px;
-      margin: 10px;
-      border-radius: 5px;
-      width: 300px;
-    }
-    .comon-items-week figure {
-      margin: 0;
-      position: relative;
-    }
-    .comon-items-week img {
-      width: 100%;
-      border-radius: 5px;
-    }
-    .wish-list {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      color: #ff0000;
-      font-size: 1.5em;
-    }
-    .div-test1 {
-      margin-top: 10px;
-    }
-    .loactions-ts {
-      font-size: 0.9em;
-      color: #888;
-    }
-    .titel-cm {
-      display: block;
-      font-size: 1.2em;
-      margin: 5px 0;
-      color: #333;
-      text-decoration: none;
-    }
-    .titel-cm:hover {
-      text-decoration: underline;
-    }
-    .div-test1 h5 {
-      margin: 10px 0;
-      font-size: 1.1em;
-      color: #333;
-    }
-    .div-test1 hr {
-      margin: 10px 0;
-      border: 0.5px solid #ddd;
-    }
-    .bt-rating {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+
+	.custom-checkbox {
+		align-items: center;
+		margin-bottom: 10px;
+	  }
+	 
+

@@ -43,7 +43,7 @@ function renderData(tourDetailsList) {
             tourDetails.shortOverview = "";
         }
         if(tourDetails.shortOverview.length >= 150){
-            tourDetails.shortOverview = tourDetails.shortOverview.substring(1, 100) + "...";
+            tourDetails.shortOverview = tourDetails.shortOverview.substring(0, 100) + "...";
         }
         localStorage.setItem('tourID_'+tourDetails.tourId, tourDetails.id);
         redirectHref = `listing-details.html?listId=${tourDetails.tourId}`;
@@ -115,10 +115,6 @@ function loadMore(){
   document.getElementById('seeMore2').addEventListener('click', fetchData(postDataForLoadMore));
 }  
 
-
-fetchData(JSON.stringify({}));
-
-
 function fetchDataWithFilter(){
   page=1;
 
@@ -170,3 +166,21 @@ function fetchDataWithFilter(){
   postDataForLoadMore = jsonBody;
   fetchData(jsonBody);
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const filterkKey = params.get('region'); // Get the list ID from the URL
+  
+  if (filterkKey) {
+    
+    let data = {
+      'regions': [filterkKey]
+    };
+    console.log(data);
+    fetchData(JSON.stringify(data));
+  } else {
+    console.log("without");
+    fetchData(JSON.stringify({}));
+  }
+});

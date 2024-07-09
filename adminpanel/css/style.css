@@ -197,6 +197,9 @@ table {
     display: none;
 
     width: 80%;
+
+    z-index: 1000;
+
   }
   .edit-popup label {
     display: block;
@@ -364,4 +367,14 @@ button.close:hover {
 
 .hidden {
     display: none;
+}
+
+.add_ons_select {
+    display: flex;
+    flex-direction: column;
+}
+.select-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adjust the gap between selects as needed */
 }
