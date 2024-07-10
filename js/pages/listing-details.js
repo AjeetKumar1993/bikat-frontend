@@ -102,12 +102,13 @@ function fetchData(tourID){
                   </details>`;
     
           let entriesVal = Object.entries(val)
+
           let data = entriesVal.map( ([dateKey, val] = entry) => {
             const datesList = document.getElementById(key);
             const fromDate = new Date(val.from);
             const toDate = new Date(val.to);
-
-            datesList.innerHTML += `<li class="date-item"><span>${getFormattedDate(fromDate)} TO ${getFormattedDate(toDate)}</span> <span class="wl">WL</span></li>`;
+            localStorage.setItem("dateid_"+val.id, val.from +" - "+ val.to);  
+            datesList.innerHTML += `<a  style="text-decoration: none;color:black" href="book-now.html?id=${tourDetails.id}&&dateid=${val.id}"> <li class="date-item"><span>${getFormattedDate(fromDate)} - ${getFormattedDate(toDate)}</span> <span class="wl">WL</span></li> </a>`;
       
           });
         }
@@ -186,16 +187,19 @@ function fetchData(tourID){
 
   }
  
- function getFormattedDate(date){
-      const year = date.getFullYear();
-      const month = ('0' + (date.getMonth() + 1)).slice(-2); // Months are zero based, so we add 1
-      const day = ('0' + date.getDate()).slice(-2);
+  function getFormattedDate(date){
+    const year = date.getFullYear();
+    const month = monthNames[(date.getMonth() + 1)]; // Months are zero based, so we add 1
+    const day = ('0' + date.getDate()).slice(-2);
 
-      // Form the desired date string in yyyy-MM-dd format
-      const formattedDate = `${year}-${month}-${day}`;
+    // Form the desired date string in yyyy-MM-dd format
+    const formattedDate = `${day}-${month}-${year}`;
 
-      return formattedDate;
- }
+    return formattedDate;
+}
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
 
   document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
