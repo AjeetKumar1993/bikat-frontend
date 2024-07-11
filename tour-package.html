@@ -27,8 +27,6 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
-
-   
   </head>
 
 <body>
@@ -122,323 +120,18 @@
 
           <div class="controls my-5">
            
-           <button class="filter btn" data-filter="all">All</button>
-           <button class="filter btn" data-filter=".category-3">Honeymoon</button>
-           <button class="filter btn" data-filter=".category-4">Holidays</button>
-           <button class="filter btn" data-filter=".category-5">Family</button>
-           <button class="filter btn" data-filter=".category-6">Safari</button>
+           <button class="filter btn mixitup-control-active" onclick="loadTour(event, '')">All</button>
+           <button class="filter btn" onclick="loadTour(event, 'wildLife')">WildLife</button>
+           <button class="filter btn" onclick="loadTour(event, 'holidays')">Holidays</button>
+           <button class="filter btn" onclick="loadTour(event, 'adventure')">Adventure</button>
+           <button class="filter btn" onclick="loadTour(event, 'romantic')">Romantic</button>
+           <button class="filter btn" onclick="loadTour(event, 'vacation')">Vacation</button>
+           <button class="filter btn" onclick="loadTour(event, 'family tour')">Family Tour</button>
          </div>
          
          <div class="bd-part new-packge-design">
-             <div class="row row-cols-1 row-cols-lg-3 g-lg-4">
-                 <div class="col mix category-4">
-                   <div class="comon-items-week">
-                     <figure>
-                       <img src="images/pexels-photo-2474690.jpeg" alt="png2">
-                      
-                       <p class="pol-text btn">10% offf </p>
-                     </figure>
-                     
-                     <div class="div-test1">
-                       
-                         <span class="rt d-block"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> 
-                          <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                         </span>
-                         <a href="#" class="titel-cm"> Lorem Ipsum is simply.. </a>
-                         <div class="d-md-flex align-items-center bt-rating justify-content-between mt-2">
-                           <span> <i class="far fa-clock"></i> 2 Days/3 Nights </span>
-                         </div>
-                         <span class="rating-bn"> <i class="fas fa-map-marker-alt"></i> Bryce Canyon Central Park, USA </span>
-                         <div class="d-flex align-items-center justify-content-between">
-                           <h5 class="ms-2"> <del class="me-3"> $150</del> $ 120  </h5>
-                           <a href="#" class="btn bk-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
-                            <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
-                          </svg> </a>
-                         </div>
-                         
-                        
-       
-                         
-                     </div>
-
-
-                   </div>
-                 </div>
-
-                 <div class="col mix category-6">
-                   <div class="comon-items-week">
-                     <figure>
-                       <img src="images/pexels-photo-3152128.jpeg" alt="png2">
-                     
-                     </figure>
-                     
-                     
-                     <div class="div-test1">
-                       
-                      <span class="rt d-block"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> 
-                       <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                      </span>
-                      <a href="#" class="titel-cm"> Lorem Ipsum is simply.. </a>
-                      <div class="d-md-flex align-items-center bt-rating justify-content-between mt-2">
-                        <span> <i class="far fa-clock"></i> 2 Days/3 Nights </span>
-                      </div>
-                      <span class="rating-bn"> <i class="fas fa-map-marker-alt"></i> Bryce Canyon Central Park, USA </span>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="ms-2"> $ 120  </h5>
-                        <a href="#" class="btn bk-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
-                          <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
-                        </svg> </a>
-                      </div>
-                      
-                     
-    
-                      
-                     </div>
-
-                   </div>
-                 </div>
-
-                 <div class="col mix category-4">
-                   <div class="comon-items-week">
-                     <figure>
-                       <img src="images/pexels-daniel-bask-4330825.jpg" alt="png2">
-                     
-                       
-                       <p class="pol-text btn">8% Off </p>
-                     </figure>
-                     
-                     <div class="div-test1">
-                       
-                      <span class="rt d-block"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> 
-                       <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                      </span>
-                      <a href="#" class="titel-cm"> Lorem Ipsum is simply.. </a>
-                      <div class="d-md-flex align-items-center bt-rating justify-content-between mt-2">
-                        <span> <i class="far fa-clock"></i> 2 Days/3 Nights </span>
-                      </div>
-                      <span class="rating-bn"> <i class="fas fa-map-marker-alt"></i> Bryce Canyon Central Park, USA </span>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="ms-2"> $120  </h5>
-                        <a href="#" class="btn bk-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
-                          <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
-                        </svg> </a>
-                      </div>
-                      
-                     
-    
-                      
-                     </div>
-
-
-                   </div>
-                 </div>
-
-                 <div class="col mix category-5">
-                   <div class="comon-items-week">
-                     <figure>
-                       <img src="images/bali.jpeg" alt="png2">
-                     
-                       <p class="pol-text btn">8% Off </p>
-                      
-                     </figure>
-                     
-                      
-                     <div class="div-test1">
-                       
-                      <span class="rt d-block"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> 
-                       <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                      </span>
-                      <a href="#" class="titel-cm"> Lorem Ipsum is simply.. </a>
-                      <div class="d-md-flex align-items-center bt-rating justify-content-between mt-2">
-                        <span> <i class="far fa-clock"></i> 2 Days/3 Nights </span>
-                      </div>
-                      <span class="rating-bn"> <i class="fas fa-map-marker-alt"></i> Bryce Canyon Central Park, USA </span>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="ms-2"> $120  </h5>
-                        <a href="#" class="btn bk-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
-                          <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
-                        </svg> </a>
-                      </div>
-                      
-                     
-    
-                      
-                     </div>
-
-                   </div>
-                 </div>
-
-
-                 <div class="col mix category-5">
-                   <div class="comon-items-week">
-                     <figure>
-                       <img src="images/london.jpg" alt="png2">
-                     
-                      
-                     </figure>
-                     
-                     <div class="div-test1">
-                       
-                      <span class="rt d-block"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> 
-                       <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                      </span>
-                      <a href="#" class="titel-cm"> Lorem Ipsum is simply.. </a>
-                      <div class="d-md-flex align-items-center bt-rating justify-content-between mt-2">
-                        <span> <i class="far fa-clock"></i> 2 Days/3 Nights </span>
-                      </div>
-                      <span class="rating-bn"> <i class="fas fa-map-marker-alt"></i> Bryce Canyon Central Park, London </span>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="ms-2"> $120  </h5>
-                        <a href="#" class="btn bk-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
-                          <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
-                        </svg> </a>
-                      </div>
-                      
-                     
-    
-                      
-                     </div>
-
-                   </div>
-                 </div>
-
-
-                 <div class="col mix category-4">
-                   <div class="comon-items-week">
-                     <figure>
-                       <img src="images/pexels-photo-2032110.jpeg" alt="png2">
-                     
-                       
-                       <p class="pol-text btn">25% off </p>
-                     </figure>
-                     
-                     <div class="div-test1">
-                       
-                      <span class="rt d-block"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> 
-                       <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                      </span>
-                      <a href="#" class="titel-cm"> Lorem Ipsum is simply.. </a>
-                      <div class="d-md-flex align-items-center bt-rating justify-content-between mt-2">
-                        <span> <i class="far fa-clock"></i> 2 Days/3 Nights </span>
-                      </div>
-                      <span class="rating-bn"> <i class="fas fa-map-marker-alt"></i> Bryce Canyon Central Park, Netherland  </span>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="ms-2"> <del>$140</del> $80  </h5>
-                        <a href="#" class="btn bk-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
-                          <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
-                        </svg> </a>
-                      </div>
-                      
-                     
-    
-                      
-                     </div>
-                   </div>
-                 </div>
-
-
-                 <div class="col mix category-4">
-                   <div class="comon-items-week">
-                     <figure>
-                       <img src="images/pexels-photo-2276811.jpeg" alt="png2">
-                     
-                      
-                       <p class="pol-text btn">17% off </p>
-                     </figure>
-                     
-                     <div class="div-test1">
-                       
-                      <span class="rt d-block"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> 
-                       <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                      </span>
-                      <a href="#" class="titel-cm"> Lorem Ipsum is simply.. </a>
-                      <div class="d-md-flex align-items-center bt-rating justify-content-between mt-2">
-                        <span> <i class="far fa-clock"></i> 2 Days/3 Nights </span>
-                      </div>
-                      <span class="rating-bn"> <i class="fas fa-map-marker-alt"></i> Bryce Canyon Central Park, Netherland  </span>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="ms-2"> <del>$140</del> $80  </h5>
-                        <a href="#" class="btn bk-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
-                          <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
-                        </svg> </a>
-                      </div>
-                      
-                     
-    
-                      
-                     </div>
-                   </div>
-                 </div>
-
-
-                 <div class="col mix category-3">
-                   <div class="comon-items-week">
-                     <figure>
-                       <img src="images/ds1.jpeg" alt="png2">
-                     
-                      
-                       <p class="pol-text btn">9% off </p>
-                     </figure>
-                     
-                     <div class="div-test1">
-                       
-                      <span class="rt d-block"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> 
-                       <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                      </span>
-                      <a href="#" class="titel-cm"> Lorem Ipsum is simply.. </a>
-                      <div class="d-md-flex align-items-center bt-rating justify-content-between mt-2">
-                        <span> <i class="far fa-clock"></i> 2 Days/3 Nights </span>
-                      </div>
-                      <span class="rating-bn"> <i class="fas fa-map-marker-alt"></i> Bryce Canyon Central Park, Netherland  </span>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h5 class="ms-2"> <del>$140</del> $80  </h5>
-                        <a href="#" class="btn bk-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
-                          <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
-                        </svg> </a>
-                      </div>
-                      
-                     
-    
-                      
-                     </div>
-                   </div>
-                 </div>
-
-
-                 <div class="col mix category-3">
-                  <div class="comon-items-week">
-                    <figure>
-                      <img src="images/pexels-photo-547494.jpeg" alt="png2">
-                    
-                     
-                      <p class="pol-text btn">9% off </p>
-                    </figure>
-                    
-                    <div class="div-test1">
-                      
-                     <span class="rt d-block"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> 
-                      <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                     </span>
-                     <a href="#" class="titel-cm"> Lorem Ipsum is simply.. </a>
-                     <div class="d-md-flex align-items-center bt-rating justify-content-between mt-2">
-                       <span> <i class="far fa-clock"></i> 2 Days/3 Nights </span>
-                     </div>
-                     <span class="rating-bn"> <i class="fas fa-map-marker-alt"></i> Bryce Canyon Central Park, Netherland  </span>
-                     <div class="d-flex align-items-center justify-content-between">
-                       <h5 class="ms-2"> <del>$140</del> $80  </h5>
-                       <a href="#" class="btn bk-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
-                        <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z"/>
-                      </svg> </a>
-                     </div>
-                     
-                    
-   
-                     
-                    </div>
-                  </div>
-                </div>
-
-             </div>
+            <div id="loader"></div>
+            <div class="row row-cols-1 row-cols-lg-3 g-lg-4" id="hot_tour_container"> </div>
          </div>
         </div>
       </div>
@@ -1151,6 +844,7 @@
 <!-- Owl Carousel -->
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/pages/tour-package.js"></script>
 <script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script>
 <script>
     AOS.init({
@@ -1165,7 +859,6 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-
 <script src="js/mixitup.min.js"></script>
 
 
