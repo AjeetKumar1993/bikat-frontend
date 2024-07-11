@@ -118,7 +118,7 @@
         <div class="container">
             <div class="row g-lg-5">
                 <div class="col-lg-4">
-                    <div class="right-divs-ds1">
+                    <!-- <div class="right-divs-ds1">
                          <div class="comon-filter-news1">
                             <h4> Search Tour! </h4>
                             <div class="form-group">
@@ -155,60 +155,31 @@
                          </div>
 
                        
-                    </div>
+                    </div> -->
 
                     <div class="accordion mt-4 list-serach-acd" id="accordionPanelsStayOpenExample">
+                       
                         <div class="accordion-item">
                           <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                Category
+                              Type of holiday
                             </button>
                           </h2>
                           <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                            <div class="accordion-body">
-                                <div class="form-check">
-                                    <input value ="WildLife" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="category">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                      WildLife
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input value="Holidays" class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" name="category">
-                                    <label class="form-check-label" for="flexCheckDefault2">
-                                       Holidays 
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input value="Adventure" class="form-check-input" type="checkbox" value="" id="flexCheckDefault3" name="category">
-                                    <label class="form-check-label" for="flexCheckDefault3" >
-                                        Adventure 
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input value="Romantic" class="form-check-input" type="checkbox" value="" id="flexCheckDefault4" name="category">
-                                    <label class="form-check-label" for="flexCheckDefault4" >
-                                        Romantic 
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input value="Vacation" class="form-check-input" type="checkbox" value="" id="flexCheckDefault5" name="category">
-                                    <label class="form-check-label" for="flexCheckDefault5" >
-                                        Vacation 
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input value="Family Tour" class="form-check-input" type="checkbox" value="" id="flexCheckDefault6" name="category">
-                                    <label class="form-check-label" for="flexCheckDefault6" >
-                                        Family Tour
-                                    </label>
-                                </div>
-
-
+                            <div class="accordion-body" id="category-filter-container">
+                                
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                               Destination
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body" id="region-filter-container">
+                                
                             </div>
                           </div>
                         </div>
@@ -316,7 +287,7 @@
                         </div>
 
 
-                        <div class="accordion-item mt-4">
+                        <!-- <div class="accordion-item mt-4">
                           <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                             <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
                               Amenities
@@ -354,12 +325,12 @@
     
                             </div>
                           </div>
-                        </div>
+                        </div> -->
 
                         <input onclick="fetchDataWithFilter()" type="submit" class="btn submit-btn" id="listFilter" value="Filter"/>
                       </div>
 
-                    <div class="d-none d-lg-block">
+                    <!-- <div class="d-none d-lg-block">
                         <div class="ads-g-div mt-5">
                             <figure>
                                 <img src="images/ads-g.jpg" alt="ads"/>
@@ -388,7 +359,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-8">
                     <div class="listed-bn">
@@ -403,14 +374,15 @@
                       </div>
                    
                     <div id="products" class="mt-4">
+                        <div id="loader"></div>
                         <div class="row justify-content-between" id="listing">
                           
                         </div>
-                        <a href="#" onclick="loadMore()" id="seeMore2" class="btn load-monre"><i class="fas fa-sync-alt"></i> Load More</a>
+                        <a href="#" onclick="loadMore()" id="seeMore2" class="btn load-monre" style="display: none;" ><i class="fas fa-sync-alt"></i> Load More</a>
                     </div>
 
 
-                    <div class="d-block d-lg-none">
+                    <!-- <div class="d-block d-lg-none">
                         <div class="ads-g-div mt-5">
                           <figure>
                               <img src="images/ads-g.jpg" alt="ads"/>
@@ -439,7 +411,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                   
                 </div>
                 
@@ -461,7 +433,7 @@
                            <h6 class="ms-2"> 
                             <span class="d-block"> Call Now </span> 
                             
-                            855 333 4444</h6>
+                            9090909090</h6>
                        </div>
                    </div>
                    <div class="col-lg-5">
@@ -472,58 +444,71 @@
                         <div class="sub-page-testmonials owl-carousel owl-theme mt-0">
 
                           <div class="items-ts">
-                           
+                            <div class="d-md-flex">
+                              <figure>
+                                <img src="images/testimonals1.png" alt="tm"/>
+                              </figure>
+                              <h5> Akash Maan
+                                <span class="d-block">Consultant, Deloitte, India </span>
+                              </h5>
+                            </div>
                               
-                              <p class="mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                industry's standard dummy text ever since the 1500s "</p>
+                              <p class="mt-4">Our experience with XYZ Travel Agency was exceptional from start to finish. Their attention to detail in planning our trip to Space was remarkable.</p>
     
-                              
-
-                              <div class="d-md-flex mt-3">
-                                <figure>
-                                  <img src="images/team3.jpg" alt="tm"/>
-                                </figure>
-                                <h5> 
-                                  <span class="rt-t mt-3 d-table mb-1">
-                                    <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                  </span>
-                                  Rose Wistan 
-                                  <span class="d-block"> Tss CEO, Japan </span>
-                                </h5>
-                              </div>
+                              <span class="rt-t mt-3 d-table">
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                              </span>
     
                            
                              
                           </div>
-
+    
                           <div class="items-ts">
-                           
-                              
-                            <p class="mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                              industry's standard dummy text ever since the 1500s "</p>
-  
-                            
-
-                            <div class="d-md-flex mt-3">
+                            <div class="d-md-flex">
                               <figure>
-                                <img src="images/team4.jpg" alt="tm"/>
+                                <img src="images/testimonals2.png" alt="tm"/>
                               </figure>
-                              <h5> 
-                                <span class="rt-t mt-3 d-table mb-1">
-                                  <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                  <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                  <i class="far fa-star"></i>
-                                </span>
-                                Rose Wistan 
-                                <span class="d-block"> Tss CEO, Japan </span>
+                              <h5> Ajinkya Dev  
+                                <span class="d-block">Vice President, L&T, India </span>
                               </h5>
                             </div>
-  
-                         
+                              
+                              <p class="mt-4">Choosing XYZ Travel Agency for our family vacation was the best decision we made. They listened to our preferences and crafted a perfect itinerary that suited everyone</p>
+    
+                              <span class="rt-t mt-3 d-table">
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                              </span>
+    
                            
-                        </div>
+                             
+                          </div>
+    
+    
+                          <div class="items-ts">
+                            <div class="d-md-flex">
+                              <figure>
+                                <img src="images/testimonals3.png" alt="tm"/>
+                              </figure>
+                              <h5> Neelima Sharma 
+                                <span class="d-block"> HR Manager, TCS, India </span>
+                              </h5>
+                            </div>
+                              
+                              <p class="mt-4">I can't recommend XYZ Travel Agency enough! They organized a once-in-a-lifetime safari in Africa for us, and it was flawless</p>
+    
+                              <span class="rt-t mt-3 d-table">
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                              </span>
+    
+                           
+                             
+                          </div>
 
 
                         </div>
@@ -558,8 +543,8 @@
                    <a href="#">
                       <img src="images/logo.png" alt="logo"/>
                    </a>
-                   <p class="mt-2"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                 
+                   <p class="mt-2">  Providing exceptional travel experiences since 2011. We are committed to delivering quality service and unforgettable journeys tailored to your dreams.</p>
+                   
                    <ul class="m-0 mt-2 list-unstyled d-flex">
                     <li>
                       <a href="#"> <i class="fab fa-facebook"></i> </a>
@@ -623,18 +608,18 @@
               <div class="comon-footer-div pt-4 d-grid justify-content-md-end">
                 <h5 class="text-white">Contact
                 </h5>
-                  <ul class="contact-link list-unstyled mt-4">
-                    <li> <i class="fas fa-map-marker-alt"></i> <span>1800 Washington Blvd, Suite #421
-                   </span> </li>
+                <ul class="contact-link list-unstyled mt-4">
+                  <li> <i class="fas fa-map-marker-alt"></i> <span>303, Spaze Itech Park, Sector 49
+                 </span> </li>
+               
+                  <li> <i class="fas fa-map-marker-alt"></i> <span> Gurgaon, Haryana 
+                 </span> </li>
+                 <li> <i class="fas fa-phone-alt"></i> <span> 9818313631
+                 </span> </li>
+                 <li><i class="fas fa-envelope"></i> <span>  info@xyzholidays.com </span> </li>
                  
-                    <li> <i class="fas fa-map-marker-alt"></i> <span> Baltimore, MD 21230 
-                   </span> </li>
-                   <li> <i class="fas fa-phone-alt"></i> <span> 410.277.9781
-                   </span> </li>
-                   <li><i class="fas fa-envelope"></i> <span>  contactus@archsystemsinc.com </span> </li>
-                   
 
-                  </ul>
+                </ul>
                 
                 
               </div>

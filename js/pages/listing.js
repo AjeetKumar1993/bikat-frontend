@@ -3,8 +3,8 @@ let postDataForLoadMore = JSON.stringify({});
 function fetchData(postData) {
 
     const limit = 10;
-    const apiEndpoint = `https://decent-line-423710-m0.de.r.appspot.com/api/tour/list?page=${page}&pageSize=${limit}`;
-    
+    const apiEndpoint = `http://localhost:8080/api/tour/list?page=${page}&pageSize=${limit}`;
+    showLoader();
     fetch(apiEndpoint, { 
         method: 'POST',
         body: postData,
@@ -13,6 +13,7 @@ function fetchData(postData) {
           }
       })
     .then(response => {
+      hideLoader();
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -24,11 +25,14 @@ function fetchData(postData) {
      
       if (page >= totalPage) {
         document.getElementById('seeMore2').style.display = 'none';
+      }else{
+        document.getElementById('seeMore2').style.display = 'inline-block';
       }
       page++;
       //setupPagination(totalPage, page); // Function to setup pagination buttons
     })
     .catch(error => {
+      hideLoader();
       console.error('Fetching error: ', error);
     });
 }
@@ -85,7 +89,7 @@ function renderData(tourDetailsList) {
 
 
                     <p>${shortOverview}</p>
-                    <h2>${price}</h2>
+                    <h2>₹${price}</h2>
                     
                     <hr>
                     <div class="d-flex align-items-center justify-content-between">
@@ -122,6 +126,7 @@ function fetchDataWithFilter(){
     
   // Array to store checked values
   var category = [];
+  var region = [];
   var duration = [];
   
   // Iterate over checked checkboxes and push their values into the array
@@ -130,8 +135,12 @@ function fetchDataWithFilter(){
   
     if (nameAttribute === 'category') {
       category.push(checkbox.value);
+    } 
+     if (nameAttribute === 'region') {
+      region.push(checkbox.value);
     }
-    else if(nameAttribute === 'duration'){
+    
+    if(nameAttribute === 'duration'){
       const days = checkbox.value.split(',');
       days.forEach(function(day){
         duration.push(day);
@@ -153,6 +162,9 @@ function fetchDataWithFilter(){
   if (category.length !== 0) {
     postData["category"] = category;
   }
+  if (region.length !== 0) {
+    postData["regions"] = region;
+  }
   if (duration.length !== 0) {
     postData["days"] = duration;
   }  
@@ -171,16 +183,74 @@ function fetchDataWithFilter(){
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const filterkKey = params.get('region'); // Get the list ID from the URL
-  
+  generateFilter();
   if (filterkKey) {
     
     let data = {
       'regions': [filterkKey]
     };
-    console.log(data);
+   // console.log(data);
     fetchData(JSON.stringify(data));
   } else {
-    console.log("without");
+    //console.log("without");
     fetchData(JSON.stringify({}));
   }
 });
+
+
+function showLoader() {
+  document.getElementById('loader').style.display = 'block';
+}
+
+function hideLoader() {
+  document.getElementById('loader').style.display = 'none';
+}
+
+function generateFilter(){
+
+  const regionContainer = document.getElementById('region-filter-container');
+  const categoryContainer = document.getElementById('category-filter-container');
+  regionContainer.innerHTML = '';
+  categoryContainer.innerHTML = '';
+  fetch("http://localhost:8080/api/tour/filter-item",)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(list => {
+    filterHtmlRender(categoryContainer, 'category', list.category);
+    filterHtmlRender(regionContainer, 'region', list.region);
+  })
+  .catch(error => {
+    console.error('Fetching error: ', error);
+  });
+
+}
+
+function filterHtmlRender(container, type, items){
+
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'form-check';
+
+    const input = document.createElement('input');
+    input.className = 'form-check-input';
+    input.type = 'checkbox';
+    input.value = item;
+    input.id = `flexCheck${item}`;
+    input.name = type;
+    input.onchange = (event) => fetchDataWithFilter();
+
+    const label = document.createElement('label');
+    label.className = 'form-check-label';
+    label.htmlFor = `flexCheck${item}`;
+    label.textContent = item.charAt(0).toUpperCase() + item.slice(1);
+
+    div.appendChild(input);
+    div.appendChild(label);
+
+    container.appendChild(div);
+});
+}

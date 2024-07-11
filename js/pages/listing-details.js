@@ -435,7 +435,8 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                         <div class="div-test1">
                             <span class="loactions-ts d-block"><i class="fas fa-map-marker-alt"></i> ${item.region}</span>
                             <a href="${redirectHref}" class="titel-cm">${item.name}</a>
-                            <h5>${item.price} <span>per person</span></h5>
+                            <h5>₹${item.price} <span>per person</span></h5>
+                            
                             <hr/>
                             <div class="d-md-flex align-items-center bt-rating justify-content-between">
                                 <span><i class="far fa-clock"></i> ${item.day} D / ${item.night} N</span>
