@@ -12,6 +12,7 @@
         <a href="#edit-tour" onclick="showTab('edit-tour')">Tours</a>
         <a href="#add-date" onclick="showTab('add-date')">Dates</a>
         <a href="#add-date" onclick="showTab('add-ons')">Add Ons</a>
+        <a href="#add-date" onclick="showTab('category-region')">Add Category & Region</a>
        <!-- <a href="#delete-tour" onclick="showTab('delete-tour')">Delete Tour</a> -->
     </div>
     <div class="main-content">
@@ -27,18 +28,14 @@
                 <input type="text" id="name" name="name" required><br><br>
         
                 <label for="region">Region:</label>
-                <input type="text" id="region" name="region"><br><br>
-        
+                <!-- <input type="text" id="region" name="region"> -->
+                
+                <select id="region" name="region" required></select>
+                  <br><br>
                 <label for="category">Category:</label>
-                <select id="category" name="category">
-                    <option value="">Select a category</option>
-                    <option value="wildlife">Wildlife</option>
-                    <option value="holidays">Holidays</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="romantic">Romantic</option>
-                    <option value="vacation">Vacation</option>
-                    <option value="family-tour">Family Tour</option>
-                  </select><br><br>
+                <select id="category" name="category" required></select>
+                  
+                <br><br>
         
                 <label for="type">Type:</label>
                 <select id="type" name="type" >
@@ -259,6 +256,40 @@
         </form>
            
         </div>
+        
+        <div id="category-region" class="tab-content hidden">
+            
+            <form>
+                <label for="selectionFormForCategory">Category</label></br>
+                <div id="selectionFormForCategory">
+                    <!-- Checkboxes will be added here -->
+                </div>
+                
+                <form id="checkboxForm">
+                    <label for="addCategoryInput">Add Category:</label><br>
+                    <input type="text" id="addCategoryInput" name="addCategoryInput" required>
+                    <button type="button" onclick="generateCheckboxes('addCategoryInput', 'selectionFormForCategory')">Add</button>
+                    <button type="button"  onclick="saveCategoryAndRegion()">Save Category</button>
+                </form>
+            </form>
+            <div id="loader"></div>
+            <form>
+                <label for="selectionFormForRegion">Region</label></br>
+                <div id="selectionFormForRegion">
+                    <!-- Checkboxes will be added here -->
+                </div>
+                
+                <form id="checkboxForm">
+                    <label for="addRegionInput">Add Region:</label><br>
+                    <input type="text" id="addRegionInput" name="addRegionInput" required>
+                    <button type="button" onclick="generateCheckboxes('addRegionInput', 'selectionFormForRegion')">Add</button>
+                    <button type="button" onclick="saveCategoryAndRegion()">Save Region</button>
+                </form>
+            </form>
+          
+        
+        </div>
+
         <div id="edit-tour" class="tab-content hidden">
            
             <table id="data-table">
@@ -343,17 +374,10 @@
                 <label for="edit-name">Tour Name:</label>
                 <input type="text" id="edit-name">
                 <label for="edit-region">Region:</label>
-                <input type="text" id="edit-region">
+                <!-- <input type="text" id="edit-region"> -->
+                <select id="edit-region" name="region" required></select>
                 <label for="edit-category">Category:</label>
-                <select id="edit-category" name="category" required>
-                    <option value="">Select a category</option>
-                    <option value="wildlife">Wildlife</option>
-                    <option value="holidays">Holidays</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="romantic">Romantic</option>
-                    <option value="vacation">Vacation</option>
-                    <option value="family-tour">Family Tour</option>
-                  </select>
+                <select id="edit-category" name="category" required></select>
                 <label for="edit-type">Tpye:</label>
                 <select id="edit-type" name="type" required>
                     <option value="">Select a Type</option>
@@ -554,6 +578,7 @@
      <script src="js/script.js"></script>
      <script src="js/itinerary.js"></script>
      <script src="js/edit-itinerary.js"></script>
+     <script src="js/filter.js"></script>
      <script src="js/add-ons.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     
