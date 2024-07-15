@@ -47,13 +47,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="explore.html">Explore</a>
+                <a class="nav-link active" aria-current="page" href="listing.html">Explore</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="discover.html">Discover</a>
+                <a class="nav-link" aria-current="page" href="explore.html">Curated Tours</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="tour-package.html">Tour Packgaes</a>
+                <a class="nav-link" href="discover.html">Top Destinations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tour-package.html">Hot Deals</a>
               </li>
               
               <li class="nav-item">
@@ -194,8 +197,8 @@
                                 <div class="form-group">
                                     <div class="range-slider">
                                         <span class="rangeValues"></span>
-                                        <input value="1000" min="1000" max="50000" step="500" type="range" id="slider1">
-                                        <input value="50000" min="1000" max="50000" step="500" type="range" id="slider2">
+                                        <input value="1000" min="1000" max="2000000" step="500" type="range" id="slider1" onchange="fetchDataWithFilter()">
+                                        <input value="200000" min="1000" max="200000" step="500" type="range" id="slider2" onchange="fetchDataWithFilter()">
                                       </div>
                                 </div>
                             </div>
@@ -210,28 +213,28 @@
                           <div id="panelsStayOpen-collapseThree " class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
                             <div class="accordion-body">
                                 <div class="form-check">
-                                    <input value="1,2,3" class="form-check-input" type="checkbox" value="" id="flexCheckDefault7" name="duration">
+                                    <input value="1,2,3" class="form-check-input" type="checkbox" value="" id="flexCheckDefault7" name="duration" onchange="fetchDataWithFilter()">
                                     <label class="form-check-label" for="flexCheckDefault7">
                                       1-3 Days
                                     </label>
                                 </div>
     
                                 <div class="form-check">
-                                    <input value="3,4,5,6" class="form-check-input" type="checkbox" value="" id="flexCheckDefault8" name="duration">
+                                    <input value="3,4,5,6" class="form-check-input" type="checkbox" value="" id="flexCheckDefault8" name="duration" onchange="fetchDataWithFilter()">
                                     <label class="form-check-label" for="flexCheckDefault8">
                                        3-6 Days
                                     </label>
                                 </div>
     
                                 <div class="form-check">
-                                    <input value="6,7,8,9,10,11,12" class="form-check-input" type="checkbox" value="" id="flexCheckDefault9" name="duration">
+                                    <input value="6,7,8,9,10,11,12" class="form-check-input" type="checkbox" value="" id="flexCheckDefault9" name="duration" onchange="fetchDataWithFilter()">
                                     <label class="form-check-label" for="flexCheckDefault9">
                                        6-12 Days
                                     </label>
                                 </div>
     
                                 <div class="form-check">
-                                    <input value="12,13,14,15,16,17,18,19" class="form-check-input" type="checkbox" value="" id="flexCheckDefault10" name="duration">
+                                    <input value="12,13,14,15,16,17,18,19" class="form-check-input" type="checkbox" value="" id="flexCheckDefault10" name="duration" onchange="fetchDataWithFilter()">
                                     <label class="form-check-label" for="flexCheckDefault10">
                                         12-19 Days
                                     </label>
@@ -327,7 +330,7 @@
                           </div>
                         </div> -->
 
-                        <input onclick="fetchDataWithFilter()" type="submit" class="btn submit-btn" id="listFilter" value="Filter"/>
+                        <!-- <input onclick="fetchDataWithFilter()" type="submit" class="btn submit-btn" id="listFilter" value="Filter"/> -->
                       </div>
 
                     <!-- <div class="d-none d-lg-block">
@@ -532,9 +535,6 @@
  
 
 <footer>
- 
-  
-  
   <div class="footer-link-div float-start">
       <div class="container">
          <div class="row row-cols-1 row-cols-md-2  row-cols-lg-4">
@@ -656,22 +656,25 @@
       
       <div class="mobile-menu-sec mt-3">
          <ul class="list-unstyled">
-            <li >
-               <a href="explore.html" > Explore </a>
-            </li>
-            <li >
-               <a href="discover.html"> Discover </a>
-            </li>
-            
-            <li >
-               <a href="tour-package.html">  Tour Packages  </a>
-            </li>
-            <li>
-               <a href="about.html"> About  </a>
-            </li>
-            <li>
-             <a href="contact.html"> Help & Visas  </a>
-            </li>
+            <li class="active-m">
+              <a href="listing.html"> Explore </a>
+          </li>
+          <li>
+            <a href="explore.html"> Curated Tours </a>
+          </li>
+          <li>
+              <a href="discover.html"> Top Destinations </a>
+          </li>
+          
+          <li>
+              <a href="tour-package.html">  Hot Deals  </a>
+          </li>
+          <li>
+              <a href="about.html"> About  </a>
+          </li>
+          <li>
+            <a href="contact.html"> Help & Visas  </a>
+          </li>
          </ul>
       </div>
       

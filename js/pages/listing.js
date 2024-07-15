@@ -70,7 +70,7 @@ function renderData(tourDetailsList) {
                 <a href="${redirectHref}" class="left-div-list">
                 <figure class="mb-0">
                     <img src="${image}" alt="sm">
-                    <span class="btn-sm strat-r "> 4.5 <i class="fas fa-star"></i> </span> 
+                    <span class="btn-sm strat-r "> ${tourDetails.rating} <i class="fas fa-star"></i> </span> 
                 </figure> 
                 </a>
             

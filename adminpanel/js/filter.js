@@ -88,7 +88,7 @@ function generateFilter(){
         region: region
     };
     
-    fetch('http://localhost:8080/api/tour/filter-item', {
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/filter-item', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 

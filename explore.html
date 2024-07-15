@@ -47,13 +47,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="explore.html">Explore</a>
+                <a class="nav-link" aria-current="page" href="listing.html">Explore</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="discover.html">Discover</a>
+                <a class="nav-link active" aria-current="page" href="explore.html">Curated Tours</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="tour-package.html">Tour Packgaes</a>
+                <a class="nav-link" href="discover.html">Top Destinations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tour-package.html">Hot Deals</a>
               </li>
               
               <li class="nav-item">
@@ -93,13 +96,13 @@
      <div class="banner-content">
        <div class="container">
           <h1 class="text-center">
-            Explore
+            Curated Tours
           </h1>
         
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Explore </li>
+              <li class="breadcrumb-item active" aria-current="page">Curated Tours </li>
             </ol>
           </nav>
 
@@ -117,87 +120,31 @@
         
         <div class="container">
             <h2 class="comon-head-m text-center"> Explore The Best Destinations </h2>
-            
+            <div id="loader"></div>
             <div class="comon-explores-divs1 mt-5">
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <figure>
-                            <img src="images/sea.png" alt="pn"/>
+                            <img src="images/moutain.png" alt="pn"/>
                         </figure>
                     </div>
                     <div class="col-lg-8">
                         <div class="ex-test2">
-                            <h3> Sea Food Explore </h3>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
-                                galley of type and scrambled it to make a type specimen book.</p>
+                            <h3> Adventure Explore </h3>
+                            <p>Embark on a journey with our travel company, where each adventure is a meticulously crafted tale waiting to unfold. From scaling breathtaking peaks to diving into azure waters, our curated experiences promise to ignite your wanderlust.</p>
                             <div class="d-md-flex align-items-center justify-content-between mt-3">
                                 <h5 class="ps-tm"> Popular Tips Near You</h5>
                                 <div class="dt-div-list">
                                     <div class="d-flex align-items-center form-control">
-                                        <i class="fas fa-map-marker-alt"></i><input class="in-dtat ms-2" list="datalistOptions" id="exampleDataList" placeholder="Goa">
+                                        <i class="fas fa-map-marker-alt"></i><input class="in-dtat ms-2" list="datalistOptions" id="adventureDataList" placeholder="Select region" oninput="filterContainerDataList('adventureDataList', 'adventures-container')">
                                     </div>
                                     
-                                    <datalist id="datalistOptions">
-                                    <option value="San Francisco">
-                                    <option value="New York">
-                                    <option value="Seattle">
-                                    <option value="Los Angeles">
-                                    <option value="Chicago">
-                                    </datalist>
+                                    <datalist id="datalistOptions"></datalist>
                                 </div>
                             </div>
 
-                            <div class="slider-nm mt-4">
-                                <div class="comon-expl2 my-3">
-                                    <div class="col-lg-8">
-                                        <h6 class="location-nm"> <i class="fas fa-map-marker-alt"></i> Goa Lorem Ipsum </h6>
-                                        <h5> Lorem Ipsum is simply dummy text of the printing</h5>
-                                        <ul class="list-unstyled mt-0 mb-3 list-sort d-flex">
-                                            <li> <i class="far fa-clock"></i>  2 Days / 3 Nights </li>
-                                            <li class="mx-2 mx-lg-4"> <i class="fas fa-suitcase-rolling"></i> Adventure </li>
-                                            <li> <i class="far fa-user"></i> 23+ Age </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <h6 class="st-m1"> Starting From </h6>
-                                        <h3> $205<span>/perperson</span></h3>
-                                        <button class="btn book-btn1"> Book Now </button>
-                                    </div>
-                                </div>
-
-                                <div class="comon-expl2 my-3">
-                                    <div class="col-lg-8">
-                                        <h6 class="location-nm"> <i class="fas fa-map-marker-alt"></i> France </h6>
-                                        <h5> Lorem Ipsum is simply dummy text of the printing</h5>
-                                        <ul class="list-unstyled mt-0 mb-3 list-sort d-flex">
-                                            <li> <i class="far fa-clock"></i>  2 Days / 3 Nights </li>
-                                            <li class="mx-2 mx-lg-4"> <i class="fas fa-suitcase-rolling"></i> Adventure </li>
-                                            <li> <i class="far fa-user"></i> 23+ Age </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <h6 class="st-m1"> Starting From </h6>
-                                        <h3> $205<span>/perperson</span></h3>
-                                        <button class="btn book-btn1"> Book Now </button>
-                                    </div>
-                                </div>
-
-                                <div class="comon-expl2 my-3">
-                                    <div class="col-lg-8">
-                                        <h6 class="location-nm"> <i class="fas fa-map-marker-alt"></i> Maldivs </h6>
-                                        <h5> Lorem Ipsum is simply dummy text of the printing</h5>
-                                        <ul class="list-unstyled mt-0 mb-3 list-sort d-flex">
-                                            <li> <i class="far fa-clock"></i>  2 Days / 3 Nights </li>
-                                            <li class="mx-2 mx-lg-4"> <i class="fas fa-suitcase-rolling"></i> Adventure </li>
-                                            <li> <i class="far fa-user"></i> 23+ Age </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <h6 class="st-m1"> Starting From </h6>
-                                        <h3> $205<span>/perperson</span></h3>
-                                        <button class="btn book-btn1"> Book Now </button>
-                                    </div>
-                                </div>
+                            <div class="slider-nm mt-4" id="adventures-container">
+                               
 
                             </div>
                         </div>
@@ -206,86 +153,29 @@
             </div>
 
         </div>
-
+        
         <div class="explores-divb2 py-5 mt-5">
              <div class="container">
                 <div class="comon-explores-divs1 mt-5">
                     <div class="row align-items-center flex-column-reverse flex-lg-row">
-                        
+                      
                         <div class="col-lg-8">
                             <div class="ex-test2">
-                                <h3> Jungle Safari Explore </h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
-                                    galley of type and scrambled it to make a type specimen book.</p>
+                                <h3> Wildlife Explore </h3>
+                                <p>Delve into the heart of diverse ecosystems, from lush rainforests teeming with exotic birds to sprawling savannas where majestic elephants roam. Led by knowledgeable guides, our tours offer intimate encounters with iconic species and elusive creatures alike.</p>
                                 <div class="d-md-flex align-items-center justify-content-between mt-3">
                                     <h5 class="ps-tm"> Popular Tips Near You</h5>
                                     <div class="dt-div-list">
                                         <div class="d-flex align-items-center form-control">
-                                            <i class="fas fa-map-marker-alt"></i><input class="in-dtat ms-2" list="datalistOptions" id="exampleDataList" placeholder="Goa">
+                                            <i class="fas fa-map-marker-alt"></i><input class="in-dtat ms-2" list="datalistOptions" id="wilflifeDataList" placeholder="Select region" oninput="filterContainerDataList('wilflifeDataList', 'wildlife-container')">
                                         </div>
                                         
-                                        <datalist id="datalistOptions">
-                                        <option value="San Francisco">
-                                        <option value="New York">
-                                        <option value="Seattle">
-                                        <option value="Los Angeles">
-                                        <option value="Chicago">
-                                        </datalist>
+                                        <datalist id="datalistOptions"></datalist>
                                     </div>
                                 </div>
     
-                                <div class="slider-nm mt-4">
-                                    <div class="comon-expl2 my-3">
-                                        <div class="col-lg-8">
-                                            <h6 class="location-nm"> <i class="fas fa-map-marker-alt"></i> Goa Lorem Ipsum </h6>
-                                            <h5> Lorem Ipsum is simply dummy text of the printing</h5>
-                                            <ul class="list-unstyled mt-0 mb-3 list-sort d-flex">
-                                                <li> <i class="far fa-clock"></i>  2 Days / 3 Nights </li>
-                                                <li class="mx-2 mx-lg-4"> <i class="fas fa-suitcase-rolling"></i> Adventure </li>
-                                                <li> <i class="far fa-user"></i> 23+ Age </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h6 class="st-m1"> Starting From </h6>
-                                            <h3> $205<span>/perperson</span></h3>
-                                            <button class="btn book-btn1"> Book Now </button>
-                                        </div>
-                                    </div>
-    
-                                    <div class="comon-expl2 my-3">
-                                        <div class="col-lg-8">
-                                            <h6 class="location-nm"> <i class="fas fa-map-marker-alt"></i> France </h6>
-                                            <h5> Lorem Ipsum is simply dummy text of the printing</h5>
-                                            <ul class="list-unstyled mt-0 mb-3 list-sort d-flex">
-                                                <li> <i class="far fa-clock"></i>  2 Days / 3 Nights </li>
-                                                <li class="mx-2 mx-lg-4"> <i class="fas fa-suitcase-rolling"></i> Adventure </li>
-                                                <li> <i class="far fa-user"></i> 23+ Age </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h6 class="st-m1"> Starting From </h6>
-                                            <h3> $205<span>/perperson</span></h3>
-                                            <button class="btn book-btn1"> Book Now </button>
-                                        </div>
-                                    </div>
-    
-                                    <div class="comon-expl2 my-3">
-                                        <div class="col-lg-8">
-                                            <h6 class="location-nm"> <i class="fas fa-map-marker-alt"></i> Maldivs </h6>
-                                            <h5> Lorem Ipsum is simply dummy text of the printing</h5>
-                                            <ul class="list-unstyled mt-0 mb-3 list-sort d-flex">
-                                                <li> <i class="far fa-clock"></i>  2 Days / 3 Nights </li>
-                                                <li class="mx-2 mx-lg-4"> <i class="fas fa-suitcase-rolling"></i> Adventure </li>
-                                                <li> <i class="far fa-user"></i> 23+ Age </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h6 class="st-m1"> Starting From </h6>
-                                            <h3> $205<span>/perperson</span></h3>
-                                            <button class="btn book-btn1"> Book Now </button>
-                                        </div>
-                                    </div>
-    
+                                <div class="slider-nm mt-4" id="wildlife-container">
+                                    
                                 </div>
                             </div>
                         </div>
@@ -305,82 +195,26 @@
                     <div class="row align-items-center">
                         <div class="col-lg-4">
                             <figure>
-                                <img src="images/moutain.png" alt="pn"/>
+                                <img src="images/sea.png" alt="pn"/>
                             </figure>
                         </div>
                         <div class="col-lg-8">
                             <div class="ex-test2">
-                                <h3> Mountain Hills Explore </h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a 
-                                    galley of type and scrambled it to make a type specimen book.</p>
+                                <h3> Sea Food Explore </h3>
+                                <p>Dive into a tantalizing world of seafood exploration with our specialized itineraries. From coastal delicacies to exotic marine treasures, each journey is a culinary odyssey designed to satisfy the most discerning palate.</p>
                                 <div class="d-md-flex align-items-center justify-content-between mt-3">
                                     <h5 class="ps-tm"> Popular Tips Near You</h5>
                                     <div class="dt-div-list">
                                         <div class="d-flex align-items-center form-control">
-                                            <i class="fas fa-map-marker-alt"></i><input class="in-dtat ms-2" list="datalistOptions" id="exampleDataList" placeholder="Goa">
+                                            <i class="fas fa-map-marker-alt"></i><input class="in-dtat ms-2" list="datalistOptions" id="seaDataList" placeholder="Select region"  oninput="filterContainerDataList('seaDataList', 'seafood-container')">
                                         </div>
                                         
-                                        <datalist id="datalistOptions">
-                                        <option value="San Francisco">
-                                        <option value="New York">
-                                        <option value="Seattle">
-                                        <option value="Los Angeles">
-                                        <option value="Chicago">
-                                        </datalist>
+                                        <datalist id="datalistOptions"></datalist>
                                     </div>
                                 </div>
     
-                                <div class="slider-nm mt-4">
-                                    <div class="comon-expl2 my-3">
-                                        <div class="col-lg-8">
-                                            <h6 class="location-nm"> <i class="fas fa-map-marker-alt"></i> Goa Lorem Ipsum </h6>
-                                            <h5> Lorem Ipsum is simply dummy text of the printing</h5>
-                                            <ul class="list-unstyled mt-0 mb-3 list-sort d-flex">
-                                                <li> <i class="far fa-clock"></i>  2 Days / 3 Nights </li>
-                                                <li class="mx-2 mx-lg-4"> <i class="fas fa-suitcase-rolling"></i> Adventure </li>
-                                                <li> <i class="far fa-user"></i> 23+ Age </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h6 class="st-m1"> Starting From </h6>
-                                            <h3> $205<span>/perperson</span></h3>
-                                            <button class="btn book-btn1"> Book Now </button>
-                                        </div>
-                                    </div>
-    
-                                    <div class="comon-expl2 my-3">
-                                        <div class="col-lg-8">
-                                            <h6 class="location-nm"> <i class="fas fa-map-marker-alt"></i> France </h6>
-                                            <h5> Lorem Ipsum is simply dummy text of the printing</h5>
-                                            <ul class="list-unstyled mt-0 mb-3 list-sort d-flex">
-                                                <li> <i class="far fa-clock"></i>  2 Days / 3 Nights </li>
-                                                <li class="mx-2 mx-lg-4"> <i class="fas fa-suitcase-rolling"></i> Adventure </li>
-                                                <li> <i class="far fa-user"></i> 23+ Age </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h6 class="st-m1"> Starting From </h6>
-                                            <h3> $205<span>/perperson</span></h3>
-                                            <button class="btn book-btn1"> Book Now </button>
-                                        </div>
-                                    </div>
-    
-                                    <div class="comon-expl2 my-3">
-                                        <div class="col-lg-8">
-                                            <h6 class="location-nm"> <i class="fas fa-map-marker-alt"></i> Maldivs </h6>
-                                            <h5> Lorem Ipsum is simply dummy text of the printing</h5>
-                                            <ul class="list-unstyled mt-0 mb-3 list-sort d-flex">
-                                                <li> <i class="far fa-clock"></i>  2 Days / 3 Nights </li>
-                                                <li class="mx-2 mx-lg-4"> <i class="fas fa-suitcase-rolling"></i> Adventure </li>
-                                                <li> <i class="far fa-user"></i> 23+ Age </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h6 class="st-m1"> Starting From </h6>
-                                            <h3> $205<span>/perperson</span></h3>
-                                            <button class="btn book-btn1"> Book Now </button>
-                                        </div>
-                                    </div>
+                                <div class="slider-nm mt-4" id="seafood-container">
+                                    
     
                                 </div>
                             </div>
@@ -414,108 +248,105 @@
 
  
 <footer>
- 
-  
-  
   <div class="footer-link-div float-start">
-      <div class="container">
-         <div class="row row-cols-1 row-cols-md-2  row-cols-lg-4">
-            <div class="col">
-               <div class="comon-footer-div pt-4">
-                   <a href="#">
-                      <img src="images/logo.png" alt="logo"/>
-                   </a>
-                   <p class="mt-2"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+    <div class="container">
+       <div class="row row-cols-1 row-cols-md-2  row-cols-lg-4">
+          <div class="col">
+             <div class="comon-footer-div pt-4">
+                 <a href="#">
+                    <img src="images/logo.png" alt="logo"/>
+                 </a>
+                 <p class="mt-2">  Providing exceptional travel experiences since 2011. We are committed to delivering quality service and unforgettable journeys tailored to your dreams.</p>
                  
-                   <ul class="m-0 mt-2 list-unstyled d-flex">
-                    <li>
-                      <a href="#"> <i class="fab fa-facebook"></i> </a>
-                    </li>
-                    <li class="mx-3">
-                     <a href="#"> <i class="fab fa-twitter"></i> </a>
-                     
-                    </li>
-                    <li>
-                     <a href="#"> <i class="fab fa-instagram"></i> </a>
-                     
-                    </li>
-                  </ul>
-               </div>
-            </div>
-            <div class="col">
-              <div class="comon-footer-div pt-4 d-grid justify-content-md-center">
-                  <h5 class="text-white">UseFull Links
-                  </h5>
-                  <ul class="list-unstyled mt-4">
-                    <li>
-                      <a href="#"> <i class="fas fa-angle-right"></i>  About </a>
-                    </li>
-                    <li>
-                      <a href="#"> <i class="fas fa-angle-right"></i> Discover
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#"> <i class="fas fa-angle-right"></i> Explore
-                      </a>
-                    </li>
-                    
+                 <ul class="m-0 mt-2 list-unstyled d-flex">
+                  <li>
+                    <a href="#"> <i class="fab fa-facebook"></i> </a>
+                  </li>
+                  <li class="mx-3">
+                   <a href="#"> <i class="fab fa-twitter"></i> </a>
                    
-                  </ul>
-              </div>
-            </div>
-            <div class="col">
-              <div class="comon-footer-div pt-4 justify-content-md-start  d-grid">
-                  <h5 class="text-white">Support Links</h5>
-                  <ul class="list-unstyled mt-4 no-code-div">
-                    <li>
-                      <a href="#"> <i class="fas fa-angle-right"></i> Help
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#"> <i class="fas fa-angle-right"></i> Terms & Condition
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#"> <i class="fas fa-angle-right"></i> Ask & Qusetion
-                      </a>
-                    </li>
-
+                  </li>
+                  <li>
+                   <a href="#"> <i class="fab fa-instagram"></i> </a>
                    
-                 
-                  </ul>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="comon-footer-div pt-4 d-grid justify-content-md-end">
-                <h5 class="text-white">Contact
-                </h5>
-                  <ul class="contact-link list-unstyled mt-4">
-                    <li> <i class="fas fa-map-marker-alt"></i> <span>1800 Washington Blvd, Suite #421
-                   </span> </li>
-                 
-                    <li> <i class="fas fa-map-marker-alt"></i> <span> Baltimore, MD 21230 
-                   </span> </li>
-                   <li> <i class="fas fa-phone-alt"></i> <span> 410.277.9781
-                   </span> </li>
-                   <li><i class="fas fa-envelope"></i> <span>  contactus@archsystemsinc.com </span> </li>
-                   
-
-                  </ul>
-                
-                
-              </div>
-           </div>
-           
-         </div>
-         <hr/>
-          <div class="d-lg-flex justify-content-center">
-            <p class="text-center text-white"> Copyright © 2022 Travel Agency. All Rights Reserved.</p>
-            
+                  </li>
+                </ul>
+             </div>
           </div>
-      </div>
-      
-  </div>
+          <div class="col">
+            <div class="comon-footer-div pt-4 d-grid justify-content-md-center">
+                <h5 class="text-white">UseFull Links
+                </h5>
+                <ul class="list-unstyled mt-4">
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i>  About </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Discover
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Explore
+                    </a>
+                  </li>
+                  
+                 
+                </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="comon-footer-div pt-4 justify-content-md-start  d-grid">
+                <h5 class="text-white">Support Links</h5>
+                <ul class="list-unstyled mt-4 no-code-div">
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Help
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Terms & Condition
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Ask & Qusetion
+                    </a>
+                  </li>
+
+                 
+               
+                </ul>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="comon-footer-div pt-4 d-grid justify-content-md-end">
+              <h5 class="text-white">Contact
+              </h5>
+              <ul class="contact-link list-unstyled mt-4">
+                <li> <i class="fas fa-map-marker-alt"></i> <span>303, Spaze Itech Park, Sector 49
+               </span> </li>
+             
+                <li> <i class="fas fa-map-marker-alt"></i> <span> Gurgaon, Haryana 
+               </span> </li>
+               <li> <i class="fas fa-phone-alt"></i> <span> 9818313631
+               </span> </li>
+               <li><i class="fas fa-envelope"></i> <span>  info@xyzholidays.com </span> </li>
+               
+
+              </ul>
+              
+              
+            </div>
+         </div>
+         
+       </div>
+       <hr/>
+        <div class="d-lg-flex justify-content-center">
+          <p class="text-center text-white"> Copyright © 2022 Travel Agency. All Rights Reserved.</p>
+          
+        </div>
+    </div>
+    
+</div>
 </footer>
 
 
@@ -536,22 +367,25 @@
       
       <div class="mobile-menu-sec mt-3">
          <ul class="list-unstyled">
-            <li>
-               <a href="explore.html"> Explore </a>
-            </li>
-            <li>
-               <a href="discover.html"> Discover </a>
-            </li>
-            
-            <li>
-               <a href="tour-package.html">  Tour Packages  </a>
-            </li>
-            <li>
-               <a href="about.html"> About  </a>
-            </li>
-            <li>
-             <a href="contact.html"> Help & Visas  </a>
-            </li>
+          <li>
+              <a href="listing.html"> Explore </a>
+          </li>
+          <li class="active-m">
+            <a href="explore.html"> Curated Tours </a>
+          </li>
+          <li>
+              <a href="discover.html"> Top Destinations </a>
+          </li>
+          
+          <li>
+              <a href="tour-package.html">  Hot Deals  </a>
+          </li>
+          <li>
+              <a href="about.html"> About  </a>
+          </li>
+          <li>
+            <a href="contact.html"> Help & Visas  </a>
+          </li>
          </ul>
       </div>
       
@@ -733,21 +567,24 @@
       <div class="mobile-menu-sec mt-3">
          <ul class="list-unstyled">
             <li class="active-m">
-               <a href="explore.html" > Explore </a>
+                <a href="listing.html"> Explore </a>
+             </li>
+             <li class="active-m">
+               <a href="explore.html"> Curated Tours </a>
             </li>
-            <li>
-               <a href="discover.html"> Discover </a>
-            </li>
-            
-            <li>
-               <a href="tour-package.html">  Tour Packages  </a>
-            </li>
-            <li>
-               <a href="about.html"> About  </a>
-            </li>
-            <li>
-             <a href="contact.html"> Help & Visas  </a>
-            </li>
+             <li>
+                <a href="discover.html"> Top Destinations </a>
+             </li>
+             
+             <li>
+                <a href="tour-package.html">  Hot Deals  </a>
+             </li>
+             <li>
+                <a href="about.html"> About  </a>
+             </li>
+             <li>
+              <a href="contact.html"> Help & Visas  </a>
+             </li>
          </ul>
       </div>
       
@@ -769,6 +606,7 @@
 <!-- Owl Carousel -->
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/pages/explore.js"></script>
 <script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script>
 <script>
     AOS.init({

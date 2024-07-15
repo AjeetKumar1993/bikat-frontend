@@ -36,18 +36,22 @@ function fetchData(tourID){
 
 
       const tourImageId = document.getElementById("tourImage");
+      tourImageId.innerHTML = '';
       tourImageId.innerHTML += `<img src="${image}" class="d-block w-100" alt="...">`;
       
       // region
       const regionId = document.getElementById("region");
+      regionId.innerHTML = '';
       regionId.innerHTML += `<i class="fas fa-map-marker-alt"></i> ${region}`;
       // tour_heading
       const tourHeadingId = document.getElementById("tour_heading");
+      tourHeadingId.innerHTML = '';
       tourHeadingId.innerHTML += `<h2 class="comon-head-m mt-2 mb-5"> ${name} </h2>`;
       tourHeadingId.innerHTML += `<h3 class="tour-price"> ₹${price} <span>+${gst}% GST (${priceFromTo})  </span> </h3>`;
 
       // tour_type
       const tourTypeId = document.getElementById("tour_type");
+      tourTypeId.innerHTML = '';
       tourTypeId.innerHTML += `<li> <i class="far fa-clock"></i> ${day} Days / ${night} Nights</li>`;
       tourTypeId.innerHTML += `<li  class="mx-2 mx-md-2 mx-lx-4"> <i class="fas fa-tachometer-alt"></i> ${category}</li>`;
       tourTypeId.innerHTML += `<li> <i class="far fa-user"></i> ${minimumAge}+ Age</li>`;
@@ -57,11 +61,14 @@ function fetchData(tourID){
       
       // overview
       const overviewId = document.getElementById("overview");
+      overviewId.innerHTML = '';
       overviewId.innerHTML += `${overview}`;
       
       // Inclusion
       const inclusionId = document.getElementById("inclusions");
+      inclusionId.innerHTML = '';
       const inclusionList = tourDetails.inclusion;
+      inclusionId.innerHTML = '';
       inclusionList.forEach(inclusion => {
         inclusionId.innerHTML += `<li> <i class="far fa-check-circle"></i> ${inclusion}</li>`;
       });
@@ -69,12 +76,14 @@ function fetchData(tourID){
       // Exclusion
       const exclusionId = document.getElementById("exclusions");
       const exclusionList = tourDetails.exclusion;
+      exclusionId.innerHTML = '';
       exclusionList.forEach(exclusion => {
         exclusionId.innerHTML += `<li> <i class="far fa-check-circle"></i> ${exclusion}</li>`;
       });
       // Highlist
       const highlightId = document.getElementById("highlight");
       const highlightList = tourDetails.highlight;
+      highlightId.innerHTML = '';
       highlightList.forEach(highlight => {
         highlightId.innerHTML += `<li> <i class="far fa-check-circle"></i> ${highlight}</li>`;
       });
@@ -82,6 +91,7 @@ function fetchData(tourID){
       // Highlist
       const packingListId = document.getElementById("packingList");
       const packingList = tourDetails.packingList;
+      packingListId.innerHTML = '';
       packingList.forEach(packingList => {
         packingListId.innerHTML += `<li> <i class="far fa-check-circle"></i> ${packingList}</li>`;
       });
@@ -95,6 +105,7 @@ function fetchData(tourID){
         
         if(!isMonthPassed(key)){
           const summaryMonth = document.getElementById("dateMonth");
+          summaryMonth.innerHTML = '';
           summaryMonth.innerHTML += ` <details class="month">
                     <summary>${key}</summary>
                     <ul class="date-list" id="${key}">
@@ -104,7 +115,9 @@ function fetchData(tourID){
           let entriesVal = Object.entries(val)
 
           let data = entriesVal.map( ([dateKey, val] = entry) => {
+            
             const datesList = document.getElementById(key);
+            datesList.innerHTML = '';
             const fromDate = new Date(val.from);
             const toDate = new Date(val.to);
             localStorage.setItem("dateid_"+val.id, val.from +" - "+ val.to);  
@@ -135,6 +148,7 @@ function fetchData(tourID){
       }
       count++;
         
+      tourPlanId.innerHTML = '';
       tourPlanId.innerHTML += `
       <div class="accordion-item">
                           <h2 class="accordion-header" id="heading${countWord}">
@@ -156,6 +170,7 @@ function fetchData(tourID){
 
             val.otherDetails.forEach(otherDetails =>{
               const tourPlanOtherDetailsId = document.getElementById("tourPlanOtherDetails".concat(countWord));
+              tourPlanOtherDetailsId.innerHTML = '';
               tourPlanOtherDetailsId.innerHTML += `<li>  <i class="far fa-check-circle"></i> ${otherDetails} </li> `;
       
             })
@@ -165,6 +180,7 @@ function fetchData(tourID){
      
       // gallery
       const galleryId = document.getElementById("gallery");
+      galleryId.innerHTML = '';
       const galleryLIst = tourDetails.gallery;
       galleryLIst.forEach(gallery => {
         galleryId.innerHTML += `<div class="col">
@@ -177,9 +193,10 @@ function fetchData(tourID){
       });
       
       const locationId = document.getElementById("location");
+      locationId.innerHTML = '';
       locationId.innerHTML += `<iframe src="${tourDetails.location}" width="100%" height="300" frameborder="0" style="border:0"></iframe>`;
 
-      
+       
 
 
     })
@@ -346,7 +363,11 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   });
   
   document.addEventListener('DOMContentLoaded', function() {
-    // Replace with your backend API URL
+    loadCarouselItems();
+    loadCommnets();
+   });
+
+  function loadCommnets(){
     const apiURL = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/comments';
 
     // Fetch comments from the backend API
@@ -354,7 +375,7 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         .then(response => response.json())
         .then(data => {
             const commentsContainer = document.getElementById('comments-container');
-            
+            commentsContainer.innerHTML = '';
             data.comments.forEach(comment => {
                 // Create the comment HTML structure
                 const commentDiv = document.createElement('div');
@@ -406,9 +427,8 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         .catch(error => {
             console.error('Error fetching comments:', error);
         });
-});
 
-
+  }
 
  function loadCarouselItems() {
   try {
@@ -419,6 +439,7 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
       return response.json();
     }).then(data => {
         let carouselContainer = document.getElementById('carousel-container');
+        carouselContainer.innerHTML = '';
         let html = ` <div class="linke-aloso owl-carousel owl-theme mt-4">`;
           
           data.tours.forEach(item => {
@@ -434,8 +455,8 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                         <a class="wish-list"><i class="fas fa-heart"></i></a>
                         <div class="div-test1">
                             <span class="loactions-ts d-block"><i class="fas fa-map-marker-alt"></i> ${item.region}</span>
-                            <a href="${redirectHref}" class="titel-cm">${item.name}</a>
-                            <h5>₹${item.price} <span>per person</span></h5>
+                            <span onclick="update_data('${item.tourId}')" class="titel-cm">${item.name}</span>
+                            <h5>₹${item.price}</h5>
                             
                             <hr/>
                             <div class="d-md-flex align-items-center bt-rating justify-content-between">
@@ -482,11 +503,17 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
     console.error('Error loading carousel items:', error);
   }
 }
+function update_data(tourId){
+ 
 
-// Load carousel items on page load
-document.addEventListener('DOMContentLoaded', loadCarouselItems);
+  fetchData(tourId);
+  history.pushState({}, '', `listing-details.html?listId=${tourId}`);
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
-
+  loadCarouselItems();
+  loadCommnets();
+}
 
 
 function bookTour (){
