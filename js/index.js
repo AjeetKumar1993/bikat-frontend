@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
           let html = ` <div class="service-slider owl-carousel owl-theme">`;
           
           data.forEach(option => {
+              
+              if(option.shortOverview == null){
+                option.shortOverview = "";
+              }
               let shortOverview = option.shortOverview;
               if (option.shortOverview.length >= 30) {
                   shortOverview = option.shortOverview.substring(0, 30)+"...";
@@ -20,9 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 name = option.name.substring(0, 25)+"...";
               }
               
-              localStorage.setItem('tourID_'+option.tourId, option.id);
-              redirectHref = `listing-details.html?listId=${option.tourId}`;
-              
+              //localStorage.setItem('tourID_'+option.tourId, option.id);
+              redirectHref = `tours/`+option.tourId;
               html += `<div class="comon-items-week">
                   <figure>
                       <img src="https://storage.googleapis.com/bikat_adventure_image/${option.tourImage}" alt="png2"/>

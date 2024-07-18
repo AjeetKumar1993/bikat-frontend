@@ -13,6 +13,7 @@
         <a href="#add-date" onclick="showTab('add-date')">Dates</a>
         <a href="#add-date" onclick="showTab('add-ons')">Add Ons</a>
         <a href="#add-date" onclick="showTab('category-region')">Add Category & Region</a>
+        <a href="#add-date" onclick="showTab('gallery-items')">Gallery</a>
        <!-- <a href="#delete-tour" onclick="showTab('delete-tour')">Delete Tour</a> -->
     </div>
     <div class="main-content">
@@ -288,6 +289,44 @@
             </form>
           
         
+        </div>
+        <div id="gallery-items" class="tab-content hidden">
+            <form>
+                <div class="group-header-container">
+                    <div class="group-header" onclick="toggleGroup('destinations')">Destinations</div>
+                    <div class="group-header" onclick="toggleGroup('activities')">Activities</div>
+                    <div class="group-header" onclick="toggleGroup('properties')">Properties</div>
+                    <div class="group-header" onclick="toggleGroup('new-gallery')">Add Gallery</div>
+                </div> 
+                <div id="destinations" class="form-group" style="display: block;">
+                    <h2>Destinations</h2> </br></br> 
+                    <div id="destinations-gallery-container"></div></br>
+                </div>   
+                <div id="activities" class="form-group" style="display: none;">
+                    <h2>Activities</h2> </br></br>
+                    <div id="activities-gallery-container"></div></br>
+                </div>  
+                <div id="properties" class="form-group" style="display: none;">
+                    <h2>Properties</h2> </br></br>
+                    <div id="properties-gallery-container"></div></br>
+                </div> 
+                <div id="new-gallery" class="form-group" style="display: none;">
+                    <h2>Add Gallery</h2> </br></br>
+                    <label for="gallery-category">Category:</label>
+                    <select id="gallery-category" name="gallery-category" required></select>
+                    </br></br>
+                    <label for="gallery-location">Location:</label>
+                    <select id="gallery-location" name="gallery-location" required></select>
+                    </br></br>
+                
+                    <label for="gallery">Select Images:</label><span id="gallerStatusIcon" class="status-icon">&#10004;</span>
+                    <input type="file" id="newTourImages" name="newTourImages" accept="image/*" multiple onchange="newPreviewImages(event)" required><br>
+                    <div id="newImagePreviewContainer" class="image-preview-container"></div><br>
+                    <button type="button" onclick="uploadTourImages()">Upload Images</button><br><br>
+                    
+                    <button type="button" onclick="uploadGallery()">Save</button>
+                </div> 
+            </form> 
         </div>
 
         <div id="edit-tour" class="tab-content hidden">
@@ -580,6 +619,7 @@
      <script src="js/edit-itinerary.js"></script>
      <script src="js/filter.js"></script>
      <script src="js/add-ons.js"></script>
+     <script src="js/gallery.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     
 </body>

@@ -1,9 +1,8 @@
-var tourId = '';
+
 function fetchData(tourID){
   
-  let id =  localStorage.getItem('tourID_'+tourID);
-  tourId = id;
-  const apiEndpoint = `https://decent-line-423710-m0.de.r.appspot.com/api/tour/${id}`;
+
+  const apiEndpoint = `https://decent-line-423710-m0.de.r.appspot.com/api/tour/tour-id/${tourID}`;
   
   fetch(apiEndpoint, { 
       method: 'GET'
@@ -12,9 +11,10 @@ function fetchData(tourID){
       return response.json();
     }).then(tourDetails => {
       // use the json
-    
-      document.getElementById('bookNowBtn').dataset.id = id;
-      localStorage.setItem(id, JSON.stringify(tourDetails));
+
+      document.getElementById('bookNowBtn').dataset.id = tourDetails.id;
+      document.getElementById('reviewForm').dataset.id = tourDetails.id;
+      localStorage.setItem(tourDetails.id, JSON.stringify(tourDetails));
 
       let image = "images/bg-how.jpg";
       if(tourDetails.tourImage !== null){
@@ -197,7 +197,7 @@ function fetchData(tourID){
       locationId.innerHTML += `<iframe src="${tourDetails.location}" width="100%" height="300" frameborder="0" style="border:0"></iframe>`;
 
        
-
+     
 
     })
     .catch(error => console.log(error));
@@ -217,18 +217,37 @@ function fetchData(tourID){
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const listId = params.get('listId'); // Get the list ID from the URL
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const listId = params.get('listId'); // Get the list ID from the URL
+  if (listId) {
+    fetchData(listId);
+    loadCarouselItems(listId);
+    loadCommnets(listId);
+
+  } else {
+    const tourId = window.location.pathname.substring(7); // Remove the leading '/'
+    
+    // Check if the path exists in our mapping
+    if (tourId) {
+        //const listId = pathToListId[path];
+        // Call the API with the mapped listId
+    
+        fetchData(tourId);
+        loadCarouselItems(tourId);
+        loadCommnets(tourId);
   
-    if (listId) {
-      fetchData(listId);
     } else {
-      // Handle the case where no list ID is provided in the URL
-      window.location.href = 'listing.html'; // Redirect back to the listing page
+        // Redirect back to the listing page
+      window.location.href = 'listing.html';
     }
-  });
+
+
+  }
+
+});
+
 
   function itineraryCalculator(count){
     const countWord = intToEnglish(count);
@@ -338,7 +357,7 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
           email: document.getElementById('email').value,
           comment: document.getElementById('reviewText').value
       };
-     
+      const tourId = document.getElementById('reviewForm').dataset.id;
       fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/comments', {
           method: 'POST',
           headers: {
@@ -362,12 +381,10 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
       });
   });
   
-  document.addEventListener('DOMContentLoaded', function() {
-    loadCarouselItems();
-    loadCommnets();
-   });
 
-  function loadCommnets(){
+
+  function loadCommnets(tourId){
+
     const apiURL = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/comments';
 
     // Fetch comments from the backend API
@@ -430,7 +447,8 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 
   }
 
- function loadCarouselItems() {
+ function loadCarouselItems(tourId) {
+
   try {
     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/tour-suggestion', { 
       method: 'GET'
@@ -444,9 +462,8 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
           
           data.tours.forEach(item => {
               
-              localStorage.setItem('tourID_'+item.tourId, item.id);
-              redirectHref = `listing-details.html?listId=${item.tourId}`;
-              
+              //localStorage.setItem('tourID_'+item.tourId, item.id);
+              redirectHref = `tours/`+item.tourId;
               html +=`<div class="comon-items-week">
 
                         <figure>
@@ -507,7 +524,7 @@ function update_data(tourId){
  
 
   fetchData(tourId);
-  history.pushState({}, '', `listing-details.html?listId=${tourId}`);
+  history.pushState({}, '',  `tours/${tourId}`);
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
