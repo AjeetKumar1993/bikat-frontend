@@ -49,8 +49,8 @@ function renderData(tourDetailsList) {
         if(tourDetails.shortOverview.length >= 150){
             tourDetails.shortOverview = tourDetails.shortOverview.substring(0, 100) + "...";
         }
-        //localStorage.setItem('tourID_'+tourDetails.tourId, tourDetails.id);
-        redirectHref = `tours/`+tourDetails.tourId;
+       
+        redirectHref = `tours/${tourDetails.slug}`;
 
         let image = "images/bg-how.jpg";
         if(tourDetails.tourImage !== null){

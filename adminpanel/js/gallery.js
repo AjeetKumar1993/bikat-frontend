@@ -127,7 +127,7 @@ function uploadGallery() {
 
 }
 
-async function uploadTourImages(){
+async function uploadTourGallery(){
  
     const formData = new FormData();
     var imagesInput = document.getElementById('newTourImages');

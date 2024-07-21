@@ -93,3 +93,49 @@ let dayCounts = {
     day15Count: 0,
   };
 
+
+  document.getElementById('itineraryForm').addEventListener('submit', async function(event) {
+
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    
+    const data = {
+
+       
+        tourId: formData.get('product-slug-container'),
+        titile: formData.get('product_title'),
+        location: formData.get('load_location'),
+        dayNumber: formData.get('dayNumber'),
+        description: formData.get('description'),
+        wikiParsedDescription: formData.get('wikiDescription'),
+        isLeisureDay: formData.get('isLeisureDay') === 'on',
+       
+    };
+ 
+       
+    console.log(data);
+    await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        
+        if(!result.ok){
+            alert('Failed: '+ result.errorMessage);
+            return;
+        }
+        alert('Itinerary submitted successfully!');
+       // handleCheckboxChange(result.id);
+    })
+    .catch(error => {
+		console.log('Error:'+ error);
+        console.error('Error:', error);
+        console.log('Error submitting form!');
+    });
+
+  });

@@ -1,8 +1,8 @@
 
-function fetchData(tourID){
+function fetchData(slug){
   
 
-  const apiEndpoint = `https://decent-line-423710-m0.de.r.appspot.com/api/tour/tour-id/${tourID}`;
+  const apiEndpoint = `https://decent-line-423710-m0.de.r.appspot.com/api/tour/tour-id/${slug}`;
   
   fetch(apiEndpoint, { 
       method: 'GET'
@@ -218,33 +218,23 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
 document.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const listId = params.get('listId'); // Get the list ID from the URL
 
-  if (listId) {
-    fetchData(listId);
-    loadCarouselItems(listId);
-    loadCommnets(listId);
-
-  } else {
-    const tourId = window.location.pathname.substring(7); // Remove the leading '/'
+    const slug = window.location.pathname.substring(7); // Remove the leading '/'
     
     // Check if the path exists in our mapping
-    if (tourId) {
+    if (slug) {
         //const listId = pathToListId[path];
         // Call the API with the mapped listId
     
-        fetchData(tourId);
-        loadCarouselItems(tourId);
-        loadCommnets(tourId);
+        fetchData(slug);
+        loadCarouselItems(slug);
+        loadCommnets(slug);
   
     } else {
         // Redirect back to the listing page
       window.location.href = 'listing.html';
     }
 
-
-  }
 
 });
 
@@ -357,8 +347,8 @@ document.addEventListener('DOMContentLoaded', () => {
           email: document.getElementById('email').value,
           comment: document.getElementById('reviewText').value
       };
-      const tourId = document.getElementById('reviewForm').dataset.id;
-      fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/comments', {
+      const id = document.getElementById('reviewForm').dataset.id;
+      fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/comments', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -383,9 +373,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
 
-  function loadCommnets(tourId){
+  function loadCommnets(slug){
 
-    const apiURL = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/comments';
+    const apiURL = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+slug+'/comments';
 
     // Fetch comments from the backend API
     fetch(apiURL)
@@ -447,10 +437,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
- function loadCarouselItems(tourId) {
+ function loadCarouselItems(slug) {
 
   try {
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/tour-suggestion', { 
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+slug+'/tour-suggestion', { 
       method: 'GET'
     })
     .then(response =>  { 
@@ -461,9 +451,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = ` <div class="linke-aloso owl-carousel owl-theme mt-4">`;
           
           data.tours.forEach(item => {
-              
-              //localStorage.setItem('tourID_'+item.tourId, item.id);
-              redirectHref = `tours/`+item.tourId;
+            
+              redirectHref = `tours/`+item.slug;
               html +=`<div class="comon-items-week">
 
                         <figure>
@@ -472,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a class="wish-list"><i class="fas fa-heart"></i></a>
                         <div class="div-test1">
                             <span class="loactions-ts d-block"><i class="fas fa-map-marker-alt"></i> ${item.region}</span>
-                            <span onclick="update_data('${item.tourId}')" class="titel-cm">${item.name}</span>
+                            <span onclick="update_data('${item.slug}')" class="titel-cm">${item.name}</span>
                             <h5>₹${item.price}</h5>
                             
                             <hr/>
@@ -520,11 +509,11 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Error loading carousel items:', error);
   }
 }
-function update_data(tourId){
+function update_data(slug){
  
 
-  fetchData(tourId);
-  history.pushState({}, '',  `tours/${tourId}`);
+  fetchData(slug);
+  history.pushState({}, '',  `tours/${slug}`);
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 

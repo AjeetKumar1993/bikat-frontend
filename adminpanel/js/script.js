@@ -9,7 +9,7 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
     const data = {
 
         name: formData.get('name'),
-        tourId: formData.get('tourId'),
+        slug: formData.get('slug'),
         region: formData.get('region'),
         category: formData.get('category'),
         type: formData.get('type'),
@@ -134,8 +134,51 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
     });
 });
 
+document.getElementById('productForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    
+    const data = {
+
+        name: formData.get('name'),
+        slug: formData.get('slug'),
+        region: formData.get('product-region'),
+        category: formData.get('product-category'),
+        stayCategory: formData.get('product-stay-category'),
+        day: parseInt(formData.get('day')),
+        night: parseInt(formData.get('day')) + 1,
+        price: parseInt(formData.get('price')),
+        shortOverview: formData.get('shortOverview'),
+        location: formData.get('location'),
+        tourImage: tourImage[0],
+        active: formData.get('active') === 'on'
+    };
+
+    console.log(data);
+    await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log('Success:', result);
+        alert('Form submitted successfully!');
+        handleCheckboxChange(result.id);
+    })
+    .catch(error => {
+		console.log('Error:'+ error);
+        console.error('Error:', error);
+        console.log('Error submitting form!');
+    });
+});
+
+
  async function uploadTourImages(id){
- 
+    
     const formData = new FormData();
     var imagesInput = document.getElementById(id);
 
@@ -153,8 +196,10 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
      }
      else if(id === 'newTourImages'){
         statusId = 'statusIcon4';
+     }else if(id === 'productImages'){
+        statusId = 'statusIcon5';
      }
-
+    
     const statusIcon = document.getElementById(statusId);
     try {
         const response =  await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/file/upload/images', {
@@ -164,7 +209,7 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
         const result =  await response.json();
         console.log('Success:', result);
         
-        if(id === 'tourImage' || id === 'newTourImage'){
+        if(id === 'tourImage' || id === 'newTourImage' || id === 'productImages'){
            tourImage = result.fileNames;
         }
         if(id === 'tourImages' || id === 'newTourImages'){
@@ -180,10 +225,10 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
         statusIcon.style.display = 'inline';
     }
 }
-function previewImage(event) {
+function previewImage(event, containerId) {
     const reader = new FileReader();
     reader.onload = function() {
-        const output = document.getElementById('imagePreview');
+        const output = document.getElementById(containerId);
         output.src = reader.result;
     }
     reader.readAsDataURL(event.target.files[0]);
@@ -336,7 +381,7 @@ function populateTable(data) {
       let day = item.day !== null ? item.day: "0";
       let night = item.night !== null ? item.night: "0";
       row.innerHTML = `
-        <td data-name="tourId">${item.tourId}</td>
+        <td data-name="tourId">${item.slug}</td>
         <td data-name="name">${item.name}</td>
         <td data-name="region">${region}</td>
         <td data-name="category">${category}</td>
@@ -385,16 +430,17 @@ function populateTable(data) {
   function openEditPopup(id) {
     
     const item = apiData.find(item => item.id === id);
-   
+    console.log(item);
     if (item) {
       document.getElementById("tour-id").innerHTML = item.name;
       document.getElementById("edit-name").value = item.name;
-      document.getElementById("edit-tourId").value = item.tourId;
+      document.getElementById("edit-tourId").value = item.slug;
       document.getElementById('edit-region').value = item.region;
       document.getElementById('edit-price').value = item.price;
       document.getElementById('edit-gst').value = item.gst;
       document.getElementById('edit-priceFromTo').value = item.priceFromTo;
       document.getElementById('edit-category').value = item.category;
+      document.getElementById('edit-product-stay-category').value = item.stayCategory;
       document.getElementById('edit-type').value = item.type;
       document.getElementById('edit-grade').value = item.grade;
       document.getElementById('edit-day').value = item.day;
@@ -410,34 +456,48 @@ function populateTable(data) {
 
 
         // Inclusion
-        
         const checkboxesContainer = document.getElementById('edit-inclusions');
-        item.inclusion.forEach(item => {
-            checkboxGenerate(item, checkboxesContainer);
-        });
-             
+        if(item.inclusion){
+            item.inclusion.forEach(item => {
+                checkboxGenerate(item, checkboxesContainer);
+            });
+        }
+       
+    
         // Exclusion
-        const exclusionId = document.getElementById("edit-exclusions");
-        item.exclusion.forEach(item => {
-            checkboxGenerate(item, exclusionId);
-        });
+        if(item.exclusion){
+            const exclusionId = document.getElementById("edit-exclusions");
+            item.exclusion.forEach(item => {
+                checkboxGenerate(item, exclusionId);
+            });
+        }
+       
         
         // Highlist
-        const highlightId = document.getElementById("edit-highlight");
-        item.highlight.forEach(item => {
-            checkboxGenerate(item, highlightId);
-        });
+        if(item.highlight){
+            const highlightId = document.getElementById("edit-highlight");
+            item.highlight.forEach(item => {
+                checkboxGenerate(item, highlightId);
+            });
+        }
+       
 
         // Cancel policy
-        const cancelPolicyId = document.getElementById("edit-cancelPolicy");
-        item.cancelPolicy.forEach(item => {
-            checkboxGenerate(item, cancelPolicyId);
-        });
+        if(item.cancelPolicy){
+            const cancelPolicyId = document.getElementById("edit-cancelPolicy");
+            item.cancelPolicy.forEach(item => {
+                checkboxGenerate(item, cancelPolicyId);
+            });
+        }
+        
         // Pacling List
-        const packingListId = document.getElementById("edit-packingList");
-        item.packingList.forEach(item => {
-            checkboxGenerate(item, packingListId);
-        });
+        if(item.packingList){
+            const packingListId = document.getElementById("edit-packingList");
+            item.packingList.forEach(item => {
+                checkboxGenerate(item, packingListId);
+            });
+        }
+        
        
         fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/list')
         .then(response => response.json())
@@ -481,16 +541,19 @@ function populateTable(data) {
             
       `;
       const galleryId = document.getElementById("edit-tour-gallery");
-      const galleryLIst = item.gallery;
-      galleryLIst.forEach(gallery => {
-        galleryId.innerHTML += `
-                                    <img src="https://storage.googleapis.com/bikat_adventure_image/${gallery}" alt="npm" style="width:30%;height:30%" />
-                               `;
-      });
-
-
-      editItinerary(item.itinerary);
      
+      if(item.gallery){
+        item.gallery.forEach(gallery => {
+            galleryId.innerHTML += `
+                                        <img src="https://storage.googleapis.com/bikat_adventure_image/${gallery}" alt="npm" style="width:30%;height:30%" />
+                                   `;
+          });
+      }
+      
+      if(item.itinerary){
+        editItinerary(item.itinerary);
+      }
+
 
       document.getElementById('edit-popup').style.display = 'block';
       document.getElementById('save-edit-group-a').dataset.id = id;
@@ -963,6 +1026,7 @@ function populateTable(data) {
      document.getElementById("edit-name").value = "";
      document.getElementById("edit-region").value = "";
      document.getElementById("edit-category").value = "";
+     document.getElementById("edit-stay-category").value = "";
      document.getElementById("edit-type").value = "";
      document.getElementById("edit-grade").value = "";
  
@@ -1050,7 +1114,7 @@ function populateTable(data) {
     document.getElementById('data-table').getElementsByTagName('tbody')[0].appendChild(clone);
 
     var name = clone.querySelector('[data-name="name"]').innerText;
-    var tourId = clone.querySelector('[data-name="tourId"]').innerText;
+    var slug = clone.querySelector('[data-name="tourId"]').innerText;
     var region = clone.querySelector('[data-name="region"]').innerText;
     var category = clone.querySelector('[data-name="category"]').innerText;
     var type = clone.querySelector('[data-name="type"]').innerText;
@@ -1105,7 +1169,7 @@ function populateTable(data) {
     const data = {
 
         name: name+"_CLONE",
-        tourId: tourId+"_CLONE",
+        slug: slug+"_CLONE",
         region: region,
         category: category,
         type: type,
@@ -1324,7 +1388,12 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 // Populate options in the dropdown select element
+                const productSlugContainer = document.getElementById('product-slug-container');
                 data.forEach(option => {
+                    if(option.stayCategory){
+                        productSlugContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
+                    }
+                    
                     const optionElement = document.createElement('option');
                     optionElement.value = option.id;
                     optionElement.textContent = option.name;

@@ -23,9 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
               if (option.name.length >= 25) {
                 name = option.name.substring(0, 25)+"...";
               }
-              
-              //localStorage.setItem('tourID_'+option.tourId, option.id);
-              redirectHref = `tours/`+option.tourId;
+         
+              redirectHref = `tours/${option.slug}`;
               html += `<div class="comon-items-week">
                   <figure>
                       <img src="https://storage.googleapis.com/bikat_adventure_image/${option.tourImage}" alt="png2"/>

@@ -14,6 +14,9 @@
         <a href="#add-date" onclick="showTab('add-ons')">Add Ons</a>
         <a href="#add-date" onclick="showTab('category-region')">Add Category & Region</a>
         <a href="#add-date" onclick="showTab('gallery-items')">Gallery</a>
+        <a href="#add-product" onclick="showTab('add-product')">Add Product</a>
+        <a href="#add-itinerary" onclick="showTab('add-itinerary')">Add Itinerary</a>
+        
        <!-- <a href="#delete-tour" onclick="showTab('delete-tour')">Delete Tour</a> -->
     </div>
     <div class="main-content">
@@ -22,15 +25,13 @@
             <form id="tourForm">
                 <label>Tour Details:</label><br>
                
-                <label for="tourId">Tour Id:</label>
-                <input type="text" id="tourId" name="tourId" required><br><br>
+                <label for="slug">Tour Slug:</label>
+                <input type="text" id="slug" name="slug" required><br><br>
         
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required><br><br>
         
-                <label for="region">Region:</label>
-                <!-- <input type="text" id="region" name="region"> -->
-                
+                <label for="region">Region:</label> 
                 <select id="region" name="region" required></select>
                   <br><br>
                 <label for="category">Category:</label>
@@ -157,7 +158,7 @@
                 <input type="text" id="location" name="location" ><br><br>
         
                 <label for="tourImage">Tour Image:</label> <span id="statusIcon" class="status-icon">&#10004;</span>
-                <input type="file" id="tourImage" name="tourImage" accept="image/*" onchange="previewImage(event)" ><br>
+                <input type="file" id="tourImage" name="tourImage" accept="image/*" onchange="previewImage(event,'imagePreview')" ><br>
                 <img id="imagePreview" class="image-preview"><br>
                 <button type="button" onclick="uploadTourImages('tourImage')">Upload Image</button><br><br>
                 
@@ -186,6 +187,7 @@
             
         
         </div>
+    
         <div id="add-date" class="tab-content hidden">
             <div id="statusMessage"></div>
            
@@ -261,31 +263,67 @@
         <div id="category-region" class="tab-content hidden">
             
             <form>
-                <label for="selectionFormForCategory">Category</label></br>
-                <div id="selectionFormForCategory">
-                    <!-- Checkboxes will be added here -->
+                <div class="multi-input-row">
+                    <div>
+                        <label for="selectionFormForCategory">Category</label></br>
+                        <div id="selectionFormForCategory">
+                            <!-- Checkboxes will be added here -->
+                        </div>
+                        
+                        <form id="checkboxForm">
+                            <label for="addCategoryInput">Add Category:</label><br>
+                            <input type="text" id="addCategoryInput" name="addCategoryInput" required>
+                            <button type="button" onclick="generateCheckboxes('addCategoryInput', 'selectionFormForCategory')">Add</button>
+                            <button type="button"  onclick="saveCategoryAndRegion()">Save Category</button>
+                        </form>
+                    </div>
+                    <div>
+                        <label for="selectionFormForStayCategory">Stay Category</label></br>
+                        <div id="selectionFormForStayCategory">
+                            <!-- Checkboxes will be added here -->
+                        </div>
+                        
+                        <form id="checkboxForm">
+                            <label for="addStayCategoryInput">Add Stay Category:</label><br>
+                            <input type="text" id="addStayCategoryInput" name="addStayCategoryInput" required>
+                            <button type="button" onclick="generateCheckboxes('addStayCategoryInput', 'selectionFormForStayCategory')">Add</button>
+                            <button type="button"  onclick="saveCategoryAndRegion()">Save Stay Category</button>
+                        </form>
+                    </div>
                 </div>
                 
-                <form id="checkboxForm">
-                    <label for="addCategoryInput">Add Category:</label><br>
-                    <input type="text" id="addCategoryInput" name="addCategoryInput" required>
-                    <button type="button" onclick="generateCheckboxes('addCategoryInput', 'selectionFormForCategory')">Add</button>
-                    <button type="button"  onclick="saveCategoryAndRegion()">Save Category</button>
-                </form>
             </form>
             <div id="loader"></div>
             <form>
-                <label for="selectionFormForRegion">Region</label></br>
-                <div id="selectionFormForRegion">
-                    <!-- Checkboxes will be added here -->
+                <div class="multi-input-row">
+                    <div>
+                        <label for="selectionFormForRegion">Region</label></br>
+                        <div id="selectionFormForRegion">
+                            <!-- Checkboxes will be added here -->
+                        </div>
+                        
+                        <form id="checkboxForm">
+                            <label for="addRegionInput">Add Region:</label><br>
+                            <input type="text" id="addRegionInput" name="addRegionInput" required>
+                            <button type="button" onclick="generateCheckboxes('addRegionInput', 'selectionFormForRegion')">Add</button>
+                            <button type="button" onclick="saveCategoryAndRegion()">Save Region</button>
+                        </form>
+                    </div>
+                    <div>
+                        <label for="selectionFormForLocation">Location</label></br>
+                        <div id="selectionFormForLocation">
+                            <!-- Checkboxes will be added here -->
+                        </div>
+                        
+                        <form id="checkboxForm">
+                            <label for="addLocationInput">Add Location:</label><br>
+                            <input type="text" id="addLocationInput" name="addLocationInput" required>
+                            <button type="button" onclick="generateCheckboxes('addLocationInput', 'selectionFormForLocation')">Add</button>
+                            <button type="button" onclick="saveCategoryAndRegion()">Save Location</button>
+                        </form>
+                    </div>
                 </div>
-                
-                <form id="checkboxForm">
-                    <label for="addRegionInput">Add Region:</label><br>
-                    <input type="text" id="addRegionInput" name="addRegionInput" required>
-                    <button type="button" onclick="generateCheckboxes('addRegionInput', 'selectionFormForRegion')">Add</button>
-                    <button type="button" onclick="saveCategoryAndRegion()">Save Region</button>
-                </form>
+               
             </form>
           
         
@@ -322,13 +360,112 @@
                     <label for="gallery">Select Images:</label><span id="gallerStatusIcon" class="status-icon">&#10004;</span>
                     <input type="file" id="newTourImages" name="newTourImages" accept="image/*" multiple onchange="newPreviewImages(event)" required><br>
                     <div id="newImagePreviewContainer" class="image-preview-container"></div><br>
-                    <button type="button" onclick="uploadTourImages()">Upload Images</button><br><br>
+                    <button type="button" onclick="uploadTourGallery()">Upload Images</button><br><br>
                     
                     <button type="button" onclick="uploadGallery()">Save</button>
                 </div> 
             </form> 
         </div>
+        <div id="add-product" class="tab-content">
+           
+            <form id="productForm">
+                <label>Tour Details:</label><br>
+               
+                <label for="slug">Tour Slug:</label>
+                <input type="text" id="slug" name="slug" required><br><br>
+        
+                <div class="multi-input-row">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="product-region">Region:</label>
+                        <select id="product-region" name="product-region" required></select>        
+                    </div>
+                </div>
+                
+    
+              
+                <div class="multi-input-row">
+                    <div>
+                        <label for="product-category">Category:</label>
+                        <select id="product-category" name="product-category" required></select>
+                    </div>
+                    <div>
+                        <label for="product-stay-category">Saty Category:</label>
+                        <select id="product-stay-category" name="product-stay-category" required></select>
+                    </div>
+                    
+                </div>
+                <br>
+                <div class="multi-input-row">
+                    <div>
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" name="price" ><br><br>
+                    </div>
+                    <div>
+                        <label for="day">Day:</label>
+                        <input type="number" id="day" name="day" ><br><br>
+                    </div>
+                
+                </div>
+        
+    
+                <label for="shortOverview">Short Overview:</label>
+                <textarea id="shortOverview" name="shortOverview" ></textarea><br><br>
+                
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" ><br><br>
+        
+                <label for="productImages">Tour Image:</label> <span id="statusIcon5" class="status-icon">&#10004;</span>
+                <input type="file" id="productImages" name="productImages" accept="image/*" onchange="previewImage(event,'productImagePreview')" ><br>
+                <img id="productImagePreview" class="image-preview"><br>
+                <button type="button" onclick="uploadTourImages('productImages')">Upload Image</button><br><br>
 
+                <label for="active">Active:</label>
+                <input type="checkbox" id="active" name="active"><br><br>
+        
+                <button type="submit">Submit</button>
+            </form>
+            
+        
+        </div>
+        <div id="add-itinerary" class="tab-content">
+            <form id="itineraryForm">
+                <label>Add Itinerary:</label><br>
+               
+                <label for="product-slug-container">Select tour:</label>
+                <select id="product-slug-container" name="product-slug-container" style="width: 500px;"></select>
+                <br><br> 
+
+                <label for="product_title">Title:</label>
+                <input type="text" id="product_title" name="product_title" required>
+                <br><br>
+                <div class="multi-input-row">
+                    <div>
+                        <label for="location">Location:</label>
+                        <select id="load_location" name="load_location"></select>
+                    </div>
+                    <div>
+                        <label for="dayNumber">Day Number:</label>
+                        <input type="number" id="dayNumber" name="dayNumber" required>      
+                    </div>
+                </div>
+                
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" ></textarea><br><br>
+
+                <label for="wikiDescription">Wiki Description:</label>
+                <textarea id="wikiDescription" name="wikiDescription" ></textarea><br><br>
+               
+                <label for="isLeisureDay">Leisure Day:</label>
+                <input type="checkbox" id="isLeisureDay" name="isLeisureDay"><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
         <div id="edit-tour" class="tab-content hidden">
            
             <table id="data-table">
@@ -417,6 +554,8 @@
                 <select id="edit-region" name="region" required></select>
                 <label for="edit-category">Category:</label>
                 <select id="edit-category" name="category" required></select>
+                <label for="edit-product-stay-category">Stay Category:</label>
+                <select id="edit-product-stay-category" name="edit-product-stay-category" required></select>
                 <label for="edit-type">Tpye:</label>
                 <select id="edit-type" name="type" required>
                     <option value="">Select a Type</option>

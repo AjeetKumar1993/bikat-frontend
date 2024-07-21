@@ -258,7 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
   .then(result => {
   
       alert('Booking successfully!');
-      localStorage.setItem('tourID_'+tourDetails.tourId, tourDetails.id);
       window.location.href = "listing.html";
   })
   .catch(error => {

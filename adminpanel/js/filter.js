@@ -2,13 +2,10 @@ document.addEventListener("DOMContentLoaded", generateFilter);
 
 function generateFilter(){
 
-    const regionContainer = document.getElementById('region');
-    const categoryContainer = document.getElementById('category');
-    const editRegionContainer = document.getElementById('edit-region');
-    const editCategoryContainer = document.getElementById('edit-category');
-
     const selectionFormForCategory = document.getElementById('selectionFormForCategory');
+    const selectionFormForStayCategory = document.getElementById('selectionFormForStayCategory');
     const selectionFormForRegion = document.getElementById('selectionFormForRegion');
+    const selectionFormForLocation = document.getElementById('selectionFormForLocation');
   
     fetch("https://decent-line-423710-m0.de.r.appspot.com/api/tour/filter-item",)
     .then(response => {
@@ -18,13 +15,22 @@ function generateFilter(){
       return response.json();
     })
     .then(list => {
-      filterHtmlRender(categoryContainer, list.category);
-      filterHtmlRender(editCategoryContainer, list.category);
-      filterHtmlRender(regionContainer, list.region);
-      filterHtmlRender(editRegionContainer, list.region);
+      console.log(list);
+      filterHtmlRender('category', list.category);
+      filterHtmlRender('edit-category', list.category);
+      filterHtmlRender('product-category', list.category);
+      filterHtmlRender('product-stay-category', list.stayCategory);
+      filterHtmlRender('edit-product-stay-category', list.stayCategory);
+
+      filterHtmlRender('region', list.region);
+      filterHtmlRender('edit-region', list.region);
+      filterHtmlRender('product-region', list.region);
+      filterHtmlRender('load_location', list.location);
 
       filterHtmlRenderWithCheckbox(selectionFormForRegion, 'region', list.region);
+      filterHtmlRenderWithCheckbox(selectionFormForLocation, 'region', list.location);
       filterHtmlRenderWithCheckbox(selectionFormForCategory, 'category', list.category);
+      filterHtmlRenderWithCheckbox(selectionFormForStayCategory, 'category', list.stayCategory);
     })
     .catch(error => {
       console.error('Fetching error: ', error);
@@ -32,11 +38,12 @@ function generateFilter(){
   
   }
   
-  function filterHtmlRender(container, items){
-    
+  function filterHtmlRender(containerId, items){
+    const container = document.getElementById(containerId);
     items.forEach(item => {
         container.innerHTML += `<option value="${item}">${item}</option>`;
     });
+
   }
   function filterHtmlRenderWithCheckbox(container, type, items){
 
@@ -65,6 +72,24 @@ function generateFilter(){
     showLoader();
     let category = [];
     let region = [];
+    let stayCategory = [];
+    let location = [];
+    
+    let locationCheckboxDiv = document.getElementById('selectionFormForLocation');
+    let locationCheckboxes = locationCheckboxDiv.querySelectorAll('input[type=checkbox]');
+    locationCheckboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          location.push(checkbox.value);
+        }
+    });
+
+    let stayCategoryCheckboxDiv = document.getElementById('selectionFormForStayCategory');
+    let stayCategoryCheckboxes = stayCategoryCheckboxDiv.querySelectorAll('input[type=checkbox]');
+    stayCategoryCheckboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          stayCategory.push(checkbox.value);
+        }
+    });
 
     let categoryCheckboxDiv = document.getElementById('selectionFormForCategory');
     let categoryCheckboxes = categoryCheckboxDiv.querySelectorAll('input[type=checkbox]');
@@ -85,7 +110,9 @@ function generateFilter(){
 
     const data = {
         category: category,
-        region: region
+        region: region,
+        stayCategory: stayCategory,
+        location: location
     };
     
     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/filter-item', {
