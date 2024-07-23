@@ -96,9 +96,9 @@ function uploadGallery() {
     var category = document.getElementById('gallery-category');
     var categoryValue = category.options[category.selectedIndex].text;
     
-    var location = document.getElementById('gallery-location').value;
+    var location = document.getElementById('gallery-location');
     var title = document.getElementById('gallery-category-title').value;
-    //var locationValue = location.options[location.selectedIndex].text;
+    var locationValue = location.options[location.selectedIndex].text;
 
     if(!location){
         alert("Please fill location!");
@@ -110,7 +110,7 @@ function uploadGallery() {
     }
     const data = {
         category: categoryValue,
-        location: location,
+        location: locationValue,
         title: title
     }
     
