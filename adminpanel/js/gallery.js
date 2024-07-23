@@ -50,7 +50,12 @@ function createGallery(data, container_id) {
         locationDiv.classList.add('location');
 
         const locationHeader = document.createElement('h2');
-        locationHeader.textContent = destination.location;
+        if(destination.title && container_id !== 'destinations-gallery-container'){
+            locationHeader.textContent = destination.location +' | '+ destination.title;
+        }else{
+            locationHeader.textContent = destination.location;
+        }
+       
         locationDiv.appendChild(locationHeader);
 
         const galleryDiv = document.createElement('div');
@@ -90,21 +95,32 @@ function uploadGallery() {
     
     var category = document.getElementById('gallery-category');
     var categoryValue = category.options[category.selectedIndex].text;
-    var location = document.getElementById('gallery-location');
-    var locationValue = location.options[location.selectedIndex].text;
+    
+    var location = document.getElementById('gallery-location').value;
+    var title = document.getElementById('gallery-category-title').value;
+    //var locationValue = location.options[location.selectedIndex].text;
 
+    if(!location){
+        alert("Please fill location!");
+        return;
+    }
+    if(!title){
+        alert("Please fill category title!");
+        return;
+    }
     const data = {
         category: categoryValue,
-        location: locationValue
+        location: location,
+        title: title
     }
-    console.log(imageGallery);
+    
     if(imageGallery.length !== 0){
         data.url = imageGallery;
     }else{
         alert("You must upload at least one image");
         return;
     }
-    
+    showLoader();
     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/images', {
         method: 'POST',
         headers: {
@@ -114,11 +130,12 @@ function uploadGallery() {
     })
     .then(response => response.json())
     .then(result => {
-        console.log('Success:', result);
+        hideLoader();
         alert('Tour updated successfully!');
        
     })
     .catch(error => {
+        hideLoader();
 		console.log('Error:'+ error);
         console.error('Error:', error);
         alert('Error tour updating!');
@@ -127,7 +144,7 @@ function uploadGallery() {
 
 }
 
-async function uploadTourGallery(){
+async function uploadImages(){
  
     const formData = new FormData();
     var imagesInput = document.getElementById('newTourImages');
@@ -138,10 +155,12 @@ async function uploadTourGallery(){
   
     const statusIcon = document.getElementById('gallerStatusIcon');
     try {
+        showLoader();
         const response =  await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/file/upload/images', {
             method: 'POST',
             body: formData
         });
+        hideLoader();
         const result =  await response.json();
         imageGallery = result.fileNames;
         
@@ -149,9 +168,18 @@ async function uploadTourGallery(){
         statusIcon.className = 'status-icon success';
         statusIcon.style.display = 'inline';
     } catch (error) {
+        hideLoader();
         console.error('Error:', error);
         statusIcon.innerHTML = '&#10008;'; // Red X (✘)
         statusIcon.className = 'status-icon failure';
         statusIcon.style.display = 'inline';
     }
 }
+
+function showLoader() {
+    document.getElementById('loader').style.display = 'block';
+  }
+  
+  function hideLoader() {
+    document.getElementById('loader').style.display = 'none';
+  }

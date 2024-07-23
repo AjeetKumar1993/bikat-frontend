@@ -350,17 +350,30 @@
                 </div> 
                 <div id="new-gallery" class="form-group" style="display: none;">
                     <h2>Add Gallery</h2> </br></br>
-                    <label for="gallery-category">Category:</label>
-                    <select id="gallery-category" name="gallery-category" required></select>
-                    </br></br>
-                    <label for="gallery-location">Location:</label>
-                    <select id="gallery-location" name="gallery-location" required></select>
+                    <div id="loader"></div>
+                    <div class="multi-input-row">
+                        <div>
+                            <label for="gallery-location">Location:</label>
+                            <input type="text" id="gallery-location" name="gallery-location" required>
+                        </div>
+                        <div>
+                            <label for="gallery-category">Category:</label>
+                            <select id="gallery-category" name="gallery-category" required></select>
+                        </div>
+                    </div>
+                   
+                    
+                    <label for="gallery-category-title">Category Title:</label>
+                    <input type="text" id="gallery-category-title" name="gallery-category-title" required>
                     </br></br>
                 
+                  
                     <label for="gallery">Select Images:</label><span id="gallerStatusIcon" class="status-icon">&#10004;</span>
                     <input type="file" id="newTourImages" name="newTourImages" accept="image/*" multiple onchange="newPreviewImages(event)" required><br>
                     <div id="newImagePreviewContainer" class="image-preview-container"></div><br>
-                    <button type="button" onclick="uploadTourGallery()">Upload Images</button><br><br>
+                    <button type="button" onclick="uploadImages()">Upload Images</button><br><br>
+                
+                   
                     
                     <button type="button" onclick="uploadGallery()">Save</button>
                 </div> 
