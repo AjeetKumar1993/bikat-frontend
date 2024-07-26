@@ -16,6 +16,8 @@
         <a href="#add-date" onclick="showTab('gallery-items')">Gallery</a>
         <a href="#add-product" onclick="showTab('add-product')">Add Product</a>
         <a href="#add-itinerary" onclick="showTab('add-itinerary')">Add Itinerary</a>
+        <a href="#add-event-point" onclick="showTab('add-event-point')">Add Event Point</a>
+        <a href="#view-event-point" onclick="showTab('view-event-point')">View Event Point</a>
         
        <!-- <a href="#delete-tour" onclick="showTab('delete-tour')">Delete Tour</a> -->
     </div>
@@ -160,15 +162,15 @@
                 <label for="tourImage">Tour Image:</label> <span id="statusIcon" class="status-icon">&#10004;</span>
                 <input type="file" id="tourImage" name="tourImage" accept="image/*" onchange="previewImage(event,'imagePreview')" ><br>
                 <img id="imagePreview" class="image-preview"><br>
-                <button type="button" onclick="uploadTourImages('tourImage')">Upload Image</button><br><br>
+                <button type="button" onclick="uploadImages('tourImage', 'statusIcon')">Upload Image</button><br><br>
                 
         
         
         
                 <label for="gallery">Gallery:</label><span id="statusIcon2" class="status-icon">&#10004;</span>
-                <input type="file" id="tourImages" name="tourImages" accept="image/*" multiple onchange="previewImages(event)" ><br>
+                <input type="file" id="tourImages" name="tourImages" accept="image/*" multiple onchange="previewImages(event, 'imagePreviewContainer')" ><br>
                 <div id="imagePreviewContainer" class="image-preview-container"></div><br>
-                <button type="button" onclick="uploadTourImages('tourImages')">Upload Images</button><br><br>
+                <button type="button" onclick="uploadImages('tourImages', 'statusIcon2')">Upload Images</button><br><br>
         
                 <label for="itinerary">Itinerary:</label>
                 <div id="itinerary">
@@ -369,17 +371,17 @@
                 
                   
                     <label for="gallery">Select Images:</label><span id="gallerStatusIcon" class="status-icon">&#10004;</span>
-                    <input type="file" id="newTourImages" name="newTourImages" accept="image/*" multiple onchange="newPreviewImages(event)" required><br>
+                    <input type="file" id="newTourImages" name="newTourImages" accept="image/*" multiple onchange="previewImages(event, 'newImagePreviewContainer')" required><br>
                     <div id="newImagePreviewContainer" class="image-preview-container"></div><br>
-                    <button type="button" onclick="uploadImages()">Upload Images</button><br><br>
+                    <button type="button" onclick="uploadImages('newTourImages','gallerStatusIcon')">Upload Images</button><br><br>
                 
                    
                     
-                    <button type="button" onclick="uploadGallery()">Save</button>
+                    <button type="button" onclick="uploadGallery('newTourImages')">Save</button>
                 </div> 
             </form> 
         </div>
-        <div id="add-product" class="tab-content">
+        <div id="add-product" class="tab-content hidden">
            
             <form id="productForm">
                 <label>Tour Details:</label><br>
@@ -434,7 +436,7 @@
                 <label for="productImages">Tour Image:</label> <span id="statusIcon5" class="status-icon">&#10004;</span>
                 <input type="file" id="productImages" name="productImages" accept="image/*" onchange="previewImage(event,'productImagePreview')" ><br>
                 <img id="productImagePreview" class="image-preview"><br>
-                <button type="button" onclick="uploadTourImages('productImages')">Upload Image</button><br><br>
+                <button type="button" onclick="uploadImages('productImages', 'statusIcon5')">Upload Image</button><br><br>
 
                 <label for="active">Active:</label>
                 <input type="checkbox" id="active" name="active"><br><br>
@@ -444,7 +446,7 @@
             
         
         </div>
-        <div id="add-itinerary" class="tab-content">
+        <div id="add-itinerary" class="tab-content hidden">
             <form id="itineraryForm">
                 <label>Add Itinerary:</label><br>
                
@@ -458,7 +460,7 @@
                 <div class="multi-input-row">
                     <div>
                         <label for="location">Location:</label>
-                        <select id="load_location" name="load_location"></select>
+                        <select id="itinerary_location" name="itinerary_location" onchange="handleLocationChange(this)"></select>
                     </div>
                     <div>
                         <label for="dayNumber">Day Number:</label>
@@ -476,8 +478,186 @@
                 <label for="isLeisureDay">Leisure Day:</label>
                 <input type="checkbox" id="isLeisureDay" name="isLeisureDay"><br><br>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Submit</button><br><br>
+              
+
+                <div id="eventData" class="hidden">
+                    <form id="eventDataForm" >
+
+                        <table id="view-event-data">
+                            <thead>
+                                <tr>
+                                    <th>position</th>
+                                    <th>Event Type</th>
+                                    <th>Title</th>
+                                    <th>Transport Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                        <br><br>
+                        <div class="multi-input-row">
+                            <div>
+                                <label for="eventType">Event Type:</label>
+                                <select id="eventType" name="eventType" onchange="handleEventTypeChange(this)">
+                                    <option value="activityEvent" selected>Select</option>
+                                    <option value="activityEvent">Activity</option>
+                                    <option value="hotelEvent">Hotel</option>
+                                    <option value="transferEvent">Transfer</option>
+                                    <option value="leisureDayEvent">Leisure Day</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="eventPosition">position:</label>
+                                <input type="number" id="eventPosition" name="eventPosition">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div id="activityEvent" class="event-data visible">
+                            <label for="activityList">Activity:</label>
+                            <select id="activityList" name="activityList" style="width: 500px;"></select>
+
+                            <label for="activityDescription">Description:</label>
+                            <textarea id="activityDescription" name="activityDescription"> </textarea>
+                
+                            <label for="activityWikiParsedDesc">Wiki Parsed Description:</label>
+                            <textarea id="activityWikiParsedDesc" name="activityWikiParsedDesc"></textarea>
+                            <br>
+                            <ul id="attractionList"></ul>
+                            <br>
+                            <label for="addAttractionPoints">Add Attraction Point:</label>
+                            <div id="addAttractionPoints"></div>
+                            <br><br>
+                        
+                            <button type="button" onclick="saveEventInDb('activity')" id="itineraryId">Save Event</button>
+                        </div>
+                        <div id="hotelEvent" class="event-data hidden">
+                            <label for="hotelTitle">Hotel Title:</label>
+                            <select id="hotelTitle" name="hotelTitle" style="width: 500px;"></select>
+
+                            <label for="description">Description:</label>
+                            <textarea id="description" name="description"> </textarea>
+                
+                            <label for="wikiParsedDesc">Wiki Parsed Description:</label>
+                            <textarea id="wikiParsedDesc" name="wikiParsedDesc"></textarea>
+                        </div>
+                        <div id="transferEvent" class="event-data hidden">
+                            <br>
+
+                            <div class="multi-input-row">
+                                <div>
+                                    <label for="transferTitle">Transfer Title:</label>
+                                    <input type="text" id="transferTitle" name="transferTitle">
+                                </div>
+                                <div>
+                                    <label for="transportType">Transport Type:</label>
+                                    <select id="transportType" name="transportType">
+                                        <option value="private transfer" selected>Private Transfer</option>
+                                        <option value="shared transfer">Shared Transfer</option>
+                                        <option value="sic">SIC</option>
+                                    
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="multi-input-row">
+                                <div>
+                                    <label for="transferStartTime">Start Time:</label>
+                                    <input type="text" id="transferStartTime" name="transferStartTime">
+                                </div>
+                                <div>
+                                    <label for="transferEndTime">End Time:</label>
+                                    <input type="text" id="transferEndTime" name="transferEndTime">
+                                </div>
+                            </div>
+                            <br>
+                            <ul id="transferPointList"></ul>
+                            <br>
+                            <label for="addTransferPoints">Add Transfer Point:</label>
+                            <div id="addTransferPoints"></div>
+                            <br><br>
+                        
+                            <button type="button" onclick="saveEventInDb('transfer')" id="itineraryId">Save Event</button>
+
+                           
+                        </div>
+                        <div id="leisureDayEvent" class="event-data hidden">
+                            <label for="leisureDayTitle">Leisure Day Title:</label>
+                            <input type="text" id="leisureDayTitle" name="leisureDayTitle" style="width: 500px;">
+
+                            <label for="description">Description:</label>
+                            <textarea id="description" name="description"> </textarea>
+                
+                            <label for="wikiParsedDesc">Wiki Parsed Description:</label>
+                            <textarea id="wikiParsedDesc" name="wikiParsedDesc"></textarea>
+                        </div>
+    
+                        <div id="event-data-container"></div>
+
+                    </form>
+                </div>
+                
             </form>
+        </div>
+        <div id="add-event-point" class="tab-content hidden">
+            <form id="eventPointForm">
+                <label>Add Event Point:</label><br>
+               
+                <div class="multi-input-row">
+                    <div>
+                        <label for="event-point-location">Select Location:</label>
+                        <select id="event-point-location" name="event-point-location"></select>
+                    </div>
+
+                    <div>
+                        <label for="eventType">Event Points:</label>
+                        <select id="eventType" name="eventType" required>
+                            <option value="airport">Airport</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="location_point">Stop</option>
+                            <option value="attraction">Attraction</option>
+                          </select>
+                    </div>
+                </div>
+                <br>
+                <div class="multi-input-row">
+                    <div>
+                        <label for="evevntTitle">Title:</label>
+                        <input type="text" id="evevntTitle" name="evevntTitle" required>
+                    </div>
+                    <div>
+                        <label for="googleMap">Google Map:</label>
+                        <input type="text" id="googleMap" name="googleMap" required>      
+                    </div>
+                </div>
+
+                <label for="eventPointImage">Upload Images:</label><span id="eventStatus" class="status-icon">&#10004;</span>
+                <input type="file" id="eventPointImage" name="eventPointImage" accept="image/*" onchange="previewImages(event, 'eventPointPreviewContainer')" required><br>
+                <div id="eventPointPreviewContainer" class="image-preview-container"></div><br>
+                <button type="button" onclick="uploadImages('eventPointImage', 'eventStatus')">Upload Images</button><br><br>
+     
+                <button type="submit">Submit</button>
+
+            </form>
+        </div>
+        <div id="view-event-point" class="tab-content hidden">
+           
+            <table id="view-event">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Transfer Type</th>
+                        <th>Title</th>
+                        <th>Google Map</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated dynamically -->
+                </tbody>
+            </table>
         </div>
         <div id="edit-tour" class="tab-content hidden">
            
@@ -498,7 +678,7 @@
                 <tbody>
                   <!-- Rows will be populated dynamically -->
                 </tbody>
-              </table>
+            </table>
             
         <div class="edit-popup" id="edit-tour-date-popup">
     
@@ -721,17 +901,17 @@
                 <div id="edit-tour-image"></div></br>
 
                 <label for="tourImage">New Tour Image:</label> <span id="statusIcon3" class="status-icon">&#10004;</span>
-                <input type="file" id="newTourImage" name="newTourImage" accept="image/*" onchange="newPreviewImage(event)" required><br>
-                <img id="newImagePreview" class="image-preview"><br>
-                <button type="button" onclick="uploadTourImages('newTourImage')">Upload Image</button><br><br>
+                <input type="file" id="editNewTourImage" name="editNewTourImage" accept="image/*"  onchange="previewImage(event, 'editNewImagePreview')" required><br>
+                <img id="editNewImagePreview" class="image-preview"><br>
+                <button type="button" onclick="uploadImages('editNewTourImage', 'statusIcon3')">Upload Image</button><br><br>
 
                 <label for="edit-tour-gallery">Tour Gallery:</label>
                 <div id="edit-tour-gallery"></div></br>
 
                 <label for="gallery">New Gallery:</label><span id="statusIcon4" class="status-icon">&#10004;</span>
-                <input type="file" id="newTourImages" name="newTourImages" accept="image/*" multiple onchange="newPreviewImages(event)" required><br>
-                <div id="newImagePreviewContainer" class="image-preview-container"></div><br>
-                <button type="button" onclick="uploadTourImages('newTourImages')">Upload Images</button><br><br>
+                <input type="file" id="editNewTourImages" name="editNewTourImages" accept="image/*" multiple onchange="previewImages(event, 'editNewImagePreviewContainer')" required><br>
+                <div id="editNewImagePreviewContainer" class="image-preview-container"></div><br>
+                <button type="button" onclick="uploadImages('editNewTourImages', 'statusIcon4')">Upload Images</button><br><br>
                 
                 <button id="save-edit-group-i">Save</button>
             </div>

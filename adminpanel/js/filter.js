@@ -26,6 +26,8 @@ function generateFilter(){
       filterHtmlRender('edit-region', list.region);
       filterHtmlRender('product-region', list.region);
       filterHtmlRender('load_location', list.location);
+      filterHtmlRender('itinerary_location', list.location);
+      filterHtmlRender('event-point-location', list.location);
 
       filterHtmlRenderWithCheckbox(selectionFormForRegion, 'region', list.region);
       filterHtmlRenderWithCheckbox(selectionFormForLocation, 'region', list.location);
@@ -36,6 +38,7 @@ function generateFilter(){
       console.error('Fetching error: ', error);
     });
   
+    loadEventDatails();
   }
   
   function filterHtmlRender(containerId, items){

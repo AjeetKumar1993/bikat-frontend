@@ -126,17 +126,17 @@
         <input type="text" id="location" name="location" required><br><br>
 
         <label for="tourImage">Tour Image:</label> <span id="statusIcon" class="status-icon">&#10004;</span>
-        <input type="file" id="tourImage" name="tourImage" accept="image/*" onchange="previewImage(event)" required><br>
+        <input type="file" id="tourImage" name="tourImage" accept="image/*" onchange="previewImage(event, 'imagePreview')" required><br>
         <img id="imagePreview" class="image-preview"><br>
-        <button type="button" onclick="uploadTourImages('tourImage')">Upload Image</button><br><br>
+        <button type="button" onclick="uploadImages('tourImage', 'statusIcon')">Upload Image</button><br><br>
         
 
 
 
         <label for="gallery">Gallery:</label><span id="statusIcon2" class="status-icon">&#10004;</span>
-        <input type="file" id="tourImages" name="tourImages" accept="image/*" multiple onchange="previewImages(event)" required><br>
+        <input type="file" id="tourImages" name="tourImages" accept="image/*" multiple onchange="previewImages(event, 'imagePreviewContainer')" required><br>
         <div id="imagePreviewContainer" class="image-preview-container"></div><br>
-        <button type="button" onclick="uploadTourImages('tourImages')">Upload Images</button><br><br>
+        <button type="button" onclick="uploadImages('tourImages', 'statusIcon2')">Upload Images</button><br><br>
 
         <label for="itinerary">Itinerary:</label>
         <div id="itinerary">

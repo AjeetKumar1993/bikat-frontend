@@ -104,8 +104,8 @@ let dayCounts = {
 
        
         tourId: formData.get('product-slug-container'),
-        titile: formData.get('product_title'),
-        location: formData.get('load_location'),
+        title: formData.get('product_title'),
+        location: formData.get('itinerary_location'),
         dayNumber: formData.get('dayNumber'),
         description: formData.get('description'),
         wikiParsedDescription: formData.get('wikiDescription'),
@@ -113,8 +113,7 @@ let dayCounts = {
        
     };
  
-       
-    console.log(data);
+    
     await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary', {
         method: 'POST',
         headers: {
@@ -125,12 +124,18 @@ let dayCounts = {
     .then(response => response.json())
     .then(result => {
         
-        if(!result.ok){
+        if(result.errorMessage){
             alert('Failed: '+ result.errorMessage);
             return;
         }
+        document.getElementById('itineraryId').dataset.id = result.id;
         alert('Itinerary submitted successfully!');
+        
+        event.target.elements['itinerary_location'].disabled = true;
        // handleCheckboxChange(result.id);
+       var contentDiv = document.getElementById('eventData');
+       contentDiv.classList.remove('hidden');
+       contentDiv.classList.add('visible');
     })
     .catch(error => {
 		console.log('Error:'+ error);
@@ -139,3 +144,429 @@ let dayCounts = {
     });
 
   });
+
+  function disableFormDataFields(event, formData){
+
+    for (const pair of formData.entries()) {
+        const [fieldName, _] = pair;
+        const inputElement = event.target.elements[fieldName];
+        if (inputElement) {
+            inputElement.disabled = true;
+        }
+    }
+  }
+  document.getElementById('eventPointForm').addEventListener('submit', async function(event) {
+
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const imageGallery = JSON.parse(localStorage.getItem("images_transferPointImage"));
+    const data = {
+
+        location: formData.get('event-point-location'),
+        eventType: formData.get('eventType'),
+        title: formData.get('evevntTitle'),
+        mapUrl: formData.get('googleMap'),
+        imageUrl: imageGallery[0]
+    };
+ 
+    
+    await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/transfer/event', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        
+        if(result.errorMessage){
+            alert('Failed: '+ result.errorMessage);
+            return;
+        }
+        alert('Transfer added successfully!');
+      
+    })
+    .catch(error => {
+		console.log('Error:'+ error);
+        console.error('Error:', error);
+        console.log('Error submitting form!');
+    });
+
+  });
+
+  function loadEventDatails(){
+    
+     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/transfer/event')
+         .then(response => response.json())
+         .then(result => {
+            viewEventData(result);
+         })
+         .catch(error => {
+             console.error('Error fetching the tours:', error);
+         });
+ }
+ 
+ function viewEventData(data) {
+     apiData = data;
+     const tableBody = document.querySelector('#view-event tbody');
+     tableBody.innerHTML = '';
+     const locationTransferMap = new Map();
+     const locationAttractionMap = new Map();
+     data.forEach(item => {
+
+       const row = document.createElement('tr');
+       row.innerHTML = `
+         <td data-name="location">${item.location}</td>
+         <td data-name="eventType">${item.eventType}</td>
+         <td data-name="title">${item.title}</td>
+         <td data-name="googleMap"><a href="${item.mapUrl}" target="_blank">Link</a></td>
+         <td data-name="imageUrl"> <img src="https://storage.googleapis.com/bikat_adventure_image/${item.imageUrl}" alt="sm" class="image-preview" /></td>
+       `;
+       tableBody.appendChild(row);
+
+    
+       const idAndTitleMap = new Map();
+       idAndTitleMap.set(item.id, item.title);
+      
+       if(item.eventType === 'attraction'){
+            if (locationAttractionMap.has(item.location)) {
+                locationAttractionMap.get(item.location).push(idAndTitleMap);
+            } else {
+                locationAttractionMap.set(item.location, [idAndTitleMap]);
+            }
+       }else{
+            if (locationTransferMap.has(item.location)) {
+                locationTransferMap.get(item.location).push(idAndTitleMap);
+            } else {
+                locationTransferMap.set(item.location, [idAndTitleMap]);
+            }
+       }
+   
+     });
+
+    let transferObject = {};
+    locationTransferMap.forEach((value, key) => {
+        let arrayValue = value.map(map => Array.from(map));
+        transferObject[key] = JSON.stringify(arrayValue);
+    });
+   
+    localStorage.setItem('transferPoints', JSON.stringify(transferObject));
+
+    let attractionObject = {};
+    locationAttractionMap.forEach((value, key) => {
+        let arrayValue = value.map(map => Array.from(map));
+        attractionObject[key] = JSON.stringify(arrayValue);
+    });
+   
+    localStorage.setItem('attractionPoints', JSON.stringify(attractionObject));
+    
+}
+
+function fetchItineraryEventCategory(){
+
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/images')
+    .then(response => response.json())
+    .then(data => {
+        localStorage.setItem("itinerary_event_data", Json.stringify(data));
+    })
+    .catch(error => {
+        alert('Error fetching options: 4', error);
+        
+    });
+}  
+function loadItineraryEventCategory(location) {
+   
+  
+   const data = localStorage.getItem('itinerary_event_data');
+   
+   if(data.Activities){
+        const eventTypeTitle = document.getElementById('activityTitle');
+        eventTypeTitle.innerHTML = '';
+    
+        data.Activities.forEach(activity =>{
+            if(activity.location === location){
+                eventTypeTitle.innerHTML += `<option value="${activity.titile}">${activity.titile}</option>`;
+            }
+        });
+    }
+    if(data.Properties){
+        const eventTypeTitle = document.getElementById('hotelTitle');
+        eventTypeTitle.innerHTML = '';
+    
+        data.Properties.forEach(activity =>{
+            if(activity.location === location){
+                eventTypeTitle.innerHTML += `<option value="${activity.titile}">${activity.titile}</option>`;
+            }
+        });
+    }
+    
+   
+
+}
+function handleLocationChange(selectElement) {
+    
+    var selectedValue = selectElement.value;
+
+    loadItineraryEventCategory(selectedValue);
+
+}
+
+function handleEventTypeChange(selectElement) {
+    
+    var selectedValue = selectElement.value;
+    
+    var eventDivs = document.querySelectorAll('.event-data');
+    eventDivs.forEach(function(div) {
+        // If the div id matches the eventType, show it; otherwise, hide it
+        if (div.id === selectedValue) {
+            div.classList.remove('hidden');
+            div.classList.add('visible');
+        } else {
+            div.classList.remove('visible');
+            div.classList.add('hidden');
+        }
+    });
+
+    addTransferPoints();
+    addAttractionPoints();
+    addActivitesData();
+}
+
+function addActivitesData(){
+
+    let retrievedMap = new Map();
+    let retrievedMapObject = JSON.parse(localStorage.getItem('activitiesActivityData'));
+    Object.keys(retrievedMapObject).forEach(key => {
+        let parsedArray = JSON.parse(retrievedMapObject[key]);
+        let mapArray = parsedArray.map(entry => new Map(entry));
+        retrievedMap.set(key, mapArray);
+    });
+
+    console.log(retrievedMap);
+    const location = document.getElementById('itinerary_location').value;
+    
+    const activitactivityListyTitle = document.getElementById('activityList');
+    activitactivityListyTitle.innerHTML = '';
+    if(retrievedMap.has(location)){
+        retrievedMap.get(location).forEach((valueMap) => {
+           
+            let [key, value] = [...valueMap.entries()][0]; 
+            activitactivityListyTitle.innerHTML += `<option value="${key}">${value}</option>`;
+        });
+    }
+}
+
+function addAttractionPoints(){
+
+    const addAttractionPoints = document.getElementById('addAttractionPoints');
+    addAttractionPoints.innerHTML = '';
+    const location = document.getElementById('itinerary_location').value;
+    
+   // Retrieve Object from localStorage and convert back to Map
+    let retrievedMap = new Map();
+    let retrievedMapObject = JSON.parse(localStorage.getItem('attractionPoints'));
+    
+    if(retrievedMapObject){
+        Object.keys(retrievedMapObject).forEach(key => {
+            let parsedArray = JSON.parse(retrievedMapObject[key]);
+            let mapArray = parsedArray.map(entry => new Map(entry));
+            retrievedMap.set(key, mapArray);
+        });
+    
+    }
+   
+    let selectHTML = `<select id="attractionPoints" name="attractionPoints" style="margin-right: 10px;">`;
+
+    if(retrievedMap.has(location)){
+        retrievedMap.get(location).forEach((valueMap) => {
+           
+            let [key, value] = [...valueMap.entries()][0]; 
+            selectHTML += `<option value="${key}">${value}</option>`;
+        });
+    }
+    selectHTML  += `</select>`;
+    selectHTML += `<button type="button" onclick="selectAndAddTransfer('attractionPoints')">Add</button>`;
+
+    addAttractionPoints.innerHTML = selectHTML;
+   
+}
+
+function addTransferPoints(){
+   
+    const addTransferPoints = document.getElementById('addTransferPoints');
+    addTransferPoints.innerHTML = '';
+
+    const location = document.getElementById('itinerary_location').value;
+    
+   // Retrieve Object from localStorage and convert back to Map
+    let retrievedMap = new Map();
+    let retrievedMapObject = JSON.parse(localStorage.getItem('transferPoints'));
+    if(retrievedMapObject){
+        Object.keys(retrievedMapObject).forEach(key => {
+            let parsedArray = JSON.parse(retrievedMapObject[key]);
+            let mapArray = parsedArray.map(entry => new Map(entry));
+            retrievedMap.set(key, mapArray);
+        });
+    
+    }
+ 
+    
+
+    let selectHTML = `<select id="transferPoints" name="transferPoints" style="margin-right: 10px;">`;
+
+    if(retrievedMap.has(location)){
+        retrievedMap.get(location).forEach((valueMap) => {
+           
+            let [key, value] = [...valueMap.entries()][0]; 
+            selectHTML += `<option value="${key}">${value}</option>`;
+        });
+    }
+    selectHTML  += `</select>`;
+    selectHTML += `<button type="button" onclick="selectAndAddTransfer()">Add</button>`;
+
+    addTransferPoints.innerHTML = selectHTML;       
+}
+
+function selectAndAddTransfer(id){
+    const eventType = document.getElementById('eventType');
+    
+
+    var activityTypeId;
+    
+    var eventPoints;
+    if(id === 'attractionPoints'){
+        activityTypeId = document.getElementById('attractionList');
+        eventPoints = document.getElementById('attractionPoints'); 
+    }else{
+        activityTypeId = document.getElementById('transferPointList');
+        eventPoints = document.getElementById('transferPoints'); 
+    } 
+
+   
+    var eventPointsText = eventPoints.options[eventPoints.selectedIndex].text;
+    var eventPointsValue = eventPoints.options[eventPoints.selectedIndex].value;
+    if (eventPointsText) {
+        // Create a new list item element
+        let li = document.createElement('li');
+        li.id = eventPointsValue;
+        // Set the text content of the list item
+        li.textContent = eventPointsText;
+        
+         // Create a span for the red "x"
+        let deleteButton = document.createElement('span');
+        deleteButton.textContent = '❌'; // Red "x" character
+        deleteButton.classList.add('deleteButton');
+
+        // Style the red "x" for better visibility
+        deleteButton.style.color = 'red';
+        deleteButton.style.cursor = 'pointer';
+        deleteButton.style.marginLeft = '5px';
+
+        // Append delete button (red "x") to the list item
+        li.appendChild(deleteButton);
+
+        // Append the list item to the list
+        activityTypeId.appendChild(li);
+
+        // Add click event listener to delete button
+        deleteButton.addEventListener('click', function() {
+            li.remove();
+        });
+    }
+
+
+}
+
+function saveEventInDb(type){
+    const id = document.getElementById('itineraryId').dataset.id;
+   
+    const data = {};
+
+    if(type === 'transfer'){
+
+        const transportType = document.getElementById('transportType');
+        const transportTypeValue =transportType.options[transportType.selectedIndex].text;
+    
+        let ul = document.getElementById('transferPointList');
+        let transferPointsList = [];
+        ul.querySelectorAll('li').forEach(li => {
+            transferPointsList.push( li.id);
+        });
+    
+              
+        data.itineraryId = id;
+        data.position = document.getElementById('eventPosition').value;
+        data.eventType = 'TRANSFER';
+        data.title =  document.getElementById('transferTitle').value;
+        data.startTime = document.getElementById('transferStartTime').value;
+        data.endTime = document.getElementById('transferEndTime').value;
+        data.transportType = transportTypeValue;
+        data.eventDataId = transferPointsList;    
+        
+    }else if(type === 'activity'){
+
+        const activityList = document.getElementById('activityList');
+        const activityValue = activityList.options[activityList.selectedIndex].value;
+        const activityTitle = activityList.options[activityList.selectedIndex].text;
+    
+        let ul = document.getElementById('attractionList');
+        let attractionPointsList = [];
+        ul.querySelectorAll('li').forEach(li => {
+            attractionPointsList.push( li.id);
+        });
+      
+        data.itineraryId = id;
+        data.position = document.getElementById('eventPosition').value;
+        data.eventType = 'ACTIVITY';
+        data.description =  document.getElementById('activityDescription').value;
+        data.wikiParsedDescription = document.getElementById('activityWikiParsedDesc').value;
+        data.title = activityTitle;
+        data.activityId = activityValue;
+        data.eventDataId = attractionPointsList;   
+    }
+
+    
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary/event', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        
+        if(result.errorMessage){
+            alert('Failed: '+ result.errorMessage);
+            return;
+        }
+        alert('Itinerary event submitted successfully!');
+        showEventData(data);
+       
+    })
+    .catch(error => {
+		console.log('Error:'+ error);
+        console.error('Error:', error);
+        console.log('Error submitting form!');
+    });
+}
+
+function showEventData(item){
+    const tableBody = document.querySelector('#view-event-data tbody');
+   // tableBody.innerHTML = '';
+    if(item.transportType){
+        item.transportType = "NA"
+    }
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td data-name="posotion">${item.position}</td>
+        <td data-name="transferType">${item.eventType}</td>
+        <td data-name="title">${item.title}</td>
+        <td data-name="transportType">${item.transportType}</td>
+        `;
+    tableBody.appendChild(row);
+}
+//document.addEventListener("DOMContentLoaded", fetchItineraryEventCategory);
+

@@ -444,3 +444,34 @@ button.close:hover {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
 }
+#transferPointList {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    width: 300px; /* Example width */
+}
+
+#transferPointList li {
+    background-color: #ffffff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.deleteButton {
+    color: #ff5555; /* Red color */
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 18px;
+    padding: 5px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.deleteButton:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+

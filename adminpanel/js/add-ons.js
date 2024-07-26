@@ -45,7 +45,7 @@ function fetchOptions() {
             });
         })
         .catch(error => {
-            console.error('Error fetching options:');
+            console.error('Error fetching options: 7');
         });
 }
 
@@ -73,7 +73,7 @@ function fetchOptions() {
     .then(response => response.json())
     .then(data => {
        
-        if(data.errorCode == '118'){
+        if(data.errorMessage){
             console.log(data);
             alert('Failed: '+ data.errorMessage);
         }

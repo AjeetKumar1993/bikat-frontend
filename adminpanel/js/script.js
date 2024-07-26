@@ -1,11 +1,13 @@
-var tourImage = [];
-var tourImageGallery = [];
+
 
 document.getElementById('tourForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    
+
+    const tourImage = JSON.parse(localStorage.getItem("images_tourImage"));
+    const tourImageGallery = JSON.parse(localStorage.getItem("images_tourImages"));
+
     const data = {
 
         name: formData.get('name'),
@@ -33,7 +35,7 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
        // availableDate: JSON.parse(formData.get('availableDate')),
         active: formData.get('active') === 'on'
     };
-
+    
     const inclusionList = [];
     const exclusionList = [];
     const highlightList = [];
@@ -113,7 +115,7 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
         itineryFinalData['day'+i] = itineryData;
     }
     data.itinerary = itineryFinalData;
-    console.log(data);
+   
     await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/', {
         method: 'POST',
         headers: {
@@ -139,6 +141,7 @@ document.getElementById('productForm').addEventListener('submit', async function
 
     const formData = new FormData(event.target);
     
+    const tourImageGallery = JSON.parse(localStorage.getItem("images_productImages"));
     const data = {
 
         name: formData.get('name'),
@@ -151,11 +154,10 @@ document.getElementById('productForm').addEventListener('submit', async function
         price: parseInt(formData.get('price')),
         shortOverview: formData.get('shortOverview'),
         location: formData.get('location'),
-        tourImage: tourImage[0],
+        tourImage: tourImageGallery[0],
         active: formData.get('active') === 'on'
     };
 
-    console.log(data);
     await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/', {
         method: 'POST',
         headers: {
@@ -177,101 +179,6 @@ document.getElementById('productForm').addEventListener('submit', async function
 });
 
 
- async function uploadTourImages(id){
-    
-    const formData = new FormData();
-    var imagesInput = document.getElementById(id);
-
-    for (const file of imagesInput.files) { 
-        formData.append('files', file);
-    }
-    var statusId = '';
-    if(id === 'tourImage'){
-        statusId = 'statusIcon';
-     }
-     else if(id === 'tourImages'){
-        statusId = 'statusIcon2';
-     }else if(id === 'newTourImage'){
-        statusId = 'statusIcon3';
-     }
-     else if(id === 'newTourImages'){
-        statusId = 'statusIcon4';
-     }else if(id === 'productImages'){
-        statusId = 'statusIcon5';
-     }
-    
-    const statusIcon = document.getElementById(statusId);
-    try {
-        const response =  await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/file/upload/images', {
-            method: 'POST',
-            body: formData
-        });
-        const result =  await response.json();
-        console.log('Success:', result);
-        
-        if(id === 'tourImage' || id === 'newTourImage' || id === 'productImages'){
-           tourImage = result.fileNames;
-        }
-        if(id === 'tourImages' || id === 'newTourImages'){
-           tourImageGallery = result.fileNames;
-        }
-        statusIcon.innerHTML = '&#10004;'; // Blue tick (✔)
-        statusIcon.className = 'status-icon success';
-        statusIcon.style.display = 'inline';
-    } catch (error) {
-        console.error('Error:', error);
-        statusIcon.innerHTML = '&#10008;'; // Red X (✘)
-        statusIcon.className = 'status-icon failure';
-        statusIcon.style.display = 'inline';
-    }
-}
-function previewImage(event, containerId) {
-    const reader = new FileReader();
-    reader.onload = function() {
-        const output = document.getElementById(containerId);
-        output.src = reader.result;
-    }
-    reader.readAsDataURL(event.target.files[0]);
-}
-function previewImages(event) {
-    const imagePreviewContainer = document.getElementById('imagePreviewContainer');
-    imagePreviewContainer.innerHTML = ''; // Clear previous previews
-
-    Array.from(event.target.files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.className = 'image-preview';
-            imagePreviewContainer.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-    });
-}
-
-function newPreviewImage(event) {
-    const reader = new FileReader();
-    reader.onload = function() {
-        const output = document.getElementById('newImagePreview');
-        output.src = reader.result;
-    }
-    reader.readAsDataURL(event.target.files[0]);
-}
-function newPreviewImages(event) {
-    const imagePreviewContainer = document.getElementById('newImagePreviewContainer');
-    imagePreviewContainer.innerHTML = ''; // Clear previous previews
-
-    Array.from(event.target.files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.className = 'image-preview';
-            imagePreviewContainer.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-    });
-}
 let countArray = {
      inclusion : 0,
      exclusion : 0,
@@ -327,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     });
             })
             .catch(error => {
-                alert('Error fetching options:', error);
+                alert('Error fetching options: 1', error);
                
             });
         }
@@ -525,7 +432,7 @@ function populateTable(data) {
                 });
         })
         .catch(error => {
-            console.error('Error fetching options:', error);
+            console.error('Error fetching options: 2', error);
             const checkboxesContainer = document.getElementById('suggestedTourCheckboxes');
             checkboxesContainer.innerHTML = '<label>Error loading options</label>';
         }); 
@@ -945,8 +852,6 @@ function populateTable(data) {
 
   document.getElementById('save-edit-group-h').addEventListener('click', function() {
     const id = this.dataset.id;
-   
-    
 
     let newLocation = document.getElementById('newLocation').value;
     console.log(newLocation);
@@ -979,7 +884,9 @@ function populateTable(data) {
 
   document.getElementById('save-edit-group-i').addEventListener('click', function() {
     const id = this.dataset.id;
-   
+
+    const tourImage = JSON.parse(localStorage.getItem("images_editNewTourImage"));
+    const tourImageGallery = JSON.parse(localStorage.getItem("images_editNewTourImages"));
     const data = {}
     let isUpdate = false;
     if(tourImage.length !== 0){
@@ -1026,7 +933,7 @@ function populateTable(data) {
      document.getElementById("edit-name").value = "";
      document.getElementById("edit-region").value = "";
      document.getElementById("edit-category").value = "";
-     document.getElementById("edit-stay-category").value = "";
+    // document.getElementById("edit-stay-category").value = "";
      document.getElementById("edit-type").value = "";
      document.getElementById("edit-grade").value = "";
  
@@ -1065,13 +972,11 @@ function populateTable(data) {
      document.getElementById("newLocation").value = "";
  
      // Reset input fields and content in Group I (assuming it's related to images)
-     document.getElementById("edit-tour-image").innerHTML = "";
-     document.getElementById("newTourImage").value = "";
-     document.getElementById("newImagePreview").src = "";
-     document.getElementById("edit-tour-gallery").innerHTML = "";
-     document.getElementById("newTourImages").value = "";
-     document.getElementById("newImagePreviewContainer").innerHTML = "";
- 
+     document.getElementById("editNewTourImage").innerHTML = "";
+     document.getElementById("editNewImagePreview").value = "";
+     document.getElementById("editNewTourImages").innerHTML = "";
+     document.getElementById("editNewImagePreviewContainer").value = "";
+
      // Reset input fields and content in Group J (assuming it's related to itinerary)
      document.getElementById("edit-itinerary").innerHTML = "";
  
@@ -1081,6 +986,7 @@ function populateTable(data) {
 
      
     document.getElementById('edit-popup').style.display = 'none';
+
   }
   function closeDateEditPopup() {
     document.getElementById('edit-tour-date-popup').style.display = 'none';
@@ -1401,7 +1307,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             })
             .catch(error => {
-                console.error('Error fetching options:', error);
+                console.error('Error fetching options: 3', error);
                 statusMessage.textContent = 'Failed to fetch options';
             });
     }
@@ -1477,7 +1383,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
        
-        if(data.errorCode == '114'){
+        if(data.errorMessage){
             console.log(data);
             alert('Failed: '+ data.errorMessage);
            

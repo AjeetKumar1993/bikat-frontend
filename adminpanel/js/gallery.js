@@ -12,7 +12,7 @@ function fetchGalleryItem(){
         filterHtmlRender('gallery-location', data.location);
     })
     .catch(error => {
-        alert('Error fetching options:', error);
+        alert('Error fetching options: 6', error);
        
     });
 }
@@ -35,7 +35,7 @@ function fetchImage(){
         createGallery(data.Properties,'properties-gallery-container');
     })
     .catch(error => {
-        alert('Error fetching options:', error);
+        alert('Error fetching options: 5', error);
        
     });
 }
@@ -45,7 +45,20 @@ function createGallery(data, container_id) {
     if(container === null) {
         return;
     }
+    const activityMap = new Map();
     data.forEach(destination => {
+
+      
+        const idAndTitleMap = new Map();
+        idAndTitleMap.set(destination.id, destination.title);
+    
+        if (activityMap.has(destination.location)) {
+          activityMap.get(destination.location).push(idAndTitleMap);
+        } else {
+          activityMap.set(destination.location, [idAndTitleMap]);
+        }
+
+
         const locationDiv = document.createElement('div');
         locationDiv.classList.add('location');
 
@@ -88,15 +101,27 @@ function createGallery(data, container_id) {
 
         container.appendChild(locationDiv);
     });
+    
+    let mapObject = {};
+    activityMap.forEach((value, key) => {
+        let arrayValue = value.map(map => Array.from(map));
+        mapObject[key] = JSON.stringify(arrayValue);
+    });
+   
+    if(container_id === 'activities-gallery-container'){
+        localStorage.setItem('activitiesActivityData', JSON.stringify(mapObject));
+    }else if( container_id === 'properties-gallery-container'){
+        localStorage.setItem('propertiesActivityData', JSON.stringify(mapObject));
+    }
+   
 }
-let imageGallery = [];
 
-function uploadGallery() {
+function uploadGallery(containerId) {
     
     var category = document.getElementById('gallery-category');
     var categoryValue = category.options[category.selectedIndex].text;
     
-    var location = document.getElementById('gallery-location');
+    var location = document.getElementById('load_location');
     var title = document.getElementById('gallery-category-title').value;
     var locationValue = location.options[location.selectedIndex].text;
 
@@ -113,9 +138,10 @@ function uploadGallery() {
         location: locationValue,
         title: title
     }
+    const imageGallery = localStorage.getItem("images_"+containerId);
     
     if(imageGallery.length !== 0){
-        data.url = imageGallery;
+        data.url = JSON.parse(imageGallery);
     }else{
         alert("You must upload at least one image");
         return;
@@ -143,17 +169,41 @@ function uploadGallery() {
     });
 
 }
+function previewImage(event, containerId) {
+    const reader = new FileReader();
+    reader.onload = function() {
+        const output = document.getElementById(containerId);
+        output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+function previewImages(event, id) {
+    console.log(id);
+    const imagePreviewContainer = document.getElementById(id);
+    imagePreviewContainer.innerHTML = ''; // Clear previous previews
 
-async function uploadImages(){
+    Array.from(event.target.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.className = 'image-preview';
+            imagePreviewContainer.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+async function uploadImages(containerId, statusId){
  
     const formData = new FormData();
-    var imagesInput = document.getElementById('newTourImages');
+    var imagesInput = document.getElementById(containerId);
 
     for (const file of imagesInput.files) { 
         formData.append('files', file);
     }
   
-    const statusIcon = document.getElementById('gallerStatusIcon');
+    const statusIcon = document.getElementById(statusId);
     try {
         showLoader();
         const response =  await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/file/upload/images', {
@@ -162,7 +212,8 @@ async function uploadImages(){
         });
         hideLoader();
         const result =  await response.json();
-        imageGallery = result.fileNames;
+        console.log(result.fileNames);
+        localStorage.setItem("images_"+containerId,  JSON.stringify(result.fileNames));
         
         statusIcon.innerHTML = '&#10004;'; // Blue tick (✔)
         statusIcon.className = 'status-icon success';
