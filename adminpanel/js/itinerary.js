@@ -328,10 +328,44 @@ function handleEventTypeChange(selectElement) {
             div.classList.add('hidden');
         }
     });
-
+    
     addTransferPoints();
     addAttractionPoints();
     addActivitesData();
+    addPropertiesData();
+
+}
+
+function addPropertiesData(){
+
+    let retrievedMap = new Map();
+    let retrievedMapObject = JSON.parse(localStorage.getItem('propertiesActivityData'));
+    Object.keys(retrievedMapObject).forEach(key => {
+        let parsedArray = JSON.parse(retrievedMapObject[key]);
+        let mapArray = parsedArray.map(entry => new Map(entry));
+        retrievedMap.set(key, mapArray);
+    });
+
+    console.log(retrievedMap);
+    const location = document.getElementById('itinerary_location').value;
+    
+    const hotelLists = document.getElementById('hotelLists');
+    hotelLists.innerHTML = '';
+   
+ 
+    let selectHTML = `<select id="hotelPoints" name="hotelPoints" style="margin-right: 10px;">`;
+
+    if(retrievedMap.has(location)){
+        retrievedMap.get(location).forEach((valueMap) => {
+           
+            let [key, value] = [...valueMap.entries()][0]; 
+            selectHTML += `<option value="${key}">${value}</option>`;
+        });
+    }
+    selectHTML  += `</select>`;
+    selectHTML += `<button type="button" onclick="selectAndAddTransfer('hotelPoints')">Add</button>`;
+
+    hotelLists.innerHTML += selectHTML;
 }
 
 function addActivitesData(){
@@ -424,7 +458,7 @@ function addTransferPoints(){
         });
     }
     selectHTML  += `</select>`;
-    selectHTML += `<button type="button" onclick="selectAndAddTransfer()">Add</button>`;
+    selectHTML += `<button type="button" onclick="selectAndAddTransfer('transferPoints')">Add</button>`;
 
     addTransferPoints.innerHTML = selectHTML;       
 }
@@ -439,9 +473,12 @@ function selectAndAddTransfer(id){
     if(id === 'attractionPoints'){
         activityTypeId = document.getElementById('attractionList');
         eventPoints = document.getElementById('attractionPoints'); 
-    }else{
+    }else if(id === 'transferPoints'){
         activityTypeId = document.getElementById('transferPointList');
         eventPoints = document.getElementById('transferPoints'); 
+    }else{
+        activityTypeId = document.getElementById('hotelList');
+        eventPoints = document.getElementById('hotelPoints'); 
     } 
 
    
@@ -525,10 +562,39 @@ function saveEventInDb(type){
         data.title = activityTitle;
         data.activityId = activityValue;
         data.eventDataId = attractionPointsList;   
-    }
+    }else if(type === 'hotel'){
 
+        let ul = document.getElementById('hotelList');
+        let hotelLists = [];
+        ul.querySelectorAll('li').forEach(li => {
+            hotelLists.push( li.id);
+        });
+
+        let inclusions = [];
+        let inclusionList = document.getElementById('hotelInclusions');
+        let inclusionListCheckboxes = inclusionList.querySelectorAll('input[type=checkbox]');
+        inclusionListCheckboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                inclusions.push(checkbox.value);
+            }
+        });
+      
+        data.itineraryId = id;
+        data.position = document.getElementById('eventPosition').value;
+        data.eventType = 'HOTEL';
+        data.title = document.getElementById('hotelTitle').value;
+        data.startTime = document.getElementById('hotelStartTime').value;
+        data.endTime = document.getElementById('hotelEndTime').value;
+        data.inclusions = inclusions;
+        data.eventDataId = hotelLists;   
+    }
+   
+    if(! data.itineraryId){
+       alert("Please create a itinerary days before adding event!");
+        return;
+    }
     
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary/event', {
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/admin/tour/itinerary/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -556,7 +622,7 @@ function saveEventInDb(type){
 function showEventData(item){
     const tableBody = document.querySelector('#view-event-data tbody');
    // tableBody.innerHTML = '';
-    if(item.transportType){
+    if(!item.transportType){
         item.transportType = "NA"
     }
     const row = document.createElement('tr');

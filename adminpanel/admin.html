@@ -481,7 +481,7 @@
                 <button type="submit">Submit</button><br><br>
               
 
-                <div id="eventData" class="hidden">
+                <div id="eventData" class="">
                     <form id="eventDataForm" >
 
                         <table id="view-event-data">
@@ -502,7 +502,7 @@
                             <div>
                                 <label for="eventType">Event Type:</label>
                                 <select id="eventType" name="eventType" onchange="handleEventTypeChange(this)">
-                                    <option value="activityEvent" selected>Select</option>
+                                    <option value="" selected>Select</option>
                                     <option value="activityEvent">Activity</option>
                                     <option value="hotelEvent">Hotel</option>
                                     <option value="transferEvent">Transfer</option>
@@ -516,7 +516,7 @@
                         </div>
                         <br>
 
-                        <div id="activityEvent" class="event-data visible">
+                        <div id="activityEvent" class="event-data hidden">
                             <label for="activityList">Activity:</label>
                             <select id="activityList" name="activityList" style="width: 500px;"></select>
 
@@ -536,13 +536,43 @@
                         </div>
                         <div id="hotelEvent" class="event-data hidden">
                             <label for="hotelTitle">Hotel Title:</label>
-                            <select id="hotelTitle" name="hotelTitle" style="width: 500px;"></select>
+                            <input type="text" id="hotelTitle" name="hotelTitle" style="width: 500px;">
 
-                            <label for="description">Description:</label>
-                            <textarea id="description" name="description"> </textarea>
-                
-                            <label for="wikiParsedDesc">Wiki Parsed Description:</label>
-                            <textarea id="wikiParsedDesc" name="wikiParsedDesc"></textarea>
+                            <div class="multi-input-row">
+                                <div>
+                                    <label for="hotelStartTime">Start Time:</label>
+                                    <input type="text" id="hotelStartTime" name="hotelStartTime">
+                                </div>
+                                <div>
+                                    <label for="hotelEndTime">End Time:</label>
+                                    <input type="text" id="hotelEndTime" name="hotelEndTime">
+                                </div>
+                            </div>
+                            
+                            <label for="hotelInclusions">Inclusions:</label>
+                            <div id="hotelInclusions">
+                                <label>
+                                    <input type="checkbox" id="breakfast" name="Breakfast" value="Breakfast"> Breakfast
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="lunch" name="Lunch" value="Lunch"> Lunch
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="dinner" name="Dinner" value="Dinner"> Dinner
+                                </label>
+                            </div>
+                          
+
+                            <br>
+                            <ul id="hotelList"></ul>
+                            <br>
+                            <label for="hotelLists">Add Hotel:</label>
+                            <div id="hotelLists"></div>
+                            <br><br>
+                        
+                            <button type="button" onclick="saveEventInDb('hotel')" id="itineraryId">Save Event</button>
+
+
                         </div>
                         <div id="transferEvent" class="event-data hidden">
                             <br>
@@ -632,7 +662,7 @@
                         <input type="text" id="googleMap" name="googleMap" required>      
                     </div>
                 </div>
-
+                  
                 <label for="eventPointImage">Upload Images:</label><span id="eventStatus" class="status-icon">&#10004;</span>
                 <input type="file" id="eventPointImage" name="eventPointImage" accept="image/*" onchange="previewImages(event, 'eventPointPreviewContainer')" required><br>
                 <div id="eventPointPreviewContainer" class="image-preview-container"></div><br>
