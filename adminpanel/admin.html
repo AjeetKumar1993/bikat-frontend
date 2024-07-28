@@ -616,12 +616,14 @@
                         <div id="leisureDayEvent" class="event-data hidden">
                             <label for="leisureDayTitle">Leisure Day Title:</label>
                             <input type="text" id="leisureDayTitle" name="leisureDayTitle" style="width: 500px;">
-
-                            <label for="description">Description:</label>
-                            <textarea id="description" name="description"> </textarea>
-                
-                            <label for="wikiParsedDesc">Wiki Parsed Description:</label>
-                            <textarea id="wikiParsedDesc" name="wikiParsedDesc"></textarea>
+                            <br>
+                            <ul id="leisurePlaceList"></ul>
+                            <br>
+                            <label for="leisurePlaceLists">Add Attraction Point:</label>
+                            <div id="leisurePlaceLists"></div>
+                            <br><br>
+                        
+                            <button type="button" onclick="saveEventInDb('leisureDay')" id="itineraryId">Save Event</button>
                         </div>
     
                         <div id="event-data-container"></div>

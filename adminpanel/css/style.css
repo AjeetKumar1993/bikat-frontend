@@ -474,6 +474,21 @@ button.close:hover {
     display: flex;
     align-items: center;
 }
+#leisurePlaceList {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    width: 300px; /* Example width */
+}
+
+#leisurePlaceList li {
+    background-color: #ffffff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
 #hotelList {
     list-style-type: none; /* Remove default bullets */
     padding: 0;

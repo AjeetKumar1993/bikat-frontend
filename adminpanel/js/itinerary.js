@@ -393,9 +393,11 @@ function addActivitesData(){
 }
 
 function addAttractionPoints(){
-
+    
     const addAttractionPoints = document.getElementById('addAttractionPoints');
     addAttractionPoints.innerHTML = '';
+    const leisurePlaceLists = document.getElementById('leisurePlaceLists');
+    leisurePlaceLists.innerHTML = '';
     const location = document.getElementById('itinerary_location').value;
     
    // Retrieve Object from localStorage and convert back to Map
@@ -424,6 +426,7 @@ function addAttractionPoints(){
     selectHTML += `<button type="button" onclick="selectAndAddTransfer('attractionPoints')">Add</button>`;
 
     addAttractionPoints.innerHTML = selectHTML;
+    leisurePlaceLists.innerHTML = selectHTML;
    
 }
 
@@ -464,22 +467,30 @@ function addTransferPoints(){
 }
 
 function selectAndAddTransfer(id){
-    const eventType = document.getElementById('eventType');
-    
 
+    var eventType = document.getElementById('eventType');
+    var eventTypeValue = eventType.options[eventType.selectedIndex].value;
+   
     var activityTypeId;
-    
     var eventPoints;
     if(id === 'attractionPoints'){
-        activityTypeId = document.getElementById('attractionList');
-        eventPoints = document.getElementById('attractionPoints'); 
+        if(eventTypeValue === 'leisureDayEvent'){
+            activityTypeId = document.getElementById('leisurePlaceList');
+            eventPoints = document.getElementById('attractionPoints'); 
+        }else{
+            activityTypeId = document.getElementById('attractionList');
+            eventPoints = document.getElementById('attractionPoints'); 
+        }
+       
     }else if(id === 'transferPoints'){
         activityTypeId = document.getElementById('transferPointList');
         eventPoints = document.getElementById('transferPoints'); 
-    }else{
+    }else if(id === 'hotelPoints'){
         activityTypeId = document.getElementById('hotelList');
         eventPoints = document.getElementById('hotelPoints'); 
-    } 
+    } else{
+
+    }
 
    
     var eventPointsText = eventPoints.options[eventPoints.selectedIndex].text;
@@ -587,8 +598,21 @@ function saveEventInDb(type){
         data.endTime = document.getElementById('hotelEndTime').value;
         data.inclusions = inclusions;
         data.eventDataId = hotelLists;   
+    }else if(type === 'leisureDay'){
+
+        let ul = document.getElementById('leisurePlaceList');
+        let leisurePlaceLists = [];
+        ul.querySelectorAll('li').forEach(li => {
+            leisurePlaceLists.push( li.id);
+        });
+
+        data.itineraryId = id;
+        data.position = document.getElementById('eventPosition').value;
+        data.eventType = 'LEISUREDAY';
+        data.title = document.getElementById('leisureDayTitle').value;
+        data.eventDataId = leisurePlaceLists;   
     }
-   
+    console.log(data);
     if(! data.itineraryId){
        alert("Please create a itinerary days before adding event!");
         return;
