@@ -160,7 +160,7 @@ let dayCounts = {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const imageGallery = JSON.parse(localStorage.getItem("images_transferPointImage"));
+    const imageGallery = JSON.parse(localStorage.getItem("images_eventPointImage"));
     const data = {
 
         location: formData.get('event-point-location'),
