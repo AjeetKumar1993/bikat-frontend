@@ -206,19 +206,6 @@ function removeRule(button, type) {
 }
 
 
-function loadAddOnOptions(data) {
-
-    const optionsSelect = document.getElementById('addOns_tour_options');
-   
-    data.forEach(option => {
-        const optionElement = document.createElement('option');
-        optionElement.value = option.id;
-        optionElement.textContent = option.name;
-        optionsSelect.appendChild(optionElement);
-    });
-        
-}
-
 function handleCheckboxChange(id) {
     const selectedOptions = Array.from(document.querySelectorAll('.checkbox:checked')).map(cb => cb.value);
     console.log(selectedOptions);
@@ -1278,6 +1265,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     optionElement.textContent = option.name;
                     optionsSelect.appendChild(optionElement);
                 });
+                loadAddOnOptions(data);
             })
             .catch(error => {
                 console.error('Error fetching options: 3', error);
@@ -1332,6 +1320,19 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchAndDisplaySavedDates();
 });
 
+
+function loadAddOnOptions(data) {
+
+    const optionsSelect = document.getElementById('addOns_tour_options');
+   
+    data.forEach(option => {
+        const optionElement = document.createElement('option');
+        optionElement.value = option.id;
+        optionElement.textContent = option.name;
+        optionsSelect.appendChild(optionElement);
+    });
+        
+}
 
  // Handle form submission to save date
  document.getElementById('add-date-submit').addEventListener('click', function(event) {
