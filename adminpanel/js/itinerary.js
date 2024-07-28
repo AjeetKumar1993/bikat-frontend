@@ -658,5 +658,4 @@ function showEventData(item){
         `;
     tableBody.appendChild(row);
 }
-//document.addEventListener("DOMContentLoaded", fetchItineraryEventCategory);
 

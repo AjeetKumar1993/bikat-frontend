@@ -206,45 +206,18 @@ function removeRule(button, type) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    
-    const params = new URLSearchParams(window.location.search);
-    const listId = params.get('userId'); // Get the list ID from the URL
-    if (listId) {
-       const userId = localStorage.getItem('userId');
-       if(userId !== listId){
-        window.location.href = '../index.html'; 
-       }else{
+function loadAddOnOptions(data) {
 
-            fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/list')
-            .then(response => response.json())
-            .then(data => {
-                const checkboxesContainer = document.getElementById('suggestedTourCheckboxes');
-                    checkboxesContainer.innerHTML = '';  // Clear existing content
-                    data.forEach(option => {
-                        const label = document.createElement('label');
-                        const checkbox = document.createElement('input');
-                        checkbox.type = 'checkbox';
-                        checkbox.value = option.name;
-                        checkbox.name = 'options';
-                        checkbox.classList.add('checkbox');  // Add class for styling
-                        label.appendChild(checkbox);
-                        label.appendChild(document.createTextNode(option.name));
-                        checkboxesContainer.appendChild(label);
-                    });
-            })
-            .catch(error => {
-                alert('Error fetching options: 1', error);
-               
-            });
-        }
-
-      } else {
-        // Handle the case where no list ID is provided in the URL
-        //window.location.href = '../index.html'; // Redirect back to the listing page
-      }
-  
-});
+    const optionsSelect = document.getElementById('addOns_tour_options');
+   
+    data.forEach(option => {
+        const optionElement = document.createElement('option');
+        optionElement.value = option.id;
+        optionElement.textContent = option.name;
+        optionsSelect.appendChild(optionElement);
+    });
+        
+}
 
 function handleCheckboxChange(id) {
     const selectedOptions = Array.from(document.querySelectorAll('.checkbox:checked')).map(cb => cb.value);
@@ -1358,6 +1331,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial fetch and display saved dates when the page loads
     fetchAndDisplaySavedDates();
 });
+
 
  // Handle form submission to save date
  document.getElementById('add-date-submit').addEventListener('click', function(event) {

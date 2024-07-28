@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchAndDisplayAddOns();
-    fetchOptions();
 });
 
 
@@ -25,27 +24,6 @@ function fetchAndDisplayAddOns() {
         .catch(error => {
             console.error('Error fetching saved addOns:');
            
-        });
-}
-function fetchOptions() {
-
-    const optionsSelect = document.getElementById('addOns_tour_options');
-    // Replace with your actual backend API endpoint to fetch options
-    const optionsUrl = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/list';
-
-    fetch(optionsUrl)
-        .then(response => response.json())
-        .then(data => {
-            // Populate options in the dropdown select element
-            data.forEach(option => {
-                const optionElement = document.createElement('option');
-                optionElement.value = option.id;
-                optionElement.textContent = option.name;
-                optionsSelect.appendChild(optionElement);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching options: 7');
         });
 }
 
