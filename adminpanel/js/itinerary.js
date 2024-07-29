@@ -132,6 +132,7 @@ let dayCounts = {
         alert('Itinerary submitted successfully!');
         
         event.target.elements['itinerary_location'].disabled = true;
+        event.target.elements['product-slug-container'].disabled = true;
        // handleCheckboxChange(result.id);
        var contentDiv = document.getElementById('eventData');
        contentDiv.classList.remove('hidden');
@@ -346,7 +347,6 @@ function addPropertiesData(){
         retrievedMap.set(key, mapArray);
     });
 
-    console.log(retrievedMap);
     const location = document.getElementById('itinerary_location').value;
     
     const hotelLists = document.getElementById('hotelLists');
@@ -378,7 +378,7 @@ function addActivitesData(){
         retrievedMap.set(key, mapArray);
     });
 
-    console.log(retrievedMap);
+   
     const location = document.getElementById('itinerary_location').value;
     
     const activitactivityListyTitle = document.getElementById('activityList');
@@ -448,11 +448,26 @@ function addTransferPoints(){
         });
     
     }
- 
-    
+
 
     let selectHTML = `<select id="transferPoints" name="transferPoints" style="margin-right: 10px;">`;
-
+    const slug = document.getElementById('product-slug-container').value;
+  
+    const lastDayTransferPointData =  localStorage.getItem("lastDayTransferPoint_"+slug);
+  
+    if(lastDayTransferPointData){
+        const lastDayTransferPoint = JSON.parse(lastDayTransferPointData);
+        Object.keys(lastDayTransferPoint).forEach(key => {
+            let value = lastDayTransferPoint[key];
+           
+            if (key !== undefined && value !== undefined) {
+                selectHTML += `<option value="${key}">${value}</option>`;
+            }
+        
+        });
+        
+    }
+   
     if(retrievedMap.has(location)){
         retrievedMap.get(location).forEach((valueMap) => {
            
@@ -539,10 +554,15 @@ function saveEventInDb(type){
     
         let ul = document.getElementById('transferPointList');
         let transferPointsList = [];
+        let liName = '';
         ul.querySelectorAll('li').forEach(li => {
             transferPointsList.push( li.id);
+            liName = li.textContent || li.innerText; 
+            if (liName.length > 0) {
+                liName = liName.slice(0, -1);
+            }
         });
-    
+     
               
         data.itineraryId = id;
         data.position = document.getElementById('eventPosition').value;
@@ -551,7 +571,17 @@ function saveEventInDb(type){
         data.startTime = document.getElementById('transferStartTime').value;
         data.endTime = document.getElementById('transferEndTime').value;
         data.transportType = transportTypeValue;
-        data.eventDataId = transferPointsList;    
+        data.eventDataId = transferPointsList;
+     
+        if(transferPointsList,length >= 0){
+            let object = {};
+            object[transferPointsList[transferPointsList.length - 1]] = liName;
+
+            const slug = document.getElementById('product-slug-container').value;
+           
+            localStorage.setItem("lastDayTransferPoint_"+slug, JSON.stringify(object));
+        }
+        
         
     }else if(type === 'activity'){
 
@@ -612,13 +642,13 @@ function saveEventInDb(type){
         data.title = document.getElementById('leisureDayTitle').value;
         data.eventDataId = leisurePlaceLists;   
     }
-    console.log(data);
+  
     if(! data.itineraryId){
        alert("Please create a itinerary days before adding event!");
         return;
     }
     
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/admin/tour/itinerary/event', {
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
