@@ -399,9 +399,7 @@
                         <select id="product-region" name="product-region" required></select>        
                     </div>
                 </div>
-                
-    
-              
+            
                 <div class="multi-input-row">
                     <div>
                         <label for="product-category">Category:</label>
@@ -432,6 +430,14 @@
                 
                 <label for="location">Location:</label>
                 <input type="text" id="location" name="location" ><br><br>
+
+                <label for="tripHighlight">Trip Highlight:</label>
+                <div id="tripHighlight">
+                    <div class="rule">
+                       
+                    </div>
+                </div>
+                <button type="button" onclick="addMore('tripHighlight')">Add</button><br><br>
         
                 <label for="productImages">Tour Image:</label> <span id="statusIcon5" class="status-icon">&#10004;</span>
                 <input type="file" id="productImages" name="productImages" accept="image/*" onchange="previewImage(event,'productImagePreview')" ><br>

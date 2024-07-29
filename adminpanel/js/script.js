@@ -157,6 +157,15 @@ document.getElementById('productForm').addEventListener('submit', async function
         tourImage: tourImageGallery[0],
         active: formData.get('active') === 'on'
     };
+    const highlightList = [];
+    for (let i = 1; i <= countArray['tripHighlight']; i++) {
+    
+        const ruleValue = document.getElementById(`tripHighlight${i}`).value;
+        if (ruleValue) {
+            highlightList.push(ruleValue);
+        }
+    }
+    data.highlight = highlightList;
 
     await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/', {
         method: 'POST',
@@ -184,7 +193,8 @@ let countArray = {
      exclusion : 0,
      highlight : 0,
      cancelPolicy : 0,
-     packingList : 0
+     packingList : 0,
+     tripHighlight : 0
 }
 
 function addMore(type) {
