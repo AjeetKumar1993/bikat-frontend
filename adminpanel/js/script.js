@@ -165,7 +165,25 @@ document.getElementById('productForm').addEventListener('submit', async function
             highlightList.push(ruleValue);
         }
     }
+    const inclusionList = [];
+    for (let i = 1; i <= countArray['tripInclusion']; i++) {
+    
+        const ruleValue = document.getElementById(`tripInclusion${i}`).value;
+        if (ruleValue) {
+            inclusionList.push(ruleValue);
+        }
+    }
+    const exclusionList = [];
+    for (let i = 1; i <= countArray['tripExclusion']; i++) {
+    
+        const ruleValue = document.getElementById(`tripExclusion${i}`).value;
+        if (ruleValue) {
+            exclusionList.push(ruleValue);
+        }
+    }
     data.highlight = highlightList;
+    data.exclusion = exclusionList;
+    data.inclusion = inclusionList;
 
     await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/', {
         method: 'POST',
@@ -194,7 +212,9 @@ let countArray = {
      highlight : 0,
      cancelPolicy : 0,
      packingList : 0,
-     tripHighlight : 0
+     tripHighlight : 0,
+     tripInclusion : 0,
+     tripExclusion : 0
 }
 
 function addMore(type) {
