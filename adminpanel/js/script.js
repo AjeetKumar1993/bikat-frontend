@@ -149,6 +149,7 @@ document.getElementById('productForm').addEventListener('submit', async function
         region: formData.get('product-region'),
         category: formData.get('product-category'),
         stayCategory: formData.get('product-stay-category'),
+        tourPackage: formData.get('product-tour-package'),
         day: parseInt(formData.get('day')),
         night: parseInt(formData.get('day')) + 1,
         price: parseInt(formData.get('price')),
@@ -157,6 +158,7 @@ document.getElementById('productForm').addEventListener('submit', async function
         tourImage: tourImageGallery[0],
         active: formData.get('active') === 'on'
     };
+  
     const highlightList = [];
     for (let i = 1; i <= countArray['tripHighlight']; i++) {
     
@@ -204,7 +206,6 @@ document.getElementById('productForm').addEventListener('submit', async function
         console.log('Error submitting form!');
     });
 });
-
 
 let countArray = {
      inclusion : 0,
@@ -494,6 +495,9 @@ function populateTable(data) {
 
     // Get the input value and split by comma
     let inputText = document.getElementById(inputId).value.trim();
+    if(inputText === ''){
+        return;
+    }
     let item = inputText;//.split(',');
 
     //items.forEach(item => {
@@ -503,7 +507,7 @@ function populateTable(data) {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = item; // Use a unique identifier from your data
-        checkbox.name = 'checkboxes'; // Optional: Set a common name for all checkboxes
+        checkbox.name = item; // Optional: Set a common name for all checkboxes
         checkbox.value = item; // Adjust based on your data structure
         checkbox.checked = true;
         const label = document.createElement('label');
@@ -514,6 +518,7 @@ function populateTable(data) {
         checkboxDiv.appendChild(label);
    
         document.getElementById(editId).appendChild(checkboxDiv);
+        document.getElementById(inputId).value = '';
    // });
   }
 
@@ -1285,9 +1290,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 // Populate options in the dropdown select element
                 const productSlugContainer = document.getElementById('product-slug-container');
+                const productSlugPolicyContainer = document.getElementById('product-slug-policy-container');
                 data.forEach(option => {
                     if(option.stayCategory){
                         productSlugContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
+                        productSlugPolicyContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
                     }
                     
                     const optionElement = document.createElement('option');

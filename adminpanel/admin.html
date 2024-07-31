@@ -12,10 +12,11 @@
         <a href="#edit-tour" onclick="showTab('edit-tour')">Tours</a>
         <a href="#add-date" onclick="showTab('add-date')">Dates</a>
         <a href="#add-date" onclick="showTab('add-ons')">Add Ons</a>
-        <a href="#add-date" onclick="showTab('category-region')">Add Category & Region</a>
+        <a href="#add-date" onclick="showTab('category-region')">Add Tour Component</a>
         <a href="#add-date" onclick="showTab('gallery-items')">Gallery</a>
         <a href="#add-product" onclick="showTab('add-product')">Add Product</a>
-        <a href="#add-itinerary" onclick="showTab('add-itinerary')">Add Itinerary</a>
+        <a href="#add-policy" onclick="showTab('add-policy')">Add Product Policy</a>
+        <a href="#add-itinerary" onclick="showTab('add-itinerary')">Add Product Itinerary</a>
         <a href="#add-event-point" onclick="showTab('add-event-point')">Add Event Point</a>
         <a href="#view-event-point" onclick="showTab('view-event-point')">View Event Point</a>
         
@@ -276,7 +277,7 @@
                             <label for="addCategoryInput">Add Category:</label><br>
                             <input type="text" id="addCategoryInput" name="addCategoryInput" required>
                             <button type="button" onclick="generateCheckboxes('addCategoryInput', 'selectionFormForCategory')">Add</button>
-                            <button type="button"  onclick="saveCategoryAndRegion()">Save Category</button>
+                            <button type="button"  onclick="saveTourComponent('selectionFormForCategory', 'category')">Save Category</button>
                         </form>
                     </div>
                     <div>
@@ -289,7 +290,7 @@
                             <label for="addStayCategoryInput">Add Stay Category:</label><br>
                             <input type="text" id="addStayCategoryInput" name="addStayCategoryInput" required>
                             <button type="button" onclick="generateCheckboxes('addStayCategoryInput', 'selectionFormForStayCategory')">Add</button>
-                            <button type="button"  onclick="saveCategoryAndRegion()">Save Stay Category</button>
+                            <button type="button"  onclick="saveTourComponent('selectionFormForStayCategory', 'stayCategory')">Save Stay Category</button>
                         </form>
                     </div>
                 </div>
@@ -308,7 +309,7 @@
                             <label for="addRegionInput">Add Region:</label><br>
                             <input type="text" id="addRegionInput" name="addRegionInput" required>
                             <button type="button" onclick="generateCheckboxes('addRegionInput', 'selectionFormForRegion')">Add</button>
-                            <button type="button" onclick="saveCategoryAndRegion()">Save Region</button>
+                            <button type="button" onclick="saveTourComponent('selectionFormForRegion', 'region')">Save Region</button>
                         </form>
                     </div>
                     <div>
@@ -321,12 +322,108 @@
                             <label for="addLocationInput">Add Location:</label><br>
                             <input type="text" id="addLocationInput" name="addLocationInput" required>
                             <button type="button" onclick="generateCheckboxes('addLocationInput', 'selectionFormForLocation')">Add</button>
-                            <button type="button" onclick="saveCategoryAndRegion()">Save Location</button>
+                            <button type="button" onclick="saveTourComponent('selectionFormForLocation', 'location')">Save Location</button>
                         </form>
                     </div>
                 </div>
                
             </form>
+            <form>
+                <div class="multi-input-row">
+                    <div>
+                        <label for="selectionFormForPackage">Tour Package</label></br>
+                        <div id="selectionFormForPackage">
+                            <!-- Checkboxes will be added here -->
+                        </div>
+                        
+                        <form id="checkboxForm">
+                            <label for="addPackageInput">Add Package:</label><br>
+                            <input type="text" id="addPackageInput" name="addPackageInput" required>
+                            <button type="button" onclick="generateCheckboxes('addPackageInput', 'selectionFormForPackage')">Add</button>
+                            <button type="button" onclick="saveTourComponent('selectionFormForPackage', 'tourPackage')">Save Package</button>
+                        </form>
+                    </div>
+                    
+                </div>
+               
+            </form>
+            <form>
+                <div class="multi-input-row">
+                    <div>
+                        <label for="confirmationPolicy">Confirmation Policy</label></br>
+                        <div id="confirmationPolicy">
+                            <!-- Checkboxes will be added here -->
+                        </div>
+                        
+                        <form id="checkboxForm">
+                            <label for="confirmationPolicyInput">Add policy:</label><br>
+                            <input type="text" id="confirmationPolicyInput" name="confirmationPolicyInput" required>
+                            <button type="button" onclick="generateCheckboxes('confirmationPolicyInput', 'confirmationPolicy')">Add</button>
+                            <button type="button" onclick="saveTourComponent('confirmationPolicy', 'confirmationPolicy')">Save Policy</button>
+                        </form>
+                    </div>
+                    
+                </div>
+               
+            </form>
+            <form>
+                <div class="multi-input-row">
+                    <div>
+                        <label for="refundPolicy">Refund Policy</label></br>
+                        <div id="refundPolicy">
+                            <!-- Checkboxes will be added here -->
+                        </div>
+                        
+                        <form id="checkboxForm">
+                            <label for="refundPolicyInput">Add policy:</label><br>
+                            <input type="text" id="refundPolicyInput" name="refundPolicyInput" required>
+                            <button type="button" onclick="generateCheckboxes('refundPolicyInput', 'refundPolicy')">Add</button>
+                            <button type="button" onclick="saveTourComponent('refundPolicy', 'refundPolicy')">Save Policy</button>
+                        </form>
+                    </div>
+                    
+                </div>
+               
+            </form>
+            <form>
+                <div class="multi-input-row">
+                    <div>
+                        <label for="cancellationPolicy">Cancellation Policy</label></br>
+                        <div id="cancellationPolicy">
+                            <!-- Checkboxes will be added here -->
+                        </div>
+                        
+                        <form id="checkboxForm">
+                            <label for="cancellationPolicyInput">Add policy:</label><br>
+                            <input type="text" id="cancellationPolicyInput" name="cancellationPolicyInput" required>
+                            <button type="button" onclick="generateCheckboxes('cancellationPolicyInput', 'cancellationPolicy')">Add</button>
+                            <button type="button" onclick="saveTourComponent('cancellationPolicy', 'cancellationPolicy')">Save Policy</button>
+                        </form>
+                    </div>
+                    
+                </div>
+               
+            </form>
+            <form>
+                <div class="multi-input-row">
+                    <div>
+                        <label for="paymentPolicy">Payment Term Policy</label></br>
+                        <div id="paymentPolicy">
+                            <!-- Checkboxes will be added here -->
+                        </div>
+                        
+                        <form id="checkboxForm">
+                            <label for="paymentPolicyInput">Add policy:</label><br>
+                            <input type="text" id="paymentPolicyInput" name="paymentPolicyInput" required>
+                            <button type="button" onclick="generateCheckboxes('paymentPolicyInput', 'paymentPolicy')">Add</button>
+                            <button type="button" onclick="saveTourComponent('paymentPolicy', 'paymentPolicy')">Save Policy</button>
+                        </form>
+                    </div>
+                    
+                </div>
+               
+            </form>
+
           
         
         </div>
@@ -414,12 +511,25 @@
                 <br>
                 <div class="multi-input-row">
                     <div>
+                        <label for="product-tour-package">Tour Package:</label>
+                        <select id="product-tour-package" name="product-tour-package" required></select>
+                    </div>
+                
+                    <div>
+                        <label for="day">Day:</label>
+                        <input type="number" id="day" name="day" ><br><br>
+                    </div>
+                
+                </div>
+
+                <div class="multi-input-row">
+                    <div>
                         <label for="price">Price:</label>
                         <input type="number" id="price" name="price" ><br><br>
                     </div>
                     <div>
-                        <label for="day">Day:</label>
-                        <input type="number" id="day" name="day" ><br><br>
+                        <label for="location">Location:</label>
+                        <input type="text" id="location" name="location" ><br><br>
                     </div>
                 
                 </div>
@@ -427,10 +537,14 @@
     
                 <label for="shortOverview">Short Overview:</label>
                 <textarea id="shortOverview" name="shortOverview" ></textarea><br><br>
-                
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" ><br><br>
 
+                
+                <label for="productImages">Tour Image:</label> <span id="statusIcon5" class="status-icon">&#10004;</span>
+                <input type="file" id="productImages" name="productImages" accept="image/*" onchange="previewImage(event,'productImagePreview')" ><br>
+                <img id="productImagePreview" class="image-preview"><br>
+                <button type="button" onclick="uploadImages('productImages', 'statusIcon5')">Upload Image</button><br><br>
+
+                
                 <label for="tripHighlight">Trip Highlight:</label>
                 <div id="tripHighlight">
                     <div class="rule">
@@ -454,13 +568,6 @@
                 </div>
                 <button type="button" onclick="addMore('tripExclusion')">Add</button><br><br>
 
-
-        
-                <label for="productImages">Tour Image:</label> <span id="statusIcon5" class="status-icon">&#10004;</span>
-                <input type="file" id="productImages" name="productImages" accept="image/*" onchange="previewImage(event,'productImagePreview')" ><br>
-                <img id="productImagePreview" class="image-preview"><br>
-                <button type="button" onclick="uploadImages('productImages', 'statusIcon5')">Upload Image</button><br><br>
-
                 <label for="active">Active:</label>
                 <input type="checkbox" id="active" name="active"><br><br>
         
@@ -468,6 +575,30 @@
             </form>
             
         
+        </div>
+        <div id="add-policy" class="tab-content hidden">
+            <form id="policyForm">
+                <label>Add Policy:</label><br>
+               
+                <label for="product-slug-policy-container">Select tour:</label>
+                <select id="product-slug-policy-container" name="product-slug-policy-container" ></select>
+                <br><br> 
+
+                <label for="product-confirmationPolicy">Confirmation Policy:</label>
+                <select id="product-confirmationPolicy" name="product-confirmationPolicy" multiple></select>
+
+                <label for="product-refundPolicy">Refund Policy:</label>
+                <select id="product-refundPolicy" name="product-refundPolicy" multiple></select>
+
+                <label for="product-cancellationPolicy">Cancellation Policy:</label>
+                <select id="product-cancellationPolicy" name="product-cancellationPolicy" multiple></select>
+
+                <label for="product-paymentPolicy">Payment Term Policy:</label>
+                <select id="product-paymentPolicy" name="product-paymentPolicy" multiple></select>
+
+                <button type="submit">Submit</button>
+             
+            </form>
         </div>
         <div id="add-itinerary" class="tab-content hidden">
             <form id="itineraryForm">
@@ -1007,6 +1138,7 @@
      <script src="js/filter.js"></script>
      <script src="js/add-ons.js"></script>
      <script src="js/gallery.js"></script>
+     <script src="js/policy.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     
 </body>

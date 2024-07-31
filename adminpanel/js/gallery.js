@@ -170,6 +170,7 @@ function uploadGallery(containerId) {
 
 }
 function previewImage(event, containerId) {
+
     const reader = new FileReader();
     reader.onload = function() {
         const output = document.getElementById(containerId);
@@ -178,7 +179,8 @@ function previewImage(event, containerId) {
     reader.readAsDataURL(event.target.files[0]);
 }
 function previewImages(event, id) {
-    console.log(id);
+
+   
     const imagePreviewContainer = document.getElementById(id);
     imagePreviewContainer.innerHTML = ''; // Clear previous previews
 
