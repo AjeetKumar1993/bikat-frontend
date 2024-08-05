@@ -151,7 +151,7 @@ document.getElementById('productForm').addEventListener('submit', async function
         stayCategory: formData.get('product-stay-category'),
         tourPackage: formData.get('product-tour-package'),
         day: parseInt(formData.get('day')),
-        night: parseInt(formData.get('day')) + 1,
+        night: parseInt(formData.get('day')) - 1,
         price: parseInt(formData.get('price')),
         shortOverview: formData.get('shortOverview'),
         location: formData.get('location'),
