@@ -17,6 +17,7 @@
         <a href="#add-product" onclick="showTab('add-product')">Add Product</a>
         <a href="#add-policy" onclick="showTab('add-policy')">Add Product Policy</a>
         <a href="#add-itinerary" onclick="showTab('add-itinerary')">Add Product Itinerary</a>
+        <a href="#add-itinerary-event" onclick="showTab('add-itinerary-event')">Add Itinerary Event</a>
         <a href="#add-event-point" onclick="showTab('add-event-point')">Add Event Point</a>
         <a href="#view-event-point" onclick="showTab('view-event-point')">View Event Point</a>
         
@@ -633,8 +634,28 @@
                 <input type="checkbox" id="isLeisureDay" name="isLeisureDay"><br><br>
 
                 <button type="submit">Submit</button><br><br>
-              
+            
+                
+            </form>
+        </div>
+        <div id="add-itinerary-event" class="tab-content hidden">
+            <form id="itineraryEventPointForm">
 
+                <div class="multi-input-row">
+                    <div>
+                        <label for="product-slug-event-container">Select tour:</label>
+                        <select id="product-slug-event-container" name="product-slug-event-container" onchange="itineraryEvent()"></select>
+                    </div>
+                    <div>
+                        <label for="product-day-container">Select Day:</label>
+                        <select id="product-day-container" name="product-day-container" onchange="itineraryEventDay()"></select>
+                    </div>
+                </div>
+                <br>
+                <label for="itinerary_event_location">Location:</label>
+                <input type="text" id="itinerary_event_location" name="itinerary_event_location" disabled>
+
+                <br><br>
                 <div id="eventData" class="">
                     <form id="eventDataForm" >
 
@@ -759,8 +780,8 @@
                             <br>
                             <ul id="transferPointList"></ul>
                             <br>
-                            <label for="addTransferPoints">Add Transfer Point:</label>
-                            <div id="addTransferPoints"></div>
+                            <label for="transferPoints">Add Transfer Point:</label>
+                            <div id="transferPoints"></div>
                             <br><br>
                         
                             <button type="button" onclick="saveEventInDb('transfer')" id="itineraryId">Save Event</button>
@@ -784,7 +805,7 @@
 
                     </form>
                 </div>
-                
+
             </form>
         </div>
         <div id="add-event-point" class="tab-content hidden">

@@ -121,7 +121,17 @@ let dayCounts = {
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            if (response.status >= 500 && response.status < 600) {
+                // Handle server errors (5xx)
+                throw new Error(`Server Error: ${response.status}`);
+            }
+            // Handle other HTTP errors
+            throw new Error(`HTTP Error: ${response.status}`);
+        }
+        return response.json(); // or response.text() based on your needs
+    })
     .then(result => {
         
         if(result.errorMessage){
@@ -134,9 +144,9 @@ let dayCounts = {
         event.target.elements['itinerary_location'].disabled = true;
         event.target.elements['product-slug-container'].disabled = true;
        // handleCheckboxChange(result.id);
-       var contentDiv = document.getElementById('eventData');
-       contentDiv.classList.remove('hidden');
-       contentDiv.classList.add('visible');
+      // var contentDiv = document.getElementById('eventData');
+      // contentDiv.classList.remove('hidden');
+      // contentDiv.classList.add('visible');
     })
     .catch(error => {
 		console.log('Error:'+ error);
@@ -346,8 +356,8 @@ function addPropertiesData(){
         let mapArray = parsedArray.map(entry => new Map(entry));
         retrievedMap.set(key, mapArray);
     });
-
-    const location = document.getElementById('itinerary_location').value;
+    
+    const location = document.getElementById('itinerary_event_location').value;
     
     const hotelLists = document.getElementById('hotelLists');
     hotelLists.innerHTML = '';
@@ -379,10 +389,11 @@ function addActivitesData(){
     });
 
    
-    const location = document.getElementById('itinerary_location').value;
+    const location = document.getElementById('itinerary_event_location').value;
     
     const activitactivityListyTitle = document.getElementById('activityList');
     activitactivityListyTitle.innerHTML = '';
+
     if(retrievedMap.has(location)){
         retrievedMap.get(location).forEach((valueMap) => {
            
@@ -398,7 +409,7 @@ function addAttractionPoints(){
     addAttractionPoints.innerHTML = '';
     const leisurePlaceLists = document.getElementById('leisurePlaceLists');
     leisurePlaceLists.innerHTML = '';
-    const location = document.getElementById('itinerary_location').value;
+    const location = document.getElementById('itinerary_event_location').value;
     
    // Retrieve Object from localStorage and convert back to Map
     let retrievedMap = new Map();
@@ -432,10 +443,10 @@ function addAttractionPoints(){
 
 function addTransferPoints(){
    
-    const addTransferPoints = document.getElementById('addTransferPoints');
+    const addTransferPoints = document.getElementById('transferPoints');
     addTransferPoints.innerHTML = '';
 
-    const location = document.getElementById('itinerary_location').value;
+    const location = document.getElementById('itinerary_event_location').value;
     
    // Retrieve Object from localStorage and convert back to Map
     let retrievedMap = new Map();
@@ -543,8 +554,9 @@ function selectAndAddTransfer(id){
 }
 
 function saveEventInDb(type){
-    const id = document.getElementById('itineraryId').dataset.id;
-   
+    const slug = document.getElementById('product-day-container');
+    const id =slug.options[slug.selectedIndex].value;
+    
     const data = {};
 
     if(type === 'transfer'){
@@ -689,3 +701,47 @@ function showEventData(item){
     tableBody.appendChild(row);
 }
 
+function itineraryEvent(){
+    const slug = document.getElementById('product-slug-event-container');
+    const tourId =slug.options[slug.selectedIndex].value;
+
+    
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary/'+tourId)
+    .then(response => response.json())
+    .then(data => {
+       
+        const productDayContainer = document.getElementById('product-day-container');
+        productDayContainer.innerHTML = '';
+       
+        data.forEach(option => {
+            productDayContainer.innerHTML += `<option value="${option.id}" id='${option.location}'>${option.dayNumber}</option>`;
+        });
+        itineraryEventDay();
+    })
+    .catch(error => {
+        console.error('Error fetching the tours:', error);
+    });
+}
+
+function itineraryEventDay(){
+
+    const day = document.getElementById('product-day-container');
+    const itineraryId = day.options[day.selectedIndex].value;
+    const location = day.options[day.selectedIndex].id;
+  
+    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary/event/'+itineraryId)
+    .then(response => response.json())
+    .then(data => {
+       
+        const tableBody = document.querySelector('#view-event-data tbody');
+        tableBody.innerHTML = '';
+        data.forEach(option => {
+            showEventData(option);
+        });
+        const itinerary_event_location = document.getElementById('itinerary_event_location');
+        itinerary_event_location.value = location;
+    })
+    .catch(error => {
+        console.error('Error fetching the tours:', error);
+    });
+}

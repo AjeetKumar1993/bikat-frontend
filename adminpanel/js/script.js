@@ -1290,11 +1290,16 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 // Populate options in the dropdown select element
                 const productSlugContainer = document.getElementById('product-slug-container');
+                productSlugContainer.innerHTML = '';
                 const productSlugPolicyContainer = document.getElementById('product-slug-policy-container');
+                productSlugPolicyContainer.innerHTML = '';
+                const productSlugEventContainer = document.getElementById('product-slug-event-container');
+                productSlugEventContainer.innerHTML = '';
                 data.forEach(option => {
                     if(option.stayCategory){
                         productSlugContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
                         productSlugPolicyContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
+                        productSlugEventContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
                     }
                     
                     const optionElement = document.createElement('option');
