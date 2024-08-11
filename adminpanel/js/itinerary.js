@@ -461,29 +461,31 @@ function addTransferPoints(){
     }
 
 
-    let selectHTML = `<select id="transferPoints" name="transferPoints" style="margin-right: 10px;">`;
+    let selectHTML = `<select id="transferPointss" name="transferPointss" style="margin-right: 10px;">`;
     const slug = document.getElementById('product-slug-container').value;
-  
+    console.log(slug);
     const lastDayTransferPointData =  localStorage.getItem("lastDayTransferPoint_"+slug);
-  
+    console.log(lastDayTransferPointData);
     if(lastDayTransferPointData){
         const lastDayTransferPoint = JSON.parse(lastDayTransferPointData);
         Object.keys(lastDayTransferPoint).forEach(key => {
             let value = lastDayTransferPoint[key];
            
-            if (key !== undefined && value !== undefined) {
-                selectHTML += `<option value="${key}">${value}</option>`;
+            if (typeof key !== undefined && typeof value !== undefined) {
+                //selectHTML += `<option value="${key}">${value}</option>`;
             }
         
         });
-        
     }
    
     if(retrievedMap.has(location)){
         retrievedMap.get(location).forEach((valueMap) => {
-           
+            
             let [key, value] = [...valueMap.entries()][0]; 
+    
             selectHTML += `<option value="${key}">${value}</option>`;
+            
+           
         });
     }
     selectHTML  += `</select>`;
@@ -510,7 +512,7 @@ function selectAndAddTransfer(id){
        
     }else if(id === 'transferPoints'){
         activityTypeId = document.getElementById('transferPointList');
-        eventPoints = document.getElementById('transferPoints'); 
+        eventPoints = document.getElementById('transferPointss'); 
     }else if(id === 'hotelPoints'){
         activityTypeId = document.getElementById('hotelList');
         eventPoints = document.getElementById('hotelPoints'); 
@@ -518,7 +520,7 @@ function selectAndAddTransfer(id){
 
     }
 
-   
+   console.log(eventPoints);
     var eventPointsText = eventPoints.options[eventPoints.selectedIndex].text;
     var eventPointsValue = eventPoints.options[eventPoints.selectedIndex].value;
     if (eventPointsText) {
