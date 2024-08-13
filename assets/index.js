@@ -355,19 +355,6 @@ function updateButtonText() {
         button.textContent = `View ${numberOfStops} Stops`;
     });
 }
-// customAccordion
-
-document.querySelectorAll('.customAccordion .accordion').forEach(accordion => {
-
-    accordion.addEventListener('click', function() {
-        
-        let customAccordion = this.parentElement;
-        customAccordion.classList.toggle('show');
-    });
-});
-
-
-
 
 // allImagesmodel Script
 

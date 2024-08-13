@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
           let html = ` <div class="service-slider owl-carousel owl-theme">`;
           
           data.forEach(option => {
+
+            if(! option.active){
+                return;
+            }
               
               if(option.shortOverview == null){
                 option.shortOverview = "";
@@ -81,6 +85,9 @@ function popularDistination(data){
   const regionMap = new Map();
  
   data.map((obj) => {
+    if(! obj.active){
+      return;
+    }
     if(regionMap.has(obj.region)){
       regionMap.get(obj.region).push(obj);
     }else{

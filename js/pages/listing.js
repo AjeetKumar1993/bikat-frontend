@@ -70,7 +70,7 @@ function renderData(tourDetailsList) {
                 <a href="${redirectHref}" class="left-div-list">
                 <figure class="mb-0">
                     <img src="${image}" alt="sm">
-                    <span class="btn-sm strat-r "> ${tourDetails.rating} <i class="fas fa-star"></i> </span> 
+                    <span class="btn-sm strat-r "> ${tourDetails.rating === 0 ? 5: tourDetails.rating} <i class="fas fa-star"></i> </span> 
                 </figure> 
                 </a>
             
@@ -182,14 +182,18 @@ function fetchDataWithFilter(){
 
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
-  const filterkKey = params.get('region'); // Get the list ID from the URL
-  generateFilter();
-  if (filterkKey) {
+  const selectedRegion = params.get('region'); // Get the list ID from the URL
+  generateFilter(selectedRegion);
+  if (selectedRegion) {
+    let destinationId = document.getElementById('destinationId');
+    destinationId.innerHTML = '';
+    destinationId.innerHTML = 'Tours in '+selectedRegion;
     
     let data = {
-      'regions': [filterkKey]
+      'regions': [selectedRegion]
     };
-   // console.log(data);
+   
+    
     fetchData(JSON.stringify(data));
   } else {
     //console.log("without");
@@ -206,12 +210,12 @@ function hideLoader() {
   document.getElementById('loader').style.display = 'none';
 }
 
-function generateFilter(){
+function generateFilter(selectedRegion){
 
   const regionContainer = document.getElementById('region-filter-container');
-  const categoryContainer = document.getElementById('category-filter-container');
+ // const categoryContainer = document.getElementById('category-filter-container');
   regionContainer.innerHTML = '';
-  categoryContainer.innerHTML = '';
+  //categoryContainer.innerHTML = '';
   fetch("https://decent-line-423710-m0.de.r.appspot.com/api/tour/filter-item",)
   .then(response => {
     if (!response.ok) {
@@ -220,8 +224,8 @@ function generateFilter(){
     return response.json();
   })
   .then(list => {
-    filterHtmlRender(categoryContainer, 'category', list.category);
-    filterHtmlRender(regionContainer, 'region', list.region);
+   // filterHtmlRender(categoryContainer, 'category', list.category);
+    filterHtmlRender(regionContainer, 'region', list.region, selectedRegion);
   })
   .catch(error => {
     console.error('Fetching error: ', error);
@@ -229,9 +233,10 @@ function generateFilter(){
 
 }
 
-function filterHtmlRender(container, type, items){
+function filterHtmlRender(container, type, items, selectedRegion){
 
   items.forEach(item => {
+    
     const div = document.createElement('div');
     div.className = 'form-check';
 
@@ -241,6 +246,9 @@ function filterHtmlRender(container, type, items){
     input.value = item;
     input.id = `flexCheck${item}`;
     input.name = type;
+    if (item === selectedRegion) {
+      input.checked = true;
+    }
     input.onchange = (event) => fetchDataWithFilter();
 
     const label = document.createElement('label');

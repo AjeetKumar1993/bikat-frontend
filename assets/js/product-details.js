@@ -255,7 +255,14 @@ function loadTourDetails(slug){
                     nav: false,
                     items: 1,
                 });
-                
+                document.querySelectorAll('.customAccordion .accordion').forEach(accordion => {
+                    console.log(accordion);
+                    accordion.addEventListener('click', function() {
+                        
+                        let customAccordion = this.parentElement;
+                        customAccordion.classList.toggle('show');
+                    });
+                });
                 
                 // Simulating data load with a timeout
                 function loadRemainPointData(callback) {
@@ -540,7 +547,7 @@ function getFilterHTML(filters){
         filters.numberOfDaysFilters.forEach(trip => {
             var html = "";
             if(trip.isSelected){
-                html += `<div class="trips show active" onclick="load_index('${trip.slug}')">`;                                        
+                html += `<div class="trips show active">`;                                        
             }else{
                 html += `<div class="trips show" onclick="load_index('${trip.slug}')">`;
                
@@ -791,10 +798,10 @@ function mainGallery(mainGalleryContainer){
 }
 
 let iconMap = {
-    airport:'assets/images/svg/routeFlight.svg',
-    hotel : 'assets/images/svg/stay.svg',
-    activity : 'assets/images/svg/activity.svg',
-    location_point: 'assets/images/svg/nature.svg'
+    airport:'/assets/images/svg/routeFlight.svg',
+    hotel : '/assets/images/svg/stay.svg',
+    activity : '/assets/images/svg/activity.svg',
+    location_point: '/assets/images/svg/nature.svg'
 }
 
 
@@ -830,7 +837,7 @@ function getItineraryHTML(itinerary, locationImageMap, activityImageMap) {
                     <div class="day">
                         <span>${dayCountForTour}</span>
                         <div class="place">
-                            Day In
+                            ${dayCountForTour === 1 ? 'Day': 'Days'} In
                             <span>${tour.location}</span>
                         </div>
                     </div>
@@ -844,7 +851,7 @@ function getItineraryHTML(itinerary, locationImageMap, activityImageMap) {
         // Generate day details
         tour.days.forEach(day => {
             html += `
-                <div class="customAccordion ${dayCount === 1 ? 'show' : 'show'}">
+                <div class="customAccordion">
                     <div class="accordion">
                         <div class="accordionTitle">
                             <div class="day">Day ${dayCount++}</div>
@@ -1045,5 +1052,5 @@ function generateTransferEventHTML(eventData, index, length) {
 function load_index(slug){
     
     loadTourDetails(slug);
-    history.pushState({}, '',  `?slug=${slug}`);
+    history.pushState({}, '',  `${slug}`);
 }
