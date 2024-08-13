@@ -530,6 +530,7 @@ function populateTable(data) {
 
   // Save edited data
   document.getElementById('save-edit-group-a').addEventListener('click', function() {
+
     const id = this.dataset.id;
     const region = document.getElementById('edit-region').value;
     const stayCategory = document.getElementById('edit-product-stay-category').value;
@@ -550,8 +551,7 @@ function populateTable(data) {
         day : day,
         night : day - 1
     };
-   
-    console.log(data);
+
 
     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
@@ -1025,53 +1025,15 @@ function populateTable(data) {
     var name = clone.querySelector('[data-name="name"]').innerText;
     var slug = clone.querySelector('[data-name="tourId"]').innerText;
     var region = clone.querySelector('[data-name="region"]').innerText;
-    var category = clone.querySelector('[data-name="category"]').innerText;
-    var type = clone.querySelector('[data-name="type"]').innerText;
-    var grade = clone.querySelector('[data-name="grade"]').innerText;
-    var altitude = clone.querySelector('[data-name="altitude"]').innerText;
+    var stayCategory = clone.querySelector('[data-name="stayCategory"]').innerText;
+    var tourPackage = clone.querySelector('[data-name="packageOption"]').innerText;
     var day = clone.querySelector('[data-name="day"]').innerText;
-    var night = clone.querySelector('[data-name="night"]').innerText;
-    var distance = clone.querySelector('[data-name="distance"]').innerText;
-    var minimumAge = clone.querySelector('[data-name="minimumAge"]').innerText;
-    var maximumGroupSize = clone.querySelector('[data-name="maximumGroupSize"]').innerText;
     var price = clone.querySelector('[data-name="price"]').innerText;
     var gst = clone.querySelector('[data-name="gst"]').innerText;
-    var priceFromTo = clone.querySelector('[data-name="priceFromTo"]').innerText;
-    var overview = clone.querySelector('[data-name="overview"]').innerText;
     var shortOverview = clone.querySelector('[data-name="shortOverview"]').innerText;
     var location = clone.querySelector('[data-name="location"]').innerText;
     var tourImage = clone.querySelector('[data-name="tourImage"]').innerText;
-    //const tourImageGallerys = clone.querySelector('[data-name="tourImageGallery"]').innerText;
    
-   
-   // const itinerarys = clone.querySelector('[data-name="itinerary"]').innerText;
-  
-    // const inclusion = clone.querySelector('[data-name="inclusion"]').innerText;
-    // const inclusions = [];
-    // console.log(inclusion)
-    // inclusion.forEach(item => {
-    //     inclusions.push(item.value);
-    // });
-    // const exclusion = clone.querySelector('[data-name="exclusion"]').innerText;
-    // const exclusions = [];
-    // exclusion.forEach(item => {
-    //     exclusions.push(item.value);
-    // });
-    // const highlight = clone.querySelector('[data-name="highlight"]').innerText;
-    // const highlights = [];
-    // highlight.forEach(item => {
-    //     highlights.push(item.value);
-    // });
-    // const cancelPolicy = clone.querySelector('[data-name="cancelPolicy"]').innerText;
-    // const cancelPolicys = [];
-    // cancelPolicy.forEach(item => {
-    //     cancelPolicys.push(item.value);
-    // });
-    // const packingList = clone.querySelector('[data-name="packingList"]').innerText;
-    // const packingLists = [];
-    // packingList.forEach(item => {
-    //     packingLists.push(item.value);
-    // });
     var active = clone.querySelector('[data-name="active"]').innerText;
 
     // Prepare data to send to the backend
@@ -1080,29 +1042,16 @@ function populateTable(data) {
         name: name+"_CLONE",
         slug: slug+"_CLONE",
         region: region,
-        category: category,
-        type: type,
-        grade: grade,
-        altitude: parseInt(altitude),
+        stayCategory: stayCategory,
+        tourPackage: tourPackage,
         day: parseInt(day),
-        night: parseInt(night),
-        distance: parseInt(distance),
-        minimumAge: parseInt(minimumAge),
-        maximumGroupSize: parseInt(maximumGroupSize),
+        night: parseInt(day) - 1,
         price: parseInt(price),
         gst: parseInt(gst),
-        priceFromTo: priceFromTo,
-        overview: overview,
         shortOverview: shortOverview,
         location: location,
         tourImage: tourImage,
-        gallery: [],
-        itinerary: {},
-        inclusion :  [],
-        exclusion : [],
-        highlight : [],
-        cancelPolicy : [],
-        packingList : [],
+    
         active: active
     };
 
