@@ -147,7 +147,7 @@ document.getElementById('productForm').addEventListener('submit', async function
         name: formData.get('name'),
         slug: formData.get('slug'),
         region: formData.get('product-region'),
-        category: formData.get('product-category'),
+        // category: formData.get('product-category'),
         stayCategory: formData.get('product-stay-category'),
         tourPackage: formData.get('product-tour-package'),
         day: parseInt(formData.get('day')),
@@ -271,6 +271,9 @@ function populateTable(data) {
     const tableBody = document.querySelector('#data-table tbody');
     tableBody.innerHTML = '';
     data.forEach(item => {
+      if(!item.active){
+         return;
+      }  
       const row = document.createElement('tr');
       let region = item.region !== null ? item.region: "NA";
       let category = item.category !== null ? item.category: "NA";
@@ -282,8 +285,10 @@ function populateTable(data) {
         <td data-name="tourId">${item.slug}</td>
         <td data-name="name">${item.name}</td>
         <td data-name="region">${region}</td>
-        <td data-name="category">${category}</td>
-        <td data-name="type">${type}</td>
+        <!-- <td data-name="category">${category}</td>
+        <td data-name="type">${type}</td> -->
+        <td data-name="stayCategory">${item.stayCategory}</td>
+        <td data-name="packageOption">${item.tourPackage}</td>
         <td>${day} Days / ${night} Nights</td>
         <td data-name="price">${price}</td>
         <td data-name="active">${item.active}</td>
@@ -291,10 +296,11 @@ function populateTable(data) {
                 <div class="dropdown">
                     <button class="dropdown-btn">Actions</button>
                     <div class="dropdown-content">
-                        <button class="view-btn" data-id="${item.id}">Date View</button>
-                        <button class="addOns-view-btn" data-id="${item.id}">AddOns View</button>
+                        <!--<button class="view-btn" data-id="${item.id}">Date View</button>
+                        <button class="addOns-view-btn" data-id="${item.id}">AddOns View</button> -->
                         <button class="edit-btn" data-id="${item.id}">Edit</button>
                         <button class="duplicate-btn" data-id="${item.id}">Duplicate</button>
+                        <button class="isActive-btn" onclick="isActive('${item.id}', ${item.active})" >${item.active ? 'Disable': 'Enable'}</button>
                     </div>
                 </div>
         </td>
@@ -335,22 +341,23 @@ function populateTable(data) {
       document.getElementById("edit-tourId").value = item.slug;
       document.getElementById('edit-region').value = item.region;
       document.getElementById('edit-price').value = item.price;
-      document.getElementById('edit-gst').value = item.gst;
-      document.getElementById('edit-priceFromTo').value = item.priceFromTo;
-      document.getElementById('edit-category').value = item.category;
+    //   document.getElementById('edit-gst').value = item.gst;
+    //   document.getElementById('edit-priceFromTo').value = item.priceFromTo;
+      //document.getElementById('edit-category').value = item.category;
       document.getElementById('edit-product-stay-category').value = item.stayCategory;
-      document.getElementById('edit-type').value = item.type;
-      document.getElementById('edit-grade').value = item.grade;
+      document.getElementById('edit-product-package-option').value = item.tourPackage;
+     // document.getElementById('edit-type').value = item.type;
+      //document.getElementById('edit-grade').value = item.grade;
       document.getElementById('edit-day').value = item.day;
-      document.getElementById('edit-night').value = item.night;
-      document.getElementById('edit-altitude').value = item.altitude;
-      document.getElementById('edit-distance').value = item.distance;
-      document.getElementById('edit-distance').value = item.distance;
-      document.getElementById('edit-minimumAge').value = item.minimumAge;
-      document.getElementById('edit-maximumGroupSize').value = item.maximumGroupSize;
-      document.getElementById('edit-overview').value = item.overview;
+    //   document.getElementById('edit-night').value = item.night;
+    //   document.getElementById('edit-altitude').value = item.altitude;
+    //   document.getElementById('edit-distance').value = item.distance;
+     
+    //   document.getElementById('edit-minimumAge').value = item.minimumAge;
+    //   document.getElementById('edit-maximumGroupSize').value = item.maximumGroupSize;
+    //   document.getElementById('edit-overview').value = item.overview;
       document.getElementById('edit-shortOverview').value = item.shortOverview;
-      document.getElementById('edit-active').value = item.active;
+    //   document.getElementById('edit-active').value = item.active;
 
 
         // Inclusion
@@ -370,7 +377,6 @@ function populateTable(data) {
             });
         }
        
-        
         // Highlist
         if(item.highlight){
             const highlightId = document.getElementById("edit-highlight");
@@ -380,21 +386,21 @@ function populateTable(data) {
         }
        
 
-        // Cancel policy
-        if(item.cancelPolicy){
-            const cancelPolicyId = document.getElementById("edit-cancelPolicy");
-            item.cancelPolicy.forEach(item => {
-                checkboxGenerate(item, cancelPolicyId);
-            });
-        }
+        // // Cancel policy
+        // if(item.cancelPolicy){
+        //     const cancelPolicyId = document.getElementById("edit-cancelPolicy");
+        //     item.cancelPolicy.forEach(item => {
+        //         checkboxGenerate(item, cancelPolicyId);
+        //     });
+        // }
         
-        // Pacling List
-        if(item.packingList){
-            const packingListId = document.getElementById("edit-packingList");
-            item.packingList.forEach(item => {
-                checkboxGenerate(item, packingListId);
-            });
-        }
+        // // Pacling List
+        // if(item.packingList){
+        //     const packingListId = document.getElementById("edit-packingList");
+        //     item.packingList.forEach(item => {
+        //         checkboxGenerate(item, packingListId);
+        //     });
+        // }
         
        
         fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/list')
@@ -455,15 +461,15 @@ function populateTable(data) {
 
       document.getElementById('edit-popup').style.display = 'block';
       document.getElementById('save-edit-group-a').dataset.id = id;
-      document.getElementById('save-edit-group-b').dataset.id = id;
-      document.getElementById('save-edit-group-c').dataset.id = id;
+    //   document.getElementById('save-edit-group-b').dataset.id = id;
+    //   document.getElementById('save-edit-group-c').dataset.id = id;
       document.getElementById('save-edit-group-d').dataset.id = id;
-      document.getElementById('save-edit-group-e').dataset.id = id;
+    //   document.getElementById('save-edit-group-e').dataset.id = id;
       document.getElementById('save-edit-group-f').dataset.id = id;
-      document.getElementById('save-edit-group-g').dataset.id = id; // Store ID in save button dataset
+    //   document.getElementById('save-edit-group-g').dataset.id = id; 
       document.getElementById('save-edit-group-h').dataset.id = id;
       document.getElementById('save-edit-group-i').dataset.id = id;
-      document.getElementById('save-edit-group-j').dataset.id = id;
+    //   document.getElementById('save-edit-group-j').dataset.id = id;
     }
   }
   
@@ -526,20 +532,23 @@ function populateTable(data) {
   document.getElementById('save-edit-group-a').addEventListener('click', function() {
     const id = this.dataset.id;
     const region = document.getElementById('edit-region').value;
-    const category = document.getElementById('edit-category').value;
-    const type = document.getElementById('edit-type').value;
-    const grade = document.getElementById('edit-grade').value;
+    const stayCategory = document.getElementById('edit-product-stay-category').value;
+    const packageOptions = document.getElementById('edit-product-package-option').value;
+    const price = document.getElementById('edit-price').value;
     const name = document.getElementById('edit-name').value;
     const tourId = document.getElementById('edit-tourId').value;
+    const day = document.getElementById('edit-day').value;
      
     const data = {
-        id: id, // Replace with actual ID value
-        region: region,
-        category: category,
-        type: type,
-        grade: grade,
+        id: id,
+        tourId: tourId,
         name: name,
-        tourId: tourId
+        region: region,
+        stayCategory: stayCategory,
+        tourPackage: packageOptions,
+        price: price,
+        day : day,
+        night : day - 1
     };
    
     console.log(data);
@@ -567,104 +576,104 @@ function populateTable(data) {
 
   });
 
-  document.getElementById('save-edit-group-b').addEventListener('click', function() {
-    const id = this.dataset.id;
+//   document.getElementById('save-edit-group-b').addEventListener('click', function() {
+//     const id = this.dataset.id;
   
-    const day = document.getElementById('edit-day').value;
-    const night = document.getElementById('edit-night').value;
-    const altitude = document.getElementById('edit-altitude').value;
-    const distance = document.getElementById('edit-distance').value;
-    const minimumAge = document.getElementById('edit-minimumAge').value;
-    const maximumGroupSize = document.getElementById('edit-maximumGroupSize').value;
+//     const day = document.getElementById('edit-day').value;
+//     const night = document.getElementById('edit-night').value;
+//     const altitude = document.getElementById('edit-altitude').value;
+//     const distance = document.getElementById('edit-distance').value;
+//     const minimumAge = document.getElementById('edit-minimumAge').value;
+//     const maximumGroupSize = document.getElementById('edit-maximumGroupSize').value;
      
-    const data = {
-        id: id, // Replace with actual ID value
+//     const data = {
+//         id: id, // Replace with actual ID value
 
-        day: parseInt(day), // Convert to integer if needed
-        night: parseInt(night), // Convert to integer if needed
-        altitude: parseFloat(altitude), // Convert to float if needed
-        distance: parseFloat(distance), 
-        minimumAge: parseInt(minimumAge),
-        maximumGroupSize: parseInt(maximumGroupSize)
-    };
+//         day: parseInt(day), // Convert to integer if needed
+//         night: parseInt(night), // Convert to integer if needed
+//         altitude: parseFloat(altitude), // Convert to float if needed
+//         distance: parseFloat(distance), 
+//         minimumAge: parseInt(minimumAge),
+//         maximumGroupSize: parseInt(maximumGroupSize)
+//     };
    
-    console.log(data);
+//     console.log(data);
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
-           },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        console.log('Success:', result);
-        alert('Tour updated successfully!');
+//     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+//            },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(result => {
+//         console.log('Success:', result);
+//         alert('Tour updated successfully!');
        
-    })
-    .catch(error => {
-		console.log('Error:'+ error);
-        console.error('Error:', error);
-        alert('Error tour updating!');
+//     })
+//     .catch(error => {
+// 		console.log('Error:'+ error);
+//         console.error('Error:', error);
+//         alert('Error tour updating!');
        
-    });
+//     });
 
 
-  });
+//   });
 
-  document.getElementById('save-edit-group-c').addEventListener('click', function() {
-    const id = this.dataset.id;
-    const price = document.getElementById('edit-price').value;
-    const gst = document.getElementById('edit-gst').value;
-    const priceFromTo = document.getElementById('edit-priceFromTo').value;
+//   document.getElementById('save-edit-group-c').addEventListener('click', function() {
+//     const id = this.dataset.id;
+//     const price = document.getElementById('edit-price').value;
+//     const gst = document.getElementById('edit-gst').value;
+//     const priceFromTo = document.getElementById('edit-priceFromTo').value;
    
      
-    const data = {
-        id: id, // Replace with actual ID value
-        price: parseFloat(price), // Convert to float if needed
-        gst: parseFloat(gst), // Convert to float if needed
-        priceFromTo: priceFromTo
-    };
+//     const data = {
+//         id: id, // Replace with actual ID value
+//         price: parseFloat(price), // Convert to float if needed
+//         gst: parseFloat(gst), // Convert to float if needed
+//         priceFromTo: priceFromTo
+//     };
    
-    console.log(data);
+//     console.log(data);
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
-           },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        console.log('Success:', result);
-        alert('Tour updated successfully!');
+//     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+//            },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(result => {
+//         console.log('Success:', result);
+//         alert('Tour updated successfully!');
        
-    })
-    .catch(error => {
-		console.log('Error:'+ error);
-        console.error('Error:', error);
-        alert('Error tour updating!');
+//     })
+//     .catch(error => {
+// 		console.log('Error:'+ error);
+//         console.error('Error:', error);
+//         alert('Error tour updating!');
        
-    });
+//     });
 
 
-  });
+//   });
 
   document.getElementById('save-edit-group-d').addEventListener('click', function() {
     const id = this.dataset.id;
    
-    const overview = document.getElementById('edit-overview').value;
+   // const overview = document.getElementById('edit-overview').value;
     const shortOverview = document.getElementById('edit-shortOverview').value;
 
     const data = {
         id: id, // Replace with actual ID value
-        overview: overview,
+       // overview: overview,
         shortOverview: shortOverview
     };
    
-    console.log(data);
+   // console.log(data);
 
     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
@@ -689,13 +698,11 @@ function populateTable(data) {
 
   });
 
-  document.getElementById('save-edit-group-e').addEventListener('click', function() {
-    const id = this.dataset.id;
-    const active = document.getElementById('edit-active').value;
-     
+  function isActive(id, isActive){
+    
     const data = {
         id: id, // Replace with actual ID value
-        active: active
+        active: !isActive
     };
    
     console.log(data);
@@ -721,7 +728,7 @@ function populateTable(data) {
     });
 
 
-  });
+  }
 
 
   function saveGroupF(type){  
@@ -731,8 +738,8 @@ function populateTable(data) {
     let inclusionList = [];
     let exclusionList = [];
     let highlightList = [];
-    let cancelPolicyList = [];
-    let packingList = [];
+    //let cancelPolicyList = [];
+    //let packingList = [];
 
     let checkboxDiv = document.getElementById('edit-inclusions');
     let checkboxes = checkboxDiv.querySelectorAll('input[type=checkbox]');
@@ -758,21 +765,21 @@ function populateTable(data) {
         }
     });
 
-    checkboxDiv = document.getElementById('edit-cancelPolicy');
-    checkboxes = checkboxDiv.querySelectorAll('input[type=checkbox]');
-    checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-            cancelPolicyList.push(checkbox.value);
-        }
-    });
+    // checkboxDiv = document.getElementById('edit-cancelPolicy');
+    // checkboxes = checkboxDiv.querySelectorAll('input[type=checkbox]');
+    // checkboxes.forEach((checkbox) => {
+    //     if (checkbox.checked) {
+    //         cancelPolicyList.push(checkbox.value);
+    //     }
+    // });
 
-    checkboxDiv = document.getElementById('edit-packingList');
-    checkboxes = checkboxDiv.querySelectorAll('input[type=checkbox]');
-    checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-            packingList.push(checkbox.value);
-        }
-    });
+    // checkboxDiv = document.getElementById('edit-packingList');
+    // checkboxes = checkboxDiv.querySelectorAll('input[type=checkbox]');
+    // checkboxes.forEach((checkbox) => {
+    //     if (checkbox.checked) {
+    //         packingList.push(checkbox.value);
+    //     }
+    // });
 
     const data = {
         id: id, // Replace with actual ID value
@@ -783,11 +790,12 @@ function populateTable(data) {
         data.exclusion = exclusionList;
     }else if(type === 'highlight'){
         data.highlight = highlightList;
-    }else if(type === 'cancelPolicy'){
-        data.cancelPolicy = cancelPolicyList;
-    }else if(type === 'packingList'){
-        data.packingList = packingList;
     }
+    // }else if(type === 'cancelPolicy'){
+    //     data.cancelPolicy = cancelPolicyList;
+    // }else if(type === 'packingList'){
+    //     data.packingList = packingList;
+    // }
 
     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
@@ -810,40 +818,40 @@ function populateTable(data) {
     });
   }
 
-  document.getElementById('save-edit-group-g').addEventListener('click', function() {
-    const id = this.dataset.id;
+//   document.getElementById('save-edit-group-g').addEventListener('click', function() {
+//     const id = this.dataset.id;
    
-    let tours = [];
+//     let tours = [];
 
-    let checkboxDiv = document.getElementById('suggestedTourCheckboxes');
-    let checkboxes = checkboxDiv.querySelectorAll('input[type=checkbox]');
-    checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-            tours.push(checkbox.value);
-        }
-    });
+//     let checkboxDiv = document.getElementById('suggestedTourCheckboxes');
+//     let checkboxes = checkboxDiv.querySelectorAll('input[type=checkbox]');
+//     checkboxes.forEach((checkbox) => {
+//         if (checkbox.checked) {
+//             tours.push(checkbox.value);
+//         }
+//     });
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/tour-suggestion', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
-           },
-        body: JSON.stringify(tours)
-    })
-    .then(response => response.json())
-    .then(result => {
-        console.log('Success:', result);
-        alert('Tour updated successfully!');
+//     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/tour-suggestion', {
+//         method: 'POST',
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+//            },
+//         body: JSON.stringify(tours)
+//     })
+//     .then(response => response.json())
+//     .then(result => {
+//         console.log('Success:', result);
+//         alert('Tour updated successfully!');
        
-    })
-    .catch(error => {
-		console.log('Error:'+ error);
-        console.error('Error:', error);
-        alert('Error tour updating!');
-    });
+//     })
+//     .catch(error => {
+// 		console.log('Error:'+ error);
+//         console.error('Error:', error);
+//         alert('Error tour updating!');
+//     });
 
 
-  });
+//   });
 
   document.getElementById('save-edit-group-h').addEventListener('click', function() {
     const id = this.dataset.id;
@@ -881,17 +889,17 @@ function populateTable(data) {
     const id = this.dataset.id;
 
     const tourImage = JSON.parse(localStorage.getItem("images_editNewTourImage"));
-    const tourImageGallery = JSON.parse(localStorage.getItem("images_editNewTourImages"));
+    //const tourImageGallery = JSON.parse(localStorage.getItem("images_editNewTourImages"));
     const data = {}
     let isUpdate = false;
     if(tourImage.length !== 0){
         data.tourImage = tourImage[0];
         isUpdate = true;
     }
-    if(tourImageGallery.length !== 0){
-        data.gallery = tourImageGallery;
-        isUpdate = true;
-    }
+    // if(tourImageGallery.length !== 0){
+    //     data.gallery = tourImageGallery;
+    //     isUpdate = true;
+    // }
 
     if(isUpdate === false){
         alert("No update");
@@ -926,41 +934,40 @@ function populateTable(data) {
    
      // Reset input fields in Group A
      document.getElementById("edit-name").value = "";
-     document.getElementById("edit-region").value = "";
-     document.getElementById("edit-category").value = "";
+ 
     // document.getElementById("edit-stay-category").value = "";
-     document.getElementById("edit-type").value = "";
-     document.getElementById("edit-grade").value = "";
+    //  document.getElementById("edit-type").value = "";
+    //  document.getElementById("edit-grade").value = "";
  
      // Reset input fields in Group B
-     document.getElementById("edit-altitude").value = "";
+    //  document.getElementById("edit-altitude").value = "";
      document.getElementById("edit-day").value = "";
-     document.getElementById("edit-night").value = "";
-     document.getElementById("edit-distance").value = "";
-     document.getElementById("edit-minimumAge").value = "";
-     document.getElementById("edit-maximumGroupSize").value = "";
+    //  document.getElementById("edit-night").value = "";
+    //  document.getElementById("edit-distance").value = "";
+    //  document.getElementById("edit-minimumAge").value = "";
+    //  document.getElementById("edit-maximumGroupSize").value = "";
  
      // Reset input fields in Group C
      document.getElementById("edit-price").value = "";
-     document.getElementById("edit-gst").value = "";
-     document.getElementById("edit-priceFromTo").value = "";
+    //  document.getElementById("edit-gst").value = "";
+    //  document.getElementById("edit-priceFromTo").value = "";
  
      // Reset input fields in Group D
-     document.getElementById("edit-overview").value = "";
+    //  document.getElementById("edit-overview").value = "";
      document.getElementById("edit-shortOverview").value = "";
  
      // Reset input fields in Group E
-     document.getElementById("edit-active").value = "";
+    //  document.getElementById("edit-active").value = "";
  
      // Reset dynamically generated checkboxes in Group F
      document.getElementById("edit-inclusions").innerHTML = "";
      document.getElementById("edit-exclusions").innerHTML = "";
      document.getElementById("edit-highlight").innerHTML = "";
-     document.getElementById("edit-cancelPolicy").innerHTML = "";
-     document.getElementById("edit-packingList").innerHTML = "";
+    //  document.getElementById("edit-cancelPolicy").innerHTML = "";
+    //  document.getElementById("edit-packingList").innerHTML = "";
  
      // Reset input fields and content in Group G (assuming it's dynamically loaded)
-     document.getElementById("suggestedTourCheckboxes").innerHTML = '<label>Loading...</label>';
+    //  document.getElementById("suggestedTourCheckboxes").innerHTML = '<label>Loading...</label>';
  
      // Reset input fields in Group H
      document.getElementById("edit-location").innerHTML = "";
@@ -969,11 +976,12 @@ function populateTable(data) {
      // Reset input fields and content in Group I (assuming it's related to images)
      document.getElementById("editNewTourImage").innerHTML = "";
      document.getElementById("editNewImagePreview").value = "";
-     document.getElementById("editNewTourImages").innerHTML = "";
-     document.getElementById("editNewImagePreviewContainer").value = "";
+     document.getElementById("edit-tour-image").innerHTML = "";
+    //  document.getElementById("editNewTourImages").innerHTML = "";
+    //  document.getElementById("editNewImagePreviewContainer").value = "";
 
      // Reset input fields and content in Group J (assuming it's related to itinerary)
-     document.getElementById("edit-itinerary").innerHTML = "";
+    //  document.getElementById("edit-itinerary").innerHTML = "";
  
      // Additional resets can be added as per your actual requirements
  

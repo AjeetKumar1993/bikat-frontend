@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", generateFilter);
 
 function generateFilter(){
 
-    const selectionFormForCategory = document.getElementById('selectionFormForCategory');
+    // const selectionFormForCategory = document.getElementById('selectionFormForCategory');
     const selectionFormForStayCategory = document.getElementById('selectionFormForStayCategory');
     const selectionFormForRegion = document.getElementById('selectionFormForRegion');
     const selectionFormForLocation = document.getElementById('selectionFormForLocation');
@@ -22,6 +22,7 @@ function generateFilter(){
       filterHtmlRender('product-category', list.category);
       filterHtmlRender('product-stay-category', list.stayCategory);
       filterHtmlRender('edit-product-stay-category', list.stayCategory);
+      filterHtmlRender('edit-product-package-option', list.tourPackage);
       filterHtmlRender('product-tour-package', list.tourPackage);
 
       policyHtmlRender('product-confirmationPolicy', list.confirmationPolicy);
@@ -39,7 +40,7 @@ function generateFilter(){
 
       filterHtmlRenderWithCheckbox(selectionFormForRegion, 'region', list.region);
       filterHtmlRenderWithCheckbox(selectionFormForLocation, 'region', list.location);
-      filterHtmlRenderWithCheckbox(selectionFormForCategory, 'category', list.category);
+      // filterHtmlRenderWithCheckbox(selectionFormForCategory, 'category', list.category);
       filterHtmlRenderWithCheckbox(selectionFormForStayCategory, 'category', list.stayCategory);
       filterHtmlRenderWithCheckbox(selectionFormForPackage,'package', list.tourPackage);
 
