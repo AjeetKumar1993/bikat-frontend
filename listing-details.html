@@ -1,722 +1,973 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-   
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Travel - Listing Details </title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.0/dist/aos.css" rel="stylesheet">
-    
 
-     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Kaushan+Script&family=Nothing+You+Could+Do&family=Open+Sans:wght@300;400;500;600&family=PT+Sans+Narrow:wght@700&family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <link href="css/all.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
-  </head>
+<head>
+    <base href="http://fullontravel.com/tours/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+       
+    <title>Bikat Adventure</title>
+</head>
 
 <body>
-  <header>
-    <div class="main-menu-div float-start w-100">
-      
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">
-              <img src="images/logo.png" class="delf" alt="logo"/>
-              <img src="images/logo-color.png" class="color-logo" alt="logo"/>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" href="#mobilemenu"  aria-controls="offcanvasExample">
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="listing.html">Explore</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="explore.html">Curated Tours</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="discover.html">Top Destinations</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tour-package.html">Hot Deals</a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Help & Visas</a>
-              </li>
-            </ul>
-            
-          </div>
-  
-          <div class="right-src ">
-              <ul class="d-flex align-items-center list-unstyled mb-0">
-                <li>
-                  <a href="my-account.html" class="lgn-btn" id="myAccount" style="display: none;"> 
-                    <i class="far fa-user"></i>
-                  </a> 
-                  <a data-bs-toggle="modal" data-bs-target="#loginModal" class="lgn-btn" id="loginId"> 
-                  <i class="far fa-user"></i>
-                  </a>
-                </li>
-               
-              </ul>
-          </div>
-        </div>
-      </nav>
+    <div class="saleHeader">
+        <b>Monsoon Sale</b> Save Upto <b>USD 89.72</b> On Your Ladakh Trip
     </div>
-  </header>
- <div class="banner-home float-start sub-page-banner">
-     <div class="banner-slider-m" id="tourImage">
-         
-     </div>
-
-     <div class="banner-content">
-       <div class="container">
-          <h1 class="text-center">
-            Tour Details
-          </h1>
-        
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb justify-content-center">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="discover.html">Discover</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Tour Details </li>
-            </ol>
-          </nav>
-
-       </div>
-     </div>
-
-     
-     
-
-    
- </div>
-
-<section class="body-part">
-     <div class="discover-details-page listing-details-adds">
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h6 class="locations-ts" id="region">
-                    </h6>
-                    <div class="d-md-flex justify-content-between align-items-start" id="tour_heading">
-                    </div>
-
-                    <ul class="list-unstyled mb-3 list-sort d-flex mt-3 mt-lg-0" id="tour_type">
-                    </ul>
-                    <hr/> 
-                    <h2> Overview </h2>
-                    <p class="mt-4" id="overview"></p>
-
-                    <h2 class="mt-5"> Inclusions </h2>
-                    <ul class="list-unstyled include-listing mt-3" id="inclusions">
-                    </ul>
-
-                    <h2 class="mt-5"> Exclusions </h2>
-                    <ul class="list-unstyled include-listing mt-3" id="exclusions">
-                    </ul>
-
-                    <h2 class="mt-5"> Highlights </h2>
-                    <ul class="list-unstyled hightlist my-3" id="highlight">
-                    </ul>
-                    <h2 class="mt-5"> Packing List </h2>
-                    <ul class="list-unstyled hightlist my-3" id="packingList">
-                    </ul>
-                    
-                    <h3 class="mt-5"> Tour Plan </h3>
-
-                    <div class="accordion mt-4 tour-plans" id="accordionExample">
-                       
-                    </div>
-
-                    <h2 class="mt-5"> Gallery </h2>
-
-                    <div class="row row-cols-2 row-cols-lg-4 mt-4 galllery-divs" id="gallery">
-                      
-                    </div>
-
-                    <h2 class="mt-5"> Tour Location </h2>
-
-                    <div class="map-loctions mt-4" id="location"> </div>
-                    <h2 class="mt-5">You May Also Like</h2>
-                    
-                    <div id="carousel-container"></div>
-                  
-                    <div class="comments-sec1 mt-5">
-                         <h2>Comments </h2>
-                         <hr/>
-                        <div id="comments-container">
-                          <!-- Comments will be dynamically inserted here -->
-                      </div>
-                    </div>
-
-                    <div class="submit-review mt-5">
-                        <h2> Leave a Comment </h2>
-                        <p> Your email address will not be published. Required fields are marked * </p>
-                        
-                        <form id="reviewForm" method="post">
-                          <div class="col-lg-12 ps-0">
-                              <fieldset class="rating star">
-                                  <input type="radio" id="field6_star5" name="rating2" value="5"><label class="full" for="field6_star5"></label>
-                                  <input type="radio" id="field6_star4" name="rating2" value="4"><label class="full" for="field6_star4"></label>
-                                  <input type="radio" id="field6_star3" name="rating2" value="3"><label class="full" for="field6_star3"></label>
-                                  <input type="radio" id="field6_star2" name="rating2" value="2"><label class="full" for="field6_star2"></label>
-                                  <input type="radio" id="field6_star1" name="rating2" value="1"><label class="full" for="field6_star1"></label>
-                              </fieldset>
-                          </div>
-                          <div class="row w-100"> 
-                              <div class="col-lg-6 form-group ps-lg-0">
-                                  <input type="text" id="fullName" class="form-control" placeholder="Full Name" required>
-                              </div>
-                              <div class="col-lg-6 form-group ps-lg-0">
-                                  <input type="email" id="email" class="form-control" placeholder="Email" required>
-                              </div>
-                              <div class="col-lg-12 form-group ps-lg-0">
-                                  <textarea id="reviewText" class="form-control ted" placeholder="Write your review here..." required></textarea>
-                              </div>
-                              <button type="submit" class="btn sub-re"> Submit Review </button><br><br>
-                          </div>
-                      </form>
-                    </div>
-                    
-
-                   
-
-                  
+    <div class="mainHeader">
+        <img src="/assets/images/logo.png" alt="" class="siteLogo">
+        <form class="searchBox">
+            <label for="search">
+                <input class="input" type="text" required="" placeholder="Search" id="search">
+                <div class="fancy-bg"></div>
+                <div class="search">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"
+                        class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
+                        <g>
+                            <path
+                                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                            </path>
+                        </g>
+                    </svg>
                 </div>
-                <div class="col-lg-4">
-                    <div class="right-divs-ds1 mt-5">
-                         <div class="comon-filter-news1">
-                            <h5> Book A Tour! </h5>
-                            <div id="dateMonth"></div>
-                           
+                <button class="close-btn" type="reset">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </label>
+        </form>
+        <div class="loginDiv">
+            <div class="currency">
+                <span>
+                    <span class="flag"><img src="/assets/images/flags/india.png" alt=""></span>
+                    INR ₹ <i class="fa-solid fa-angle-down"></i>
+                </span>
+            </div>
+            <button class="loginBtn">Login</button>
+        </div>
+    </div>
+    <div class="main">
+        <div class="featureImages">
+            <div class="mainImage">
+                <div class="owl-carousel owl-theme owl-carousel-img" > 
+                    <div  id="mainImage-container"></div>
+                    <div  id="slider-destination-container"></div>
+                    <div  id="slider-property-container"> </div>
+                    <div  id="slider-activity-container"> </div>
+                </div>
+            </div>
+            <div class="otherFeatureimg">
+                <div class="featureimgBox" id="destination-container"></div>
+                <div class="featureimgBox" id="property-container"> </div>
+                <div class="featureimgBox" id="activity-container"> </div>
+                <div class="featureimgBox" id="productImage-container">
+                   
+                    <div class="allFeatureimg">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_420_1971)">
+                                <path
+                                    d="M1.33203 8C1.33203 4.85734 1.33203 3.286 2.30803 2.30934C3.28536 1.33334 4.85603 1.33334 7.9987 1.33334C11.1414 1.33334 12.7127 1.33334 13.6887 2.30934C14.6654 3.28667 14.6654 4.85734 14.6654 8C14.6654 11.1427 14.6654 12.714 13.6887 13.69C12.7134 14.6667 11.1414 14.6667 7.9987 14.6667C4.85603 14.6667 3.2847 14.6667 2.30803 13.69C1.33203 12.7147 1.33203 11.1427 1.33203 8Z"
+                                    stroke="#202020"></path>
+                                <path
+                                    d="M10.6654 6.66667C11.4017 6.66667 11.9987 6.06972 11.9987 5.33334C11.9987 4.59696 11.4017 4 10.6654 4C9.92898 4 9.33203 4.59696 9.33203 5.33334C9.33203 6.06972 9.92898 6.66667 10.6654 6.66667Z"
+                                    stroke="#202020"></path>
+                                <path
+                                    d="M1.33203 8.33334L2.50003 7.31134C2.79279 7.05538 3.17186 6.92023 3.56051 6.93322C3.94916 6.94622 4.31836 7.1064 4.59336 7.38134L7.45336 10.2413C7.6753 10.4632 7.9684 10.5997 8.28106 10.6268C8.59373 10.6539 8.90592 10.5698 9.1627 10.3893L9.36203 10.2493C9.73243 9.98919 10.1801 9.86238 10.6319 9.88963C11.0837 9.91687 11.5129 10.0966 11.8494 10.3993L13.9987 12.3333"
+                                    stroke="#202020" stroke-linecap="round"></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_420_1971">
+                                    <rect width="16" height="16" fill="white"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span>View All Images</span>
+                    </div>
+                </div>
+            </div>
+        </div>    
+
+        <div class="tripTitle" id="trip-name-container">
+           
+        </div>
+
+        <div class="tripDay">
+            <div class="tripSection">
+                <div class="days" id="trip-day-container">
+    
+                </div>
+                <div class="stayDay" id="stay-day-container">
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="mainContent">
+            <div class="leftSide">
+
+                <div class="facility" id="facility-container"> </div>
+               
+                <div class="otherTrip" id="similar-trip-container"></div>
                 
-                         </div>
-
-                         <div class="comon-filter-news1 mt-5">
-                             <input type="submit" onclick="bookTour()" class="btn submit-btn" value="Book Now" id="bookNowBtn"/>
-                         </div>
+                <div class="destinationFilter">
+                    <h3>Destination Routes</h3>
+                    <div id="destinationRoute-container"></div>
+                    <hr>
+                </div>
+              
+                <div class="stayCategory">
+                    <h3>Stay Category</h3>
+                    <div class="stays" id="stay-category-container"> </div>
+                    <hr>
+                </div>
+                
+                <div class="propertyFilter">
+                    <h3>Package Options</h3>
+                    <div class="propertys" id="package-container"></div>
+                    <hr>
+                </div>
+                <div class="aboutTrip" >
+                    <h3>Trip Highlights</h3>
+                    <ul id="trip-highlight-container">
                         
-                        
-                                <!-- The Modal -->
-                        <div id="myModal" class="backdrop">
+                    </ul>
+                    
+                </div>
+                <hr class="mainHr">
 
-                          <!-- Modal content -->
-                          <div class="modal">
-                            <div class="modal-content">
-                              <form id="bookingForm">
-                                <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-input" required>
-                                <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-input" required>
-                                <input type="email" id="email" name="email" placeholder="Email Id" class="form-input" required>
-                                <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="form-input" required>
-                                <button type="button" class="submit-btn">Submit</button>
-                              </form>
+                <div class="tourView">
+                    <div class="secondNav">
+                        <div class="itineraryTab">
+                            <div class="tab itinerary active">
+                                <span>Itinerary</span>
                             </div>
-                          </div>
+                            <div class="tab summarised">
+                                <span>Summarised View</span>
+                            </div>
+                            <div class="tab activities">
+                                <img src="/assets/images/svg/balloon.svg" alt="" class="svgImg"> <span>Activities</span>
+                            </div>
+                            <div class="tab stay">
+                                <img src="/assets/images/svg/stay.svg" alt="" class="svgImg"> <span>Stay</span>
+                            </div>
+                            <div class="tab transfers">
+                                <img src="/assets/images/svg/car.svg" alt="" class="svgImg"> <span>Transfers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabContent">
+                        <div class="itinerarytabContent itinerary active"  id="itinerary-img-container">
+                         
+                         </div>
+                        <div class="itinerarytabContent activities"  id="itinerary-img-container">
+                            
+                        </div>
+                        <div class="itinerarytabContent stay"  id="itinerary-img-container">
+                           
+                        </div>
+                        <div class="itinerarytabContent transfers"  id="itinerary-img-container">
                           
                         </div>
                     </div>
-
-                    <div class="ads-g-div mt-5">
-                        <figure>
-                            <img src="images/ads-g.jpg" alt="ads"/>
-                        </figure>
-                    </div>
-                    <!-- <div class="similar-packgaes mt-5">
-                        <h5> Similar Packgaes </h5>
-                        <div id="similar-packages-container"></div>
-                    </div> -->
                 </div>
             </div>
-          
-        </div>
-
-        
-
-        <div class="subcribe-part pt-2 subpage-sub2">
-          <div class="inside-nms">
-            <div class="container">
-                <div class="row align-items-center gx-lg-5">
-                   <div class="col-lg-7 left-tes-5">
-                       <h2>We Provide Top Destinations <span> Expecially For You Book Now and Enjoy! </span></h2>
-                       <div class="d-flex align-items-center mt-3">
-                          <i class="fas fa-phone-volume"></i>
-                           <h6 class="ms-2"> 
-                            <span class="d-block"> Call Now </span> 
-                            
-                            9090909090</h6>
-                       </div>
-                   </div>
-                   <div class="col-lg-5">
-                    <div class="testimonal-div">
-                        <h6> TESTIMONIALS </h6>
-                        <h3> Travelers Reviews </h3>
-
-                        <div class="sub-page-testmonials owl-carousel owl-theme mt-0">
-
-                          <div class="items-ts">
-                            <div class="d-md-flex">
-                              <figure>
-                                <img src="images/testimonals1.png" alt="tm"/>
-                              </figure>
-                              <h5> Akash Maan
-                                <span class="d-block">Consultant, Deloitte, India </span>
-                              </h5>
+            <div class="rightSide">
+                <div class="prizeList">
+                    <div class="prizeSection">
+                        <div class="prize">
+                            <div class="discountPrize">
+                                <div class="prize">INR 18,500</div><span>Per Person</span>
                             </div>
-                              
-                              <p class="mt-4">Our experience with XYZ Travel Agency was exceptional from start to finish. Their attention to detail in planning our trip to Space was remarkable.</p>
-    
-                              <span class="rt-t mt-3 d-table">
-                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                              </span>
-    
-                           
-                             
-                          </div>
-    
-                          <div class="items-ts">
-                            <div class="d-md-flex">
-                              <figure>
-                                <img src="images/testimonals2.png" alt="tm"/>
-                              </figure>
-                              <h5> Ajinkya Dev  
-                                <span class="d-block">Vice President, L&T, India </span>
-                              </h5>
-                            </div>
-                              
-                              <p class="mt-4">Choosing XYZ Travel Agency for our family vacation was the best decision we made. They listened to our preferences and crafted a perfect itinerary that suited everyone</p>
-    
-                              <span class="rt-t mt-3 d-table">
-                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                              </span>
-    
-                           
-                             
-                          </div>
-    
-    
-                          <div class="items-ts">
-                            <div class="d-md-flex">
-                              <figure>
-                                <img src="images/testimonals3.png" alt="tm"/>
-                              </figure>
-                              <h5> Neelima Sharma 
-                                <span class="d-block"> HR Manager, TCS, India </span>
-                              </h5>
-                            </div>
-                              
-                              <p class="mt-4">I can't recommend XYZ Travel Agency enough! They organized a once-in-a-lifetime safari in Africa for us, and it was flawless</p>
-    
-                              <span class="rt-t mt-3 d-table">
-                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                              </span>
-    
-                           
-                             
-                          </div>
-
-
+                            <div class="mainPrize">INR 26,000</div>
                         </div>
-
-
+                        <div class="productRating">
+                            <div class="rating">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.4829 5.63406L10.6864 4.90408L8.54222 0.352135C8.48365 0.227506 8.38731 0.126615 8.26829 0.0652895C7.96981 -0.0890138 7.6071 0.0395723 7.45786 0.352135L5.3137 4.90408L0.517213 5.63406C0.384974 5.65384 0.26407 5.71912 0.171503 5.81803C0.0595945 5.93848 -0.0020722 6.10053 5.31712e-05 6.26856C0.00217854 6.4366 0.0679221 6.59688 0.182838 6.71418L3.65316 10.2572L2.83328 15.2602C2.81405 15.3766 2.82635 15.4963 2.86878 15.6057C2.91121 15.7151 2.98207 15.8099 3.07333 15.8793C3.16459 15.9488 3.27259 15.99 3.38509 15.9984C3.4976 16.0068 3.6101 15.982 3.70983 15.9269L8.00004 13.5648L12.2902 15.9269C12.4074 15.9922 12.5434 16.0139 12.6737 15.9902C13.0024 15.9308 13.2235 15.6044 13.1668 15.2602L12.3469 10.2572L15.8172 6.71418C15.9117 6.61724 15.974 6.49064 15.9929 6.35216C16.0439 6.00597 15.8135 5.68549 15.4829 5.63406Z"
+                                        fill="#19AD6F"></path>
+                                </svg>
+                                <span class="currentRating">4.6</span>
+                                <span class="totalRatings">(12.2K)</span>
+                            </div>
+                            <div class="offer">
+                                Monsoon Sale!
+                            </div>
+                        </div>
                     </div>
-                   </div>
+                    <div class="enquiryBtn_space">
+                        <button class="enquiryBtn">Send Enquiry</button>
+                    </div>
                 </div>
-                
+                <div class="enquiryForm">
+                    <div class="tripenquiryTitle">
+                        Leh Ladakh Bike Trip | FREE Excursion To Chang-La Pass
+                    </div>
+                    <div class="prize">
+                        <div class="discount">INR 18,500</div>
+                        <div class="mainPrize">INR 26,000</div>
+                        <div class="savedPrize">Save INR 7,500</div>
+                    </div>
+                    <form action="" class="">
+                        <input class="form-control" type="text" placeholder="Full Name *">
+                        <input class="form-control" type="text" placeholder="Email *">
+                        <input class="form-control" type="tel" value="+91">
+                        <div class="getherInput">
+                            <input class="form-control" type="text" placeholder="Travel Date *">
+                            <input class="form-control" type="text" placeholder="Travel Count">
+                        </div>
+                        <textarea class="form-control" name="" id="" placeholder="Message..."></textarea>
+                        <button class="enquiryBtn">Send Enquiry</button>
+                    </form>
+                </div>
             </div>
-          </div>
-           
         </div>
 
 
-     </div>
-</section>
+        <div class="eoTrip">
+            <img src="/assets/images/eoTrip.png" alt="" width="70%">
+        </div>
 
+        <div class="packageWrapper">
+            <h2>What’s inside the package?</h2>
+            <div class="package">
+                <div class="inclusion">
+                    <h3>Inclusions</h3>
 
- 
+                    <div class="packageInfo" id="inclusion-container"></div>
 
-<footer>
-  <div class="footer-link-div float-start">
-    <div class="container">
-       <div class="row row-cols-1 row-cols-md-2  row-cols-lg-4">
-          <div class="col">
-             <div class="comon-footer-div pt-4">
-                 <a href="#">
-                    <img src="images/logo.png" alt="logo"/>
-                 </a>
-                 <p class="mt-2">  Providing exceptional travel experiences since 2011. We are committed to delivering quality service and unforgettable journeys tailored to your dreams.</p>
-                 
-                 <ul class="m-0 mt-2 list-unstyled d-flex">
-                  <li>
-                    <a href="#"> <i class="fab fa-facebook"></i> </a>
-                  </li>
-                  <li class="mx-3">
-                   <a href="#"> <i class="fab fa-twitter"></i> </a>
-                   
-                  </li>
-                  <li>
-                   <a href="#"> <i class="fab fa-instagram"></i> </a>
-                   
-                  </li>
-                </ul>
-             </div>
-          </div>
-          <div class="col">
-            <div class="comon-footer-div pt-4 d-grid justify-content-md-center">
-                <h5 class="text-white">UseFull Links
-                </h5>
-                <ul class="list-unstyled mt-4">
-                  <li>
-                    <a href="#"> <i class="fas fa-angle-right"></i>  About </a>
-                  </li>
-                  <li>
-                    <a href="#"> <i class="fas fa-angle-right"></i> Discover
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"> <i class="fas fa-angle-right"></i> Explore
-                    </a>
-                  </li>
-                  
-                 
-                </ul>
+                </div>
+                <div class="vrLine"></div>
+                <div class="exclusion">
+                    <h3>Exclusions</h3>
+
+                    <div class="packageInfo" id="exclusion-container"></div>
+
+                </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="comon-footer-div pt-4 justify-content-md-start  d-grid">
-                <h5 class="text-white">Support Links</h5>
-                <ul class="list-unstyled mt-4 no-code-div">
-                  <li>
-                    <a href="#"> <i class="fas fa-angle-right"></i> Help
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"> <i class="fas fa-angle-right"></i> Terms & Condition
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"> <i class="fas fa-angle-right"></i> Ask & Qusetion
-                    </a>
-                  </li>
+        </div>
 
-                 
+        <div class="customAccordion">
+            <div class="accordion">
+                <div class="accordionTitle">
+                    <div class="title">Know Before You Go</div>
+                </div>
+                <img src="/assets/images/svg/arrow.svg" alt="" class="arrowImg">
+            </div>
+            <div class="accordionDetails">
+                <div class="details">
+                    <ul>
+                        <li>Mobile Network: Only Postpaid network (JIO, Airtel, BSNL) is active in the region.</li>
+                        <li>Breakfast availability in hotel on last day totally depends on your departure timings.</li>
+                        <li>It is recommended to carry enough warm clothes and the right kind of shoes for the tour. The
+                            advisable baggage weight is 60 liters as you might have to carry the luggage to the backup
+                            vehicle, the accommodation, etc.</li>
+                        <li>Rates may fluctuate with any change in services/hotels. The difference in the cost shall be
+                            borne by the client in case of any amendment in the package due to an increase in the number
+                            of guests, hotel change, etc.</li>
+                        <li>The hotels are subject to their availability. In case they are not available, the travelers
+                            will be accommodated in a property of similar standard.</li>
+                        <li>Thrillophilia reserves the right to rearrange the itinerary due to any kind of disturbance
+                            that occurred (i.e weather condition, political condition or any others) without changing
+                            the total number of days and without compromising any service.</li>
+                        <li>Ladakh has one of the most difficult terrains in the country and the weather is harsh and
+                            unpredictable, the hotels and their facilities in Ladakh can not be compared with equivalent
+                            hotels in other parts of the country. They are more basic in nature but Ladakhi people carry
+                            the local warmth, which compensates for the star categories.</li>
+                        <li>Consult a physician before undertaking the tour. Carry basic medications and a first-aid kit
+                            during the tour.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="addedInfo">
+            <h3>Additional Information</h3>
+            <div class="information">
+                <p><b>About the destination : .......</b></p>
+                <button class="more">Read More</button>
+            </div>
+        </div>
+
+        <div class="callBack">
+            <img src="https://media1.thrillophilia.com/filestore/group_tour_desktop_banner_image.png?w=1024&dpr=1"
+                alt="">
+            <div class="contentCallback">
+                <div class="callbackOffer">Bigger Group? Get special offers up to 50% Off!</div>
+                <div class="callbackTag">We create unforgettable adventures, customised for your group.</div>
+                <button class="callBackbtn">Get A Callback</button>
+            </div>
+        </div>
+
+        <div class="reviews">
+            <h4>Reviews(12,179)</h4>
+            <div class="allReview">
+                <div class="totalReview">
+                    <div class="rateCount">
+                        <img src="/assets/images/svg/rateStar.svg" alt="">
+                        <div class="rating">4.6</div>
+                        <div class="count">From 65+ countries</div>
+                    </div>
+                </div>
+                <div class="vrLine"></div>
+                <div class="rating">
+                    <div class="countFrom">
+                        <div class="countCat">5 <img src="/assets/images/svg/goldStar.svg" alt=""></div>
+                        <div class="progressBar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                    <div class="countFrom">
+                        <div class="countCat">4 <img src="/assets/images/svg/goldStar.svg" alt=""></div>
+                        <div class="progressBar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                    <div class="countFrom">
+                        <div class="countCat">3 <img src="/assets/images/svg/goldStar.svg" alt=""></div>
+                        <div class="progressBar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                    <div class="countFrom">
+                        <div class="countCat">2 <img src="/assets/images/svg/goldStar.svg" alt=""></div>
+                        <div class="progressBar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                    <div class="countFrom">
+                        <div class="countCat">1 <img src="/assets/images/svg/goldStar.svg" alt=""></div>
+                        <div class="progressBar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="travelGallery">
+            <h2>Traveller Image Gallery</h2>
+            <div class="gridGallery">
+                <div class="galleryImg mainImg">
+                    <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
+                        alt="" class="gridgalleryImg">
+                    <div class="viewMorebtn">
+                        <button class="moreBtn"><img src="/assets/images/svg/camera.svg" alt="">View All</button>
+                    </div>
+                </div>
+                <div class="galleryImg img1">
+                    <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
+                        alt="" class="gridgalleryImg">
+                </div>
+                <div class="galleryImg img2">
+                    <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
+                        alt="" class="gridgalleryImg">
+                </div>
+                <div class="galleryImg img3">
+                    <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
+                        alt="" class="gridgalleryImg">
+                </div>
+                <div class="galleryImg img4">
+                    <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
+                        alt="" class="gridgalleryImg">
+                </div>
+            </div>
+            <div class="customerReview">
+                <div class="review">
+                    <div class="custDetails">
+                        <div class="custInfo">
+                            <img src="https://media1.thrillophilia.com/filestore/hyyv22wl0p4484f51k181nam56l3_profile_image.jpg?w=400&h=300&dpr=1"
+                                alt="">
+                            <div class="info">
+                                <h3>Jagdish</h3>
+                                <p>Reviewed : 27 Nov 2023</p>
+                            </div>
+                        </div>
+                        <div class="custRating">
+                            <img src="/assets/images/svg/greenStar.svg" alt="">5.0/5
+                        </div>
+                    </div>
+                    <div class="booked">
+                        Booked:<a href=""><b>Leh Ladakh Adventure with Pangong Lake</b></a>
+                    </div>
+                    <p class="custreview">
+                        Dear Thrillophilia,
+                        Thank you for making my trip memorable. Your tour planning was incredible and I loved every bit
+                        of it. We are feel comfortable.
+                        Thank you again for an unforgettable experience and for providing a wonderful tour. I really
+                        appreciate your services and commitment.
+                    </p>
+                    <div class="sharedImg">
+                        <img src="https://media1.thrillophilia.com/filestore/et153mx6q5ei7p76lsus9bqvona9_IMG_20221124_125528.jpg?w=200&dpr=1"
+                            alt="">
+                        <img src="https://media1.thrillophilia.com/filestore/et153mx6q5ei7p76lsus9bqvona9_IMG_20221124_125528.jpg?w=200&dpr=1"
+                            alt="">
+                        <img src="https://media1.thrillophilia.com/filestore/et153mx6q5ei7p76lsus9bqvona9_IMG_20221124_125528.jpg?w=200&dpr=1"
+                            alt="">
+                        <img src="https://media1.thrillophilia.com/filestore/et153mx6q5ei7p76lsus9bqvona9_IMG_20221124_125528.jpg?w=200&dpr=1"
+                            alt="">
+                        <img src="https://media1.thrillophilia.com/filestore/et153mx6q5ei7p76lsus9bqvona9_IMG_20221124_125528.jpg?w=200&dpr=1"
+                            alt="">
+                        <img src="https://media1.thrillophilia.com/filestore/et153mx6q5ei7p76lsus9bqvona9_IMG_20221124_125528.jpg?w=200&dpr=1"
+                            alt="">
+                        <img src="https://media1.thrillophilia.com/filestore/et153mx6q5ei7p76lsus9bqvona9_IMG_20221124_125528.jpg?w=200&dpr=1"
+                            alt="">
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="custDetails">
+                        <div class="custInfo">
+                            <img src="https://media1.thrillophilia.com/filestore/hyyv22wl0p4484f51k181nam56l3_profile_image.jpg?w=400&h=300&dpr=1"
+                                alt="">
+                            <div class="info">
+                                <h3>Sangeeta</h3>
+                                <p>Reviewed : 12 Jun 2019</p>
+                            </div>
+                        </div>
+                        <div class="custRating">
+                            <img src="/assets/images/svg/greenStar.svg" alt="">5.0/5
+                        </div>
+                    </div>
+                    <div class="booked">
+                        Booked:<a href=""><b>Ladakh Sightseeing Tour with Flights</b></a>
+                    </div>
+                    <p class="custreview">
+                        We six people from Pune n Mumbai booked leh-ladakh tour with thrillophilia
+                        From starting till end tour was designed well.
+                        The itinerary is properly designed that u need not worry about any thing.
+                        On day one we got proper briefing about the tour and place driver was polite hotel was very good
+                        every staff from thrillophilia was very supportive and helpful.
+                        Both on ground team guys shashank and Satya were very active and responsive.
+                        I highly recommend thrillophilia for laddakh to all age group soon will send our child for bike
+                        trip.
+                    </p>
+                </div>
+            </div>
+            <div class="loadBtnspace">
+                <button class="loadmoreReview">Load More reviews</button>
+            </div>
+        </div>
+
+        <div class="withUS">
+            <div class="offerCard">
+                <img src="/assets/images/icons/heart_ballon_icon.png" alt="">
+                <h3>10 Million+</h3>
+                <p>Happy customers from 65+ countries all around.</p>
+            </div>
+            <div class="offerCard">
+                <img src="/assets/images/icons/message_icon.png" alt="">
+                <h3>4.6 / 5.0</h3>
+                <p>Cumulative ratings of our trips across platforms.</p>
+            </div>
+            <div class="offerCard">
+                <img src="/assets/images/icons/heart_icon.png" alt="">
+                <h3>Curated with love</h3>
+                <p>Expert-guided trips with meticulous planning.</p>
+            </div>
+            <div class="offerCard">
+                <img src="/assets/images/icons/24_7_icon.png" alt="">
+                <h3>24*7 Support</h3>
+                <p>We are always there to help you pre, post and on the trip.</p>
+            </div>
+        </div>
+
+        <div class="aboutfaqTrip">
+            <h3>Ladakh Tour FAQs</h3>
+            <ul>
+                <li>Is the Ladakh bike trip safe?</li>
+                <li>Is the Leh Ladakh worth visiting?</li>
+                <li>What is the best time for Ladakh bike trip?.</li>
+                <li>What are the essential things to carry for Ladakh trip on bike?</li>
+                <li>What places are included in the Leh Ladakh Bike tour package?</li>
+                <li>What meals are included in Leh Ladakh Bike tour package?</li>
+                <li>What kind of accommodation is included in the Leh Ladakh bike tour package?</li>
+                <li>Which are some of the good bikes for Ladakh trip on the bike?</li>
+            </ul>
+        </div>
+
+        <div class="aboutcancelTrip">
+            <h3>Cancellation Policy</h3>
+            <ul id="cancellationPolicy-container">
                
-                </ul>
+            </ul>
+        </div>
+        <div class="customAccordion">
+            <div class="accordion">
+                <div class="accordionTitle">
+                    <div class="title">Payment Term Policy</div>
+                </div>
+                <img src="/assets/images/svg/arrow.svg" alt="" class="arrowImg">
             </div>
-          </div>
-
-          <div class="col">
-            <div class="comon-footer-div pt-4 d-grid justify-content-md-end">
-              <h5 class="text-white">Contact
-              </h5>
-              <ul class="contact-link list-unstyled mt-4">
-                <li> <i class="fas fa-map-marker-alt"></i> <span>303, Spaze Itech Park, Sector 49
-               </span> </li>
-             
-                <li> <i class="fas fa-map-marker-alt"></i> <span> Gurgaon, Haryana 
-               </span> </li>
-               <li> <i class="fas fa-phone-alt"></i> <span> 9818313631
-               </span> </li>
-               <li><i class="fas fa-envelope"></i> <span>  info@xyzholidays.com </span> </li>
-               
-
-              </ul>
-              
-              
+            <div class="accordionDetails">
+                <div class="details">
+                    <ul>
+                        <li>100.0% of total tour cost will have to be paid 30 days before the date of travel</li>
+                    </ul>
+                </div>
             </div>
-         </div>
-         
-       </div>
-       <hr/>
-        <div class="d-lg-flex justify-content-center">
-          <p class="text-center text-white"> Copyright © 2022 Travel Agency. All Rights Reserved.</p>
-          
         </div>
     </div>
-    
-</div>
-</footer>
 
+    <footer class="footer">
+        <div class="footerContent">
+            <div class="footerNav">
+                <div class="footerColumn">
+                    <div class="darkLabel">ABOUT TRIP.COM</div>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">ABOUT US</div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">WE ARE HIRING</div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">TRIP.COM REVIEWS</div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">TERMS &amp; CONDITIONS</div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">PRIVACY POLICIES</div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">COPYRIGHT POLICIES</div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">SUPPORT</div>
+                    </a>
+                    <a>
+                        <div class="lightLabel">APPS</div>
+                    </a>
+                </div>
+                <div class="footerColumn">
+                    <div class="darkLabel">FOR SUPPLIERS</div>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">LIST YOUR ACTIVITIES</div>
+                    </a>
+                    <div class="rowDivider"></div>
+                    <div class="darkLabel">FOR BRANDS</div>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">PARTNER WITH US</div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">DESTINATION MARKETING</div>
+                    </a>
+                    <div class="rowDivider"></div>
+                    <div class="darkLabel">FOR TRAVEL AGENTS</div>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">SIGN UP AS A AGENT</div>
+                    </a>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">AGENT LOGIN</div>
+                    </a>
+                </div>
+                <div class="footerColumn">
+                    <div class="darkLabel">FOR TRAVELLERS</div>
+                    <a href="" target="_blank">
+                        <div class="lightLabel">GIFT AN EXPERIENCE</div>
+                    </a>
+                </div>
+                <div class="">
+                    <div class="darkLabel">TRAVEL DESTINATIONS</div>
+                    <div class="imagesContainer">
+                        <a class="imageBox" href="" target="_blank">
+                            <img src="https://media1.thrillophilia.com/filestore/bali.png?w=100&amp;dpr=1">
+                            <div class="nearbyPlacesName"> BALI</div>
+                        </a>
+                        <a class="imageBox" href="" target="_blank">
+                            <img src="https://media1.thrillophilia.com/filestore/dubai.png?w=100&amp;dpr=1">
+                            <div class="nearbyPlacesName"> DUBAI</div>
+                        </a>
+                        <a class="imageBox" href="" target="_blank">
+                            <img src="https://media1.thrillophilia.com/filestore/singapore.png?w=100&amp;dpr=1">
+                            <div class="nearbyPlacesName"> SINGAPORE</div>
+                        </a>
+                        <a class="imageBox" href="" target="_blank">
+                            <img src="https://media1.thrillophilia.com/filestore/thailand.png?w=100&amp;dpr=1">
+                            <div class="nearbyPlacesName"> THAILAND</div>
+                        </a>
+                        <a class="imageBox" href="" target="_blank">
+                            <img src="https://media1.thrillophilia.com/filestore/andaman.png?w=100&amp;dpr=1">
+                            <div class="nearbyPlacesName"> ANDAMAN</div>
+                        </a>
+                        <a class="imageBox" href="" target="_blank">
+                            <img src="https://media1.thrillophilia.com/filestore/india.png?w=100&amp;dpr=1">
+                            <div class="nearbyPlacesName"> INDIA</div>
+                        </a>
+                        <a class="imageBox" href="" target="_blank">
+                            <img src="https://media1.thrillophilia.com/filestore/ladakh.png?w=100&amp;dpr=1">
+                            <div class="nearbyPlacesName"> LADAKH</div>
+                        </a>
+                        <a class="imageBox" href="" target="_blank">
+                            <img src="https://media1.thrillophilia.com/filestore/hongkong.png?w=100&amp;dpr=1">
+                            <div class="nearbyPlacesName"> HONGKONG</div>
+                        </a>
+                        <a class="imageBox" href="" target="_blank">
+                            <img src="https://media1.thrillophilia.com/filestore/srilanka.png?w=100&amp;dpr=1">
+                            <div class="nearbyPlacesName"> SRILANKA</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mediaIcons">
+                <a href="" target="_blank">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <path
+                            d="M16.033-0c-8.864 0-16.033 7.169-16.033 16.033s7.169 16.033 16.033 16.033c8.864 0 16.033-7.169 16.033-16.033-0.065-8.864-7.234-16.033-16.033-16.033zM20.334 9.841h-2.281c-1.173 0-1.434 0.782-1.434 1.564v1.564h3.519l-0.456 3.063h-3.063v9.255h-3.063v-9.255h-1.825v-3.063h1.89v-1.89c0-2.477 0.717-4.301 3.454-4.301h3.259v3.063z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="" target="_blank">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <path
+                            d="M18.208 13.847c1.196 1.196 1.196 3.136 0 4.332s-3.136 1.196-4.332 0c-1.196-1.196-1.196-3.136 0-4.332s3.136-1.196 4.332 0zM23.202 10.558c-0.326-0.782-0.912-1.434-1.76-1.76-0.521-0.196-1.108-0.326-1.695-0.326-0.978 0-1.303 0-3.715 0s-2.737 0-3.715 0.065c-0.587 0-1.173 0.13-1.694 0.326-0.847 0.261-1.499 0.912-1.76 1.694-0.196 0.521-0.326 1.108-0.326 1.694-0.065 1.043-0.065 1.303-0.065 3.78s0 2.737 0.065 3.715c0 0.587 0.13 1.173 0.326 1.695 0.326 0.782 0.912 1.434 1.76 1.76 0.521 0.196 1.108 0.326 1.694 0.326 0.978 0.065 1.238 0.065 3.715 0.065s2.737 0 3.715-0.065c0.587 0 1.173-0.13 1.695-0.326 0.782-0.326 1.434-0.912 1.76-1.76 0.196-0.521 0.326-1.108 0.326-1.695 0.065-0.978 0.065-1.238 0.065-3.715s0-2.737-0.065-3.715c-0.065-0.587-0.13-1.173-0.326-1.76zM16.033 20.725v0c-2.607 0-4.692-2.086-4.692-4.692s2.086-4.692 4.692-4.692c2.607 0 4.692 2.086 4.692 4.692s-2.086 4.692-4.692 4.692zM20.921 12.187v0c-0.587 0-1.108-0.521-1.108-1.108s0.521-1.108 1.108-1.108 1.108 0.521 1.108 1.108c0 0.652-0.521 1.108-1.108 1.108zM16.033-0c-8.864 0-16.033 7.169-16.033 16.033s7.169 16.033 16.033 16.033c8.864 0 16.033-7.169 16.033-16.033-0.065-8.864-7.234-16.033-16.033-16.033zM25.157 19.813c0 0.782-0.13 1.499-0.456 2.216-0.456 1.238-1.434 2.216-2.672 2.672-0.717 0.261-1.499 0.391-2.216 0.456-0.978 0.065-1.303 0.065-3.78 0.065s-2.802 0-3.78-0.065c-0.782 0-1.499-0.13-2.216-0.456-1.238-0.456-2.216-1.434-2.672-2.672-0.261-0.717-0.391-1.499-0.456-2.216-0.065-0.978-0.065-1.303-0.065-3.78s0-2.802 0.065-3.78c0-0.782 0.13-1.499 0.456-2.216 0.456-1.238 1.434-2.216 2.672-2.672 0.717-0.261 1.499-0.391 2.216-0.456 0.978-0.065 1.303-0.065 3.78-0.065s2.802 0 3.78 0.065c0.782 0 1.499 0.13 2.216 0.456 1.238 0.456 2.216 1.434 2.672 2.672 0.261 0.717 0.391 1.499 0.456 2.216 0.065 0.978 0.065 1.303 0.065 3.78s0 2.802-0.065 3.78z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="" target="_blank">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <path
+                            d="M16.033-0c-8.864 0-16.033 7.169-16.033 16.033s7.169 16.033 16.033 16.033c8.864 0 16.033-7.169 16.033-16.033-0.065-8.864-7.234-16.033-16.033-16.033zM22.876 12.318c0 0.13 0 0.326 0 0.456 0 4.888-3.585 10.558-10.037 10.558-1.955 0-3.845-0.587-5.409-1.695 0.261 0.065 0.587 0.065 0.847 0.065 1.629 0 3.193-0.587 4.367-1.629-1.564-0.065-2.868-1.108-3.324-2.607 0.521 0.13 1.108 0.065 1.629-0.065-1.694-0.456-2.868-1.955-2.868-3.715v0c0.456 0.326 1.043 0.456 1.629 0.521-1.564-1.173-2.020-3.324-1.108-5.083 1.694 2.346 4.367 3.845 7.299 4.041-0.065-0.261-0.065-0.587-0.065-0.847-0.065-1.955 1.499-3.65 3.454-3.715 0 0 0.065 0 0.065 0 0.978 0 1.955 0.456 2.607 1.238 0.782-0.13 1.564-0.456 2.216-0.847-0.261 0.847-0.782 1.564-1.564 2.020 0.717-0.065 1.369-0.261 2.020-0.587-0.456 0.782-1.043 1.369-1.76 1.89z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="" target="_blank">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <path
+                            d="M16.033-0c-8.864 0-16.033 7.169-16.033 16.033s7.169 16.033 16.033 16.033c8.864 0 16.033-7.169 16.033-16.033-0.065-8.864-7.234-16.033-16.033-16.033zM11.34 24.179h-3.91v-11.731h3.91v11.731zM9.711 10.884c-0.13 0-0.196 0-0.326 0v0 0c-1.108 0.065-2.086-0.782-2.151-1.89s0.782-2.086 1.89-2.151c0.13 0 0.196 0 0.326 0 1.108-0.065 2.086 0.782 2.151 1.89s-0.717 2.086-1.89 2.151zM25.418 24.179h-3.91v-6.257c0-1.564-0.587-2.672-1.955-2.672-0.912 0-1.695 0.587-2.020 1.434-0.13 0.326-0.13 0.652-0.13 0.978v6.582h-3.91c0 0 0.065-10.623 0-11.731h3.91v1.629c0.717-1.238 2.086-2.020 3.519-1.955 2.542 0 4.497 1.694 4.497 5.279v6.713z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="" target="_blank">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <path
+                            d="M14.012 19.031l5.214-2.998-5.214-2.998zM16.033-0c-8.864 0-16.033 7.169-16.033 16.033s7.169 16.033 16.033 16.033c8.864 0 16.033-7.169 16.033-16.033-0.065-8.864-7.234-16.033-16.033-16.033zM25.613 20.855c-0.261 0.847-0.912 1.499-1.76 1.76-1.564 0.391-7.821 0.391-7.821 0.391s-6.257 0-7.821-0.456c-0.847-0.261-1.499-0.912-1.76-1.76-0.261-1.564-0.391-3.193-0.391-4.823s0.13-3.193 0.391-4.823c0.261-0.847 0.912-1.564 1.76-1.76 1.564-0.391 7.821-0.391 7.821-0.391s6.257 0 7.821 0.456c0.847 0.261 1.499 0.912 1.76 1.76 0.261 1.564 0.456 3.193 0.391 4.823 0 1.629-0.13 3.193-0.391 4.823z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <div class="captionBox">
+                <div class="copyRightText">© 2024 Trip.com All rights reserved.</div>
+                <div class="caption">The content and images used on this site are copyright protected and
+                    copyrights vests with the respective owners. The usage of the content and images on this website is
+                    intended to promote the works and no endorsement of the artist shall be implied. Unauthorized use is
+                    prohibited and punishable by law.</div>
+            </div>
+        </div>
+    </footer>
 
-
-
-
-<!-- mobile menu -->
-<div class="offcanvas offcanvas-start mobile-menu-div" tabindex="-1" id="mobilemenu" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <button type="button" class="close-menu" data-bs-dismiss="offcanvas" aria-label="Close">
-      <span> Close </span> <i class="fas fa-long-arrow-alt-right"></i>
-     </button>
-  </div>
-  <div class="offcanvas-body">
-    
-    <div class="head-contact">
-      <a href="index.html" class="logo-side">
-      <img src="images/logo-color.png" alt="logo">
-      </a>
-      
-      <div class="mobile-menu-sec mt-3">
-         <ul class="list-unstyled">
-          <li>
-              <a href="listing.html"> Explore </a>
-          </li>
-          <li>
-            <a href="explore.html"> Curated Tours </a>
-          </li>
-          <li>
-              <a href="discover.html"> Top Destinations </a>
-          </li>
-          
-          <li>
-              <a href="tour-package.html">  Hot Deals  </a>
-          </li>
-          <li>
-              <a href="about.html"> About  </a>
-          </li>
-          <li>
-            <a href="contact.html"> Help & Visas  </a>
-          </li>
-         </ul>
-      </div>
-      
-      <ul class="side-media list-unstyled">
-         <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
-         <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
-         <li> <a href="#"> <i class="fab fa-google-plus-g"></i> </a> </li>
-         <li> <a href="#"> <i class="fab fa-instagram"></i> </a> </li>
-      </ul>
-   </div>
-   
-  </div>
-</div>
-
-
-<!-- login Modal -->
-<div class="modal fade login-div-modal" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="allImagesmodel">
+        <div class="allimagesHeader">
+            <div class="main">
+                <div>
+                    <button class="back-button"><i class="fa-solid fa-arrow-left-long"></i>&nbsp;&nbsp;Back</button>
+                </div>
+                <div class="tabsnav">
+                    <div class="nav active allImages" id="allImgTotal"></div>
+                    <div class="nav destinations" id="destinationImgTotal"></div>
+                    <div class="nav activities" id="activityImgTotal"></div>
+                    <div class="nav properties" id="propertyImgTotal"></div>
+                </div>
+            </div>
+        </div> 
         
-      </div>
-      <div class="modal-body">
-         
-        <div id="login-td-div" class="com-div-md">
-          <span class="text-center d-table m-auto user-icon"> <i class="fas fa-user-circle"></i> </span>
-          <h5 class="text-center mb-3"> Sign In </h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">×</span>
-         </button>
-          <div class="login-modal-pn">
-          
-            <div class="cm-select-login mt-3">
-              <div class="country-dp">
+        <div class="sidebarGallery">
+            <div class="imgGallery allImages" >
+                <div class="colImg" id="allImageContainer"></div>
+            </div>
+            <div class="imgGallery destinations" >
+                <div class="previewImg" id="allDestinationsContainer"> </div>    
+            </div>    
+            <div class="imgGallery activities" >
+                <div class="previewImg" id="allActivitiesContainer"></div>  
+            </div>
+            <div class="imgGallery properties" >
+                <div class="previewImg" id="allPropetiesContainer"></div>  
+            </div>  
+        </div>
+        <div id="mygalleryWindow" class="mygalleryWindow">
+            <div class="mygalleryWindow-content">
+                <span class="close">&times;</span>
+                <div class="galleryWindow">
+                    <h1>Gallery</h1>
+                    <div class="owl-carousel owl-theme galleryWindow-carousel" id="clearText">
                 
-                <input type="email" class="form-control" placeholder="Username Or Email" alt="pn" id="emailOrPhone">
-              </div>
-              <div class="phone-div">
-                
-                 <input type="password" class="form-control" placeholder="Password" alt="pn" id="password">
-              </div>
-              
-           
+                    </div>
+                    <div class="imgCount">
+                        <div class="titleCount">
+                            <span class="imgText"></span> ||
+                            ( <span class="current">1</span> / <span class="totalSlide"></span> )
+                        </div>
+                        <div class="allImg">
+                            <div class="navBtn">
+                                <button class="navPrev"><i class="fa-solid fa-angle-left"></i></button>
+                                <button class="navNext"><i class="fa-solid fa-angle-right"></i></button>
+                            </div>
+                            <div class="imgWrapper">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            
-            
-            <button class="btn continue-bn" id="loginBtn"> <i class="fas fa-lock"></i> SIGN IN </button>
-         </div>
-
-         <p class="text-center  mt-3">  
-          <a data-bs-toggle="modal" class="regster-bn" data-bs-target="#lostpsModal" data-bs-dismiss="modal"> Lost Password ? </a>  </p>
-          
-          
-           <p class="text-center  mt-3"> Do not have an account? 
-             <a data-bs-toggle="modal" class="regster-bn" data-bs-target="#registerModal" data-bs-dismiss="modal"> Register </a>  </p>
         </div>
-
-      
-      </div>
-      
     </div>
-  </div>
-</div>
-
-<!-- register Modal -->
-
-<div class="modal fade login-div-modal" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        
-      </div>
-      <div class="modal-body">
-        <div id="login-td-div" class="com-div-md">
-          <span class="text-center d-table m-auto user-icon"> <i class="fas fa-user-circle"></i> </span>
-          <h5 class="text-center mb-3"> Register </h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">×</span>
-         </button>
-          <div class="login-modal-pn">
-          
-            <div class="country-dp">
-               
-              <input type="text" class="form-control" id="fullName" placeholder="Full Name" alt="pn">
+       
+    <div class="additionalInformationModal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h3>Additional Information</h3>
+                <button class="closeBtn"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="phone-div">
-             
-               <input type="email" class="form-control" id="emailOrPhoneId" placeholder="Email or Phone Number" alt="pn">
+            <div class="modalBody">
+                <p><strong style="background-color: transparent;">Inclusions:&nbsp;</strong></p>
+                <ul>
+                    <li>Flight tickets from Delhi to Leh and back (Ex-Delhi)</li>
+                    <li>Airport pick up and drop as per your flight timings</li>
+                    <li>Comfortable and hygienic vehicle (Innova/Xylo/Similar) for sightseeing on all days as per the
+                        itinerary.</li>
+                    <li>Stay on a double (couples and special requests) and triple sharing basis in hygienic and
+                        sanitized hotels/Camps</li>
+                    <li>Buffet breakfast and dinner on all days</li>
+                    <li>Assured Inner-Line Permit for all restricted areas</li>
+                    <li>Wildlife Fee and Environmental Fee</li>
+                    <li>Highly-Experienced driver cum guide</li>
+                    <li>Sightseeing as per itinerary</li>
+                    <li>Oxygen cylinder and basic first-aid during the tour.</li>
+                    <li>Camping with an evening bonfire</li>
+                </ul>
+                <p><strong style="background-color: transparent;">Things not to miss:&nbsp;</strong></p>
+                <ul>
+                    <li><span style="background-color: transparent;">Shop souvenir for friends and family at the Leh
+                            Market</span></li>
+                    <li><span style="background-color: transparent;">Hangout at </span><em
+                            style="background-color: transparent;">Lala's Art Cafe</em><span
+                            style="background-color: transparent;"> for a tall glass of Italian coffee</span></li>
+                    <li><span style="background-color: transparent;">Enjoy </span><em
+                            style="background-color: transparent;">Thukpa</em><span
+                            style="background-color: transparent;">,
+                            traditional Ladakhi cuisine at </span><em style="background-color: transparent;">The Tibetan
+                            Kitchen</em><span style="background-color: transparent;"> restaurant</span></li>
+                    <li><span style="background-color: transparent;">River rafting at the world’s highest river-rafting
+                            point, Sangam</span></li>
+                    <li><span style="background-color: transparent;">Ride the remarkable double-humped </span><em
+                            style="background-color: transparent;">(Bactrian)</em><span
+                            style="background-color: transparent;"> camels exclusively found at Nubra valley</span></li>
+                    <li><span style="background-color: transparent;">Feast on delicious Maggi at the
+                            Khardungla-pass</span></li>
+                </ul>
+                <p><span style="background-color: transparent;">&#xFEFF;</span></p>
+                <p><strong style="background-color: transparent;">How to reach:</strong></p>
+                <p><span style="background-color: transparent;">The easiest way to travel to Ladakh is by air. The
+                        nearest airport is Kushok Bakula Rimpochee Airport (IXL) located in Leh. This airport is
+                        connected with many international airports in India like Delhi. It also receives flights from
+                        Srinagar, Jammu, Chandigarh, and other common destinations in India.</span></p>
             </div>
-            <div class="phone-div">
-          
-              <input type="password" class="form-control" id="passwordId" placeholder="Create Password" alt="pn">
-            </div>
-            <div class="phone-div">
-          
-             <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" alt="pn">
-           </div>
-             
-            <div class="forget2 mt-3 ml-3 d-flex justify-content-between">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1"> By clicking Register, you agree to our
-                  Terms of Use
-                  and
-                  Cookie Policy</label>
-             </div>
-          
-           </div>
-           
-           
-           
-           <button   id="registerBtn" class="btn continue-bn"> Register </button>
-         </div>
-
-           <p class="text-center  mt-3"> Do not have an account? 
-             <a data-bs-toggle="modal" class="regster-bn" data-bs-target="#loginModal" data-bs-dismiss="modal"> Login </a>  </p>
         </div>
-      </div>
-     
     </div>
-  </div>
-</div>
+    <div class="currenciesModal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h3>Currency Picker</h3>
+                <!-- <button class="closeBtn"><i class="fa-solid fa-xmark"></i></button> -->
+            </div>
+            <div class="modalBody">
+                <div class="currencySearch">
+                    <input type="text" placeholder="Search currencies" class="currencyInput">
+                </div>
+                <h4>Commonly Used Currencies</h4>
+                <div class="commonCurrency">
+                    <div class="currencies">
+                        <div class="currencyImg">
+                            <img src="/assets/images/flags/india.png" alt="">
+                            <span>INR</span>-<span>₹</span>
+                        </div>
+                        <p>Indian Rupee</p>
+                    </div>
+                    <div class="currencies">
+                        <div class="currencyImg">
+                            <img src="/assets/images/flags/india.png" alt="">
+                            <span>INR</span>-<span>₹</span>
+                        </div>
+                        <p>United Arab Emirates Dirham</p>
+                    </div>
+                </div>
 
-<!-- lost password -->
-
-<div class="modal fade login-div-modal" id="lostpsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <!-- <h5 class="modal-title" id="exampleModalLabel">Register</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <div id="login-td-div" class="com-div-md">
-          <span class="text-center d-table m-auto user-icon"> <i class="fas fa-user-circle"></i> </span>
-          <h5 class="text-center mb-3"> Forget Your Password? </h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">×</span>
-         </button>
-          <div class="login-modal-pn">
-          <p> We'll email you a link to reset your password</p>
-           <div class="cm-select-login mt-3">
-             
-             <div class="phone-div">
-              
-                <input type="email" class="form-control" placeholder="Enter Your Email " alt="pn">
-             </div>
-             
-          
-           </div>
-           
-           
-           
-           <button class="btn continue-bn"> Send Me a password reset Link </button>
-         </div>
-
+                <h4>All Other Currencies</h4>
+                <div class="commonCurrency">
+                    <div class="currencies">
+                        <div class="currencyImg">
+                            <img src="/assets/images/flags/india.png" alt="">
+                            <span>INR</span>-<span>₹</span>
+                        </div>
+                        <p>Indian Rupee</p>
+                    </div>
+                    <div class="currencies">
+                        <div class="currencyImg">
+                            <img src="/assets/images/flags/india.png" alt="">
+                            <span>INR</span>-<span>₹</span>
+                        </div>
+                        <p>United Arab Emirates Dirham</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    
     </div>
-  </div>
-</div>
-
-<script src="js/pages/listing-details.js" ></script>
-
-<script src="js/bootstrap.bundle.min.js" ></script>
-<script src="js/jquery.min.js" ></script>
-<script src="js/jquery.fancybox.min.js"></script>
-</script>
-<!-- Owl Carousel -->
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script>
-<script>
-    AOS.init({
-      offset: 100,
-      easing: 'ease',
-      delay: 0,
-      once: true,
-      duration: 800,
-    
-    });  
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-
-<script>
-  // Get the modal
-  //var modal = document.getElementById('myModal');
-  
-  // Get the button that opens the modal
-  //var btn = document.getElementById('bookNowBtn');
-  
-  // When the user clicks on the button, open the modal
-  // btn.onclick = function() {
-  //   modal.style.display = "block";
-  // }
-  
-  // When the user clicks anywhere outside of the modal, close it
-  // window.onclick = function(event) {
-  //   if (event.target == modal) {
-  //     modal.style.display = "none";
-  //   }
-  // }
-  
-  // // Prevent form submit for demonstration
-  // document.getElementById('bookingForm').onsubmit = function(event) {
-  //   event.preventDefault();
-  //   alert('Form submitted!');
-  //   modal.style.display = "none";
-  // }
-  </script>
+    <div class="regularGallery">
+        <div class="galleryWrapper">
+            <div class="closeBtn">
+                <button class="btnclose">×</button>
+            </div>
+            <div class="owl-carousel owl-theme galleryWindow-carousel">
+                <div class="item">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                        alt="">
+                </div>
+                <div class="item">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                        alt="">
+                </div>
+                <div class="item">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                        alt="">
+                </div>
+                <div class="item">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                        alt="">
+                </div>
+                <div class="item">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                        alt="">
+                </div>
+                <div class="item">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                        alt="">
+                </div>
+                <div class="item">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                        alt="">
+                </div>
+                <div class="item">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                        alt="">
+                </div>
+                <div class="item">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                        alt="">
+                </div>
+            </div>
+            <div class="imgCount">
+                <div class="currentCount">1</div> / <div class="totalCount">15</div>
+            </div>
+            <div class="allSildes">
+                <div class="navBtn">
+                    <button class="navPrev"><i class="fa-solid fa-angle-left"></i></button>
+                    <button class="navNext"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+                <div class="imgWrapper">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                    <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&amp;dpr=2"
+                        alt="">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/assets/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script src="/assets/js/product-details.js"></script>
+
+<script>
+    $('.owl-carousel-img').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        items: 1,
+    })
+</script>
+
+<script>
+    $('.activitySlider').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        items: 1,
+        dots: false,
+        navText: [
+            '<i class="fa fa-chevron-left"></i>',
+            '<i class="fa fa-chevron-right"></i>'
+        ]
+    })
+    $('.activityCorner').owlCarousel({
+        loop: false,
+        margin: 10,
+        dots: false,
+        nav: true,
+        navText: [
+            '<i class="fa fa-chevron-left"></i>',
+            '<i class="fa fa-chevron-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 3
+            }
+        }
+    })
+</script>
+<script>
+    $('.itinerary-img').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        items: 1,
+        dots: false,
+        navText: [
+            '<i class="fa fa-chevron-left"></i>',
+            '<i class="fa fa-chevron-right"></i>'
+        ]
+    })
+</script>
+
 </html>

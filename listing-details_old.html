@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+  <head>
+   
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Travel - Listing Details </title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.0/dist/aos.css" rel="stylesheet">
+    
+
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Kaushan+Script&family=Nothing+You+Could+Do&family=Open+Sans:wght@300;400;500;600&family=PT+Sans+Narrow:wght@700&family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+  </head>
+
+<body>
+  <header>
+    <div class="main-menu-div float-start w-100">
+      
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+              <img src="images/logo.png" class="delf" alt="logo"/>
+              <img src="images/logo-color.png" class="color-logo" alt="logo"/>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" href="#mobilemenu"  aria-controls="offcanvasExample">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="listing.html">Explore</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="explore.html">Curated Tours</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="discover.html">Top Destinations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tour-package.html">Hot Deals</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Help & Visas</a>
+              </li>
+            </ul>
+            
+          </div>
+  
+          <div class="right-src ">
+              <ul class="d-flex align-items-center list-unstyled mb-0">
+                <li>
+                  <a href="my-account.html" class="lgn-btn" id="myAccount" style="display: none;"> 
+                    <i class="far fa-user"></i>
+                  </a> 
+                  <a data-bs-toggle="modal" data-bs-target="#loginModal" class="lgn-btn" id="loginId"> 
+                  <i class="far fa-user"></i>
+                  </a>
+                </li>
+               
+              </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+ <div class="banner-home float-start sub-page-banner">
+     <div class="banner-slider-m" id="tourImage">
+         
+     </div>
+
+     <div class="banner-content">
+       <div class="container">
+          <h1 class="text-center">
+            Tour Details
+          </h1>
+        
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="discover.html">Discover</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Tour Details </li>
+            </ol>
+          </nav>
+
+       </div>
+     </div>
+
+     
+     
+
+    
+ </div>
+
+<section class="body-part">
+     <div class="discover-details-page listing-details-adds">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h6 class="locations-ts" id="region">
+                    </h6>
+                    <div class="d-md-flex justify-content-between align-items-start" id="tour_heading">
+                    </div>
+
+                    <ul class="list-unstyled mb-3 list-sort d-flex mt-3 mt-lg-0" id="tour_type">
+                    </ul>
+                    <hr/> 
+                    <h2> Overview </h2>
+                    <p class="mt-4" id="overview"></p>
+
+                    <h2 class="mt-5"> Inclusions </h2>
+                    <ul class="list-unstyled include-listing mt-3" id="inclusions">
+                    </ul>
+
+                    <h2 class="mt-5"> Exclusions </h2>
+                    <ul class="list-unstyled include-listing mt-3" id="exclusions">
+                    </ul>
+
+                    <h2 class="mt-5"> Highlights </h2>
+                    <ul class="list-unstyled hightlist my-3" id="highlight">
+                    </ul>
+                    <h2 class="mt-5"> Packing List </h2>
+                    <ul class="list-unstyled hightlist my-3" id="packingList">
+                    </ul>
+                    
+                    <h3 class="mt-5"> Tour Plan </h3>
+
+                    <div class="accordion mt-4 tour-plans" id="accordionExample">
+                       
+                    </div>
+
+                    <h2 class="mt-5"> Gallery </h2>
+
+                    <div class="row row-cols-2 row-cols-lg-4 mt-4 galllery-divs" id="gallery">
+                      
+                    </div>
+
+                    <h2 class="mt-5"> Tour Location </h2>
+
+                    <div class="map-loctions mt-4" id="location"> </div>
+                    <h2 class="mt-5">You May Also Like</h2>
+                    
+                    <div id="carousel-container"></div>
+                  
+                    <div class="comments-sec1 mt-5">
+                         <h2>Comments </h2>
+                         <hr/>
+                        <div id="comments-container">
+                          <!-- Comments will be dynamically inserted here -->
+                      </div>
+                    </div>
+
+                    <div class="submit-review mt-5">
+                        <h2> Leave a Comment </h2>
+                        <p> Your email address will not be published. Required fields are marked * </p>
+                        
+                        <form id="reviewForm" method="post">
+                          <div class="col-lg-12 ps-0">
+                              <fieldset class="rating star">
+                                  <input type="radio" id="field6_star5" name="rating2" value="5"><label class="full" for="field6_star5"></label>
+                                  <input type="radio" id="field6_star4" name="rating2" value="4"><label class="full" for="field6_star4"></label>
+                                  <input type="radio" id="field6_star3" name="rating2" value="3"><label class="full" for="field6_star3"></label>
+                                  <input type="radio" id="field6_star2" name="rating2" value="2"><label class="full" for="field6_star2"></label>
+                                  <input type="radio" id="field6_star1" name="rating2" value="1"><label class="full" for="field6_star1"></label>
+                              </fieldset>
+                          </div>
+                          <div class="row w-100"> 
+                              <div class="col-lg-6 form-group ps-lg-0">
+                                  <input type="text" id="fullName" class="form-control" placeholder="Full Name" required>
+                              </div>
+                              <div class="col-lg-6 form-group ps-lg-0">
+                                  <input type="email" id="email" class="form-control" placeholder="Email" required>
+                              </div>
+                              <div class="col-lg-12 form-group ps-lg-0">
+                                  <textarea id="reviewText" class="form-control ted" placeholder="Write your review here..." required></textarea>
+                              </div>
+                              <button type="submit" class="btn sub-re"> Submit Review </button><br><br>
+                          </div>
+                      </form>
+                    </div>
+                    
+
+                   
+
+                  
+                </div>
+                <div class="col-lg-4">
+                    <div class="right-divs-ds1 mt-5">
+                         <div class="comon-filter-news1">
+                            <h5> Book A Tour! </h5>
+                            <div id="dateMonth"></div>
+                           
+                
+                         </div>
+
+                         <div class="comon-filter-news1 mt-5">
+                             <input type="submit" onclick="bookTour()" class="btn submit-btn" value="Book Now" id="bookNowBtn"/>
+                         </div>
+                        
+                        
+                                <!-- The Modal -->
+                        <div id="myModal" class="backdrop">
+
+                          <!-- Modal content -->
+                          <div class="modal">
+                            <div class="modal-content">
+                              <form id="bookingForm">
+                                <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-input" required>
+                                <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-input" required>
+                                <input type="email" id="email" name="email" placeholder="Email Id" class="form-input" required>
+                                <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="form-input" required>
+                                <button type="button" class="submit-btn">Submit</button>
+                              </form>
+                            </div>
+                          </div>
+                          
+                        </div>
+                    </div>
+
+                    <div class="ads-g-div mt-5">
+                        <figure>
+                            <img src="images/ads-g.jpg" alt="ads"/>
+                        </figure>
+                    </div>
+                    <!-- <div class="similar-packgaes mt-5">
+                        <h5> Similar Packgaes </h5>
+                        <div id="similar-packages-container"></div>
+                    </div> -->
+                </div>
+            </div>
+          
+        </div>
+
+        
+
+        <div class="subcribe-part pt-2 subpage-sub2">
+          <div class="inside-nms">
+            <div class="container">
+                <div class="row align-items-center gx-lg-5">
+                   <div class="col-lg-7 left-tes-5">
+                       <h2>We Provide Top Destinations <span> Expecially For You Book Now and Enjoy! </span></h2>
+                       <div class="d-flex align-items-center mt-3">
+                          <i class="fas fa-phone-volume"></i>
+                           <h6 class="ms-2"> 
+                            <span class="d-block"> Call Now </span> 
+                            
+                            9090909090</h6>
+                       </div>
+                   </div>
+                   <div class="col-lg-5">
+                    <div class="testimonal-div">
+                        <h6> TESTIMONIALS </h6>
+                        <h3> Travelers Reviews </h3>
+
+                        <div class="sub-page-testmonials owl-carousel owl-theme mt-0">
+
+                          <div class="items-ts">
+                            <div class="d-md-flex">
+                              <figure>
+                                <img src="images/testimonals1.png" alt="tm"/>
+                              </figure>
+                              <h5> Akash Maan
+                                <span class="d-block">Consultant, Deloitte, India </span>
+                              </h5>
+                            </div>
+                              
+                              <p class="mt-4">Our experience with XYZ Travel Agency was exceptional from start to finish. Their attention to detail in planning our trip to Space was remarkable.</p>
+    
+                              <span class="rt-t mt-3 d-table">
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                              </span>
+    
+                           
+                             
+                          </div>
+    
+                          <div class="items-ts">
+                            <div class="d-md-flex">
+                              <figure>
+                                <img src="images/testimonals2.png" alt="tm"/>
+                              </figure>
+                              <h5> Ajinkya Dev  
+                                <span class="d-block">Vice President, L&T, India </span>
+                              </h5>
+                            </div>
+                              
+                              <p class="mt-4">Choosing XYZ Travel Agency for our family vacation was the best decision we made. They listened to our preferences and crafted a perfect itinerary that suited everyone</p>
+    
+                              <span class="rt-t mt-3 d-table">
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                              </span>
+    
+                           
+                             
+                          </div>
+    
+    
+                          <div class="items-ts">
+                            <div class="d-md-flex">
+                              <figure>
+                                <img src="images/testimonals3.png" alt="tm"/>
+                              </figure>
+                              <h5> Neelima Sharma 
+                                <span class="d-block"> HR Manager, TCS, India </span>
+                              </h5>
+                            </div>
+                              
+                              <p class="mt-4">I can't recommend XYZ Travel Agency enough! They organized a once-in-a-lifetime safari in Africa for us, and it was flawless</p>
+    
+                              <span class="rt-t mt-3 d-table">
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                              </span>
+    
+                           
+                             
+                          </div>
+
+
+                        </div>
+
+
+                    </div>
+                   </div>
+                </div>
+                
+            </div>
+          </div>
+           
+        </div>
+
+
+     </div>
+</section>
+
+
+ 
+
+<footer>
+  <div class="footer-link-div float-start">
+    <div class="container">
+       <div class="row row-cols-1 row-cols-md-2  row-cols-lg-4">
+          <div class="col">
+             <div class="comon-footer-div pt-4">
+                 <a href="#">
+                    <img src="images/logo.png" alt="logo"/>
+                 </a>
+                 <p class="mt-2">  Providing exceptional travel experiences since 2011. We are committed to delivering quality service and unforgettable journeys tailored to your dreams.</p>
+                 
+                 <ul class="m-0 mt-2 list-unstyled d-flex">
+                  <li>
+                    <a href="#"> <i class="fab fa-facebook"></i> </a>
+                  </li>
+                  <li class="mx-3">
+                   <a href="#"> <i class="fab fa-twitter"></i> </a>
+                   
+                  </li>
+                  <li>
+                   <a href="#"> <i class="fab fa-instagram"></i> </a>
+                   
+                  </li>
+                </ul>
+             </div>
+          </div>
+          <div class="col">
+            <div class="comon-footer-div pt-4 d-grid justify-content-md-center">
+                <h5 class="text-white">UseFull Links
+                </h5>
+                <ul class="list-unstyled mt-4">
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i>  About </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Discover
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Explore
+                    </a>
+                  </li>
+                  
+                 
+                </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="comon-footer-div pt-4 justify-content-md-start  d-grid">
+                <h5 class="text-white">Support Links</h5>
+                <ul class="list-unstyled mt-4 no-code-div">
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Help
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Terms & Condition
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fas fa-angle-right"></i> Ask & Qusetion
+                    </a>
+                  </li>
+
+                 
+               
+                </ul>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="comon-footer-div pt-4 d-grid justify-content-md-end">
+              <h5 class="text-white">Contact
+              </h5>
+              <ul class="contact-link list-unstyled mt-4">
+                <li> <i class="fas fa-map-marker-alt"></i> <span>303, Spaze Itech Park, Sector 49
+               </span> </li>
+             
+                <li> <i class="fas fa-map-marker-alt"></i> <span> Gurgaon, Haryana 
+               </span> </li>
+               <li> <i class="fas fa-phone-alt"></i> <span> 9818313631
+               </span> </li>
+               <li><i class="fas fa-envelope"></i> <span>  info@xyzholidays.com </span> </li>
+               
+
+              </ul>
+              
+              
+            </div>
+         </div>
+         
+       </div>
+       <hr/>
+        <div class="d-lg-flex justify-content-center">
+          <p class="text-center text-white"> Copyright © 2022 Travel Agency. All Rights Reserved.</p>
+          
+        </div>
+    </div>
+    
+</div>
+</footer>
+
+
+
+
+
+<!-- mobile menu -->
+<div class="offcanvas offcanvas-start mobile-menu-div" tabindex="-1" id="mobilemenu" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="close-menu" data-bs-dismiss="offcanvas" aria-label="Close">
+      <span> Close </span> <i class="fas fa-long-arrow-alt-right"></i>
+     </button>
+  </div>
+  <div class="offcanvas-body">
+    
+    <div class="head-contact">
+      <a href="index.html" class="logo-side">
+      <img src="images/logo-color.png" alt="logo">
+      </a>
+      
+      <div class="mobile-menu-sec mt-3">
+         <ul class="list-unstyled">
+          <li>
+              <a href="listing.html"> Explore </a>
+          </li>
+          <li>
+            <a href="explore.html"> Curated Tours </a>
+          </li>
+          <li>
+              <a href="discover.html"> Top Destinations </a>
+          </li>
+          
+          <li>
+              <a href="tour-package.html">  Hot Deals  </a>
+          </li>
+          <li>
+              <a href="about.html"> About  </a>
+          </li>
+          <li>
+            <a href="contact.html"> Help & Visas  </a>
+          </li>
+         </ul>
+      </div>
+      
+      <ul class="side-media list-unstyled">
+         <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+         <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+         <li> <a href="#"> <i class="fab fa-google-plus-g"></i> </a> </li>
+         <li> <a href="#"> <i class="fab fa-instagram"></i> </a> </li>
+      </ul>
+   </div>
+   
+  </div>
+</div>
+
+
+<!-- login Modal -->
+<div class="modal fade login-div-modal" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+      </div>
+      <div class="modal-body">
+         
+        <div id="login-td-div" class="com-div-md">
+          <span class="text-center d-table m-auto user-icon"> <i class="fas fa-user-circle"></i> </span>
+          <h5 class="text-center mb-3"> Sign In </h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+          <div class="login-modal-pn">
+          
+            <div class="cm-select-login mt-3">
+              <div class="country-dp">
+                
+                <input type="email" class="form-control" placeholder="Username Or Email" alt="pn" id="emailOrPhone">
+              </div>
+              <div class="phone-div">
+                
+                 <input type="password" class="form-control" placeholder="Password" alt="pn" id="password">
+              </div>
+              
+           
+            </div>
+            
+            
+            
+            <button class="btn continue-bn" id="loginBtn"> <i class="fas fa-lock"></i> SIGN IN </button>
+         </div>
+
+         <p class="text-center  mt-3">  
+          <a data-bs-toggle="modal" class="regster-bn" data-bs-target="#lostpsModal" data-bs-dismiss="modal"> Lost Password ? </a>  </p>
+          
+          
+           <p class="text-center  mt-3"> Do not have an account? 
+             <a data-bs-toggle="modal" class="regster-bn" data-bs-target="#registerModal" data-bs-dismiss="modal"> Register </a>  </p>
+        </div>
+
+      
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- register Modal -->
+
+<div class="modal fade login-div-modal" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+      </div>
+      <div class="modal-body">
+        <div id="login-td-div" class="com-div-md">
+          <span class="text-center d-table m-auto user-icon"> <i class="fas fa-user-circle"></i> </span>
+          <h5 class="text-center mb-3"> Register </h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+          <div class="login-modal-pn">
+          
+            <div class="country-dp">
+               
+              <input type="text" class="form-control" id="fullName" placeholder="Full Name" alt="pn">
+            </div>
+            <div class="phone-div">
+             
+               <input type="email" class="form-control" id="emailOrPhoneId" placeholder="Email or Phone Number" alt="pn">
+            </div>
+            <div class="phone-div">
+          
+              <input type="password" class="form-control" id="passwordId" placeholder="Create Password" alt="pn">
+            </div>
+            <div class="phone-div">
+          
+             <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" alt="pn">
+           </div>
+             
+            <div class="forget2 mt-3 ml-3 d-flex justify-content-between">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1"> By clicking Register, you agree to our
+                  Terms of Use
+                  and
+                  Cookie Policy</label>
+             </div>
+          
+           </div>
+           
+           
+           
+           <button   id="registerBtn" class="btn continue-bn"> Register </button>
+         </div>
+
+           <p class="text-center  mt-3"> Do not have an account? 
+             <a data-bs-toggle="modal" class="regster-bn" data-bs-target="#loginModal" data-bs-dismiss="modal"> Login </a>  </p>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!-- lost password -->
+
+<div class="modal fade login-div-modal" id="lostpsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <div id="login-td-div" class="com-div-md">
+          <span class="text-center d-table m-auto user-icon"> <i class="fas fa-user-circle"></i> </span>
+          <h5 class="text-center mb-3"> Forget Your Password? </h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+          <div class="login-modal-pn">
+          <p> We'll email you a link to reset your password</p>
+           <div class="cm-select-login mt-3">
+             
+             <div class="phone-div">
+              
+                <input type="email" class="form-control" placeholder="Enter Your Email " alt="pn">
+             </div>
+             
+          
+           </div>
+           
+           
+           
+           <button class="btn continue-bn"> Send Me a password reset Link </button>
+         </div>
+
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<script src="js/pages/listing-details.js" ></script>
+
+<script src="js/bootstrap.bundle.min.js" ></script>
+<script src="js/jquery.min.js" ></script>
+<script src="js/jquery.fancybox.min.js"></script>
+</script>
+<!-- Owl Carousel -->
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script>
+<script>
+    AOS.init({
+      offset: 100,
+      easing: 'ease',
+      delay: 0,
+      once: true,
+      duration: 800,
+    
+    });  
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+<script>
+  // Get the modal
+  //var modal = document.getElementById('myModal');
+  
+  // Get the button that opens the modal
+  //var btn = document.getElementById('bookNowBtn');
+  
+  // When the user clicks on the button, open the modal
+  // btn.onclick = function() {
+  //   modal.style.display = "block";
+  // }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  // window.onclick = function(event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = "none";
+  //   }
+  // }
+  
+  // // Prevent form submit for demonstration
+  // document.getElementById('bookingForm').onsubmit = function(event) {
+  //   event.preventDefault();
+  //   alert('Form submitted!');
+  //   modal.style.display = "none";
+  // }
+  </script>
+</body>
+</html>

@@ -1,0 +1,3944 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --primary-color: #f37002;
+    --secondary-color: #19ad6f;
+    --text-color: #9b9b9b;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+ul {
+    li {
+        &::marker {
+            color: var(--primary-color);
+        }
+    }
+}
+
+.vrLine {
+    min-width: 1px;
+    min-height: 100%;
+    background: #e0e0e0;
+}
+
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media (max-width: 4000.98px) {
+    body {
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        font-family: "Poppins", sans-serif;
+
+        .saleHeader {
+            background: linear-gradient(90deg, #f37002 0%, #fed968 100%);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .main {
+            max-width: 1520px;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 50px 0px;
+        }
+
+        .mainHeader {
+            max-width: 1520px;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 20px 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .siteLogo {
+                width: 180px;
+                cursor: pointer;
+            }
+            .searchBox {
+                $color_1: #fff;
+                $color_2: var(--input-text-color);
+                $color_3: var(--text-color);
+                --input-text-color: #000;
+                --input-bg-color: #283542;
+                --focus-input-bg-color: transparent;
+                --text-color: #949faa;
+                --active-color: #1b9bee;
+                --width-of-input: 300px;
+                --inline-padding-of-input: 1.2em;
+                --gap: 0.9rem;
+                font-size: 0.9rem;
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+                width: var(--width-of-input);
+                position: relative;
+                isolation: isolate;
+                .fancy-bg {
+                    position: absolute;
+                    width: 100%;
+                    inset: 0;
+                    border-radius: 30px;
+                    height: 100%;
+                    z-index: -1;
+                    pointer-events: none;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                }
+                label {
+                    width: 100%;
+                    height: 40px;
+                    padding-inline: var(--inline-padding-of-input);
+                    display: flex;
+                    align-items: center;
+                }
+                .search {
+                    position: absolute;
+                    fill: var(--text-color);
+                    left: var(--inline-padding-of-input);
+                }
+                .close-btn {
+                    position: absolute;
+                    border: none;
+                    right: var(--inline-padding-of-input);
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $color_1;
+                    padding: 0.1em;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: var(--active-color);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                svg {
+                    width: 17px;
+                    display: block;
+                }
+                .input {
+                    color: $color_2;
+                    width: 100%;
+                    margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+                    background: none;
+                    border: none;
+                    &:focus {
+                        outline: none;
+                        ~ {
+                            .fancy-bg {
+                                border: 1px solid var(--active-color);
+                                background: var(--focus-input-bg-color);
+                            }
+                            .search {
+                                fill: var(--active-color);
+                            }
+                        }
+                    }
+                    &::placeholder {
+                        color: $color_3;
+                    }
+                    &:valid {
+                        ~ {
+                            .close-btn {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+                input {
+                    &:-webkit-autofill {
+                        -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+                        -webkit-transition-delay: 9999s;
+                        &:hover {
+                            -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+                            -webkit-transition-delay: 9999s;
+                        }
+                        &:focus {
+                            -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+                            -webkit-transition-delay: 9999s;
+                        }
+                        &:active {
+                            -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+                            -webkit-transition-delay: 9999s;
+                        }
+                    }
+                }
+            }
+
+            .loginDiv {
+                width: 180px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .currency {
+                    cursor: pointer;
+                    span {
+                        display: flex;
+                        gap: 5px;
+                        align-items: center;
+                        .flag {
+                            width: 25px;
+                            height: 18px;
+                            display: block;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+
+                .loginBtn {
+                    background: var(--primary-color);
+                    border: 0;
+                    border-radius: 25px;
+                    padding: 10px 20px;
+                    font-weight: 600;
+                    color: #fff;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .customAccordion {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-direction: column;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px 20px 0px 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease-in-out;
+
+            .accordion {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                cursor: pointer;
+
+                .accordionTitle {
+                    display: flex;
+                    gap: 20px;
+                    align-items: center;
+                    .day {
+                        padding: 3px 12px;
+                        border-radius: 20px;
+                        background: var(--primary-color);
+                        font-size: 12px;
+                        font-weight: 600;
+                        line-height: 18px;
+                        color: #fff;
+                        width: 50px;
+                        height: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+
+                .arrowImg {
+                    transform: rotate(180deg);
+                    transition: transform 0.4s ease-in-out;
+                }
+            }
+
+            .accordionDetails {
+                max-height: 0px;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+                margin-top: 20px;
+                width: 100%;
+                .details {
+                    border-top: 1px solid #e0e0e0;
+                    margin-bottom: 20px;
+                    padding: 20px 0 0 0;
+                    p {
+                        margin-bottom: 1rem;
+                        color: #515151;
+                    }
+                    .basicHead {
+                        border-bottom: 1px solid #e0e0e0;
+                        padding: 10px 0;
+                        .headIcon {
+                            font-size: 12px;
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 10px;
+                            img {
+                                height: 15px;
+                                width: 15px;
+                                margin-right: 5px;
+                            }
+                        }
+                        .headName {
+                            font-weight: 600;
+                            color: #9f9f9f;
+                            font-size: 14px;
+                        }
+                    }
+                    .optionHeading {
+                        color: #1f7996;
+                        font-style: normal;
+                        font-weight: 500;
+                        margin-bottom: 15px;
+                    }
+                    .transfer {
+                        .destinationTimeline {
+                            padding: 1rem 0;
+                            position: relative;
+                            .timeline {
+                                margin-left: 30px;
+                                .transferIndicator {
+                                    background: linear-gradient(90deg, rgba(252, 175, 23, 0.2), hsla(0, 0%, 87.8%, 0));
+                                    width: 76px;
+                                    color: #e9a010;
+                                    font-size: 12px;
+                                    padding: 4px;
+                                    border-top-left-radius: 5px;
+                                }
+                                .transferWrapper {
+                                    display: flex;
+                                    flex-direction: column;
+                                    padding: 12px;
+                                    gap: 10px;
+                                    border-radius: 7px;
+                                    border: 0.5px solid #e0e0e0;
+                                    background: #fff;
+                                    border-top-left-radius: 0;
+                                    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
+                                    position: relative;
+                                    margin-bottom: 10px;
+                                    .transferTitle {
+                                        display: flex;
+                                        gap: 10px;
+                                        align-items: center;
+                                        font-size: 14px;
+                                        .icon {
+                                            height: 20px;
+                                            width: 20px;
+                                            display: flex;
+                                            align-items: center;
+                                            img {
+                                                width: 100%;
+                                                height: 100%;
+                                            }
+                                        }
+                                    }
+
+                                    &::after {
+                                        content: "";
+                                        background-image: url(images/svg/locationOrange.svg);
+                                        height: 20px;
+                                        width: 20px;
+                                        background-repeat: no-repeat;
+                                        background-position: center;
+                                        background-size: cover;
+                                        position: absolute;
+                                        left: -30px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .stay {
+                        .stayTimeline {
+                            background: #f4f4f4;
+                            padding: 10px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin: 10px 0;
+                            border-radius: 10px;
+
+                            .start,
+                            .end {
+                                display: flex;
+                                flex-direction: column;
+                                color: #515151;
+                                .head {
+                                    font-size: 10px;
+                                }
+                                .time {
+                                    font-size: 12px;
+                                }
+                            }
+                            .separtor {
+                                margin: 0 10px;
+                                flex-grow: 1;
+                                position: relative;
+                                height: 1px;
+                                border-bottom: 1px dashed #8e8e8e;
+                                .duration {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 3px;
+                                    padding: 0 10px;
+                                    position: absolute;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);
+                                    background-color: #f4f4f4;
+                                    font-size: 12px;
+                                    line-height: 18px;
+                                }
+                            }
+                        }
+                    }
+                    .hotelList {
+                        .hotelCards {
+                            display: grid;
+                            grid-template-columns: 50% auto;
+                            gap: 20px;
+
+                            .hotelCard {
+                                width: 100%;
+                                .hotelImg {
+                                    width: 100%;
+                                    height: 350px;
+                                    position: relative;
+                                    border-radius: 10px;
+                                    overflow: hidden;
+                                    margin-bottom: 10px;
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    }
+                                    .imgContent {
+                                        position: absolute;
+                                        left: 0;
+                                        top: 0;
+                                        height: 100%;
+                                        width: 100%;
+                                        .rating {
+                                            position: absolute;
+                                            bottom: 10px;
+                                            left: 10px;
+                                            color: #fff;
+                                            display: flex;
+                                            align-items: center;
+                                            z-index: 1;
+                                            gap: 10px;
+                                            img {
+                                                height: 20px;
+                                                width: 20px;
+                                            }
+                                        }
+                                    }
+                                    &::before {
+                                        position: absolute;
+                                        content: "";
+                                        height: 100%;
+                                        display: block;
+                                        bottom: 0;
+                                        left: 0;
+                                        z-index: 1;
+                                        width: 100%;
+                                        height: 30%;
+                                        background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent);
+                                        pointer-events: none;
+                                        margin-bottom: -2px;
+                                    }
+                                }
+                                .hotelName {
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                        .includedSection {
+                            padding: 15px;
+                            background: rgba(41, 179, 223, 0.1);
+                            border-radius: 5px;
+                            display: flex;
+                            gap: 10px;
+                            margin: 10px 0;
+                            .includeTitle {
+                                width: 20%;
+                            }
+                            .includeList {
+                                display: flex;
+                                justify-content: space-evenly;
+                                width: 80%;
+                                font-size: 14px;
+                                .includeWrapper {
+                                    .includeName {
+                                        display: flex;
+                                        gap: 10px;
+                                        font-weight: 600;
+                                    }
+                                    .includeStatus {
+                                        display: flex;
+                                        gap: 10px;
+                                        color: #1ab880;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .dayEvent {
+                        .destinationTimeline {
+                            .stopAccord {
+                                display: none;
+                                transition: all 0.4s ease-in-out;
+                                .timeline {
+                                    .transferWrapper {
+                                        &::after {
+                                            content: "";
+                                            background-image: url(images/svg/circle.svg);
+                                        }
+                                    }
+                                }
+                                &.show {
+                                    display: block;
+                                }
+                            }
+                            .remainStops {
+                                margin-left: 30px;
+                                text-align: center;
+                                cursor: pointer;
+                                font-size: 14px;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+
+                    .activity {
+                        .activitySlider {
+                            .owl-stage-outer {
+                                margin: 10px 0;
+                                .item {
+                                    height: 350px;
+                                    width: 100%;
+                                    img {
+                                        height: 100%;
+                                        width: 100%;
+                                        object-fit: cover;
+                                        border: 1px solid #e0e0e0;
+                                        border-radius: 10px;
+                                    }
+                                }
+                            }
+                            .owl-nav {
+                                button {
+                                    color: #fff;
+                                    background: rgba(0, 0, 0, 0.5);
+                                    height: 50px;
+                                    width: 50px;
+                                    border-radius: 50%;
+                                    top: 50%;
+                                    position: absolute;
+                                    transform: translateY(-50%);
+                                    border: 1px solid #fff;
+                                    &.owl-next {
+                                        right: 20px;
+                                    }
+                                    &.owl-prev {
+                                        left: 20px;
+                                    }
+                                }
+                            }
+                        }
+                        .activityCorner {
+                            .owl-stage-outer {
+                                .activityCard {
+                                    img {
+                                        border-radius: 10px;
+                                        margin-bottom: 10px;
+                                        border: 1px solid #e0e0e0;
+                                    }
+                                }
+                            }
+                            .owl-nav {
+                                position: absolute;
+                                top: -40px;
+                                right: 0;
+                                display: flex;
+                                gap: 10px;
+                                button {
+                                    background: var(--primary-color);
+                                    color: #fff;
+                                    height: 30px;
+                                    width: 30px;
+                                    border-radius: 50%;
+
+                                    &.disabled {
+                                        background: #e0e0e0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .meals {
+                        background: #f4f4f4;
+                        border-radius: 10px;
+                        padding: 15px;
+                        h4 {
+                            color: #515151;
+                            margin-bottom: 10px;
+                        }
+                        .mealTiming {
+                            color: #515151;
+                            display: flex;
+                            gap: 10px;
+                            flex-direction: column;
+                            flex-wrap: wrap;
+                            .sep {
+                                background: #e0e0e0;
+                                border-radius: 50%;
+                                width: 18px;
+                                height: 18px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 12px;
+                            }
+                            .mealTime {
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                            }
+
+                            .lunchDnnr {
+                                display: flex;
+                                align-items: center;
+                                gap: 20px;
+                                flex-wrap: wrap;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.show {
+                .accordion {
+                    .arrowImg {
+                        transform: rotate(0deg);
+                    }
+                }
+                .accordionDetails {
+                    max-height: 4000px; // Set a value large enough to accommodate the content
+                }
+            }
+        }
+
+        .main {
+            .featureImages {
+                display: flex;
+                border-radius: 10px;
+                overflow: hidden;
+                gap: 13px;
+                .mainImage {
+                    width: 60%;
+                    height: 600px;
+                    .owl-carousel-img {
+                        .owl-stage-outer {
+                            .item {
+                                height: 600px;
+                                width: 100%;
+                                cursor: pointer;
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+                        }
+                        .owl-dots {
+                            position: absolute;
+                            bottom: 10px;
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            gap: 10px;
+
+                            .owl-dot {
+                                border-radius: 50%;
+                                height: 20px;
+                                width: 20px;
+                                background: #e0e0e0;
+                                span {
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                                &.active {
+                                    width: 50px;
+                                    border-radius: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .otherFeatureimg {
+                    width: 40%;
+                    height: 600px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 13px;
+                    .featureimgBox {
+                        height: 293px;
+                        width: 291px;
+                        cursor: pointer;
+                        position: relative;
+                        img {
+                            height: 100%;
+                            object-fit: cover;
+                            width: 100%;
+                        }
+                        .imageName {
+                            position: absolute;
+                            bottom: 5px;
+                            left: 5px;
+                            color: #fff;
+                            font-weight: 600;
+                            z-index: 1;
+                        }
+                        .allFeatureimg {
+                            position: absolute;
+                            bottom: 5px;
+                            right: 5px;
+                            background: #fff;
+                            display: flex;
+                            align-items: center;
+                            padding: 10px;
+                            border-radius: 10px;
+                            gap: 5px;
+                            cursor: pointer;
+                            z-index: 1;
+                        }
+                        &::before {
+                            width: 100%;
+                            height: 25%;
+                            position: absolute;
+                            z-index: 1;
+                            left: 0;
+                            bottom: 0;
+                            content: "";
+                            background: linear-gradient(
+                                180deg,
+                                hsla(0, 0%, 43%, 0),
+                                rgba(0, 0, 0, 0.36) 29.51%,
+                                rgba(0, 0, 0, 0.6) 64.58%,
+                                rgba(0, 0, 0, 0.8)
+                            );
+                        }
+                    }
+                }
+            }
+
+            .tripTitle {
+                text-align: center;
+                font-size: 3rem;
+                font-weight: 700;
+                margin: 3rem 0;
+            }
+
+            .tripDay {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0 0 5rem 0;
+                border-bottom: 1px solid var(--text-color);
+                .tripSection {
+                    width: 1000px;
+                    background: #fff;
+                    border-radius: 30px;
+                    padding: 20px 70px;
+                    box-shadow: 0px 4px 36.8px 14px rgba(0, 0, 0, 0.13);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .days {
+                        background: var(--primary-color);
+                        border-radius: 30px;
+                        width: 150px;
+                        height: 50px;
+                        font-weight: 700;
+                        color: #fff;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .stayDay {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 800px;
+
+                        .day {
+                            display: flex;
+                            align-items: center;
+                            gap: 15px;
+                            span {
+                                font-size: 80px;
+                                font-weight: 700;
+                                color: var(--text-color);
+                            }
+                            .place {
+                                color: var(--text-color);
+                                span {
+                                    font-size: 18px;
+                                    color: #000;
+                                    display: block;
+                                }
+                            }
+
+                            &::after {
+                                content: "";
+                                border: 1px solid var(--text-color);
+                                height: 90px;
+                                margin-left: 20px;
+                            }
+
+                            &:nth-child(4)::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .mainContent {
+                display: grid;
+                grid-template-columns: 70% auto;
+                gap: 20px;
+                margin-top: 5rem;
+
+                .leftSide {
+                    position: relative;
+                    .facility {
+                        display: grid;
+                        grid-template-columns: 50% auto;
+                        row-gap: 20px;
+                        .facilityType {
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+                            justify-content: start;
+
+                            .svgImg {
+                                height: 40px;
+                                width: 40px;
+                            }
+                        }
+                    }
+
+                    .otherTrip {
+                        margin: 3rem 0 2rem;
+                        display: flex;
+                        flex-flow: wrap;
+                        gap: 15px;
+                        .trips {
+                            width: 106px;
+                            margin-bottom: 1rem;
+                            cursor: pointer;
+                            transition: all 0.2s ease-in-out;
+                            .tripImg {
+                                position: relative;
+                                height: 100px;
+                                width: 100px;
+                                border-radius: 8px;
+                                border: 3px solid #fff;
+                                img {
+                                    border-radius: 10px;
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                                .days {
+                                    font-weight: 700;
+                                    position: absolute;
+                                    bottom: 5px;
+                                    left: 5px;
+                                    color: #fff;
+                                    z-index: 1;
+                                }
+                                &::before {
+                                    width: 100%;
+                                    height: 25%;
+                                    position: absolute;
+                                    border-radius: 10px;
+                                    z-index: 1;
+                                    left: 0;
+                                    bottom: 0;
+                                    content: "";
+                                    background: linear-gradient(
+                                        180deg,
+                                        hsla(0, 0%, 43%, 0),
+                                        rgba(0, 0, 0, 0.36) 29.51%,
+                                        rgba(0, 0, 0, 0.6) 64.58%,
+                                        rgba(0, 0, 0, 0.8)
+                                    );
+                                }
+                            }
+                            .prize {
+                                p {
+                                    font-size: 12px;
+                                }
+                                span {
+                                    font-weight: 600;
+                                    color: #202020;
+                                }
+                            }
+                            &.active {
+                                .tripImg {
+                                    border-radius: 10px;
+                                    border: 3px solid var(--primary-color);
+                                }
+                            }
+                            &:hover {
+                                transform: translateY(-5px);
+                            }
+                        }
+                    }
+                    .destinationFilter {
+                        position: relative;
+                        padding-bottom: 3rem;
+
+                        h3 {
+                            margin-bottom: 1rem;
+                        }
+                        .destinationRoute {
+                            border: 1px solid #e0e0e0;
+                            position: relative;
+                            transition: all 0.4s ease-in-out;
+                            cursor: pointer;
+                            width: 95%;
+                            padding: 15px 0 15px 15px;
+                            border-radius: 9px;
+                            transition: all 0.2s ease-in-out;
+                            display: flex;
+                            gap: 20px;
+                            margin-bottom: 15px;
+                            flex-wrap: wrap;
+                            .routeWrapper {
+                                display: flex;
+                                gap: 20px;
+                                align-items: center;
+                                color: #515151;
+
+                                svg {
+                                    stroke: #515151;
+                                }
+
+                                &:last-child {
+                                    svg {
+                                        display: none;
+                                    }
+                                }
+                            }
+                            &.active,
+                            &:hover {
+                                border: 1px solid #f37002;
+                                background: hsla(23, 91%, 95%, 0.6);
+                                box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.15);
+                                .routeWrapper {
+                                    color: var(--primary-color);
+                                    svg {
+                                        stroke: var(--primary-color);
+                                    }
+                                }
+                                &::after {
+                                    content: "";
+                                    background-image: url("./images/svg/tick.svg");
+                                    height: 17px;
+                                    width: 17px;
+                                    background-repeat: no-repeat;
+                                    position: absolute;
+                                    top: -5px;
+                                    right: -5px;
+                                    background-color: var(--primary-color);
+                                    border-radius: 50%;
+                                }
+                            }
+                        }
+
+                        hr {
+                            height: 2px;
+                            background: #d6d6d6;
+                            border: none;
+                            width: 100%;
+                            position: absolute;
+                            bottom: 0;
+                            margin: 0;
+                        }
+                    }
+                    .stayCategory,
+                    .propertyFilter {
+                        margin-top: 1rem;
+                        position: relative;
+                        padding-bottom: 3rem;
+                        h3 {
+                            margin-bottom: 1rem;
+                        }
+                        .stays,
+                        .propertys {
+                            display: flex;
+                            gap: 20px;
+
+                            .stayWrapper,
+                            .propertyWrapper {
+                                position: relative;
+                                border: 1px solid #e0e0e0;
+                                box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.15);
+                                cursor: pointer;
+                                font-weight: 600;
+                                border-radius: 12px;
+                                transition: all 0.2s ease-in-out;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 20px;
+                                width: 200px;
+                                height: 60px;
+                                .stayName,
+                                .propertyName {
+                                    color: #515151;
+                                }
+                                &.active,
+                                &:hover {
+                                    border: 1px solid #f37002;
+                                    color: #f37002;
+                                    background: hsla(23, 91%, 95%, 0.6);
+                                    .stayName,
+                                    .propertyName {
+                                        color: #f37002;
+                                    }
+                                    &::after {
+                                        content: "";
+                                        background-image: url("./images/svg/tick.svg");
+                                        height: 17px;
+                                        width: 17px;
+                                        background-repeat: no-repeat;
+                                        position: absolute;
+                                        top: -5px;
+                                        right: -5px;
+                                        background-color: var(--primary-color);
+                                        border-radius: 50%;
+                                    }
+                                }
+                            }
+                        }
+                        hr {
+                            height: 2px;
+                            background: #d6d6d6;
+                            border: none;
+                            width: 100%;
+                            position: absolute;
+                            bottom: 0;
+                            margin: 0;
+                        }
+                    }
+                    .propertyFilter {
+                        .propertys {
+                            flex-wrap: wrap;
+                            .propertyWrapper {
+                                width: fit-content;
+                                padding: 15px;
+                                height: auto;
+                            }
+                        }
+                        hr {
+                            width: 100%;
+                        }
+                    }
+
+                    .aboutTrip {
+                        padding-top: 1rem;
+                        ul {
+                            padding-left: 25px;
+                            li {
+                                margin-bottom: 1rem;
+                            }
+                        }
+                    }
+
+                    .mainHr {
+                        height: 2px;
+                        background: #d6d6d6;
+                        border: none;
+                        width: 100%;
+                        margin: 3rem 0;
+                    }
+
+                    .tourView {
+                        .secondNav {
+                            transition: all 0.4s ease-in-out;
+                            &.secondnavSticky {
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                z-index: 4;
+                                width: 100vw;
+                                background: #f4f6f9;
+                                box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.09);
+                                .itineraryTab {
+                                    display: flex;
+                                    justify-content: center;
+                                }
+                            }
+                            .itineraryTab {
+                                display: flex;
+                                margin: 0 auto;
+                                background: #f4f6f9;
+                                gap: 15px;
+                                border-radius: 7px;
+                                padding: 10px;
+                                overflow-x: scroll;
+                                scrollbar-width: none;
+                                .tab {
+                                    border-radius: 10px;
+                                    background: #fff;
+                                    border: 1px solid var(--text-color);
+                                    padding: 10px 30px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    gap: 10px;
+                                    cursor: pointer;
+                                    .svgImg {
+                                        width: 25px;
+                                        height: 25px;
+                                    }
+                                    span {
+                                        color: var(--text-color);
+                                        font-weight: 700;
+                                        width: max-content;
+                                    }
+                                    &.active {
+                                        border: 1px solid #f37002;
+                                        span {
+                                            color: #f37002;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .tabContent {
+                            .itinerarytabContent {
+                                margin-top: 3rem;
+                                display: none;
+                                .itineraryContent {
+                                    position: relative;
+                                    margin-bottom: 2rem;
+                                    cursor: pointer;
+                                    .itinerary-img {
+                                        border-radius: 30px;
+                                        overflow: hidden;
+                                    }
+                                    .owl-carousel {
+                                        .owl-stage-outer {
+                                            .item {
+                                                width: 100%;
+                                                height: 400px;
+                                                img {
+                                                    height: 100%;
+                                                    width: 100%;
+                                                    object-fit: cover;
+                                                }
+                                                &::before {
+                                                    width: 100%;
+                                                    height: 25%;
+                                                    position: absolute;
+                                                    z-index: 1;
+                                                    left: 0;
+                                                    bottom: 0;
+                                                    content: "";
+                                                    background: linear-gradient(
+                                                        180deg,
+                                                        hsla(0, 0%, 43%, 0),
+                                                        rgba(0, 0, 0, 0.36) 29.51%,
+                                                        rgba(0, 0, 0, 0.6) 64.58%,
+                                                        rgba(0, 0, 0, 0.8)
+                                                    );
+                                                }
+                                            }
+                                        }
+                                        .owl-nav {
+                                            position: absolute;
+                                            top: 50%;
+                                            width: 100%;
+                                            transform: translateY(-50%);
+                                            button {
+                                                background: var(--primary-color) !important;
+                                                color: #fff !important;
+                                                width: 30px;
+                                                height: 30px;
+                                                border-radius: 50%;
+                                                position: absolute;
+                                                &.owl-prev {
+                                                    left: 5%;
+                                                }
+
+                                                &.owl-next {
+                                                    right: 5%;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .tripDetails {
+                                        position: absolute;
+                                        width: 100%;
+                                        bottom: 1%;
+                                        z-index: 1;
+                                        height: 120px;
+                                        display: flex;
+                                        color: #fff;
+                                        align-items: end;
+                                        pointer-events: none;
+                                        .day {
+                                            display: flex;
+                                            align-items: center;
+                                            gap: 20px;
+                                            position: absolute;
+                                            left: 5%;
+                                            height: 100px;
+                                            span {
+                                                font-size: 100px;
+                                                font-weight: 700;
+                                            }
+                                            .place {
+                                                span {
+                                                    display: block;
+                                                    font-size: 18px;
+                                                }
+                                            }
+                                        }
+                                        .totalSlide {
+                                            font-size: 70px;
+                                            position: absolute;
+                                            right: 5%;
+                                            display: flex;
+                                            width: 120px;
+                                            justify-content: space-between;
+                                            height: 100px;
+                                            align-items: center;
+                                            .currentSlide {
+                                                font-weight: 700;
+                                            }
+                                            .totalSlides {
+                                                font-size: 60px;
+                                            }
+                                        }
+                                    }
+                                }
+                                &.active {
+                                    display: block;
+                                }
+                                .tripSummary {
+                                    padding: 20px;
+                                    border: 1px solid #e0e0e0;
+                                    border-radius: 10px;
+                                    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+                                    margin-bottom: 20px;
+                                    .divider {
+                                        min-width: 1px;
+                                        max-width: 1px;
+                                        width: 1px;
+                                        min-height: 17px;
+                                        max-height: 17px;
+                                        height: 17px;
+                                        display: flex;
+                                        background: #e0e0e0;
+                                    }
+                                    .summaryHead {
+                                        .bottomSection {
+                                            margin: 10px 0 15px;
+                                            display: flex;
+                                            align-items: center;
+                                            gap: 20px;
+                                            flex-wrap: wrap;
+                                            .events {
+                                                display: flex;
+                                                gap: 5px;
+                                                .icon {
+                                                    height: 20px;
+                                                    width: 20px;
+                                                    img {
+                                                        width: 100%;
+                                                        height: 100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .itineraryDay {
+                                        ul {
+                                            margin: 0;
+                                        }
+                                        .dayHeader {
+                                            background: #f4f6f9;
+                                            padding: 10px 20px;
+                                            font-size: 15px;
+                                            font-weight: 600;
+                                            line-height: 23px;
+                                            color: #202020;
+                                            display: flex;
+                                            justify-content: space-between;
+                                            margin: 0 -20px;
+                                            .dayEvent {
+                                                display: flex;
+                                                align-items: center;
+                                                gap: 10px;
+                                                .eventCount {
+                                                    display: flex;
+                                                    gap: 10px;
+                                                    align-items: center;
+                                                    font-weight: 500;
+                                                    font-size: 12px;
+                                                    img {
+                                                        height: 12px;
+                                                        width: 12px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .dayContent {
+                                            padding: 10px 0;
+                                            .dayEvent {
+                                                display: flex;
+                                                gap: 10px;
+                                                padding-bottom: 10px;
+                                                margin-bottom: 10px;
+                                                border-bottom: 1px solid #e0e0e0;
+                                                .rightSection {
+                                                    .eventTitle {
+                                                        font-weight: 600;
+                                                        span {
+                                                            font-weight: 400;
+                                                            margin-left: 5px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .mealWrapper {
+                                                background: #f4f4f4;
+                                                border-radius: 10px;
+                                                padding: 15px;
+                                                .mealTime {
+                                                    display: flex;
+                                                    align-items: center;
+                                                    gap: 5px;
+                                                }
+                                                .lunchDnnr {
+                                                    display: flex;
+                                                    gap: 10px;
+                                                    .sep {
+                                                        background: #e0e0e0;
+                                                        border-radius: 50%;
+                                                        width: 18px;
+                                                        height: 18px;
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: center;
+                                                        font-size: 12px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .rightSide {
+                    .prizeList {
+                        padding: 20px;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 20px;
+                        margin-bottom: 3rem;
+
+                        .prizeSection {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 10px;
+                            .prize {
+                                .discountPrize {
+                                    display: flex;
+                                    align-items: baseline;
+                                    gap: 5px;
+                                    .prize {
+                                        font-size: 30px;
+                                        font-weight: 600;
+                                        line-height: 38px;
+                                        color: #202020;
+                                    }
+                                    span {
+                                        font-size: 12px;
+                                        line-height: 18px;
+                                        color: #8e8e8e;
+                                    }
+                                }
+                                .mainPrize {
+                                    font-size: 20px;
+                                    line-height: 27px;
+                                    color: #515151;
+                                    text-decoration: line-through;
+                                }
+                            }
+                            .productRating {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: end;
+                                justify-content: space-between;
+                                .rating {
+                                    .currentRating {
+                                        color: var(--secondary-color);
+                                        font-weight: 600;
+                                        font-size: 20px;
+                                    }
+                                    .totalRatings {
+                                        font-size: 12px;
+                                        color: #8e8e8e;
+                                    }
+                                }
+                                .offer {
+                                    background: linear-gradient(93deg, #ff7b26, #ec048c);
+                                    padding: 2.5px 10px;
+                                    border-radius: 30px;
+                                    color: #fff;
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    text-transform: uppercase;
+                                }
+                            }
+                        }
+
+                        .enquiryBtn_space {
+                            border-top: 1px solid #e0e0e0;
+                            padding-top: 15px;
+                            display: flex;
+                            justify-content: center;
+                            .enquiryBtn {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                padding: 15px 60px;
+                                border-radius: 15px;
+                                border: 1px solid var(--primary-color, #f37002);
+                                background-color: var(--primary-color, #f37002);
+                                color: #fff;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+
+                    .enquiryForm {
+                        padding: 20px;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 20px;
+                        position: sticky;
+                        top: 70px;
+
+                        .tripenquiryTitle {
+                            font-weight: 700;
+                            font-size: 1.5rem;
+                            margin-bottom: 1.5rem;
+                        }
+
+                        .prize {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            margin-bottom: 2rem;
+
+                            .discount {
+                                font-size: 25px;
+                                font-weight: 600;
+                                line-height: 38px;
+                                color: #202020;
+                            }
+                            .mainPrize {
+                                font-size: 18px;
+                                line-height: 27px;
+                                color: #515151;
+                                text-decoration: line-through;
+                            }
+                            .savedPrize {
+                                background: #d4ffc0;
+                                color: #007319;
+                                padding: 5px 15px;
+                                font-size: 14px;
+                            }
+                        }
+
+                        form {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            .getherInput {
+                                display: flex;
+                                gap: 10px;
+                                width: 100%;
+                            }
+                            .form-control {
+                                border: none;
+                                outline: none;
+                                border-radius: 10px;
+                                padding: 1em;
+                                width: 90%;
+                                margin-bottom: 2rem;
+                                border: 1px solid #797979;
+                                font-size: 18px;
+                                transition: 300ms ease-in-out;
+                            }
+
+                            .form-control:focus {
+                                background-color: white;
+                                transform: scale(1.01);
+                                box-shadow:
+                                    13px 13px 100px #969696,
+                                    -13px -13px 100px #ffffff;
+                            }
+                            .enquiryBtn {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                padding: 15px 60px;
+                                border-radius: 15px;
+                                border: 1px solid var(--primary-color, #f37002);
+                                background-color: var(--primary-color, #f37002);
+                                color: #fff;
+                                font-size: 16px;
+                                font-weight: 600;
+                                width: 96%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .eoTrip {
+                display: flex;
+                justify-content: center;
+                margin: 3rem 0;
+            }
+
+            .packageWrapper {
+                padding: 20px;
+                border-radius: 20px;
+                border: 1px solid #e0e0e0;
+                margin-bottom: 2rem;
+
+                h2 {
+                    margin-bottom: 20px;
+                }
+
+                .package {
+                    display: flex;
+                    width: 100%;
+                    gap: 20px;
+                    padding: 20px 0;
+                    border-top: 1px solid #e0e0e0;
+
+                    .inclusion,
+                    .exclusion {
+                        width: 100%;
+                        h3 {
+                            margin-bottom: 20px;
+                        }
+                        .packageInfo {
+                            .info {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                .signImg {
+                                    width: 20px;
+                                    height: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .addedInfo {
+                background: #e8e8e8;
+                padding: 20px;
+                border-radius: 20px;
+                margin-bottom: 2rem;
+                h3 {
+                    margin-bottom: 1rem;
+                }
+                .information {
+                    display: flex;
+                    justify-content: space-between;
+                    .more {
+                        background: none;
+                        border: none;
+                        font-weight: 700;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .callBack {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                margin-bottom: 2rem;
+                border-radius: 20px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                .contentCallback {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    padding: 0 20px;
+                    gap: 10px;
+                    color: #fff;
+                    background: linear-gradient(45deg, var(--primary-color), transparent);
+
+                    .callbackOffer {
+                        font-size: 40px;
+                        font-weight: 700;
+                    }
+
+                    .callbackTag {
+                        font-size: 20px;
+                    }
+
+                    .callBackbtn {
+                        width: 200px;
+                        padding: 20px;
+                        background: #fff;
+                        border: 0;
+                        border-radius: 10px;
+                        font-weight: 600;
+                        color: var(--primary-color);
+                    }
+                }
+            }
+
+            .reviews {
+                margin-bottom: 2rem;
+                .allReview {
+                    display: flex;
+                    gap: 30px;
+                    width: 100%;
+
+                    .totalReview {
+                        width: 300px;
+                        height: 200px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        color: var(--secondary-color);
+
+                        .rateCount {
+                            text-align: center;
+                            height: 150px;
+                            width: 100%;
+                            .rating {
+                                font-size: 50px;
+                                font-weight: 900;
+                                position: relative;
+                                top: -30px;
+                            }
+                            .count {
+                                font-weight: 700;
+                                text-decoration: underline;
+                                position: relative;
+                                top: -35px;
+                            }
+                        }
+                    }
+
+                    .rating {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 15px;
+                        width: 100%;
+                        .countFrom {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            .countCat {
+                                display: flex;
+                                width: 35px;
+                                gap: 5px;
+                                align-items: center;
+                                justify-content: space-around;
+                                img {
+                                    height: 15px;
+                                    width: 15px;
+                                }
+                            }
+                            .progressBar {
+                                width: 100%;
+                                background-color: #e9ecef;
+                                height: 10px;
+                                border-radius: 20px;
+
+                                .progress {
+                                    background-color: var(--primary-color);
+                                    height: 10px;
+                                    border-radius: 20px;
+                                }
+                            }
+                            &:nth-child(1) {
+                                .progressBar {
+                                    .progress {
+                                        width: 90%;
+                                    }
+                                }
+                            }
+                            &:nth-child(2) {
+                                .progressBar {
+                                    .progress {
+                                        width: 70%;
+                                    }
+                                }
+                            }
+                            &:nth-child(3) {
+                                .progressBar {
+                                    .progress {
+                                        width: 50%;
+                                    }
+                                }
+                            }
+                            &:nth-child(4) {
+                                .progressBar {
+                                    .progress {
+                                        width: 30%;
+                                    }
+                                }
+                            }
+                            &:nth-child(5) {
+                                .progressBar {
+                                    .progress {
+                                        width: 10%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .travelGallery {
+                margin-bottom: 2rem;
+                h2 {
+                    margin-bottom: 1rem;
+                }
+                .gridGallery {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 760px repeat(2, 370px);
+                    grid-template-rows: repeat(2, 248px);
+                    grid-column-gap: 10px;
+                    grid-row-gap: 10px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    margin-bottom: 2rem;
+
+                    .galleryImg {
+                        position: relative;
+                        cursor: pointer;
+                        .gridgalleryImg {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: fill;
+                        }
+                        &.mainImg {
+                            grid-area: 1 / 1 / 3 / 2;
+                            &::before {
+                                width: 100%;
+                                height: 25%;
+                                position: absolute;
+                                z-index: 1;
+                                left: 0;
+                                bottom: 0;
+                                content: "";
+                                background: linear-gradient(
+                                    180deg,
+                                    hsla(0, 0%, 43%, 0),
+                                    rgba(0, 0, 0, 0.36) 29.51%,
+                                    rgba(0, 0, 0, 0.6) 64.58%,
+                                    rgba(0, 0, 0, 0.8)
+                                );
+                            }
+                            .viewMorebtn {
+                                position: absolute;
+                                bottom: 10px;
+                                z-index: 1;
+                                left: 10px;
+                                .moreBtn {
+                                    border: 1px solid #fff;
+                                    background: transparent;
+                                    color: #fff;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    gap: 20px;
+                                    height: 40px;
+                                    border-radius: 10px;
+                                    width: 130px;
+                                    font-size: 16px;
+                                    img {
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+                                }
+                            }
+                        }
+                        &.img1 {
+                            grid-area: 1 / 2 / 2 / 3;
+                        }
+                        &.img2 {
+                            grid-area: 1 / 3 / 2 / 4;
+                        }
+                        &.img3 {
+                            grid-area: 2 / 2 / 3 / 3;
+                        }
+                        &.img4 {
+                            grid-area: 2 / 3 / 3 / 4;
+                        }
+                    }
+                }
+
+                .customerReview {
+                    padding-top: 2rem;
+                    border-top: 1px solid #e0e0e0;
+                    .review {
+                        border: 1px solid #e0e0e0;
+                        padding: 20px;
+                        border-radius: 20px;
+                        margin-bottom: 1rem;
+                        .custDetails {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 1rem;
+                            .custInfo {
+                                display: flex;
+                                gap: 15px;
+                                align-items: center;
+                                img {
+                                    border-radius: 50%;
+                                    height: 50px;
+                                    width: 50px;
+                                    object-fit: cover;
+                                }
+                            }
+                            .custRating {
+                                display: flex;
+                                color: var(--secondary-color);
+                                align-items: center;
+                                gap: 5px;
+                                font-weight: 600;
+                            }
+                        }
+                        .booked {
+                            color: #e0e0e0;
+                            display: flex;
+                            gap: 10px;
+                            margin-bottom: 1rem;
+                            a {
+                                color: #000;
+                                text-decoration: none;
+                            }
+                        }
+                        .custreview {
+                            margin-bottom: 1rem;
+                        }
+                        .sharedImg {
+                            display: flex;
+                            gap: 10px;
+                            overflow: auto;
+                            scrollbar-width: none;
+                            cursor: pointer;
+                            img {
+                                height: 150px;
+                                width: 150px;
+                                border-radius: 10px;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+                }
+
+                .loadBtnspace {
+                    display: flex;
+                    justify-content: center;
+                    .loadmoreReview {
+                        background: transparent;
+                        border: 1px solid var(--primary-color);
+                        padding: 10px 100px;
+                        font-size: 20px;
+                        color: var(--primary-color);
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: all 0.4s ease-in-out;
+                        &:hover {
+                            box-shadow: 0px 2px 5px var(--primary-color);
+                        }
+                    }
+                }
+            }
+
+            .withUS {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2rem;
+
+                .offerCard {
+                    width: 250px;
+                    height: 250px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    img {
+                        height: 120px;
+                        width: 120px;
+                    }
+                }
+            }
+
+            .aboutfaqTrip,
+            .aboutcancelTrip {
+                margin-bottom: 2rem;
+            }
+        }
+
+        .footer {
+            background: #2f343c;
+            height: 50vh;
+            margin-top: 150px;
+            .footerContent {
+                width: 1520px;
+                margin: 0 auto;
+                top: -150px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #b7b7b7;
+                justify-content: space-between;
+                .footerNav {
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: #fff;
+                    height: auto;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 20px;
+                    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.14);
+                    padding: 40px;
+                    box-sizing: border-box;
+                    margin-bottom: 40px;
+                    .darkLabel {
+                        display: flex;
+                        align-items: center;
+                        font-size: 12px;
+                        color: #424242;
+                        font-weight: 600;
+                        line-height: 18px;
+                        margin-bottom: 10px;
+                        letter-spacing: 1.6px;
+                    }
+                    .footerColumn {
+                        min-width: 220px;
+                        border-right: 1px solid #e0e0e0;
+                        margin-right: 20px;
+                        .lightLabel {
+                            display: flex;
+                            align-items: center;
+                            font-size: 10px;
+                            color: #858585;
+                            font-weight: 500;
+                            line-height: 16px;
+                            margin-bottom: 8px;
+                            letter-spacing: 1.3px;
+                            cursor: pointer;
+                            transition: all 0.1s linear;
+                            &:hover {
+                                color: var(--primary-color);
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                    .imagesContainer {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: 5px;
+                        .imageBox {
+                            display: flex;
+                            position: relative;
+                            width: 84px;
+                            height: 84px;
+                            cursor: pointer;
+                            overflow: hidden;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                transition: all 0.3s linear;
+                            }
+                            .nearbyPlacesName {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                position: absolute;
+                                z-index: 2;
+                                color: #fff;
+                                font-weight: 700;
+                                font-size: 10px;
+                                width: 84px;
+                                height: 84px;
+                                letter-spacing: 1.04px;
+                                background: rgba(0, 0, 0, 0.1);
+                            }
+
+                            &:hover {
+                                img {
+                                    transform: scale(1.1);
+                                }
+                            }
+                        }
+                    }
+                }
+                .mediaIcons {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 50px;
+                    width: 300px;
+                    align-self: center;
+                    svg {
+                        fill: #b7b7b7;
+                    }
+                }
+                .captionBox {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 20px;
+                    .copyRightText {
+                        font-size: 15px;
+                        font-weight: 700;
+                    }
+                    .caption {
+                        font-size: 12px;
+                        color: #b7b7b7;
+                    }
+                }
+            }
+        }
+        .allImagesmodel {
+            position: fixed;
+            top: 0;
+            left: -100vw;
+            width: 100vw;
+            height: 100vh;
+            background: #fff;
+            z-index: 9999;
+            transition: left 0.3s ease-in-out;
+            .allimagesHeader {
+                border-bottom: 1px solid #e0e0e0;
+                margin-bottom: 1rem;
+                .main {
+                    width: 1080px;
+                    padding: 1rem 0 0 0;
+                    div {
+                        .back-button {
+                            margin-bottom: 1rem;
+                            background: none;
+                            border: none;
+                            font-size: 20px;
+                            cursor: pointer;
+                        }
+                    }
+                    .tabsnav {
+                        display: flex;
+                        justify-content: center;
+                        gap: 30px;
+                        .nav {
+                            color: #9f9f9f;
+                            cursor: pointer;
+                            padding-bottom: 5px;
+                            font-weight: 600;
+                            &.active {
+                                color: var(--primary-color);
+                                border-bottom: 1px solid var(--primary-color);
+                            }
+                        }
+                    }
+                }
+            }
+            .sidebarGallery {
+                display: flex;
+                justify-content: center;
+                max-height: calc(100vh - 120px);
+                overflow-y: scroll;
+                .imgGallery {
+                    width: 1080px;
+                    display: none;
+                    flex-direction: row;
+                    place-content: stretch center;
+                    box-sizing: border-box;
+                    gap: 5px;
+
+                    .previewImg,
+                    .colImg {
+                        display: flex;
+                        gap: 20px;
+                        flex-wrap: wrap;
+                        .imgWrapper {
+                            height: 340px;
+                            width: 530px;
+                            position: relative;
+                            border: none;
+                            outline: none;
+                            cursor: pointer;
+                            padding: 0;
+                            img {
+                                height: 100%;
+                                width: 100%;
+                                object-fit: cover;
+                            }
+                            .imgContent {
+                                position: absolute;
+                                bottom: 35px;
+                                color: #fff;
+                                z-index: 1;
+                                font-size: 14px;
+                                width: 100%;
+                                .location {
+                                    display: flex;
+                                    position: absolute;
+                                    left: 20px;
+                                    gap: 5px;
+                                    img {
+                                        height: 20px;
+                                        width: 20px;
+                                    }
+                                }
+                                .noOfimg {
+                                    position: absolute;
+                                    right: 20px;
+                                    display: flex;
+                                    gap: 5px;
+                                    align-items: center;
+                                }
+                            }
+
+                            &::before {
+                                width: 100%;
+                                height: 25%;
+                                position: absolute;
+                                z-index: 1;
+                                left: 0;
+                                bottom: 0;
+                                content: "";
+                                background: linear-gradient(
+                                    180deg,
+                                    hsla(0, 0%, 43%, 0),
+                                    rgba(0, 0, 0, 0.36) 29.51%,
+                                    rgba(0, 0, 0, 0.6) 64.58%,
+                                    rgba(0, 0, 0, 0.8)
+                                );
+                            }
+                        }
+                    }
+                    .previewImg {
+                        .imgWrapper {
+                            height: 260px !important;
+                        }
+                    }
+                }
+            }
+            .mygalleryWindow {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                background: #000;
+                align-items: center;
+                justify-content: center;
+                .mygalleryWindow-content {
+                    position: relative;
+                    width: 100vw;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .close {
+                        color: #e0e0e0;
+                        font-size: 50px;
+                        height: 40px;
+                        width: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: fixed;
+                        top: 4%;
+                        right: 4%;
+                        cursor: pointer;
+                    }
+
+                    .galleryWindow {
+                        width: 1080px;
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        height: 100vh;
+                        flex-direction: column;
+                        color: #fff;
+
+                        .galleryWindow-carousel {
+                            .owl-stage-outer {
+                                .item {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    flex-direction: column;
+                                    gap: 20px;
+                                    img {
+                                        height: 600px;
+                                        width: 800px;
+                                        border-radius: 20px;
+                                        object-fit: cover;
+                                    }
+
+                                    .imgInfo {
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                            .owl-nav {
+                                z-index: 2;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                position: fixed;
+                                top: calc(50dvh - 60px);
+                                cursor: pointer;
+
+                                button {
+                                    background: #fff;
+                                    color: #000;
+                                    position: fixed;
+                                    height: 50px;
+                                    border-radius: 50%;
+                                    width: 50px;
+                                    font-size: 30px;
+                                    &.owl-next {
+                                        right: 3vw;
+                                    }
+                                    &.owl-prev {
+                                        left: 3vw;
+                                    }
+                                }
+                            }
+                        }
+
+                        .imgCount {
+                            .titleCount {
+                                text-align: center;
+                            }
+                            .allImg {
+                                position: relative;
+                                .navBtn {
+                                    button {
+                                        position: absolute;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                        color: #fff;
+                                        background: none;
+                                        border: none;
+                                        cursor: pointer;
+                                        &.navPrev {
+                                            left: -30px;
+                                        }
+                                        &.navNext {
+                                            right: -30px;
+                                        }
+                                    }
+                                }
+                                .imgWrapper {
+                                    display: flex;
+                                    overflow-x: auto;
+                                    gap: 10px;
+                                    max-width: 1000px;
+                                    scrollbar-width: none;
+                                    margin-top: 1rem;
+                                    img {
+                                        height: 50px;
+                                        width: 80px;
+                                        border: 2px solid #000;
+                                        cursor: pointer;
+                                        &.active {
+                                            border: 2px solid #fff;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            ::-webkit-scrollbar {
+                width: 2px;
+                height: 2px;
+            }
+        }
+        .additionalInformationModal,
+        .currenciesModal {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 9999;
+            .modalContent {
+                width: 80%;
+                background: #fff;
+                padding: 20px;
+                border-radius: 20px;
+                .modalHeader {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    position: relative;
+
+                    .closeBtn,
+                    .closeBtn {
+                        background: #f2f2f2;
+                        border: none;
+                        border-radius: 50%;
+                        font-size: 20px;
+                        height: 30px;
+                        width: 30px;
+                        position: absolute;
+                        top: -35px;
+                        right: -35px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.4s ease-in-out;
+                        cursor: pointer;
+                        &:hover {
+                            transform: rotate(90deg);
+                            box-shadow: -2px 3px 10px #000;
+                        }
+                    }
+                }
+                .modalBody {
+                    overflow: auto;
+                    max-height: calc(100vh - 200px);
+
+                    .currencySearch {
+                        margin: 1rem 0;
+                        .currencyInput {
+                            min-width: 250px;
+                            max-width: 500px;
+                            padding: 10px 20px;
+                            border-radius: 10px;
+                            outline: none;
+                            border: 1px solid #e0e0e0;
+                        }
+                    }
+
+                    h4 {
+                        margin-bottom: 1rem;
+                        color: rgb(81, 81, 81);
+                    }
+
+                    .commonCurrency {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                        .currencies {
+                            padding: 10px;
+                            border: 1px solid rgb(255, 255, 255);
+                            width: 225px;
+                            cursor: pointer;
+                            .currencyImg {
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                                font-size: 15px;
+                                color: rgb(81, 81, 81);
+                                img {
+                                    width: 30px;
+                                    height: 25px;
+                                    border: 1px solid rgb(203, 203, 203);
+                                    border-radius: 2px;
+                                }
+                            }
+                            p {
+                                font-size: 12px;
+                                color: rgb(162, 162, 162);
+                            }
+                            &:hover {
+                                border-radius: 10px;
+                                border: 1px solid var(--primary-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .regularGallery {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+
+            &.show {
+                display: inline-flex;
+            }
+
+            .galleryWrapper {
+                width: 1080px;
+                height: 100vh;
+                position: relative;
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: column;
+
+                .closeBtn {
+                    position: fixed;
+                    top: 3vw;
+                    right: 3vw;
+                    .btnclose {
+                        cursor: pointer;
+                        color: #e0e0e0;
+                        font-size: 50px;
+                        height: 40px;
+                        width: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: none;
+                        border: none;
+                    }
+                }
+
+                .galleryWindow-carousel {
+                    .owl-stage-outer {
+                        .item {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            img {
+                                width: 800px;
+                                height: 600px;
+                                object-fit: cover;
+                                border-radius: 20px;
+                            }
+                        }
+                    }
+                    .owl-nav {
+                        position: absolute;
+                        top: 50%;
+                        width: 100%;
+                        button {
+                            background: #fff;
+                            border-radius: 50%;
+                            height: 50px;
+                            width: 50px;
+                            font-size: 30px;
+                            position: fixed;
+                            &.owl-prev {
+                                left: 3vw;
+                            }
+                            &.owl-next {
+                                right: 3vw;
+                            }
+                        }
+                    }
+                }
+                .imgCount {
+                    color: #fff;
+                    display: flex;
+                    font-size: 20px;
+                    justify-content: center;
+                }
+                .allSildes {
+                    position: relative;
+                    .navBtn {
+                        button {
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            color: #fff;
+                            background: none;
+                            border: none;
+                            cursor: pointer;
+                            &.navPrev {
+                                left: -30px;
+                            }
+                            &.navNext {
+                                right: -30px;
+                            }
+                        }
+                    }
+                    .imgWrapper {
+                        display: flex;
+                        overflow-x: auto;
+                        gap: 10px;
+                        width: 1080px;
+                        scrollbar-width: none;
+                        img {
+                            width: 80px;
+                            height: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1920.98px) {
+    body {
+        font-size: 16px;
+        .main {
+        }
+
+        .mainHeader {
+            max-width: 1520px;
+
+            .siteLogo {
+                width: 180px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1600.98px) {
+    body {
+        .main {
+            max-width: 1200px;
+        }
+        .mainHeader {
+            max-width: 1200px;
+
+            .siteLogo {
+                width: 180px;
+            }
+        }
+
+        .main {
+            .featureImages {
+                gap: 10px;
+                .mainImage {
+                    height: 500px;
+                    .owl-carousel-img {
+                        .owl-stage-outer {
+                            .item {
+                                height: 500px;
+                            }
+                        }
+                    }
+                }
+                .otherFeatureimg {
+                    height: 500px;
+                    gap: 10px;
+                    .featureimgBox {
+                        height: 244px;
+                        width: 230px;
+                        position: relative;
+                        .imageName {
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+            .tripTitle {
+                font-size: 2.5rem;
+            }
+            .tripDay {
+                padding: 0rem 0 5rem;
+                .tripSection {
+                    width: 800px;
+                    padding: 20px 50px;
+                    .days {
+                        width: 130px;
+                    }
+
+                    .stayDay {
+                        width: 600px;
+
+                        .day {
+                            gap: 10px;
+                            span {
+                                font-size: 60px;
+                            }
+                            .place {
+                                span {
+                                    font-size: 14px;
+                                }
+                            }
+
+                            &::after {
+                                height: 80px;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+            .travelGallery {
+                .gridGallery {
+                    grid-template-columns: 640px repeat(2, 270px);
+                    grid-template-rows: repeat(2, 180px);
+                }
+            }
+            .mainContent {
+                grid-template-columns: 65% auto;
+                .leftSide {
+                    .destinationFilter {
+                        padding-bottom: 2rem;
+                        hr {
+                            width: 100%;
+                        }
+                    }
+                    .stayCategory {
+                        padding-bottom: 2rem;
+                        .stays {
+                            .stayWrapper {
+                                width: 160px;
+                                height: auto;
+                                padding: 15px;
+                            }
+                        }
+                        hr {
+                            width: 100%;
+                        }
+                    }
+                    .propertyFilter {
+                        padding-bottom: 2rem;
+                        hr {
+                            width: 100%;
+                        }
+                    }
+                }
+                .rightSide {
+                    .enquiryForm {
+                        .tripenquiryTitle {
+                            font-size: 1.5rem;
+                            margin-bottom: 1rem;
+                        }
+                        .prize {
+                            width: 100%;
+                            margin-bottom: 1rem;
+                            .discount {
+                                font-size: 20px;
+                            }
+                            .mainPrize {
+                                font-size: 16px;
+                            }
+                        }
+                        form {
+                            .form-control {
+                                padding: 10px 16px;
+                                font-size: unset;
+                                margin-bottom: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer {
+            .footerContent {
+                width: 1200px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1440.98px) {
+    body {
+        font-size: 14px;
+
+        .mainHeader {
+            width: 1100px;
+        }
+
+        .main {
+            max-width: 1100px;
+            .featureImages {
+                .mainImage {
+                    height: 400px;
+                    .owl-carousel-img {
+                        .owl-stage-outer {
+                            .item {
+                                height: 400px;
+                            }
+                        }
+                    }
+                }
+                .otherFeatureimg {
+                    height: 400px;
+                    gap: 10px;
+                    .featureimgBox {
+                        height: 195px;
+                        width: 210px;
+                        position: relative;
+                        .imageName {
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+            .travelGallery {
+                .gridGallery {
+                    grid-template-columns: 580px repeat(2, 250px);
+                    grid-template-rows: repeat(2, 168px);
+                }
+            }
+            .mainContent {
+                .leftSide {
+                    .tourView {
+                        .tabContent {
+                            .itinerarytabContent {
+                                .itineraryContent {
+                                    .owl-carousel {
+                                        .owl-stage-outer {
+                                            .item {
+                                                height: 350px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .rightSide {
+                    .prizeList {
+                        .prizeSection {
+                            .prize {
+                                .discountPrize {
+                                    .prize {
+                                        font-size: 25px;
+                                    }
+                                }
+                                .mainPrize {
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                    .enquiryForm {
+                        .tripenquiryTitle {
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .allImagesmodel {
+            .mygalleryWindow {
+                .mygalleryWindow-content {
+                    .galleryWindow {
+                        .galleryWindow-carousel {
+                            .owl-stage-outer {
+                                .item {
+                                    img {
+                                        height: 400px;
+                                        width: 600px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer {
+            height: 80vh;
+            .footerContent {
+                width: 1100px;
+            }
+        }
+
+        .regularGallery {
+            .galleryWrapper {
+                width: 900px;
+                overflow: hidden;
+                .galleryWindow-carousel {
+                    .owl-stage-outer {
+                        .item {
+                            img {
+                                width: 600px;
+                                height: 400px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200.98px) {
+    body {
+        .mainHeader {
+            width: 920px;
+        }
+        .main {
+            max-width: 920px;
+            .featureImages {
+                gap: 5px;
+                .mainImage {
+                    height: 375px;
+                    .owl-carousel-img {
+                        .owl-stage-outer {
+                            .item {
+                                height: 375px;
+                            }
+                        }
+                    }
+                }
+                .otherFeatureimg {
+                    height: 375px;
+                    gap: 5px;
+                    .featureimgBox {
+                        height: 185px;
+                        width: 179px;
+                        position: relative;
+                        .imageName {
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+            .travelGallery {
+                .gridGallery {
+                    grid-template-columns: 460px repeat(2, 220px);
+                    grid-template-rows: repeat(2, 136px);
+                }
+            }
+
+            .tripTitle {
+                font-size: 2rem;
+            }
+
+            .mainContent {
+                .leftSide {
+                    .tourView {
+                        .secondNav {
+                            &.secondnavSticky {
+                                .itineraryTab {
+                                    justify-content: flex-start;
+                                }
+                            }
+                        }
+                    }
+                    .destinationFilter {
+                        .destinationRoute {
+                            padding: 15px;
+                        }
+                    }
+                }
+                .rightSide {
+                    .prizeList {
+                        .prizeSection {
+                            .prize {
+                                .discountPrize {
+                                    .prize {
+                                        font-size: 22px;
+                                    }
+                                }
+                                .mainPrize {
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                    }
+                    .enquiryForm {
+                        .tripenquiryTitle {
+                            font-size: 1.2rem;
+                        }
+                        .prize {
+                            .discount {
+                                font-size: 18px;
+                            }
+                            .mainPrize {
+                                font-size: unset;
+                            }
+                            .savedPrize {
+                                font-size: unset;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .tourView {
+                .secondNav {
+                    .itineraryTab {
+                        .tab {
+                            padding: 8px 35px;
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+
+            .callBack {
+                .contentCallback {
+                    .callbackOffer {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            height: 100vh;
+            .footerContent {
+                width: 920px;
+                .footerNav {
+                    flex-wrap: wrap;
+                    gap: 10px;
+                }
+            }
+        }
+
+        .allImagesmodel {
+            .sidebarGallery {
+                .imgGallery {
+                    width: 920px;
+                    .previewImg,
+                    .colImg {
+                        gap: 10px;
+                        .imgWrapper {
+                            width: 455px;
+                            height: 320px;
+                        }
+                    }
+                }
+            }
+
+            .mygalleryWindow {
+                .mygalleryWindow-content {
+                    .galleryWindow {
+                        .imgCount {
+                            .allImg {
+                                .imgWrapper {
+                                    width: 900px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .regularGallery {
+            .galleryWrapper {
+                width: 700px;
+                overflow: hidden;
+                .galleryWindow-carousel {
+                    .owl-stage-outer {
+                        .item {
+                            img {
+                                width: 540px;
+                                height: 440px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    body {
+        .mainHeader {
+            width: 720px;
+        }
+        .customAccordion {
+            .accordion {
+                .accordionTitle {
+                    .title {
+                        width: 280px;
+                    }
+                }
+            }
+            .accordionDetails {
+                .details {
+                    .hotelList {
+                        .hotelCards {
+                            .hotelCard {
+                                .hotelImg {
+                                    height: 200px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .main {
+            max-width: 720px;
+
+            .featureImages {
+                display: block;
+                .mainImage {
+                    width: 100%;
+                    height: 450px;
+                    margin-bottom: 10px;
+                    .owl-carousel-img {
+                        .owl-stage-outer {
+                            .item {
+                                height: 450px;
+                            }
+                        }
+                    }
+                }
+                .otherFeatureimg {
+                    height: 450px;
+                    width: 100%;
+                    gap: 10px;
+                    .featureimgBox {
+                        height: 220px;
+                        width: 355px;
+                        position: relative;
+                    }
+                }
+            }
+
+            .travelGallery {
+                .gridGallery {
+                    display: flex;
+                    flex-flow: wrap;
+                    gap: 0;
+                    .galleryImg {
+                        &.mainImg {
+                            width: 100%;
+                        }
+                        &.img1,
+                        &.img2,
+                        &.img3,
+                        &.img4 {
+                            width: 50%;
+                            height: 214px;
+                        }
+                    }
+                }
+            }
+
+            .withUS {
+                margin-bottom: 0;
+                flex-wrap: wrap;
+                .offerCard {
+                    margin-bottom: 2rem;
+                }
+            }
+
+            .mainContent {
+                display: flex;
+                flex-direction: column-reverse;
+                margin-top: 2rem;
+                .leftSide {
+                    .tourView {
+                        .secondNav {
+                            .itineraryTab {
+                                gap: 10px;
+                                .tab {
+                                    padding: 6px 25px;
+                                }
+                            }
+                        }
+                        .tabContent {
+                            .itinerarytabContent {
+                                .itineraryContent {
+                                    .itinerary-img {
+                                        &.owl-carousel {
+                                            .owl-stage-outer {
+                                                .item {
+                                                    height: 300px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .destinationFilter {
+                        .destinationRoute {
+                            gap: 10px;
+                            .routeWrapper {
+                                gap: 10px;
+                            }
+                        }
+                    }
+                }
+                .rightSide {
+                    .prizeList {
+                        margin-bottom: 2rem;
+                    }
+                    .enquiryForm {
+                        margin-bottom: 2rem;
+                    }
+                }
+            }
+
+            .tripDay {
+                .tripSection {
+                    width: 640px;
+                    padding: 15px 30px;
+                }
+            }
+
+            .callBack {
+                img {
+                    object-fit: cover;
+                }
+                .contentCallback {
+                    .callbackOffer {
+                        font-size: 28px;
+                    }
+                    .callbackTag {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            height: auto;
+            .footerContent {
+                width: 720px;
+            }
+        }
+
+        .allImagesmodel {
+            .sidebarGallery {
+                .imgGallery {
+                    width: 720px;
+                    .previewImg,
+                    .colImg {
+                        .imgWrapper {
+                            width: 355px;
+                            height: 220px;
+                        }
+                    }
+                }
+            }
+            .mygalleryWindow {
+                .mygalleryWindow-content {
+                    .galleryWindow {
+                        .imgCount {
+                            .allImg {
+                                .imgWrapper {
+                                    width: 700px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .regularGallery {
+            .galleryWrapper {
+                width: 550px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768.98px) {
+    body {
+        .mainHeader {
+            max-width: 550px;
+            .siteLogo {
+                width: 120px;
+            }
+            .searchBox {
+                width: 200px;
+            }
+        }
+        .main {
+            max-width: 550px;
+
+            .featureImages {
+                .mainImage {
+                    height: 400px;
+                    .owl-carousel-img {
+                        .owl-stage-outer {
+                            .item {
+                                height: 400px;
+                            }
+                        }
+                    }
+                }
+                .otherFeatureimg {
+                    height: 400px;
+                    gap: 10px;
+                    .featureimgBox {
+                        height: 195px;
+                        width: 270px;
+                    }
+                }
+            }
+
+            .mainContent {
+                .leftSide {
+                }
+                .rightSide {
+                    .enquiryForm {
+                        margin-bottom: 3rem;
+                    }
+                }
+            }
+
+            .tripTitle {
+                font-size: 2rem;
+            }
+            .tripDay {
+                padding: 0rem 0 3rem;
+                .tripSection {
+                    width: 540px;
+                    padding: 15px 25px;
+                    flex-direction: column;
+                    gap: 20px;
+                    .days {
+                        width: 110px;
+                        height: 40px;
+                    }
+                    .stayDay {
+                        width: 480px;
+
+                        .day {
+                            &::after {
+                                margin-left: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+            .tourView {
+                .secondNav {
+                    .itineraryTab {
+                        justify-content: flex-start;
+                        .tab {
+                            padding: 5px 20px;
+                        }
+                    }
+                }
+                .tabContent {
+                    .itinerarytabContent {
+                        .itineraryContent {
+                            .tripDetails {
+                                height: 100px;
+                                .day {
+                                    span {
+                                        font-size: 70px;
+                                    }
+                                }
+                                .totalSlide {
+                                    font-size: 60px;
+                                    width: 100px;
+                                    .totalSlides {
+                                        font-size: 40px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .callBack {
+                .contentCallback {
+                    .callbackOffer {
+                        font-size: 26px;
+                    }
+                    .callbackTag {
+                        font-size: 16px;
+                    }
+                    .callBackbtn {
+                        padding: 15px;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            .footerContent {
+                width: 550px;
+                .footerNav {
+                    .footerColumn {
+                        border: none;
+                        margin: 0;
+                        margin-bottom: 20px;
+                        border-bottom: 1px solid #e0e0e0;
+                    }
+                }
+            }
+        }
+
+        .allImagesmodel {
+            .allimagesHeader {
+                margin-bottom: 1rem;
+                .main {
+                    width: 700px;
+                    padding: 20px 0 0 0;
+                    div {
+                        .back-button {
+                            font-size: unset;
+                        }
+                    }
+                }
+            }
+            .sidebarGallery {
+                .imgGallery {
+                    width: 560px;
+                    .colImg,
+                    .previewImg {
+                        .imgWrapper {
+                            width: 275px;
+                            height: 180px;
+                        }
+                    }
+                }
+            }
+
+            .mygalleryWindow {
+                .mygalleryWindow-content {
+                    .galleryWindow {
+                        .galleryWindow-carousel {
+                            .owl-stage-outer {
+                                .item {
+                                    img {
+                                        height: 400px;
+                                        width: 500px;
+                                        border-radius: 20px;
+                                    }
+                                }
+                            }
+                            .owl-nav {
+                                position: unset;
+                                gap: 10px;
+                                margin-top: 1rem;
+                                button {
+                                    height: 40px;
+                                    width: 40px;
+                                    font-size: 20px;
+                                    position: unset;
+                                }
+                            }
+                        }
+
+                        .imgCount {
+                            .allImg {
+                                .imgWrapper {
+                                    width: 490px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            ::-webkit-scrollbar {
+                width: 2px;
+                height: 2px;
+            }
+        }
+
+        .regularGallery {
+            .galleryWrapper {
+                width: 500px;
+                .galleryWindow-carousel {
+                    .owl-stage-outer {
+                        .item {
+                            img {
+                                width: 480px;
+                                height: 450px;
+                            }
+                        }
+                    }
+                    .owl-nav {
+                        position: unset;
+                        display: flex;
+                        justify-content: center;
+                        gap: 20px;
+                        margin-top: 2rem;
+                        button {
+                            position: unset;
+                            height: 30px;
+                            width: 30px;
+                            font-size: 20px;
+                            &.owl-prev {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576.98px) {
+    body {
+        .customAccordion {
+            .accordion {
+                .accordionTitle {
+                    .title {
+                        width: 230px;
+                    }
+                }
+            }
+            .accordionDetails {
+                .details {
+                    .hotelList {
+                        .includedSection {
+                            display: block;
+                            .includeTitle {
+                                width: 100%;
+                            }
+                            .includeList {
+                                width: 100%;
+                                justify-content: space-between;
+                            }
+                        }
+                    }
+                    .optionHeading {
+                        width: 300px;
+                    }
+                    .meals {
+                        .mealTiming {
+                            .lunchDnnr {
+                                flex-direction: column;
+                                align-items: start;
+                                gap: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .mainHeader {
+            max-width: 410px;
+            .searchBox {
+                display: none;
+            }
+        }
+        .main {
+            max-width: 410px;
+            .tripTitle {
+                font-size: 1.5rem;
+            }
+
+            .featureImages {
+                .mainImage {
+                    height: 350px;
+                    .owl-carousel-img {
+                        .owl-stage-outer {
+                            .item {
+                                height: 350px;
+                            }
+                        }
+                    }
+                }
+                .otherFeatureimg {
+                    height: auto;
+                    .featureimgBox {
+                        height: 175px;
+                        width: 200px;
+                    }
+                }
+            }
+
+            .travelGallery {
+                .gridGallery {
+                    .galleryImg {
+                        &.img1,
+                        &.img2,
+                        &.img3,
+                        &.img4 {
+                            height: 137px;
+                        }
+                    }
+                }
+            }
+
+            .tripDay {
+                .tripSection {
+                    width: 390px;
+                    .stayDay {
+                        width: 370px;
+                        flex-wrap: wrap;
+                        .day {
+                            width: 185px;
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .mainContent {
+                .leftSide {
+                    .facility {
+                        .facilityType {
+                            .svgImg {
+                                height: 25px;
+                                width: 25px;
+                            }
+                        }
+                    }
+                    .destinationFilter {
+                        .destinationRoute {
+                            padding: 15px;
+                            width: 90%;
+                            .routeWrapper {
+                                gap: 10px;
+                            }
+                        }
+                    }
+                    .stayCategory,
+                    .propertyFilter {
+                        .stays,
+                        .propertys {
+                            gap: 10px;
+                        }
+                    }
+                }
+            }
+
+            .packageWrapper {
+                .package {
+                    flex-direction: column;
+                }
+            }
+
+            .callBack {
+                .contentCallback {
+                    width: 80%;
+                }
+            }
+
+            .withUS {
+                .offerCard {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+        }
+        .footer {
+            .footerContent {
+                width: 410px;
+            }
+        }
+        .allImagesmodel {
+            .allimagesHeader {
+                .main {
+                    .tabsnav {
+                        display: -webkit-box;
+                        overflow: auto;
+                        scrollbar-width: none;
+                    }
+                }
+            }
+            .sidebarGallery {
+                .imgGallery {
+                    width: 410px;
+                    .colImg,
+                    .previewImg {
+                        .imgWrapper {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+            .mygalleryWindow {
+                .mygalleryWindow-content {
+                    .galleryWindow {
+                        .galleryWindow-carousel {
+                            .owl-stage-outer {
+                                .item {
+                                    img {
+                                        height: 350px;
+                                        width: 400px;
+                                    }
+                                }
+                            }
+                            .owl-nav {
+                                top: calc(50dvh - 40px);
+                                button {
+                                    height: 25px;
+                                    width: 25px;
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                        .imgCount {
+                            .allImg {
+                                .imgWrapper {
+                                    width: 360px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .regularGallery {
+            .galleryWrapper {
+                width: 400px;
+                .galleryWindow-carousel {
+                    .owl-stage-outer {
+                        .item {
+                            img {
+                                width: 380px;
+                                height: 350px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 425.98px) {
+    body {
+        .mainHeader {
+            max-width: 350px;
+        }
+        .customAccordion {
+            .accordion {
+                .accordionTitle {
+                    gap: 10px;
+                    .day {
+                        width: 40px;
+                    }
+                    .title {
+                        width: 210px;
+                    }
+                }
+            }
+            .accordionDetails {
+                .details {
+                    .optionHeading {
+                        width: auto;
+                    }
+                }
+            }
+        }
+        .main {
+            max-width: 350px;
+            padding: 30px 0;
+            .featureImages {
+                .mainImage {
+                    height: 250px;
+                    margin-bottom: 5px;
+                    .owl-carousel-img {
+                        .owl-stage-outer {
+                            .item {
+                                height: 250px;
+                            }
+                        }
+                    }
+                }
+                .otherFeatureimg {
+                    height: auto;
+                    gap: 5px;
+                    .featureimgBox {
+                        height: 250px;
+                        width: 100%;
+                    }
+                }
+            }
+
+            .tripDay {
+                .tripSection {
+                    width: 280px;
+                    padding: 15px;
+                    .stayDay {
+                        width: 265px;
+                        .day {
+                            width: 132px;
+                            span {
+                                font-size: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .packageWrapper {
+                .package {
+                    display: block;
+                    .inclusion,
+                    .exclusion {
+                        h3 {
+                            margin-bottom: 5px;
+                        }
+                    }
+                    .inclusion {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+            .mainContent {
+                margin-top: 2rem;
+                .leftSide {
+                    .facility {
+                        .facilityType {
+                            .svgImg {
+                                height: 30px;
+                                width: 30px;
+                            }
+                        }
+                    }
+                    .tourView {
+                        .tabContent {
+                            .itinerarytabContent {
+                                .tripSummary {
+                                    .itineraryDay {
+                                        .dayContent {
+                                            .mealWrapper {
+                                                .lunchDnnr {
+                                                    flex-direction: column;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .otherTrip {
+                        gap: 16px;
+                    }
+                }
+            }
+
+            .travelGallery {
+                .gridGallery {
+                    .galleryImg {
+                        &.img1,
+                        &.img2,
+                        &.img3,
+                        &.img4 {
+                            height: 118px;
+                        }
+                    }
+                }
+                .customerReview {
+                    .review {
+                        .sharedImg {
+                            img {
+                                width: 100px;
+                                height: 100px;
+                            }
+                        }
+                    }
+                }
+                .loadBtnspace {
+                    .loadmoreReview {
+                        padding: 10px 60px;
+                    }
+                }
+            }
+
+            .reviews {
+                .allReview {
+                    gap: 10px;
+                }
+            }
+
+            .tourView {
+                .tabContent {
+                    .itinerarytabContent {
+                        .itineraryContent {
+                            .itinerary-img {
+                                &.owl-carousel {
+                                    .owl-stage-outer {
+                                        .item {
+                                            height: 240px;
+                                        }
+                                    }
+                                }
+                            }
+                            .tripDetails {
+                                height: 70px;
+                                bottom: 0;
+                                .day {
+                                    height: 70px;
+                                    gap: 10px;
+                                    span {
+                                        font-size: 60px;
+                                    }
+                                    .place {
+                                        span {
+                                            font-size: 16px;
+                                        }
+                                    }
+                                }
+                                .totalSlide {
+                                    height: 70px;
+                                    font-size: 50px;
+                                    width: 80px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .eoTrip {
+                margin: 2rem 0;
+            }
+        }
+        .footer {
+            .footerContent {
+                width: 330px;
+                .footerNav {
+                    padding: 30px;
+                }
+            }
+        }
+        .allImagesmodel {
+            .sidebarGallery {
+                .imgGallery {
+                    width: 340px;
+                }
+            }
+            .mygalleryWindow {
+                .mygalleryWindow-content {
+                    .galleryWindow {
+                        .galleryWindow-carousel {
+                            .owl-stage-outer {
+                                .item {
+                                    img {
+                                        height: 320px;
+                                        width: 340px;
+                                    }
+                                }
+                            }
+                        }
+                        .imgCount {
+                            .allImg {
+                                .navBtn {
+                                    display: none;
+                                }
+                                .imgWrapper {
+                                    width: 320px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .regularGallery {
+            .galleryWrapper {
+                width: 340px;
+                .galleryWindow-carousel {
+                    .owl-stage-outer {
+                        .item {
+                            img {
+                                width: 320px;
+                                height: 300px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360.98px) {
+    body {
+        .main {
+            max-width: 540px;
+            .tripTitle {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
