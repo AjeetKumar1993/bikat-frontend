@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const slug = window.location.pathname.substring(7); // Remove the leading '/'  
     // Check if the path exists in our mapping
     if (slug) {
-        loadTourDetails('leh-ladakh-package');
+        loadTourDetails(slug);
     } else {
         // Redirect back to the listing page
       window.location.href = 'listing.html';
@@ -46,9 +46,12 @@ function loadTourDetails(slug){
             
             const highlightId = document.getElementById("trip-highlight-container");
             highlightId.innerHTML = '';
-            data.highlight.forEach(highlight => {
-              highlightId.innerHTML += `<li>  ${highlight}</li>`;
-            });
+            if(data.highlight){
+                data.highlight.forEach(highlight => {
+                    highlightId.innerHTML += `<li>  ${highlight}</li>`;
+                  });
+            }
+           
 
             const dataContainer = document.getElementById('mainImage-container');
             dataContainer.innerHTML = '';
@@ -291,15 +294,22 @@ function loadTourDetails(slug){
             activityInclusionList.forEach(inclusion => {
                 inclusionId.innerHTML += getInclusionHTML(inclusion);
             });
-            data.inclusion.forEach(inclusion => {
-                inclusionId.innerHTML += getInclusionHTML(inclusion);
-            });
+            if(data.inclusion){
+                data.inclusion.forEach(inclusion => {
+                    inclusionId.innerHTML += getInclusionHTML(inclusion);
+                });
+            }
+           
 
             const exclusionId = document.getElementById("exclusion-container");
             exclusionId.innerHTML = '';
-            data.exclusion.forEach(exclusion => {
-                exclusionId.innerHTML += getExclusionHTML(exclusion);
-            });
+
+            if(data.exclusion){
+                data.exclusion.forEach(exclusion => {
+                    exclusionId.innerHTML += getExclusionHTML(exclusion);
+                });
+            }
+           
 
             const cancellationPolicy = document.getElementById("cancellationPolicy-container");
             cancellationPolicy.innerHTML = '';
@@ -862,7 +872,10 @@ function getItineraryHTML(itinerary, locationImageMap, activityImageMap) {
                     <div class="accordionDetails">
                         <div class="details">
                             <p>${day.description}</p>
-                            ${day.event.map(event => generateEventHTML(event, dayCountForTour, activityImageMap)).join('')}
+                            ${day.event
+                                .sort((a, b) => a.position - b.position) // Sort events by position
+                                .map(event => generateEventHTML(event, dayCountForTour, activityImageMap)) // Generate HTML for each event
+                                .join('')}
                         </div>
                     </div>
                 </div>
