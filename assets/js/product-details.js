@@ -1,20 +1,18 @@
 
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
-  
     const slug = window.location.pathname.substring(7); // Remove the leading '/'  
     // Check if the path exists in our mapping
     if (slug) {
-        loadTourDetails(slug);
+        loadTourDetails('leh-ladakh-package');
     } else {
         // Redirect back to the listing page
       window.location.href = 'listing.html';
     }
-
 })
 
 function loadTourDetails(slug){
-    
+
     const apiUrl = 'https://decent-line-423710-m0.de.r.appspot.com/api/product/'+slug; // Replace with your API URL
    
     fetch(apiUrl)
@@ -43,20 +41,40 @@ function loadTourDetails(slug){
             const facilityContainerId = document.getElementById('facility-container');
             facilityContainerId.innerHTML = '';
             getFacilityHTML(data.facility, facilityContainerId);
+
+            // const prize = document.querySelector('.prize');
+            // prize.textContent = 'INR '+data.price;
+            // const mainPrize = document.querySelector('.mainPrize');
+            // mainPrize.textContent = 'INR '+data.price;
             
+            const tripenquiryTitle = document.getElementById('tripenquiryTitle');
+            tripenquiryTitle.textContent = data.name;
+
+            const discount = document.getElementById('discount');
+            discount.textContent = 'INR '+data.price;
+            const mainPrize = document.getElementById('mainPrize');
+            mainPrize.textContent = 'INR '+data.price;
+            const savedPrize = document.getElementById('savedPrize');
+            savedPrize.textContent = 'Save INR 0';
+
+            const tripenquiryTitleM = document.getElementById('tripenquiryTitle_M');
+            tripenquiryTitleM.textContent = data.name;
+
+            const discountM = document.getElementById('discount_M');
+            discountM.textContent = 'INR '+data.price;
+            const mainPrizeM = document.getElementById('mainPrize_M');
+            mainPrizeM.textContent = 'INR '+data.price;
+            const savedPrizeM = document.getElementById('savedPrize_M');
+            savedPrizeM.textContent = 'Save INR 0';
+
             const highlightId = document.getElementById("trip-highlight-container");
             highlightId.innerHTML = '';
-            if(data.highlight){
-                data.highlight.forEach(highlight => {
-                    highlightId.innerHTML += `<li>  ${highlight}</li>`;
-                  });
-            }
+            data.highlight.forEach(highlight => {
+              highlightId.innerHTML += `<li>  ${highlight}</li>`;
+            });
+            var sliderImages = [];
+            sliderImages.push(data.tourImage);
            
-
-            const dataContainer = document.getElementById('mainImage-container');
-            dataContainer.innerHTML = '';
-            dataContainer.innerHTML += getMainImageHTML(data.tourImage);
-            
             const productImageContainer = document.getElementById('productImage-container');
             productImageContainer.innerHTML = ''; 
 
@@ -97,9 +115,7 @@ function loadTourDetails(slug){
             const activityImageMap = new Map();
             let tourActivities = getTitlesByEventType(data.itinerary, 'ACTIVITY'); 
             let tourProperties = getTitlesByEventType(data.itinerary, 'HOTEL'); 
-
-            console.log(tourActivities);
-            console.log(tourProperties);
+            let activitySlider = false;
             if(activitiesImages){
             
                 activitiesImages.forEach(activity => {
@@ -121,6 +137,11 @@ function loadTourDetails(slug){
                                 image1Flag = true;
                                 image1 = url.original;
                             }
+                            if(!activitySlider){
+                                activitySlider = true;
+                                sliderImages.push(url.original);
+                               
+                            }
                             
                             allImageContainer.innerHTML += getAllImagesHTML(url.original, activity.title, 'allImages');
                         
@@ -130,7 +151,7 @@ function loadTourDetails(slug){
                 });
             }        
             const locationImageMap = new Map();
-            
+            let destinationSlider = false;
             if(destinationsImages){
               
                 destinationsImages.forEach(activity => {
@@ -153,14 +174,17 @@ function loadTourDetails(slug){
                                 image1Flag = true;
                                 image1 = url.original;
                             }
-                            
+                            if(!destinationSlider){
+                                destinationSlider = true;
+                                sliderImages.push(url.original);
+                            }
                             allImageContainer.innerHTML += getAllImagesHTML(url.original,activity.title, 'allImages');
                         });
                         allDestinationsContainer.innerHTML += getAllImagesHTML(image1, activity.title, 'destinations', activity.galleryMedia.length);
                     }
                 });
             }
-          
+            let propertiesSlider = false;
             if(propertiesImages){
                 let i = 0;
                 propertiesImages.forEach(activity => {
@@ -181,6 +205,11 @@ function loadTourDetails(slug){
                                 image1Flag = true;
                                 image1 = url.original;
                             }
+                            if(!propertiesSlider){
+                               
+                                propertiesSlider = true;
+                                sliderImages.push(url.original);
+                            }
                             
                             allImageContainer.innerHTML += getAllImagesHTML(url.original, activity.title, 'allImages');
                         });
@@ -189,8 +218,24 @@ function loadTourDetails(slug){
                 });
             }  
         
+            $(document).ready(function(){
+                var owl = $("#main-slider");
+
+                owl.owlCarousel('destroy').owlCarousel({
+                    items: 1,
+                    loop: true,
+                    dots: true
+                   
+                    // other options
+                });
+                // Add images to Owl Carousel
+                sliderImages.forEach(function(src) {
+                    var item = `<div class="item"><img src="https://storage.googleapis.com/bikat_adventure_image/${src}" alt=""></div>`;
+                    owl.trigger('add.owl.carousel', [$(item)]).trigger('refresh.owl.carousel');
+                });
+            });
+
             addImageHeaderWithImgCount(activitiesImgCount, destinationImgCount, propertryImgCount);
-        
 
             getFilterHTML(data.filters);
             getDistinationRouteHTML(data.filters)
@@ -204,6 +249,10 @@ function loadTourDetails(slug){
            $(document).ready(function() {
                 // Add the HTML to the container
                 $('#itinerary-img-container').html(getItineraryHTML(data.itinerary, locationImageMap, activityImageMap));
+                getSummarisedItineraryHTML(data.itinerary, locationImageMap, activityImageMap);
+                getActivityItineraryHTML(data.itinerary, locationImageMap, activityImageMap);
+                getStayItineraryHTML(data.itinerary, locationImageMap, activityImageMap);
+                getTransferItineraryHTML(data.itinerary, locationImageMap, activityImageMap);
                // $('.owl-carousel').owlCarousel('destroy');
                 // Initialize Owl Carousel
                 $('.owl-carousel-img').owlCarousel({
@@ -258,8 +307,9 @@ function loadTourDetails(slug){
                     nav: false,
                     items: 1,
                 });
+                 // loadCustomAccordion();
                 document.querySelectorAll('.customAccordion .accordion').forEach(accordion => {
-                    console.log(accordion);
+                  
                     accordion.addEventListener('click', function() {
                         
                         let customAccordion = this.parentElement;
@@ -267,18 +317,19 @@ function loadTourDetails(slug){
                     });
                 });
                 
-                // Simulating data load with a timeout
-                function loadRemainPointData(callback) {
-                    setTimeout(() => {
-                        // Simulate data load completion
-                        callback();
-                    }, 1000); // Adjust as necessary
-                }
+                // // Simulating data load with a timeout
+                // function loadRemainPointData(callback) {
+                //     setTimeout(() => {
+                //         // Simulate data load completion
+                //         callback();
+                //     }, 1000); // Adjust as necessary
+                // }
 
-                // After data is loaded
-                loadRemainPointData(updateButtonText);
+                // // After data is loaded
+                // loadRemainPointData(updateButtonText);
             });
 
+        
 
             const inclusionId = document.getElementById("inclusion-container");
             inclusionId.innerHTML = '';
@@ -294,22 +345,15 @@ function loadTourDetails(slug){
             activityInclusionList.forEach(inclusion => {
                 inclusionId.innerHTML += getInclusionHTML(inclusion);
             });
-            if(data.inclusion){
-                data.inclusion.forEach(inclusion => {
-                    inclusionId.innerHTML += getInclusionHTML(inclusion);
-                });
-            }
-           
+            data.inclusion.forEach(inclusion => {
+                inclusionId.innerHTML += getInclusionHTML(inclusion);
+            });
 
             const exclusionId = document.getElementById("exclusion-container");
             exclusionId.innerHTML = '';
-
-            if(data.exclusion){
-                data.exclusion.forEach(exclusion => {
-                    exclusionId.innerHTML += getExclusionHTML(exclusion);
-                });
-            }
-           
+            data.exclusion.forEach(exclusion => {
+                exclusionId.innerHTML += getExclusionHTML(exclusion);
+            });
 
             const cancellationPolicy = document.getElementById("cancellationPolicy-container");
             cancellationPolicy.innerHTML = '';
@@ -319,17 +363,19 @@ function loadTourDetails(slug){
                 });
             }
          
-
-
-           // loadIndexJs();
             loadAllImagesModel();
 
-            
-        
-            //loadItineraryTab();
-            //loadItineraryImg();
-            // Initialize Owl Carousel
-            
+            // Simulating data load with a timeout
+            function loadRemainPointData(callback) {
+                setTimeout(() => {
+                    // Simulate data load completion
+                    callback();
+                }, 1000); // Adjust as necessary
+            }
+
+            // After data is loaded
+            loadRemainPointData(remainStops);
+           
         })
         .catch(error => {
             console.error('Error fetching data:', error);
@@ -391,6 +437,7 @@ function addImageHeaderWithImgCount(activitiesImgCount, destinationImgCount, pro
 }
 
 function getMainImageHTML(url, eventType){
+    console.log(url);
     let html = `<div class ="item">`;
     html += ` <img src="https://storage.googleapis.com/bikat_adventure_image/${url}"
                 alt="">`;
@@ -401,6 +448,11 @@ function getMainImageHTML(url, eventType){
     
     return html+`</div>`;   
            
+}
+
+function getSliderImageHTML(url){
+
+    return ` <img src="https://storage.googleapis.com/bikat_adventure_image/${url}" alt="">`;         
 }
 
 function getImageHTML(url, eventType){
@@ -557,7 +609,7 @@ function getFilterHTML(filters){
         filters.numberOfDaysFilters.forEach(trip => {
             var html = "";
             if(trip.isSelected){
-                html += `<div class="trips show active">`;                                        
+                html += `<div class="trips show active" onclick="load_index('${trip.slug}')">`;                                        
             }else{
                 html += `<div class="trips show" onclick="load_index('${trip.slug}')">`;
                
@@ -811,7 +863,407 @@ let iconMap = {
     airport:'/assets/images/svg/routeFlight.svg',
     hotel : '/assets/images/svg/stay.svg',
     activity : '/assets/images/svg/activity.svg',
-    location_point: '/assets/images/svg/nature.svg'
+    location_point: '/assets/images/svg/nature.svg',
+    ACTIVITY : '/assets/images/svg/balloon.svg',
+    TRANSFER : '/assets/images/svg/car.svg',
+    HOTEL : '/assets/images/svg/stay.svg',
+}
+function getSummarisedItineraryHTML(itinerary, locationImageMap, activityImageMap) {
+    const tripSummaryContainer = document.getElementById('summarised-img-container');
+
+    let hotelCount = 0;
+    let transferCount = 0;
+    let activityCount = 0;
+
+    itinerary.locationDayGroup.forEach(location => {
+        location.days.forEach(day => {
+            const groupedEventTypes = groupEventsByType(day.event);
+
+            transferCount += groupedEventTypes.TRANSFER ? groupedEventTypes.TRANSFER.length : 0;
+            hotelCount += groupedEventTypes.HOTEL ? groupedEventTypes.HOTEL.length : 0;
+            activityCount += groupedEventTypes.ACTIVITY ? groupedEventTypes.ACTIVITY.length : 0;
+        });
+    });
+
+    const summaryHTML = generateSummaryHTML(activityCount, transferCount, hotelCount);
+
+    let itineraryDaysHTML = '';
+
+    itinerary.locationDayGroup.forEach(location => {
+        location.days.forEach(day => {
+            const groupedEventTypes = groupEventsByType(day.event);
+
+            const dayHTML = generateDayHTML(day, location, groupedEventTypes);
+
+            itineraryDaysHTML += dayHTML;
+        });
+    });
+
+    tripSummaryContainer.innerHTML = summaryHTML + itineraryDaysHTML + '</div>';
+}
+
+function groupEventsByType(events) {
+    return events.reduce((acc, event) => {
+        acc[event.eventType] = acc[event.eventType] || [];
+        acc[event.eventType].push(event);
+        return acc;
+    }, {});
+}
+
+function generateSummaryHTML(activityCount, transferCount, hotelCount) {
+    return `
+        <div class="tripSummary">
+            <div class="summaryHead">
+                <h2>Trip Summary</h2>
+                <div class="bottomSection">
+                    <div class="events">
+                        <div class="icon"><img src="/assets/images/svg/balloon.svg" alt="Activity Icon"></div>
+                        <div class="name">${activityCount} Activities</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="events">
+                        <div class="icon"><img src="/assets/images/svg/car.svg" alt="Transfer Icon"></div>
+                        <div class="name">${transferCount} Transfers</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="events">
+                        <div class="icon"><img src="/assets/images/svg/stay.svg" alt="Hotel Icon"></div>
+                        <div class="name">${hotelCount} Hotels</div>
+                    </div>
+                </div>
+            </div>`;
+}
+
+function generateDayHTML(day, location, groupedEventTypes) {
+    const transferLength = groupedEventTypes.TRANSFER ? groupedEventTypes.TRANSFER.length : 0;
+    const hotelLength = groupedEventTypes.HOTEL ? groupedEventTypes.HOTEL.length : 0;
+    const activityLength = groupedEventTypes.ACTIVITY ? groupedEventTypes.ACTIVITY.length : 0;
+
+    let dayHTML = `
+        <div class="itineraryDay">
+            <div class="dayHeader">
+                <h4>Day ${day.dayNumber} - ${location.location}</h4>
+                <div class="dayEvent">
+                    ${activityLength > 0 ? generateEventCountHTML('balloon', activityLength) : ''}
+                    ${hotelLength > 0 ? generateEventCountHTML('stay', hotelLength) : ''}
+                    ${transferLength > 0 ? generateEventCountHTML('car', transferLength) : ''}
+                </div>
+            </div>
+            <div class="dayContent">`;
+
+    dayHTML += generateEventDetailsHTML(groupedEventTypes, day);
+
+    if (hotelLength > 0) {
+        dayHTML += `
+            <div class="mealWrapper">
+                <div class="lunchDnnr">
+                    <div class="mealTime">
+                        <img src="/assets/images/svg/lunch.svg" alt="Lunch Icon">
+                        <span>Lunch</span>
+                    </div>
+                    <div class="sep">Or</div>
+                    <div class="mealTime">
+                        <img src="/assets/images/svg/dinner.svg" alt="Dinner Icon">
+                        <span>Dinner at ${groupedEventTypes.HOTEL[0].title}</span>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    dayHTML += `</div></div>`;
+    return dayHTML;
+}
+
+function generateEventCountHTML(iconType, count) {
+    return `
+        <div class="eventCount">
+            <span class="count">${count}</span>
+            <img src="/assets/images/svg/${iconType}.svg" alt="${iconType} Icon">
+        </div>
+        <div class="divider"></div>`;
+}
+
+function generateEventDetailsHTML(groupedEventTypes, day) {
+    let eventHTML = '';
+
+    for (const [eventType, details] of Object.entries(groupedEventTypes)) {
+        if (details.length > 1 && eventType === 'TRANSFER') {
+            eventHTML += `
+                <div class="dayEvent">
+                    <div class="leftSection">
+                        <img src="${iconMap[eventType] || '/assets/images/svg/nature.svg'}" alt="${eventType} Icon">
+                    </div>
+                    <div class="rightSection">
+                        <div class="eventTitle">${eventType.charAt(0).toUpperCase() + eventType.slice(1).toLowerCase()}s:</div>
+                        ${generateMultipleTransferEventHTML(details)}
+                    </div>
+                </div>`;
+        } else {
+            let title = details[0].title;
+            if (eventType === 'TRANSFER') {
+                const events = details[0].eventData;
+                const firstTitle = events[0] ? events[0].title : '';
+                const lastTitle = events[events.length - 1] ? events[events.length - 1].title : '';
+                title = `Transfer from ${firstTitle} to ${lastTitle}`;
+            }
+            eventHTML += `
+                <div class="dayEvent">
+                    <div class="leftSection">
+                        <img src="${iconMap[eventType] || '/assets/images/svg/nature.svg'}" alt="${eventType} Icon">
+                    </div>
+                    <div class="rightSection">
+                        <div class="eventTitle">${eventType.charAt(0).toUpperCase() + eventType.slice(1).toLowerCase()}:</div>
+                        <span class="singleEvent">${title}</span>
+                    </div>
+                </div>`;
+        }
+    }
+
+    return eventHTML;
+}
+
+function generateMutipleTransferEventHTML(details) {
+    let htmlOutput = '<ul class="mutliEvents">';
+
+    details.forEach(detail => {
+        // Extract eventData and get first and last titles
+        const eventData = detail.eventData;
+        const firstTitle = eventData[0] ? eventData[0].title : '';
+        const lastTitle = eventData[eventData.length - 1] ? eventData[eventData.length - 1].title : '';
+
+        // Create a list item for each entry
+        htmlOutput += `<li>${firstTitle} to ${lastTitle}</li>`;
+    });
+
+    htmlOutput += '</ul>';
+    return htmlOutput;
+}
+
+function getStayItineraryHTML(itinerary, locationImageMap, activityImageMap) {
+    const tripStayContainer = document.getElementById('stay-img-container');
+    let html = '';
+
+    itinerary.locationDayGroup.forEach(location => {
+        location.days.forEach(day => {
+            const hotels = day.event.filter(event => event.eventType === 'HOTEL');
+
+            if (hotels.length > 0) {
+                html += `
+                <div class="customAccordion show">
+                    <div class="accordion">
+                        <div class="accordionTitle">
+                            <div class="day">Day ${day.dayNumber}</div>
+                            <div class="title">${day.title}</div>
+                        </div>
+                        <img src="/assets/images/svg/arrow.svg" alt="Arrow" class="arrowImg">
+                    </div>
+                    <div class="accordionDetails">
+                        <div class="details">
+                            ${hotels.map(event => subStayItineraryHTML(event, location.days.length)).join('')}
+                        </div>
+                    </div>
+                </div>`;
+            }
+        });
+    });
+
+    tripStayContainer.innerHTML = html;
+}
+
+function subStayItineraryHTML(event, dayCountForTour) {
+    if (event.eventType !== 'HOTEL') return '';
+
+    const stayDuration = dayCountForTour === 1 ? 1 : dayCountForTour - 1;
+    const eventDataHtml = event.eventData.map(eventData => `
+        <div class="hotelCard">
+            <div class="hotelImg">
+                <img src="https://storage.googleapis.com/bikat_adventure_image/${eventData.imageUrl}" alt="${eventData.title}">
+                <div class="imgContent">
+                    <div class="rating">
+                        <img src="/assets/images/svg/whiteStar.svg" alt="Rating"><span>4.5 / 5</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hotelName">${eventData.title}</div>
+        </div>
+    `).join('');
+
+    const inclusionsHtml = event.inclusions ? event.inclusions.map(inclusion => `
+        <div class="includeWrapper">
+            <div class="includeName">
+                <img src="/assets/images/svg/breakfast.svg" alt="Inclusion">${inclusion}
+            </div>
+            <div class="includeStatus">
+                <img src="/assets/images/svg/doubletick.svg" alt="Included">Included
+            </div>
+        </div>
+        <div class="vrLine"></div>
+    `).join('') : '';
+
+    return `
+    <div class="stay">
+        <div class="basicHead">
+            <div class="headIcon">
+                <img src="/assets/images/svg/stay.svg" alt="Stay Icon">Stay At
+            </div>
+            <div class="headName">${event.title}</div>
+        </div>
+        <div class="stayTimeline">
+            <div class="start">
+                <span class="head">Check In</span>
+                <span class="time">${event.startTime}</span>
+            </div>
+            <div class="separator">
+                <div class="duration">${stayDuration}N</div>
+            </div>
+            <div class="end">
+                <span class="head">Check Out</span>
+                <span class="time">${event.endTime}</span>
+            </div>
+        </div>
+    </div>
+    <div class="hotelList">
+        <div class="optionHeading">Stays will be allocated based on availability or similar category</div>
+        <div class="hotelCards">
+            ${eventDataHtml}
+        </div>
+        <div class="includedSection">
+            <div class="includeTitle">Inclusions :</div>
+            <div class="includeList">
+                ${inclusionsHtml}
+            </div>
+        </div>
+    </div>`;
+}
+
+function getTransferItineraryHTML(itinerary, locationImageMap, activityImageMap) {
+    const tripTransferContainer = document.getElementById('transfers-img-container');
+    let html = '';
+
+    itinerary.locationDayGroup.forEach(location => {
+        const dayCountForTour = location.days.length;
+        location.days.forEach(day => {
+            const transfers = day.event.filter(event => event.eventType === 'TRANSFER');
+
+            if (transfers.length > 0) {
+                html += `
+                <div class="customAccordion show">
+                    <div class="accordion">
+                        <div class="accordionTitle">
+                            <div class="day">Day ${day.dayNumber}</div>
+                            <div class="title">${day.title}</div>
+                        </div>
+                        <img src="/assets/images/svg/arrow.svg" alt="Arrow" class="arrowImg">
+                    </div>
+                    <div class="accordionDetails">
+                        <div class="details">
+                            ${transfers.map(event => subTransferItineraryHTML(event, dayCountForTour)).join('')}
+                        </div>
+                    </div>
+                </div>`;
+            }
+        });
+    });
+
+    tripTransferContainer.innerHTML = html;
+}
+
+function subTransferItineraryHTML(event, dayCountForTour) {
+    if (event.eventType !== 'TRANSFER') return '';
+
+    const transferClass = event.eventData.length > 2 ? 'dayEvent transfer' : 'transfer';
+    const transferDetails = event.eventData.map((eventData, index) =>
+        generateTransferEventHTML(eventData, index, event.eventData.length)
+    ).join('');
+
+    return `
+    <div class="${transferClass}">
+        <div class="basicHead">
+            <div class="headIcon">
+                <img src="/assets/images/svg/car.svg" alt="Car Icon">${event.transportType}
+            </div>
+            <div class="headName">${event.title}</div>
+        </div>
+        <div class="destinationTimeline">
+            ${transferDetails}
+        </div>
+    </div>`;
+}
+
+function generateTransferEventHTML(eventData, index, total) {
+    // Assuming this function generates the HTML for each transfer event.
+    return `
+    <div class="transferEvent">
+        <div class="eventIndex">${index + 1} of ${total}</div>
+        <div class="eventTitle">${eventData.title}</div>
+        <div class="eventLocation">${eventData.location}</div>
+    </div>`;
+}
+
+function getActivityItineraryHTML(itinerary, locationImageMap, activityImageMap) {
+    const tripActivitiesContainer = document.getElementById('activities-img-container');
+    let html = '';
+
+    itinerary.locationDayGroup.forEach(location => {
+        location.days.forEach(day => {
+            const activities = day.event.filter(event => event.eventType === 'ACTIVITY');
+
+            if (activities.length > 0) {
+                html += `
+                <div class="customAccordion show">
+                    <div class="accordion">
+                        <div class="accordionTitle">
+                            <div class="day">Day ${day.dayNumber}</div>
+                            <div class="title">${day.title}</div>
+                        </div>
+                        <img src="/assets/images/svg/arrow.svg" alt="Arrow" class="arrowImg">
+                    </div>
+                    <div class="accordionDetails">
+                        <div class="details">
+                            ${activities.map(event => subActivityItineraryHTML(event, activityImageMap)).join('')}
+                        </div>
+                    </div>
+                </div>`;
+            }
+        });
+    });
+
+    tripActivitiesContainer.innerHTML = html;
+}
+
+function subActivityItineraryHTML(event, activityImageMap) {
+    if (event.eventType !== 'ACTIVITY') return '';
+
+    const imageList = activityImageMap.get(event.title) || [];
+    const attachedEventsHTML = event.attachedEvents ? `
+        <div class="optionHeading">You’ll be covering these amazing experiences</div>
+        <div class="owl-carousel owl-theme activityCorner">
+            ${event.attachedEvents.map((attachedEvent, index) => `
+                <div class="item">
+                    <div class="activityCard">
+                        <img src="https://storage.googleapis.com/bikat_adventure_image/${attachedEvent.imageUrl}" style="height:284.21px" alt="">
+                        <p>${index + 1}. ${attachedEvent.title}</p>
+                    </div>
+                </div>
+            `).join('')}
+        </div>` : '';
+
+    return `
+    <div class="activity">
+        <div class="basicHead">
+            <div class="headIcon">
+                <img src="/assets/images/svg/balloon.svg" alt="Balloon Icon">Activity
+            </div>
+            <div class="headName">${event.title}</div>
+        </div>
+        <div class="owl-carousel owl-theme activitySlider">
+            ${imageList.map(img => `
+            <div class="item">
+                <img src="https://storage.googleapis.com/bikat_adventure_image/${img}" alt="${event.title} Image">
+            </div>`).join('')}
+        </div>
+        ${attachedEventsHTML}
+    </div>`;
 }
 
 
@@ -872,10 +1324,7 @@ function getItineraryHTML(itinerary, locationImageMap, activityImageMap) {
                     <div class="accordionDetails">
                         <div class="details">
                             <p>${day.description}</p>
-                            ${day.event
-                                .sort((a, b) => a.position - b.position) // Sort events by position
-                                .map(event => generateEventHTML(event, dayCountForTour, activityImageMap)) // Generate HTML for each event
-                                .join('')}
+                            ${day.event.map(event => generateEventHTML(event, dayCountForTour, activityImageMap)).join('')}
                         </div>
                     </div>
                 </div>
@@ -1019,7 +1468,7 @@ function generateEventHTML(event, dayCountForTour, activityImageMap) {
  */
 function generateTransferEventHTML(eventData, index, length) {
     
-    const icon = iconMap[eventData.eventType] || 'assets/images/svg/nature.svg';
+    const icon = iconMap[eventData.eventType] || '/assets/images/svg/nature.svg';
             
     if (index === 0) {
         return `
@@ -1065,5 +1514,5 @@ function generateTransferEventHTML(eventData, index, length) {
 function load_index(slug){
     
     loadTourDetails(slug);
-    history.pushState({}, '',  `${slug}`);
+    history.pushState({}, '',  `?slug=${slug}`);
 }

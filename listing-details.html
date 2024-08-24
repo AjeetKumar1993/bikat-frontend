@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <base href="http://fullontravel.com/tours/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/index.css">
@@ -18,52 +17,49 @@
     <div class="saleHeader">
         <b>Monsoon Sale</b> Save Upto <b>USD 89.72</b> On Your Ladakh Trip
     </div>
-    <div class="mainHeader">
-        <a href="/index.html">
-            <img src="/assets/images/logo.png" alt="" class="siteLogo">
-        </a>
-       
-        <form class="searchBox">
-            <label for="search">
-                <input class="input" type="text" required="" placeholder="Search" id="search">
-                <div class="fancy-bg"></div>
-                <div class="search">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"
-                        class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
-                        <g>
-                            <path
-                                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
-                            </path>
-                        </g>
-                    </svg>
+    <div class="headerbg">
+        <div class="mainHeader">
+            <a href="index.html"><img src="/assets/images/logo.png" alt="" class="siteLogo"></a>
+            
+            <form class="searchBox">
+                <label for="search">
+                    <input class="input" type="text" required="" placeholder="Search" id="search">
+                    <div class="fancy-bg"></div>
+                    <div class="search">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"
+                            class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
+                            <g>
+                                <path
+                                    d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                    <button class="close-btn" type="reset">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </label>
+            </form>
+            <div class="loginDiv">
+                <div class="currency">
+                    <span>
+                        <span class="flag"><img src="/assets/images/flags/india.png" alt=""></span>
+                        INR ₹ <i class="fa-solid fa-angle-down"></i>
+                    </span>
                 </div>
-                <button class="close-btn" type="reset">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-            </label>
-        </form>
-        <div class="loginDiv">
-            <div class="currency">
-                <span>
-                    <span class="flag"><img src="/assets/images/flags/india.png" alt=""></span>
-                    INR ₹ <i class="fa-solid fa-angle-down"></i>
-                </span>
+                <button class="loginBtn">Login</button>
             </div>
-            <button class="loginBtn">Login</button>
         </div>
     </div>
-    <div class="main">
+    <div class="mainUltimate">
         <div class="featureImages">
             <div class="mainImage">
-                <div class="owl-carousel owl-theme owl-carousel-img" > 
-                    <div  id="mainImage-container"></div>
-                    <div  id="slider-destination-container"></div>
-                    <div  id="slider-property-container"> </div>
-                    <div  id="slider-activity-container"> </div>
+                <div id="main-slider" class="owl-carousel owl-theme owl-carousel-img">
+                   
                 </div>
             </div>
             <div class="otherFeatureimg">
@@ -95,30 +91,27 @@
                     </div>
                 </div>
             </div>
-        </div>    
-
-        <div class="tripTitle" id="trip-name-container">
-           
         </div>
-
-        <div class="tripDay">
-            <div class="tripSection">
-                <div class="days" id="trip-day-container">
-    
-                </div>
-                <div class="stayDay" id="stay-day-container">
-                   
-                </div>
-            </div>
-        </div>
+    </div>
+    <div class="main">
 
         <div class="mainContent">
             <div class="leftSide">
-
+            
+                <div class="tripTitle" id="trip-name-container"></div>
+                <div class="tripDay">
+                    <div class="tripSection">
+                        <div class="days" id="trip-day-container">
+            
+                        </div>
+                        <div class="stayDay" id="stay-day-container">
+                           
+                        </div>
+                    </div>
+                </div>
                 <div class="facility" id="facility-container"> </div>
-               
                 <div class="otherTrip" id="similar-trip-container"></div>
-                
+
                 <div class="destinationFilter">
                     <h3>Destination Routes</h3>
                     <div id="destinationRoute-container"></div>
@@ -166,29 +159,23 @@
                         </div>
                     </div>
                     <div class="tabContent">
-                        <div class="itinerarytabContent itinerary active"  id="itinerary-img-container">
-                         
-                         </div>
-                        <div class="itinerarytabContent activities"  id="itinerary-img-container">
-                            
-                        </div>
-                        <div class="itinerarytabContent stay"  id="itinerary-img-container">
-                           
-                        </div>
-                        <div class="itinerarytabContent transfers"  id="itinerary-img-container">
-                          
-                        </div>
+
+                        <div class="itinerarytabContent itinerary active"  id="itinerary-img-container"></div>
+                        <div class="itinerarytabContent summarised" id="summarised-img-container"> </div>
+                        <div class="itinerarytabContent activities"  id="activities-img-container"></div>
+                        <div class="itinerarytabContent stay"  id="stay-img-container"></div>
+                        <div class="itinerarytabContent transfers"  id="transfers-img-container"></div>
                     </div>
                 </div>
             </div>
             <div class="rightSide">
-                <div class="prizeList">
+                <!-- <div class="prizeList">
                     <div class="prizeSection">
                         <div class="prize">
                             <div class="discountPrize">
-                                <div class="prize">INR 18,500</div><span>Per Person</span>
+                                <div class="prize"></div><span>Per Person</span>
                             </div>
-                            <div class="mainPrize">INR 26,000</div>
+                            <div class="mainPrize"></div>
                         </div>
                         <div class="productRating">
                             <div class="rating">
@@ -209,27 +196,60 @@
                     <div class="enquiryBtn_space">
                         <button class="enquiryBtn">Send Enquiry</button>
                     </div>
-                </div>
-                <div class="enquiryForm">
-                    <div class="tripenquiryTitle">
-                        Leh Ladakh Bike Trip | FREE Excursion To Chang-La Pass
-                    </div>
-                    <div class="prize">
-                        <div class="discount">INR 18,500</div>
-                        <div class="mainPrize">INR 26,000</div>
-                        <div class="savedPrize">Save INR 7,500</div>
-                    </div>
-                    <form action="" class="">
-                        <input class="form-control" type="text" placeholder="Full Name *">
-                        <input class="form-control" type="text" placeholder="Email *">
-                        <input class="form-control" type="tel" value="+91">
-                        <div class="getherInput">
-                            <input class="form-control" type="text" placeholder="Travel Date *">
-                            <input class="form-control" type="text" placeholder="Travel Count">
+                </div> -->
+                <div class="prizeList_m">
+                    <div class="durationRating">
+                        <div class="days">6 Days, 5 Nights</div>
+                        <div class="rating">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.4829 5.63406L10.6864 4.90408L8.54222 0.352135C8.48365 0.227506 8.38731 0.126615 8.26829 0.0652895C7.96981 -0.0890138 7.6071 0.0395723 7.45786 0.352135L5.3137 4.90408L0.517213 5.63406C0.384974 5.65384 0.26407 5.71912 0.171503 5.81803C0.0595945 5.93848 -0.0020722 6.10053 5.31712e-05 6.26856C0.00217854 6.4366 0.0679221 6.59688 0.182838 6.71418L3.65316 10.2572L2.83328 15.2602C2.81405 15.3766 2.82635 15.4963 2.86878 15.6057C2.91121 15.7151 2.98207 15.8099 3.07333 15.8793C3.16459 15.9488 3.27259 15.99 3.38509 15.9984C3.4976 16.0068 3.6101 15.982 3.70983 15.9269L8.00004 13.5648L12.2902 15.9269C12.4074 15.9922 12.5434 16.0139 12.6737 15.9902C13.0024 15.9308 13.2235 15.6044 13.1668 15.2602L12.3469 10.2572L15.8172 6.71418C15.9117 6.61724 15.974 6.49064 15.9929 6.35216C16.0439 6.00597 15.8135 5.68549 15.4829 5.63406Z"
+                                    fill="#19AD6F"></path>
+                            </svg>
+                            <span class="currentRating">4.6</span>
+                            <span class="totalRatings">(12.2K)</span>
                         </div>
-                        <textarea class="form-control" name="" id="" placeholder="Message..."></textarea>
-                        <button class="enquiryBtn">Send Enquiry</button>
-                    </form>
+                    </div>
+                    <div class="tripName">Leh Ladakh Bike Trip | FREE Excursion to Chang-la Pass</div>
+                    <div class="prizeSection">
+                        <div class="prize">
+                            <div class="discountPrize">
+                                <div class="prize"></div><span>Per Person</span>
+                            </div>
+                            <div class="mainPrize"></div>
+                        </div>
+                        <div class="productRating">
+                            <div class="offer">
+                                Monsoon Sale!
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="enquiryForm">
+                    <div class="formAssembly">
+                        <div class="tripenquiryTitle" id="tripenquiryTitle" >
+                            
+                        </div>
+                        <div class="prize">
+                            <div class="discount" id="discount"></div>
+                            <div class="mainPrize" id="mainPrize"></div>
+                            <div class="savedPrize" id="savedPrize"></div>
+                        </div>
+                        <div class="addInput">
+                            <form action="" class="">
+                                <input class="form-control" type="text" placeholder="Full Name *">
+                                <input class="form-control" type="text" placeholder="Email *">
+                                <input class="form-control" type="tel" value="+91">
+                                <div class="getherInput">
+                                    <input class="form-control" type="text" placeholder="Travel Date *">
+                                    <input class="form-control" type="text" placeholder="Travel Count">
+                                </div>
+                                <textarea class="form-control" name="" id="" placeholder="Message..."></textarea>
+                                <button class="enquiryBtn">Send Enquiry</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -251,8 +271,8 @@
                 <div class="vrLine"></div>
                 <div class="exclusion">
                     <h3>Exclusions</h3>
-
                     <div class="packageInfo" id="exclusion-container"></div>
+
 
                 </div>
             </div>
@@ -293,9 +313,9 @@
         </div>
 
         <div class="addedInfo">
-            <h3>Additional Information</h3>
+            <div class="addedHead">Additional Information</div>
             <div class="information">
-                <p><b>About the destination : .......</b></p>
+                <p>About the destination : .......</p>
                 <button class="more">Read More</button>
             </div>
         </div>
@@ -327,30 +347,35 @@
                         <div class="progressBar">
                             <div class="progress"></div>
                         </div>
+                        <div class="count">7.9K</div>
                     </div>
                     <div class="countFrom">
                         <div class="countCat">4 <img src="/assets/images/svg/goldStar.svg" alt=""></div>
                         <div class="progressBar">
                             <div class="progress"></div>
                         </div>
+                        <div class="count">8.9K</div>
                     </div>
                     <div class="countFrom">
                         <div class="countCat">3 <img src="/assets/images/svg/goldStar.svg" alt=""></div>
                         <div class="progressBar">
                             <div class="progress"></div>
                         </div>
+                        <div class="count">0K</div>
                     </div>
                     <div class="countFrom">
                         <div class="countCat">2 <img src="/assets/images/svg/goldStar.svg" alt=""></div>
                         <div class="progressBar">
                             <div class="progress"></div>
                         </div>
+                        <div class="count">0K</div>
                     </div>
                     <div class="countFrom">
                         <div class="countCat">1 <img src="/assets/images/svg/goldStar.svg" alt=""></div>
                         <div class="progressBar">
                             <div class="progress"></div>
                         </div>
+                        <div class="count">1.0K</div>
                     </div>
                 </div>
             </div>
@@ -359,28 +384,30 @@
         <div class="travelGallery">
             <h2>Traveller Image Gallery</h2>
             <div class="gridGallery">
-                <div class="galleryImg mainImg">
+                <div class="mainImg">
                     <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
                         alt="" class="gridgalleryImg">
                     <div class="viewMorebtn">
                         <button class="moreBtn"><img src="/assets/images/svg/camera.svg" alt="">View All</button>
                     </div>
                 </div>
-                <div class="galleryImg img1">
-                    <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
-                        alt="" class="gridgalleryImg">
-                </div>
-                <div class="galleryImg img2">
-                    <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
-                        alt="" class="gridgalleryImg">
-                </div>
-                <div class="galleryImg img3">
-                    <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
-                        alt="" class="gridgalleryImg">
-                </div>
-                <div class="galleryImg img4">
-                    <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
-                        alt="" class="gridgalleryImg">
+                <div class="otherGalleryimg">
+                    <div class="galleryImg">
+                        <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
+                            alt="" class="gridgalleryImg">
+                    </div>
+                    <div class="galleryImg">
+                        <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
+                            alt="" class="gridgalleryImg">
+                    </div>
+                    <div class="galleryImg">
+                        <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
+                            alt="" class="gridgalleryImg">
+                    </div>
+                    <div class="galleryImg">
+                        <img src="https://media1.thrillophilia.com/filestore/15epjifrvmswjniprbk86c0o29c4_IMG_20221124_130014.jpg?w=700&dpr=1"
+                            alt="" class="gridgalleryImg">
+                    </div>
                 </div>
             </div>
             <div class="customerReview">
@@ -482,25 +509,78 @@
             </div>
         </div>
 
-        <div class="aboutfaqTrip">
-            <h3>Ladakh Tour FAQs</h3>
-            <ul>
-                <li>Is the Ladakh bike trip safe?</li>
-                <li>Is the Leh Ladakh worth visiting?</li>
-                <li>What is the best time for Ladakh bike trip?.</li>
-                <li>What are the essential things to carry for Ladakh trip on bike?</li>
-                <li>What places are included in the Leh Ladakh Bike tour package?</li>
-                <li>What meals are included in Leh Ladakh Bike tour package?</li>
-                <li>What kind of accommodation is included in the Leh Ladakh bike tour package?</li>
-                <li>Which are some of the good bikes for Ladakh trip on the bike?</li>
-            </ul>
+        <div class="customAccordion show">
+            <div class="accordion">
+                <div class="accordionTitle">
+                    <div class="title">Ladakh Tour FAQs</div>
+                </div>
+                <img src="/assets/images/svg/arrow.svg" alt="" class="arrowImg">
+            </div>
+            <div class="accordionDetails">
+                <div class="details">
+                    <ul>
+                        <li>Is the Ladakh bike trip safe?</li>
+                        <li>Is the Leh Ladakh worth visiting?</li>
+                        <li>What is the best time for Ladakh bike trip?.</li>
+                        <li>What are the essential things to carry for Ladakh trip on bike?</li>
+                        <li>What places are included in the Leh Ladakh Bike tour package?</li>
+                        <li>What meals are included in Leh Ladakh Bike tour package?</li>
+                        <li>What kind of accommodation is included in the Leh Ladakh bike tour package?</li>
+                        <li>Which are some of the good bikes for Ladakh trip on the bike?</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <div class="aboutcancelTrip">
-            <h3>Cancellation Policy</h3>
-            <ul id="cancellationPolicy-container">
-               
-            </ul>
+        <div class="customAccordion">
+            <div class="accordion">
+                <div class="accordionTitle">
+                    <div class="title">Cancellation Policy</div>
+                </div>
+                <img src="/assets/images/svg/arrow.svg" alt="" class="arrowImg">
+            </div>
+            <div class="accordionDetails">
+                <div class="details">
+                    <ul id="cancellationPolicy-container">
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="customAccordion">
+            <div class="accordion">
+                <div class="accordionTitle">
+                    <div class="title">Confirmation Policy</div>
+                </div>
+                <img src="/assets/images/svg/arrow.svg" alt="" class="arrowImg">
+            </div>
+            <div class="accordionDetails">
+                <div class="details">
+                    <ul>
+                        <li>Payment can be done in parts.</li>
+                        <li>After making your first payment, you will get an email confirmation.</li>
+                        <li>Once you make the 100% payment for your booking, you'll get the booking voucher containing
+                            all the information about your trip.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="customAccordion">
+            <div class="accordion">
+                <div class="accordionTitle">
+                    <div class="title">Refund Policy</div>
+                </div>
+                <img src="/assets/images/svg/arrow.svg" alt="" class="arrowImg">
+            </div>
+            <div class="accordionDetails">
+                <div class="details">
+                    <ul>
+                        <li>The applicable refund amount will be processed within 10 business days.</li>
+                        <li>All applicable refunds will be done in the traveler's Thrillophilia wallet as Thrillcash.
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="customAccordion">
             <div class="accordion">
@@ -666,6 +746,43 @@
         </div>
     </footer>
 
+    <div class="mobileEnquiryform">
+        <div class="enquiryBtnbg">
+            <div class="enquiryBtndiv">
+                <button class="enquiryBtn">Send Enquiry</button>
+            </div>
+        </div>
+
+        <div class="darkFrombg">
+            <div class="enquiryForm">
+                <button class="closeBtn"><i class="fa-solid fa-xmark"></i></button>
+                <div class="formAssembly">
+                    <div class="tripenquiryTitle" id="tripenquiryTitle_M">
+                        
+                    </div>
+                    <div class="prize">
+                        <div class="discount" id="discount_M"></div>
+                        <div class="mainPrize" id="mainPrize_M"></div>
+                        <div class="savedPrize" id="savedPrize_M"></div>
+                    </div>
+                    <div class="addInput">
+                        <form action="" class="">
+                            <input class="form-control" type="text" placeholder="Full Name *">
+                            <input class="form-control" type="text" placeholder="Email *">
+                            <input class="form-control" type="tel" value="+91">
+                            <div class="getherInput">
+                                <input class="form-control" type="text" placeholder="Travel Date *">
+                                <input class="form-control" type="text" placeholder="Travel Count">
+                            </div>
+                            <textarea class="form-control" name="" id="" placeholder="Message..."></textarea>
+                            <button class="enquiryBtn">Send Enquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="allImagesmodel">
         <div class="allimagesHeader">
             <div class="main">
@@ -700,12 +817,74 @@
                 <span class="close">&times;</span>
                 <div class="galleryWindow">
                     <h1>Gallery</h1>
-                    <div class="owl-carousel owl-theme galleryWindow-carousel" id="clearText">
-                
+                    <div class="owl-carousel owl-theme galleryWindow-carousel">
+                        <div class="item">
+                            <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                alt="">
+                            <div class="imgInfo">
+                                <div class="imgCap">Thiksey Monastery, Ladakh</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                alt="">
+                            <div class="imgInfo">
+                                <div class="imgCap">Thiksey Monastery, Ladakh</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                alt="">
+                            <div class="imgInfo">
+                                <div class="imgCap">Thiksey Monastery, Ladakh</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                alt="">
+                            <div class="imgInfo">
+                                <div class="imgCap">Thiksey Monastery, Ladakh</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                alt="">
+                            <div class="imgInfo">
+                                <div class="imgCap">Thiksey Monastery, Ladakh</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                alt="">
+                            <div class="imgInfo">
+                                <div class="imgCap">Thiksey Monastery, Ladakh</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                alt="">
+                            <div class="imgInfo">
+                                <div class="imgCap">Thiksey Monastery, Ladakh</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                alt="">
+                            <div class="imgInfo">
+                                <div class="imgCap">Thiksey Monastery, Ladakh</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                alt="">
+                            <div class="imgInfo">
+                                <div class="imgCap">Thiksey Monastery, Ladakh</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="imgCount">
                         <div class="titleCount">
-                            <span class="imgText"></span> ||
+                            <span class="imgText">Ladakh Sightseeing Tour with Flights</span> ||
                             ( <span class="current">1</span> / <span class="totalSlide"></span> )
                         </div>
                         <div class="allImg">
@@ -714,6 +893,40 @@
                                 <button class="navNext"><i class="fa-solid fa-angle-right"></i></button>
                             </div>
                             <div class="imgWrapper">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
+                                <img src="https://media1.thrillophilia.com/filestore/ky4h2mw6iwsbrpmwhkgrya7zqjk1_ferpgzla6unygjbv711opn52eji6_shutterstock_1551710702.jpg?w=580&dpr=2"
+                                    alt="">
                             </div>
                         </div>
                     </div>
@@ -723,54 +936,57 @@
     </div>
        
     <div class="additionalInformationModal">
-        <div class="modalContent">
-            <div class="modalHeader">
-                <h3>Additional Information</h3>
-                <button class="closeBtn"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div class="modalBody">
-                <p><strong style="background-color: transparent;">Inclusions:&nbsp;</strong></p>
-                <ul>
-                    <li>Flight tickets from Delhi to Leh and back (Ex-Delhi)</li>
-                    <li>Airport pick up and drop as per your flight timings</li>
-                    <li>Comfortable and hygienic vehicle (Innova/Xylo/Similar) for sightseeing on all days as per the
-                        itinerary.</li>
-                    <li>Stay on a double (couples and special requests) and triple sharing basis in hygienic and
-                        sanitized hotels/Camps</li>
-                    <li>Buffet breakfast and dinner on all days</li>
-                    <li>Assured Inner-Line Permit for all restricted areas</li>
-                    <li>Wildlife Fee and Environmental Fee</li>
-                    <li>Highly-Experienced driver cum guide</li>
-                    <li>Sightseeing as per itinerary</li>
-                    <li>Oxygen cylinder and basic first-aid during the tour.</li>
-                    <li>Camping with an evening bonfire</li>
-                </ul>
-                <p><strong style="background-color: transparent;">Things not to miss:&nbsp;</strong></p>
-                <ul>
-                    <li><span style="background-color: transparent;">Shop souvenir for friends and family at the Leh
-                            Market</span></li>
-                    <li><span style="background-color: transparent;">Hangout at </span><em
-                            style="background-color: transparent;">Lala's Art Cafe</em><span
-                            style="background-color: transparent;"> for a tall glass of Italian coffee</span></li>
-                    <li><span style="background-color: transparent;">Enjoy </span><em
-                            style="background-color: transparent;">Thukpa</em><span
-                            style="background-color: transparent;">,
-                            traditional Ladakhi cuisine at </span><em style="background-color: transparent;">The Tibetan
-                            Kitchen</em><span style="background-color: transparent;"> restaurant</span></li>
-                    <li><span style="background-color: transparent;">River rafting at the world’s highest river-rafting
-                            point, Sangam</span></li>
-                    <li><span style="background-color: transparent;">Ride the remarkable double-humped </span><em
-                            style="background-color: transparent;">(Bactrian)</em><span
-                            style="background-color: transparent;"> camels exclusively found at Nubra valley</span></li>
-                    <li><span style="background-color: transparent;">Feast on delicious Maggi at the
-                            Khardungla-pass</span></li>
-                </ul>
-                <p><span style="background-color: transparent;">&#xFEFF;</span></p>
-                <p><strong style="background-color: transparent;">How to reach:</strong></p>
-                <p><span style="background-color: transparent;">The easiest way to travel to Ladakh is by air. The
-                        nearest airport is Kushok Bakula Rimpochee Airport (IXL) located in Leh. This airport is
-                        connected with many international airports in India like Delhi. It also receives flights from
-                        Srinagar, Jammu, Chandigarh, and other common destinations in India.</span></p>
+        <div class="modalcontentBody">
+            <button class="closeBtn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modalContent">
+                <div class="modalHeader">
+                    <h3>Additional Information</h3>
+                    
+                </div>
+                <div class="modalBody">
+                    <p><strong style="background-color: transparent;">Inclusions:&nbsp;</strong></p>
+                    <ul>
+                        <li>Flight tickets from Delhi to Leh and back (Ex-Delhi)</li>
+                        <li>Airport pick up and drop as per your flight timings</li>
+                        <li>Comfortable and hygienic vehicle (Innova/Xylo/Similar) for sightseeing on all days as per the
+                            itinerary.</li>
+                        <li>Stay on a double (couples and special requests) and triple sharing basis in hygienic and
+                            sanitized hotels/Camps</li>
+                        <li>Buffet breakfast and dinner on all days</li>
+                        <li>Assured Inner-Line Permit for all restricted areas</li>
+                        <li>Wildlife Fee and Environmental Fee</li>
+                        <li>Highly-Experienced driver cum guide</li>
+                        <li>Sightseeing as per itinerary</li>
+                        <li>Oxygen cylinder and basic first-aid during the tour.</li>
+                        <li>Camping with an evening bonfire</li>
+                    </ul>
+                    <p><strong style="background-color: transparent;">Things not to miss:&nbsp;</strong></p>
+                    <ul>
+                        <li><span style="background-color: transparent;">Shop souvenir for friends and family at the Leh
+                                Market</span></li>
+                        <li><span style="background-color: transparent;">Hangout at </span><em
+                                style="background-color: transparent;">Lala's Art Cafe</em><span
+                                style="background-color: transparent;"> for a tall glass of Italian coffee</span></li>
+                        <li><span style="background-color: transparent;">Enjoy </span><em
+                                style="background-color: transparent;">Thukpa</em><span
+                                style="background-color: transparent;">,
+                                traditional Ladakhi cuisine at </span><em style="background-color: transparent;">The Tibetan
+                                Kitchen</em><span style="background-color: transparent;"> restaurant</span></li>
+                        <li><span style="background-color: transparent;">River rafting at the world’s highest river-rafting
+                                point, Sangam</span></li>
+                        <li><span style="background-color: transparent;">Ride the remarkable double-humped </span><em
+                                style="background-color: transparent;">(Bactrian)</em><span
+                                style="background-color: transparent;"> camels exclusively found at Nubra valley</span></li>
+                        <li><span style="background-color: transparent;">Feast on delicious Maggi at the
+                                Khardungla-pass</span></li>
+                    </ul>
+                    <p><span style="background-color: transparent;">&#xFEFF;</span></p>
+                    <p><strong style="background-color: transparent;">How to reach:</strong></p>
+                    <p><span style="background-color: transparent;">The easiest way to travel to Ladakh is by air. The
+                            nearest airport is Kushok Bakula Rimpochee Airport (IXL) located in Leh. This airport is
+                            connected with many international airports in India like Delhi. It also receives flights from
+                            Srinagar, Jammu, Chandigarh, and other common destinations in India.</span></p>
+                </div>
             </div>
         </div>
     </div>
@@ -912,6 +1128,15 @@
             </div>
         </div>
     </div>
+
+    <div id="transferModal" class="transfer-modal">
+        <div class="transfer-modal-content">
+            <span class="transfer-modal-close"><i class="fa-solid fa-xmark"></i></span>
+            <h2>Transfer Information</h2>
+            <div id="transferModalBody"></div>
+
+        </div>
+    </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/assets/index.js"></script>
@@ -924,6 +1149,7 @@
         loop: true,
         margin: 10,
         nav: false,
+        autoplay: true,
         items: 1,
     })
 </script>
@@ -934,6 +1160,7 @@
         margin: 10,
         nav: true,
         items: 1,
+        autoplay: true,
         dots: false,
         navText: [
             '<i class="fa fa-chevron-left"></i>',
@@ -944,6 +1171,7 @@
         loop: false,
         margin: 10,
         dots: false,
+        autoplay: true,
         nav: true,
         navText: [
             '<i class="fa fa-chevron-left"></i>',
@@ -951,10 +1179,10 @@
         ],
         responsive: {
             0: {
-                items: 1
+                items: 2
             },
             768: {
-                items: 3
+                items: 4
             }
         }
     })
@@ -964,8 +1192,9 @@
         loop: true,
         margin: 10,
         nav: true,
+        autoplay: true,
         items: 1,
-        dots: false,
+        dots: true,
         navText: [
             '<i class="fa fa-chevron-left"></i>',
             '<i class="fa fa-chevron-right"></i>'

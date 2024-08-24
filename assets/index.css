@@ -46,6 +46,178 @@ a {
   background: #555;
 }
 
+.enquiryBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 60px;
+  border-radius: 10px;
+  border: 1px solid var(--primary-color, #f37002);
+  background-color: var(--primary-color, #f37002);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.enquiryForm {
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  position: sticky;
+  top: 70px;
+}
+.enquiryForm .formAssembly {
+  padding: 20px;
+}
+.enquiryForm .formAssembly .tripenquiryTitle {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.enquiryForm .formAssembly .prize {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.enquiryForm .formAssembly .prize .discount {
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 38px;
+  color: #202020;
+}
+.enquiryForm .formAssembly .prize .mainPrize {
+  font-size: 18px;
+  line-height: 27px;
+  color: #515151;
+  text-decoration: line-through;
+}
+.enquiryForm .formAssembly .prize .savedPrize {
+  background: #d4ffc0;
+  color: #007319;
+  padding: 5px 15px;
+  font-size: 14px;
+}
+.enquiryForm .formAssembly .addInput form .form-control {
+  width: -webkit-fill-available;
+  margin-bottom: 10px;
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid #e0e0e0;
+  color: #515151;
+  padding: 10px;
+  outline: none;
+}
+.enquiryForm .formAssembly .addInput form .form-control:focus-visible {
+  border: 2px solid #f37002;
+}
+.enquiryForm .formAssembly .addInput form .getherInput {
+  display: flex;
+  gap: 10px;
+}
+
+/* Custom Modal Styles */
+.transfer-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.transfer-modal .transfer-modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.transfer-modal .transfer-modal-content h2 {
+  margin: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.transfer-modal .transfer-modal-content #transferModalBody {
+  padding: 20px;
+}
+.transfer-modal .transfer-modal-content .transfer-modal-close {
+  background: #f2f2f2;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: -50px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.timeline {
+  margin-left: 30px;
+}
+.timeline .transferIndicator {
+  background: linear-gradient(90deg, rgba(252, 175, 23, 0.2), hsla(0, 0%, 87.8%, 0));
+  width: 76px;
+  color: #e9a010;
+  font-size: 12px;
+  padding: 4px;
+  border-top-left-radius: 5px;
+}
+.timeline .transferWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 10px;
+  border-radius: 7px;
+  border: 0.5px solid #e0e0e0;
+  background: #fff;
+  border-top-left-radius: 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
+  position: relative;
+  margin-bottom: 10px;
+}
+.timeline .transferWrapper .transferTitle {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+.timeline .transferWrapper .transferTitle .icon {
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+}
+.timeline .transferWrapper .transferTitle .icon img {
+  width: 100%;
+  height: 100%;
+}
+.timeline .transferWrapper::after {
+  content: "";
+  background-image: url(images/svg/locationOrange.svg);
+  height: 20px;
+  width: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  left: -30px;
+}
+
+.stopAccord {
+  transition: all 0.4s ease-in-out;
+}
+.stopAccord .timeline .transferWrapper::after {
+  content: "";
+  background-image: url(images/svg/circle.svg);
+}
+
 @media (max-width: 4000.98px) {
   body {
     font-size: 18px;
@@ -53,6 +225,9 @@ a {
     padding: 0;
     position: relative;
     font-family: "Poppins", sans-serif;
+  }
+  body .mobileEnquiryform {
+    display: none;
   }
   body .saleHeader {
     background: linear-gradient(90deg, #f37002 0%, #fed968 100%);
@@ -64,7 +239,6 @@ a {
     max-width: 1520px;
     margin-right: auto;
     margin-left: auto;
-    padding: 50px 0px;
   }
   body .mainHeader {
     max-width: 1520px;
@@ -282,6 +456,7 @@ a {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    color: #515151;
   }
   body .customAccordion .accordionDetails .details .basicHead .headIcon img {
     height: 15px;
@@ -290,7 +465,7 @@ a {
   }
   body .customAccordion .accordionDetails .details .basicHead .headName {
     font-weight: 600;
-    color: #9f9f9f;
+    color: #202020;
     font-size: 14px;
   }
   body .customAccordion .accordionDetails .details .optionHeading {
@@ -303,60 +478,9 @@ a {
     padding: 1rem 0;
     position: relative;
   }
-  body .customAccordion .accordionDetails .details .transfer .destinationTimeline .timeline {
-    margin-left: 30px;
-  }
-  body .customAccordion .accordionDetails .details .transfer .destinationTimeline .timeline .transferIndicator {
-    background: linear-gradient(90deg, rgba(252, 175, 23, 0.2), hsla(0, 0%, 87.8%, 0));
-    width: 76px;
-    color: #e9a010;
-    font-size: 12px;
-    padding: 4px;
-    border-top-left-radius: 5px;
-  }
-  body .customAccordion .accordionDetails .details .transfer .destinationTimeline .timeline .transferWrapper {
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    gap: 10px;
-    border-radius: 7px;
-    border: 0.5px solid #e0e0e0;
-    background: #fff;
-    border-top-left-radius: 0;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
-    position: relative;
-    margin-bottom: 10px;
-  }
-  body .customAccordion .accordionDetails .details .transfer .destinationTimeline .timeline .transferWrapper .transferTitle {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-size: 14px;
-  }
-  body .customAccordion .accordionDetails .details .transfer .destinationTimeline .timeline .transferWrapper .transferTitle .icon {
-    height: 20px;
-    width: 20px;
-    display: flex;
-    align-items: center;
-  }
-  body .customAccordion .accordionDetails .details .transfer .destinationTimeline .timeline .transferWrapper .transferTitle .icon img {
-    width: 100%;
-    height: 100%;
-  }
-  body .customAccordion .accordionDetails .details .transfer .destinationTimeline .timeline .transferWrapper::after {
-    content: "";
-    background-image: url(images/svg/locationOrange.svg);
-    height: 20px;
-    width: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-    left: -30px;
-  }
   body .customAccordion .accordionDetails .details .stay .stayTimeline {
     background: #f4f4f4;
-    padding: 10px;
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -398,16 +522,22 @@ a {
     line-height: 18px;
   }
   body .customAccordion .accordionDetails .details .hotelList .hotelCards {
-    display: grid;
-    grid-template-columns: 50% auto;
-    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: scroll;
+    gap: 0 20px;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
   }
   body .customAccordion .accordionDetails .details .hotelList .hotelCards .hotelCard {
-    width: 100%;
+    min-width: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    width: calc(50% - 10px);
   }
   body .customAccordion .accordionDetails .details .hotelList .hotelCards .hotelCard .hotelImg {
     width: 100%;
-    height: 350px;
+    height: 330px;
     position: relative;
     border-radius: 10px;
     overflow: hidden;
@@ -425,6 +555,26 @@ a {
     top: 0;
     height: 100%;
     width: 100%;
+  }
+  body .customAccordion .accordionDetails .details .hotelList .hotelCards .hotelCard .hotelImg .imgContent .galleryTag {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 7px 10px 5px 15px;
+    display: flex;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 10%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  body .customAccordion .accordionDetails .details .hotelList .hotelCards .hotelCard .hotelImg .imgContent .galleryTag img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
   }
   body .customAccordion .accordionDetails .details .hotelList .hotelCards .hotelCard .hotelImg .imgContent .rating {
     position: absolute;
@@ -470,9 +620,12 @@ a {
   }
   body .customAccordion .accordionDetails .details .hotelList .includedSection .includeList {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 80%;
     font-size: 14px;
+  }
+  body .customAccordion .accordionDetails .details .hotelList .includedSection .includeList .includeWrapper {
+    width: 40%;
   }
   body .customAccordion .accordionDetails .details .hotelList .includedSection .includeList .includeWrapper .includeName {
     display: flex;
@@ -499,6 +652,9 @@ a {
     margin-left: 30px;
     text-align: center;
     cursor: pointer;
+  }
+  body .customAccordion .accordionDetails .details .dayEvent .destinationTimeline .remainStops span {
+    margin-left: 5px;
     font-size: 14px;
   }
   body .customAccordion .accordionDetails .details .dayEvent .destinationTimeline .remainStops:hover {
@@ -601,28 +757,34 @@ a {
   body .customAccordion.show .accordionDetails {
     max-height: 4000px;
   }
-  body .main .featureImages {
+  body .mainUltimate {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+  }
+  body .mainUltimate .featureImages {
     display: flex;
     border-radius: 10px;
     overflow: hidden;
     gap: 13px;
+    width: 1520px;
   }
-  body .main .featureImages .mainImage {
+  body .mainUltimate .featureImages .mainImage {
     width: 60%;
     height: 600px;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
     height: 600px;
     width: 100%;
     cursor: pointer;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item img {
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-dots {
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-dots {
     position: absolute;
     bottom: 10px;
     width: 100%;
@@ -630,40 +792,40 @@ a {
     justify-content: center;
     gap: 10px;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-dots .owl-dot {
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-dots .owl-dot {
     border-radius: 50%;
     height: 20px;
     width: 20px;
     background: #e0e0e0;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-dots .owl-dot span {
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-dots .owl-dot span {
     height: 100%;
     width: 100%;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-dots .owl-dot.active {
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-dots .owl-dot.active {
     width: 50px;
     border-radius: 20px;
   }
-  body .main .featureImages .otherFeatureimg {
+  body .mainUltimate .featureImages .otherFeatureimg {
     width: 40%;
     height: 600px;
     display: flex;
     flex-wrap: wrap;
     gap: 13px;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox {
     height: 293px;
     width: 291px;
     cursor: pointer;
     position: relative;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox img {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox img {
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
     width: 100%;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox .imageName {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox .imageName {
     position: absolute;
     bottom: 5px;
     left: 5px;
@@ -671,7 +833,7 @@ a {
     font-weight: 600;
     z-index: 1;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox .allFeatureimg {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox .allFeatureimg {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -684,7 +846,7 @@ a {
     cursor: pointer;
     z-index: 1;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox::before {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox::before {
     width: 100%;
     height: 25%;
     position: absolute;
@@ -694,30 +856,31 @@ a {
     content: "";
     background: linear-gradient(180deg, hsla(0, 0%, 43%, 0), rgba(0, 0, 0, 0.36) 29.51%, rgba(0, 0, 0, 0.6) 64.58%, rgba(0, 0, 0, 0.8));
   }
-  body .main .tripTitle {
-    text-align: center;
+  body .main .mainContent {
+    display: flex;
+    gap: 20px;
+    margin-top: 5rem;
+  }
+  body .main .mainContent .leftSide {
+    position: relative;
+    width: 70%;
+  }
+  body .main .mainContent .leftSide .tripTitle {
     font-size: 3rem;
     font-weight: 700;
-    margin: 3rem 0;
+    margin-bottom: 3rem;
   }
-  body .main .tripDay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 0 5rem 0;
-    border-bottom: 1px solid var(--text-color);
+  body .main .mainContent .leftSide .tripDay {
+    padding: 0 0 3rem 0;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid #d6d6d6;
   }
-  body .main .tripDay .tripSection {
-    width: 1000px;
-    background: #fff;
-    border-radius: 30px;
-    padding: 20px 70px;
-    box-shadow: 0px 4px 36.8px 14px rgba(0, 0, 0, 0.13);
+  body .main .mainContent .leftSide .tripDay .tripSection {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
-  body .main .tripDay .tripSection .days {
+  body .main .mainContent .leftSide .tripDay .tripSection .days {
     background: var(--primary-color);
     border-radius: 30px;
     width: 150px;
@@ -728,51 +891,42 @@ a {
     justify-content: center;
     align-items: center;
   }
-  body .main .tripDay .tripSection .stayDay {
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay {
     display: flex;
-    justify-content: space-between;
-    width: 800px;
+    justify-content: space-evenly;
+    width: 100%;
   }
-  body .main .tripDay .tripSection .stayDay .day {
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day {
     display: flex;
     align-items: center;
     gap: 15px;
   }
-  body .main .tripDay .tripSection .stayDay .day span {
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day span {
     font-size: 80px;
     font-weight: 700;
     color: var(--text-color);
   }
-  body .main .tripDay .tripSection .stayDay .day .place {
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day .place {
     color: var(--text-color);
   }
-  body .main .tripDay .tripSection .stayDay .day .place span {
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day .place span {
     font-size: 18px;
     color: #000;
     display: block;
   }
-  body .main .tripDay .tripSection .stayDay .day::after {
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day::after {
     content: "";
     border: 1px solid var(--text-color);
     height: 90px;
     margin-left: 20px;
   }
-  body .main .tripDay .tripSection .stayDay .day:nth-child(4)::after {
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day:last-child::after {
     display: none;
   }
-  body .main .mainContent {
-    display: grid;
-    grid-template-columns: 70% auto;
-    gap: 20px;
-    margin-top: 5rem;
-  }
-  body .main .mainContent .leftSide {
-    position: relative;
-  }
   body .main .mainContent .leftSide .facility {
-    display: grid;
-    grid-template-columns: 50% auto;
-    row-gap: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
   }
   body .main .mainContent .leftSide .facility .facilityType {
     display: flex;
@@ -1111,7 +1265,7 @@ a {
     border-radius: 10px;
     background: #fff;
     border: 1px solid var(--text-color);
-    padding: 10px 30px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1119,12 +1273,12 @@ a {
     cursor: pointer;
   }
   body .main .mainContent .leftSide .tourView .secondNav .itineraryTab .tab .svgImg {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
   }
   body .main .mainContent .leftSide .tourView .secondNav .itineraryTab .tab span {
     color: var(--text-color);
-    font-weight: 700;
+    font-weight: 500;
     width: -moz-max-content;
     width: max-content;
   }
@@ -1138,13 +1292,19 @@ a {
     margin-top: 3rem;
     display: none;
   }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripHead_m {
+    display: none;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay {
+    display: none;
+  }
   body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent {
     position: relative;
     margin-bottom: 2rem;
     cursor: pointer;
   }
   body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .itinerary-img {
-    border-radius: 30px;
+    border-radius: 10px;
     overflow: hidden;
   }
   body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .owl-carousel .owl-stage-outer .item {
@@ -1186,6 +1346,24 @@ a {
   }
   body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .owl-carousel .owl-nav button.owl-next {
     right: 5%;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .owl-carousel .owl-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .owl-carousel .owl-dots .owl-dot {
+    border-radius: 50%;
+    height: 5px;
+    width: 5px;
+    background: #e0e0e0;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .owl-carousel .owl-dots .owl-dot.active {
+    width: 40px;
+    border-radius: 20px;
   }
   body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .tripDetails {
     position: absolute;
@@ -1340,6 +1518,9 @@ a {
     justify-content: center;
     font-size: 12px;
   }
+  body .main .mainContent .rightSide {
+    width: 30%;
+  }
   body .main .mainContent .rightSide .prizeList {
     padding: 20px;
     border: 1px solid #e0e0e0;
@@ -1403,93 +1584,73 @@ a {
     display: flex;
     justify-content: center;
   }
-  body .main .mainContent .rightSide .prizeList .enquiryBtn_space .enquiryBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 60px;
-    border-radius: 15px;
-    border: 1px solid var(--primary-color, #f37002);
-    background-color: var(--primary-color, #f37002);
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-  }
-  body .main .mainContent .rightSide .enquiryForm {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    position: sticky;
-    top: 70px;
-  }
-  body .main .mainContent .rightSide .enquiryForm .tripenquiryTitle {
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  body .main .mainContent .rightSide .enquiryForm .prize {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  body .main .mainContent .rightSide .prizeList_m {
+    display: none;
     margin-bottom: 2rem;
   }
-  body .main .mainContent .rightSide .enquiryForm .prize .discount {
-    font-size: 25px;
+  body .main .mainContent .rightSide .prizeList_m .durationRating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .main .mainContent .rightSide .prizeList_m .durationRating .days {
+    color: #7a7a7a;
+  }
+  body .main .mainContent .rightSide .prizeList_m .durationRating .rating .currentRating {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 20px;
+  }
+  body .main .mainContent .rightSide .prizeList_m .durationRating .rating .totalRatings {
+    font-size: 12px;
+    color: #8e8e8e;
+  }
+  body .main .mainContent .rightSide .prizeList_m .tripName {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  body .main .mainContent .rightSide .prizeList_m .prizeSection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  body .main .mainContent .rightSide .prizeList_m .prizeSection .prize .discountPrize {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+  body .main .mainContent .rightSide .prizeList_m .prizeSection .prize .discountPrize .prize {
+    font-size: 22px;
     font-weight: 600;
     line-height: 38px;
     color: #202020;
   }
-  body .main .mainContent .rightSide .enquiryForm .prize .mainPrize {
-    font-size: 18px;
+  body .main .mainContent .rightSide .prizeList_m .prizeSection .prize .discountPrize span {
+    font-size: 12px;
+    line-height: 18px;
+    color: #8e8e8e;
+  }
+  body .main .mainContent .rightSide .prizeList_m .prizeSection .prize .mainPrize {
+    font-size: 16px;
     line-height: 27px;
     color: #515151;
     text-decoration: line-through;
   }
-  body .main .mainContent .rightSide .enquiryForm .prize .savedPrize {
-    background: #d4ffc0;
-    color: #007319;
-    padding: 5px 15px;
-    font-size: 14px;
-  }
-  body .main .mainContent .rightSide .enquiryForm form {
+  body .main .mainContent .rightSide .prizeList_m .prizeSection .productRating {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: end;
+    justify-content: space-between;
   }
-  body .main .mainContent .rightSide .enquiryForm form .getherInput {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-  }
-  body .main .mainContent .rightSide .enquiryForm form .form-control {
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    padding: 1em;
-    width: 90%;
-    margin-bottom: 2rem;
-    border: 1px solid #797979;
-    font-size: 18px;
-    transition: 300ms ease-in-out;
-  }
-  body .main .mainContent .rightSide .enquiryForm form .form-control:focus {
-    background-color: white;
-    transform: scale(1.01);
-    box-shadow: 13px 13px 100px #969696, -13px -13px 100px #ffffff;
-  }
-  body .main .mainContent .rightSide .enquiryForm form .enquiryBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 60px;
-    border-radius: 15px;
-    border: 1px solid var(--primary-color, #f37002);
-    background-color: var(--primary-color, #f37002);
+  body .main .mainContent .rightSide .prizeList_m .prizeSection .productRating .offer {
+    background: linear-gradient(93deg, #ff7b26, #ec048c);
+    padding: 2.5px 10px;
+    border-radius: 30px;
     color: #fff;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
-    width: 96%;
+    text-transform: uppercase;
   }
   body .main .eoTrip {
     display: flex;
@@ -1525,6 +1686,7 @@ a {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 5px;
   }
   body .main .packageWrapper .package .inclusion .packageInfo .info .signImg,
   body .main .packageWrapper .package .exclusion .packageInfo .info .signImg {
@@ -1537,8 +1699,10 @@ a {
     border-radius: 20px;
     margin-bottom: 2rem;
   }
-  body .main .addedInfo h3 {
+  body .main .addedInfo .addedHead {
     margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 18px;
   }
   body .main .addedInfo .information {
     display: flex;
@@ -1547,7 +1711,7 @@ a {
   body .main .addedInfo .information .more {
     background: none;
     border: none;
-    font-weight: 700;
+    font-weight: 500;
     cursor: pointer;
   }
   body .main .callBack {
@@ -1681,77 +1845,53 @@ a {
     margin-bottom: 1rem;
   }
   body .main .travelGallery .gridGallery {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 760px repeat(2, 370px);
-    grid-template-rows: repeat(2, 248px);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    display: flex;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 2rem;
+    gap: 12px;
   }
-  body .main .travelGallery .gridGallery .galleryImg {
-    position: relative;
-    cursor: pointer;
-  }
-  body .main .travelGallery .gridGallery .galleryImg .gridgalleryImg {
+  body .main .travelGallery .gridGallery .gridgalleryImg {
     width: 100%;
     height: 100%;
-    -o-object-fit: fill;
-       object-fit: fill;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 10px;
   }
-  body .main .travelGallery .gridGallery .galleryImg.mainImg {
-    grid-area: 1/1/3/2;
+  body .main .travelGallery .gridGallery .mainImg {
+    width: 60%;
+    height: 600px;
+    position: relative;
   }
-  body .main .travelGallery .gridGallery .galleryImg.mainImg::before {
-    width: 100%;
-    height: 25%;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    bottom: 0;
-    content: "";
-    background: linear-gradient(180deg, hsla(0, 0%, 43%, 0), rgba(0, 0, 0, 0.36) 29.51%, rgba(0, 0, 0, 0.6) 64.58%, rgba(0, 0, 0, 0.8));
-  }
-  body .main .travelGallery .gridGallery .galleryImg.mainImg .viewMorebtn {
+  body .main .travelGallery .gridGallery .mainImg .viewMorebtn {
     position: absolute;
     bottom: 10px;
-    z-index: 1;
     left: 10px;
   }
-  body .main .travelGallery .gridGallery .galleryImg.mainImg .viewMorebtn .moreBtn {
-    border: 1px solid #fff;
+  body .main .travelGallery .gridGallery .mainImg .viewMorebtn .moreBtn {
+    cursor: pointer;
     background: transparent;
+    border: 1px solid #fff;
+    padding: 5px 10px;
     color: #fff;
     display: flex;
+    gap: 5px;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    height: 40px;
-    border-radius: 10px;
-    width: 130px;
-    font-size: 16px;
+    border-radius: 5px;
   }
-  body .main .travelGallery .gridGallery .galleryImg.mainImg .viewMorebtn .moreBtn img {
-    width: 20px;
-    height: 20px;
+  body .main .travelGallery .gridGallery .otherGalleryimg {
+    width: 40%;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
   }
-  body .main .travelGallery .gridGallery .galleryImg.img1 {
-    grid-area: 1/2/2/3;
-  }
-  body .main .travelGallery .gridGallery .galleryImg.img2 {
-    grid-area: 1/3/2/4;
-  }
-  body .main .travelGallery .gridGallery .galleryImg.img3 {
-    grid-area: 2/2/3/3;
-  }
-  body .main .travelGallery .gridGallery .galleryImg.img4 {
-    grid-area: 2/3/3/4;
+  body .main .travelGallery .gridGallery .otherGalleryimg .galleryImg {
+    height: 293px;
+    width: 295px;
+    cursor: pointer;
   }
   body .main .travelGallery .customerReview {
     padding-top: 2rem;
-    border-top: 1px solid #e0e0e0;
   }
   body .main .travelGallery .customerReview .review {
     border: 1px solid #e0e0e0;
@@ -1844,14 +1984,10 @@ a {
     height: 120px;
     width: 120px;
   }
-  body .main .aboutfaqTrip,
-  body .main .aboutcancelTrip {
-    margin-bottom: 2rem;
-  }
   body .footer {
     background: #2f343c;
     height: 50vh;
-    margin-top: 150px;
+    margin-top: 200px;
   }
   body .footer .footerContent {
     width: 1520px;
@@ -2216,7 +2352,53 @@ a {
     width: 2px;
     height: 2px;
   }
-  body .additionalInformationModal,
+  body .additionalInformationModal {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 9999;
+  }
+  body .additionalInformationModal .modalcontentBody {
+    background: #fff;
+    width: 80%;
+    border-radius: 10px;
+    position: relative;
+  }
+  body .additionalInformationModal .modalcontentBody .closeBtn {
+    background: #f2f2f2;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: -15px;
+    right: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }
+  body .additionalInformationModal .modalcontentBody .closeBtn:hover {
+    transform: rotate(90deg);
+    box-shadow: -2px 3px 10px #000;
+  }
+  body .additionalInformationModal .modalcontentBody .modalContent {
+    padding: 20px;
+    min-height: 10vh;
+    max-height: 80vh;
+    overflow: auto;
+  }
+  body .additionalInformationModal .modalcontentBody .modalContent .modalHeader {
+    position: relative;
+  }
   body .currenciesModal {
     display: none;
     justify-content: center;
@@ -2229,23 +2411,18 @@ a {
     top: 0;
     z-index: 9999;
   }
-  body .additionalInformationModal .modalContent,
   body .currenciesModal .modalContent {
     width: 80%;
     background: #fff;
     padding: 20px;
     border-radius: 20px;
   }
-  body .additionalInformationModal .modalContent .modalHeader,
   body .currenciesModal .modalContent .modalHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
   }
-  body .additionalInformationModal .modalContent .modalHeader .closeBtn,
-  body .additionalInformationModal .modalContent .modalHeader .closeBtn,
-  body .currenciesModal .modalContent .modalHeader .closeBtn,
   body .currenciesModal .modalContent .modalHeader .closeBtn {
     background: #f2f2f2;
     border: none;
@@ -2254,6 +2431,7 @@ a {
     height: 30px;
     width: 30px;
     position: absolute;
+    pointer-events: none;
     top: -35px;
     right: -35px;
     display: flex;
@@ -2262,23 +2440,17 @@ a {
     transition: all 0.4s ease-in-out;
     cursor: pointer;
   }
-  body .additionalInformationModal .modalContent .modalHeader .closeBtn:hover,
-  body .additionalInformationModal .modalContent .modalHeader .closeBtn:hover,
-  body .currenciesModal .modalContent .modalHeader .closeBtn:hover,
   body .currenciesModal .modalContent .modalHeader .closeBtn:hover {
     transform: rotate(90deg);
     box-shadow: -2px 3px 10px #000;
   }
-  body .additionalInformationModal .modalContent .modalBody,
   body .currenciesModal .modalContent .modalBody {
     overflow: auto;
     max-height: calc(100vh - 200px);
   }
-  body .additionalInformationModal .modalContent .modalBody .currencySearch,
   body .currenciesModal .modalContent .modalBody .currencySearch {
     margin: 1rem 0;
   }
-  body .additionalInformationModal .modalContent .modalBody .currencySearch .currencyInput,
   body .currenciesModal .modalContent .modalBody .currencySearch .currencyInput {
     min-width: 250px;
     max-width: 500px;
@@ -2287,25 +2459,21 @@ a {
     outline: none;
     border: 1px solid #e0e0e0;
   }
-  body .additionalInformationModal .modalContent .modalBody h4,
   body .currenciesModal .modalContent .modalBody h4 {
     margin-bottom: 1rem;
     color: rgb(81, 81, 81);
   }
-  body .additionalInformationModal .modalContent .modalBody .commonCurrency,
   body .currenciesModal .modalContent .modalBody .commonCurrency {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
   }
-  body .additionalInformationModal .modalContent .modalBody .commonCurrency .currencies,
   body .currenciesModal .modalContent .modalBody .commonCurrency .currencies {
     padding: 10px;
     border: 1px solid rgb(255, 255, 255);
     width: 225px;
     cursor: pointer;
   }
-  body .additionalInformationModal .modalContent .modalBody .commonCurrency .currencies .currencyImg,
   body .currenciesModal .modalContent .modalBody .commonCurrency .currencies .currencyImg {
     display: flex;
     align-items: center;
@@ -2313,19 +2481,16 @@ a {
     font-size: 15px;
     color: rgb(81, 81, 81);
   }
-  body .additionalInformationModal .modalContent .modalBody .commonCurrency .currencies .currencyImg img,
   body .currenciesModal .modalContent .modalBody .commonCurrency .currencies .currencyImg img {
     width: 30px;
     height: 25px;
     border: 1px solid rgb(203, 203, 203);
     border-radius: 2px;
   }
-  body .additionalInformationModal .modalContent .modalBody .commonCurrency .currencies p,
   body .currenciesModal .modalContent .modalBody .commonCurrency .currencies p {
     font-size: 12px;
     color: rgb(162, 162, 162);
   }
-  body .additionalInformationModal .modalContent .modalBody .commonCurrency .currencies:hover,
   body .currenciesModal .modalContent .modalBody .commonCurrency .currencies:hover {
     border-radius: 10px;
     border: 1px solid var(--primary-color);
@@ -2449,71 +2614,85 @@ a {
   }
 }
 @media (max-width: 1600.98px) {
-  body .main {
-    max-width: 1200px;
-  }
   body .mainHeader {
     max-width: 1200px;
   }
   body .mainHeader .siteLogo {
     width: 180px;
   }
-  body .main .featureImages {
+  body .mainUltimate .featureImages {
+    max-width: 1200px;
     gap: 10px;
   }
-  body .main .featureImages .mainImage {
+  body .mainUltimate .featureImages .mainImage {
     height: 500px;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
     height: 500px;
   }
-  body .main .featureImages .otherFeatureimg {
+  body .mainUltimate .featureImages .otherFeatureimg {
     height: 500px;
     gap: 10px;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox {
     height: 244px;
     width: 230px;
     position: relative;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox .imageName {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox .imageName {
     font-weight: 500;
   }
-  body .main .tripTitle {
-    font-size: 2.5rem;
-  }
-  body .main .tripDay {
-    padding: 0rem 0 5rem;
-  }
-  body .main .tripDay .tripSection {
-    width: 800px;
-    padding: 20px 50px;
-  }
-  body .main .tripDay .tripSection .days {
-    width: 130px;
-  }
-  body .main .tripDay .tripSection .stayDay {
-    width: 600px;
-  }
-  body .main .tripDay .tripSection .stayDay .day {
-    gap: 10px;
-  }
-  body .main .tripDay .tripSection .stayDay .day span {
-    font-size: 60px;
-  }
-  body .main .tripDay .tripSection .stayDay .day .place span {
-    font-size: 14px;
-  }
-  body .main .tripDay .tripSection .stayDay .day::after {
-    height: 80px;
-    margin-left: 10px;
+  body .main {
+    max-width: 1200px;
   }
   body .main .travelGallery .gridGallery {
-    grid-template-columns: 640px repeat(2, 270px);
-    grid-template-rows: repeat(2, 180px);
+    gap: 10px;
+  }
+  body .main .travelGallery .gridGallery .mainImg {
+    height: 500px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg {
+    height: 500px;
+    gap: 10px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg .galleryImg {
+    height: 244px;
+    width: 233px;
   }
   body .main .mainContent {
-    grid-template-columns: 65% auto;
+    gap: 10px;
+  }
+  body .main .mainContent .leftSide {
+    width: 65%;
+  }
+  body .main .mainContent .leftSide .tripTitle {
+    font-size: 2.5rem;
+  }
+  body .main .mainContent .leftSide .tripDay {
+    padding: 0rem 0 2rem;
+  }
+  body .main .mainContent .leftSide .tripDay .tripSection {
+    width: 100%;
+    padding: 0px;
+  }
+  body .main .mainContent .leftSide .tripDay .tripSection .days {
+    width: 130px;
+  }
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay {
+    width: 600px;
+  }
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day {
+    gap: 10px;
+  }
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day span {
+    font-size: 60px;
+  }
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day .place span {
+    font-size: 14px;
+  }
+  body .main .mainContent .leftSide .tripDay .tripSection .stayDay .day::after {
+    height: 80px;
+    margin-left: 10px;
   }
   body .main .mainContent .leftSide .destinationFilter {
     padding-bottom: 2rem;
@@ -2538,24 +2717,28 @@ a {
   body .main .mainContent .leftSide .propertyFilter hr {
     width: 100%;
   }
-  body .main .mainContent .rightSide .enquiryForm .tripenquiryTitle {
+  body .main .mainContent .rightSide {
+    width: 35%;
+  }
+  body .main .mainContent .rightSide .enquiryForm .formAssembly .tripenquiryTitle {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
-  body .main .mainContent .rightSide .enquiryForm .prize {
+  body .main .mainContent .rightSide .enquiryForm .formAssembly .prize {
     width: 100%;
     margin-bottom: 1rem;
   }
-  body .main .mainContent .rightSide .enquiryForm .prize .discount {
+  body .main .mainContent .rightSide .enquiryForm .formAssembly .prize .discount {
     font-size: 20px;
   }
-  body .main .mainContent .rightSide .enquiryForm .prize .mainPrize {
+  body .main .mainContent .rightSide .enquiryForm .formAssembly .prize .mainPrize {
     font-size: 16px;
   }
-  body .main .mainContent .rightSide .enquiryForm form .form-control {
-    padding: 10px 16px;
+  body .main .mainContent .rightSide .enquiryForm .formAssembly .addInput form .form-control {
     font-size: unset;
-    margin-bottom: 1rem;
+  }
+  body .main .mainContent .rightSide .enquiryForm .formAssembly .addInput form .getherInput {
+    display: block;
   }
   body .footer .footerContent {
     width: 1200px;
@@ -2565,36 +2748,48 @@ a {
   body {
     font-size: 14px;
   }
+  body .enquiryForm .formAssembly .addInput form .form-control {
+    height: 20px;
+  }
   body .mainHeader {
     width: 1100px;
   }
-  body .main {
-    max-width: 1100px;
+  body .mainUltimate .featureImages {
+    width: 1100px;
   }
-  body .main .featureImages .mainImage {
+  body .mainUltimate .featureImages .mainImage {
     height: 400px;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
     height: 400px;
   }
-  body .main .featureImages .otherFeatureimg {
+  body .mainUltimate .featureImages .otherFeatureimg {
     height: 400px;
     gap: 10px;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox {
     height: 195px;
     width: 210px;
     position: relative;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox .imageName {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox .imageName {
     font-weight: 500;
   }
-  body .main .travelGallery .gridGallery {
-    grid-template-columns: 580px repeat(2, 250px);
-    grid-template-rows: repeat(2, 168px);
+  body .main {
+    max-width: 1100px;
+  }
+  body .main .travelGallery .gridGallery .mainImg {
+    height: 400px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg {
+    height: 400px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg .galleryImg {
+    height: 195px;
+    width: 213px;
   }
   body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .owl-carousel .owl-stage-outer .item {
-    height: 350px;
+    height: 330px;
   }
   body .main .mainContent .rightSide .prizeList .prizeSection .prize .discountPrize .prize {
     font-size: 25px;
@@ -2628,35 +2823,45 @@ a {
   body .mainHeader {
     width: 920px;
   }
-  body .main {
-    max-width: 920px;
+  body .mainUltimate .featureImages {
+    gap: 5px;
+    width: 920px;
   }
-  body .main .featureImages {
+  body .mainUltimate .featureImages .mainImage {
+    height: 375px;
+  }
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
+    height: 375px;
+  }
+  body .mainUltimate .featureImages .otherFeatureimg {
+    height: 375px;
     gap: 5px;
   }
-  body .main .featureImages .mainImage {
-    height: 375px;
-  }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
-    height: 375px;
-  }
-  body .main .featureImages .otherFeatureimg {
-    height: 375px;
-    gap: 5px;
-  }
-  body .main .featureImages .otherFeatureimg .featureimgBox {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox {
     height: 185px;
     width: 179px;
     position: relative;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox .imageName {
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox .imageName {
     font-weight: 500;
   }
-  body .main .travelGallery .gridGallery {
-    grid-template-columns: 460px repeat(2, 220px);
-    grid-template-rows: repeat(2, 136px);
+  body .main {
+    max-width: 920px;
   }
-  body .main .tripTitle {
+  body .main .travelGallery .gridGallery .mainImg {
+    height: 375px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg {
+    height: 375px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg .galleryImg {
+    height: 182px;
+    width: 177px;
+  }
+  body .main .mainContent {
+    margin-top: 2rem;
+  }
+  body .main .mainContent .leftSide .tripTitle {
     font-size: 2rem;
   }
   body .main .mainContent .leftSide .tourView .secondNav.secondnavSticky .itineraryTab {
@@ -2725,8 +2930,65 @@ a {
   }
 }
 @media (max-width: 991.98px) {
-  body .mainHeader {
+  body .mobileEnquiryform {
+    display: block;
+  }
+  body .mobileEnquiryform .enquiryBtnbg {
+    background: #fff;
+    box-shadow: 0 -5px 10px 0 hsla(0, 0%, 67%, 0.25);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+  body .mobileEnquiryform .enquiryBtnbg .enquiryBtndiv {
+    padding: 10px;
+  }
+  body .mobileEnquiryform .darkFrombg {
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    top: 0;
+  }
+  body .mobileEnquiryform .darkFrombg .closeBtn {
+    background: #f2f2f2;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: -50px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }
+  body .mobileEnquiryform .darkFrombg .enquiryForm {
+    padding: 20px 0;
+    width: 100%;
+    border-radius: 0;
+    bottom: 0;
+    position: absolute;
+    background: #fff;
+    height: -moz-max-content;
+    height: max-content;
+    top: unset;
+  }
+  body .headerbg {
+    background: rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 9999;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+  body .headerbg .mainHeader {
     width: 720px;
+    padding: 10px 0px;
   }
   body .customAccordion .accordion .accordionTitle .title {
     width: 280px;
@@ -2734,41 +2996,70 @@ a {
   body .customAccordion .accordionDetails .details .hotelList .hotelCards .hotelCard .hotelImg {
     height: 200px;
   }
+  body .mainUltimate .featureImages {
+    display: block;
+    position: relative;
+    border-radius: 0;
+    margin-top: -60px;
+  }
+  body .mainUltimate .featureImages .mainImage {
+    width: 100%;
+    height: 550px;
+  }
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
+    height: 550px;
+  }
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-dots .owl-dot {
+    height: 4px;
+    width: 15px;
+    border-radius: 0%;
+  }
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-dots .owl-dot.active {
+    border-radius: 0%;
+    width: 40px;
+  }
+  body .mainUltimate .featureImages .otherFeatureimg {
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+    display: flex;
+    justify-content: end;
+    gap: 0;
+  }
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 1px solid #fff;
+    margin-right: -20px;
+  }
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox .imageName,
+  body .mainUltimate .featureImages .otherFeatureimg .featureimgBox .allFeatureimg {
+    display: none;
+  }
   body .main {
     max-width: 720px;
   }
-  body .main .featureImages {
-    display: block;
-  }
-  body .main .featureImages .mainImage {
-    width: 100%;
-    height: 450px;
-    margin-bottom: 10px;
-  }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
-    height: 450px;
-  }
-  body .main .featureImages .otherFeatureimg {
-    height: 450px;
-    width: 100%;
-    gap: 10px;
-  }
-  body .main .featureImages .otherFeatureimg .featureimgBox {
-    height: 220px;
-    width: 355px;
-    position: relative;
-  }
   body .main .travelGallery .gridGallery {
-    display: flex;
-    flex-flow: wrap;
-    gap: 0;
+    flex-direction: column;
   }
-  body .main .travelGallery .gridGallery .galleryImg.mainImg {
+  body .main .travelGallery .gridGallery .mainImg {
     width: 100%;
+    height: 375px;
   }
-  body .main .travelGallery .gridGallery .galleryImg.img1, body .main .travelGallery .gridGallery .galleryImg.img2, body .main .travelGallery .gridGallery .galleryImg.img3, body .main .travelGallery .gridGallery .galleryImg.img4 {
-    width: 50%;
-    height: 214px;
+  body .main .travelGallery .gridGallery .otherGalleryimg {
+    height: 182px;
+    width: 100%;
+    flex-wrap: unset;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg .galleryImg {
+    height: 182px;
+    width: 173px;
   }
   body .main .withUS {
     margin-bottom: 0;
@@ -2782,11 +3073,50 @@ a {
     flex-direction: column-reverse;
     margin-top: 2rem;
   }
+  body .main .mainContent .leftSide {
+    width: 100%;
+  }
+  body .main .mainContent .leftSide .facility {
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+  }
+  body .main .mainContent .leftSide .otherTrip {
+    margin: 0rem 0rem 2rem;
+    overflow: auto;
+    scrollbar-width: none;
+    flex-wrap: unset;
+  }
+  body .main .mainContent .leftSide .tripTitle {
+    display: none;
+  }
+  body .main .mainContent .leftSide .tripDay {
+    display: none;
+  }
   body .main .mainContent .leftSide .tourView .secondNav .itineraryTab {
     gap: 10px;
   }
   body .main .mainContent .leftSide .tourView .secondNav .itineraryTab .tab {
-    padding: 6px 25px;
+    padding: 10px 7px;
+    font-size: 12px;
+    gap: 5px;
+  }
+  body .main .mainContent .leftSide .tourView .secondNav .itineraryTab .tab .svgImg {
+    width: 14px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripHead_m {
+    display: block;
+    font-size: 20px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripHead_m span {
+    font-weight: 600;
+    color: #fcaf17;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay {
+    display: block;
+    margin-bottom: 0;
+    border-bottom: 0;
   }
   body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .itinerary-img.owl-carousel .owl-stage-outer .item {
     height: 300px;
@@ -2797,15 +3127,22 @@ a {
   body .main .mainContent .leftSide .destinationFilter .destinationRoute .routeWrapper {
     gap: 10px;
   }
+  body .main .mainContent .rightSide {
+    width: 100%;
+  }
   body .main .mainContent .rightSide .prizeList {
-    margin-bottom: 2rem;
+    display: none;
+  }
+  body .main .mainContent .rightSide .prizeList_m {
+    display: block;
+    margin-bottom: 0;
+  }
+  body .main .mainContent .rightSide .prizeList_m .prizeSection {
+    margin-bottom: 0px;
   }
   body .main .mainContent .rightSide .enquiryForm {
     margin-bottom: 2rem;
-  }
-  body .main .tripDay .tripSection {
-    width: 640px;
-    padding: 15px 30px;
+    display: none;
   }
   body .main .callBack img {
     -o-object-fit: cover;
@@ -2837,6 +3174,19 @@ a {
   body .regularGallery .galleryWrapper {
     width: 550px;
   }
+  body .additionalInformationModal .modalcontentBody {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    border-radius: 0;
+  }
+  body .additionalInformationModal .modalcontentBody .closeBtn {
+    display: none;
+  }
+  body .additionalInformationModal .modalcontentBody .modalContent {
+    height: 70vh;
+    overflow: auto;
+  }
 }
 @media (max-width: 768.98px) {
   body .mainHeader {
@@ -2848,47 +3198,56 @@ a {
   body .mainHeader .searchBox {
     width: 200px;
   }
+  body .customAccordion .accordionDetails .details .hotelList .hotelCards .hotelCard {
+    min-width: 70%;
+    max-width: 70%;
+    width: 70%;
+  }
+  body .mainUltimate .featureImages .mainImage {
+    height: 400px;
+  }
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-stage-outer .owl-item .item {
+    height: 400px;
+  }
   body .main {
     max-width: 550px;
   }
-  body .main .featureImages .mainImage {
-    height: 400px;
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripHead_m {
+    margin-bottom: 1rem;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
-    height: 400px;
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay .tripSection {
+    align-items: start;
+    gap: 20px;
   }
-  body .main .featureImages .otherFeatureimg {
-    height: 400px;
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay .tripSection .days {
+    height: 30px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay .tripSection .stayDay {
+    flex-wrap: wrap;
+    justify-content: start;
     gap: 10px;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox {
-    height: 195px;
-    width: 270px;
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay .tripSection .stayDay .day {
+    height: 30px;
+    gap: 5px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay .tripSection .stayDay .day span {
+    font-size: 30px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay .tripSection .stayDay .day .place {
+    font-size: 10px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay .tripSection .stayDay .day .place span {
+    font-size: 10px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripDay .tripSection .stayDay .day::after {
+    height: 25px;
   }
   body .main .mainContent .rightSide .enquiryForm {
     margin-bottom: 3rem;
   }
   body .main .tripTitle {
     font-size: 2rem;
-  }
-  body .main .tripDay {
-    padding: 0rem 0 3rem;
-  }
-  body .main .tripDay .tripSection {
-    width: 540px;
-    padding: 15px 25px;
-    flex-direction: column;
-    gap: 20px;
-  }
-  body .main .tripDay .tripSection .days {
-    width: 110px;
-    height: 40px;
-  }
-  body .main .tripDay .tripSection .stayDay {
-    width: 480px;
-  }
-  body .main .tripDay .tripSection .stayDay .day::after {
-    margin-left: 0px;
   }
   body .main .tourView .secondNav .itineraryTab {
     justify-content: flex-start;
@@ -2917,6 +3276,16 @@ a {
   }
   body .main .callBack .contentCallback .callBackbtn {
     padding: 15px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg {
+    height: 130px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg .galleryImg {
+    height: 130px;
+    width: 130px;
+  }
+  body .footer {
+    margin-top: 150px;
   }
   body .footer .footerContent {
     width: 550px;
@@ -2990,18 +3359,31 @@ a {
   }
 }
 @media (max-width: 576.98px) {
+  body .customAccordion .accordion .accordionTitle .day {
+    width: 35px;
+  }
   body .customAccordion .accordion .accordionTitle .title {
-    width: 230px;
+    width: 250px;
+  }
+  body .customAccordion .accordionDetails .details .activity .activitySlider .owl-stage-outer .item {
+    height: 220px;
+  }
+  body .customAccordion .accordionDetails .details .activity .activitySlider .owl-nav button {
+    height: 30px;
+    width: 30px;
   }
   body .customAccordion .accordionDetails .details .hotelList .includedSection {
     display: block;
   }
   body .customAccordion .accordionDetails .details .hotelList .includedSection .includeTitle {
-    width: 100%;
+    display: none;
   }
   body .customAccordion .accordionDetails .details .hotelList .includedSection .includeList {
     width: 100%;
-    justify-content: space-between;
+    font-size: unset;
+  }
+  body .customAccordion .accordionDetails .details .hotelList .includedSection .includeList .includeWrapper {
+    width: auto;
   }
   body .customAccordion .accordionDetails .details .optionHeading {
     width: 300px;
@@ -3017,40 +3399,53 @@ a {
   body .mainHeader .searchBox {
     display: none;
   }
+  body .mainUltimate .featureImages {
+    margin-top: -55px;
+  }
+  body .mainUltimate .featureImages .mainImage {
+    height: 450px;
+  }
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-stage-outer .owl-item .item {
+    height: 450px;
+  }
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-dots {
+    justify-content: start;
+    gap: 5px;
+    left: 10px;
+  }
   body .main {
     max-width: 410px;
   }
   body .main .tripTitle {
     font-size: 1.5rem;
   }
-  body .main .featureImages .mainImage {
-    height: 350px;
+  body .main .travelGallery .gridGallery .mainImg {
+    height: 320px;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
-    height: 350px;
+  body .main .travelGallery .gridGallery .otherGalleryimg {
+    height: 95px;
   }
-  body .main .featureImages .otherFeatureimg {
-    height: auto;
+  body .main .travelGallery .gridGallery .otherGalleryimg .galleryImg {
+    height: 95px;
+    width: 95px;
   }
-  body .main .featureImages .otherFeatureimg .featureimgBox {
-    height: 175px;
-    width: 200px;
+  body .main .packageWrapper .package {
+    flex-direction: column;
+    padding: 20px 0 0 0;
   }
-  body .main .travelGallery .gridGallery .galleryImg.img1, body .main .travelGallery .gridGallery .galleryImg.img2, body .main .travelGallery .gridGallery .galleryImg.img3, body .main .travelGallery .gridGallery .galleryImg.img4 {
-    height: 137px;
+  body .main .packageWrapper h2 {
+    font-weight: 500;
+    font-size: 18px;
   }
-  body .main .tripDay .tripSection {
-    width: 390px;
+  body .main .packageWrapper h3 {
+    font-weight: 600;
+    font-size: 16px;
   }
-  body .main .tripDay .tripSection .stayDay {
-    width: 370px;
-    flex-wrap: wrap;
+  body .main .packageWrapper .vrLine {
+    min-height: 1px;
   }
-  body .main .tripDay .tripSection .stayDay .day {
-    width: 185px;
-  }
-  body .main .tripDay .tripSection .stayDay .day::after {
-    display: none;
+  body .main .mainContent .leftSide .facility {
+    flex-direction: column;
   }
   body .main .mainContent .leftSide .facility .facilityType .svgImg {
     height: 25px;
@@ -3069,15 +3464,75 @@ a {
   body .main .mainContent .leftSide .propertyFilter .propertys {
     gap: 10px;
   }
-  body .main .packageWrapper .package {
-    flex-direction: column;
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .itinerary-img.owl-carousel {
+    border-radius: 10px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .itinerary-img.owl-carousel .owl-stage-outer .item {
+    height: 220px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .itinerary-img.owl-carousel .owl-dots {
+    gap: 5px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .itinerary-img.owl-carousel .owl-dots .owl-dot.active {
+    width: 20px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .tripDetails {
+    height: 40px;
+    bottom: 0;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .tripDetails .day {
+    gap: 5px;
+    height: 40px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .tripDetails .day span {
+    font-size: 27px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .tripDetails .day .place {
+    font-size: 10px;
+    line-height: 13px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .tripDetails .day .place span {
+    font-size: 10px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .tripDetails .totalSlide {
+    height: 40px;
+    width: -moz-max-content;
+    width: max-content;
+    font-size: 25px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .tripDetails .totalSlide .currentSlide {
+    font-size: 27px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .itineraryContent .tripDetails .totalSlide .totalSlides {
+    font-size: 25px;
+  }
+  body .main .eoTrip {
+    margin: 1rem 0 2rem;
+  }
+  body .main .callBack {
+    height: 220px;
   }
   body .main .callBack .contentCallback {
     width: 80%;
   }
+  body .main .callBack .contentCallback .callbackOffer {
+    font-size: 20px;
+  }
+  body .main .callBack .contentCallback .callbackTag {
+    font-size: unset;
+  }
+  body .main .callBack .contentCallback .callBackbtn {
+    font-size: unset;
+    width: 150px;
+    padding: 10px;
+  }
   body .main .withUS .offerCard {
     width: 200px;
     height: 200px;
+  }
+  body .main .reviews .allReview .totalReview {
+    width: 270px;
+    height: 150px;
   }
   body .footer .footerContent {
     width: 410px;
@@ -3119,55 +3574,66 @@ a {
   }
 }
 @media (max-width: 425.98px) {
+  body {
+    font-size: 12px;
+  }
+  body .timeline .transferWrapper .transferTitle {
+    font-size: unset;
+  }
+  body .mobileEnquiryform .darkFrombg .enquiryForm .formAssembly .tripenquiryTitle {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  body .mobileEnquiryform .darkFrombg .enquiryForm .formAssembly .prize {
+    margin-bottom: 1rem;
+  }
+  body .mobileEnquiryform .darkFrombg .enquiryForm .formAssembly .prize .discount {
+    font-size: 1rem;
+  }
+  body .mobileEnquiryform .darkFrombg .enquiryForm .formAssembly .prize .mainPrize {
+    font-size: 0.8rem;
+  }
+  body .mobileEnquiryform .darkFrombg .enquiryForm .formAssembly .prize .savedPrize {
+    font-size: 10px;
+  }
+  body .mobileEnquiryform .darkFrombg .enquiryForm .formAssembly .addInput form .getherInput {
+    flex-direction: column !important;
+    gap: unset;
+  }
   body .mainHeader {
-    max-width: 350px;
+    max-width: 330px;
   }
   body .customAccordion .accordion .accordionTitle {
     gap: 10px;
   }
   body .customAccordion .accordion .accordionTitle .day {
     width: 40px;
+    padding: 3px 6px;
   }
   body .customAccordion .accordion .accordionTitle .title {
     width: 210px;
   }
   body .customAccordion .accordionDetails .details .optionHeading {
-    width: auto;
+    width: 230px;
+  }
+  body .mainUltimate .featureImages .mainImage {
+    height: 400px;
+  }
+  body .mainUltimate .featureImages .mainImage .owl-carousel-img .owl-stage-outer .owl-item .item {
+    height: 400px;
   }
   body .main {
-    max-width: 350px;
+    max-width: 330px;
     padding: 30px 0;
   }
-  body .main .featureImages .mainImage {
-    height: 250px;
-    margin-bottom: 5px;
+  body .main .withUS .offerCard {
+    height: 160px;
+    width: 160px;
   }
-  body .main .featureImages .mainImage .owl-carousel-img .owl-stage-outer .item {
-    height: 250px;
-  }
-  body .main .featureImages .otherFeatureimg {
-    height: auto;
-    gap: 5px;
-  }
-  body .main .featureImages .otherFeatureimg .featureimgBox {
-    height: 250px;
-    width: 100%;
-  }
-  body .main .tripDay .tripSection {
-    width: 280px;
-    padding: 15px;
-  }
-  body .main .tripDay .tripSection .stayDay {
-    width: 265px;
-  }
-  body .main .tripDay .tripSection .stayDay .day {
-    width: 132px;
-  }
-  body .main .tripDay .tripSection .stayDay .day span {
-    font-size: 40px;
-  }
-  body .main .packageWrapper .package {
-    display: block;
+  body .main .withUS .offerCard img {
+    height: 70px;
+    width: 70px;
   }
   body .main .packageWrapper .package .inclusion h3,
   body .main .packageWrapper .package .exclusion h3 {
@@ -3177,27 +3643,73 @@ a {
     margin-bottom: 20px;
   }
   body .main .mainContent {
-    margin-top: 2rem;
+    margin-top: 0rem;
+  }
+  body .main .mainContent .leftSide .mainHr {
+    margin: 2rem 0;
   }
   body .main .mainContent .leftSide .facility .facilityType .svgImg {
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
   }
   body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripSummary .itineraryDay .dayContent .mealWrapper .lunchDnnr {
     flex-direction: column;
   }
-  body .main .mainContent .leftSide .otherTrip {
-    gap: 16px;
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripSummary .summaryHead .bottomSection {
+    gap: 7px;
   }
-  body .main .travelGallery .gridGallery .galleryImg.img1, body .main .travelGallery .gridGallery .galleryImg.img2, body .main .travelGallery .gridGallery .galleryImg.img3, body .main .travelGallery .gridGallery .galleryImg.img4 {
-    height: 118px;
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripSummary .summaryHead .bottomSection .events .icon {
+    height: 15px;
+    width: 15px;
+  }
+  body .main .mainContent .leftSide .tourView .tabContent .itinerarytabContent .tripSummary .itineraryDay ul {
+    padding-left: 15px;
+  }
+  body .main .mainContent .leftSide .destinationFilter .destinationRoute {
+    padding: 10px;
+  }
+  body .main .mainContent .leftSide .stayCategory .stays .stayWrapper,
+  body .main .mainContent .leftSide .stayCategory .stays .propertyWrapper,
+  body .main .mainContent .leftSide .stayCategory .propertys .stayWrapper,
+  body .main .mainContent .leftSide .stayCategory .propertys .propertyWrapper,
+  body .main .mainContent .leftSide .propertyFilter .stays .stayWrapper,
+  body .main .mainContent .leftSide .propertyFilter .stays .propertyWrapper,
+  body .main .mainContent .leftSide .propertyFilter .propertys .stayWrapper,
+  body .main .mainContent .leftSide .propertyFilter .propertys .propertyWrapper {
+    border-radius: 10px;
+    padding: 10px;
+  }
+  body .main .mainContent .leftSide .otherTrip {
+    gap: 5px;
+    margin-bottom: 1rem;
+  }
+  body .main .mainContent .leftSide .otherTrip .trips {
+    width: 86px;
+  }
+  body .main .mainContent .leftSide .otherTrip .trips .tripImg {
+    height: 80px;
+    width: 80px;
+  }
+  body .main .mainContent .leftSide .otherTrip .trips .prize p {
+    font-size: 10px;
+  }
+  body .main .travelGallery .gridGallery .mainImg {
+    height: 300px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg {
+    height: 80px;
+  }
+  body .main .travelGallery .gridGallery .otherGalleryimg .galleryImg {
+    height: 80px;
+    width: 80px;
   }
   body .main .travelGallery .customerReview .review .sharedImg img {
     width: 100px;
     height: 100px;
   }
   body .main .travelGallery .loadBtnspace .loadmoreReview {
-    padding: 10px 60px;
+    padding: 10px 30px;
+    font-size: unset;
   }
   body .main .reviews .allReview {
     gap: 10px;
@@ -3254,11 +3766,36 @@ a {
     height: 300px;
   }
 }
-@media (max-width: 360.98px) {
+@media (max-width: 340.98px) {
   body .main {
-    max-width: 540px;
+    max-width: 300px;
   }
   body .main .tripTitle {
     font-size: 1.5rem;
   }
 }/*# sourceMappingURL=index.css.map */
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.gallery .large-image img {
+  max-width: 100%;
+  height: auto;
+}
+.gallery .thumbnails {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+  overflow-x: auto;
+}
+.gallery .thumbnails img {
+  cursor: pointer;
+  max-width: 100px;
+  height: auto;
+}
+.gallery .thumbnails img.selected {
+  border: 2px solid #007bff;
+}
