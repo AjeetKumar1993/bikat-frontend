@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const slug = window.location.pathname.substring(7); // Remove the leading '/'  
     // Check if the path exists in our mapping
     if (slug) {
-        loadTourDetails('leh-ladakh-package');
+        loadTourDetails(slug);
     } else {
         // Redirect back to the listing page
       window.location.href = 'listing.html';
@@ -360,6 +360,29 @@ function loadTourDetails(slug){
             if(data.policies &&  data.policies.cancellation){
                 data.policies.cancellation.forEach(policy => {
                     cancellationPolicy.innerHTML += `<li>  ${policy}</li>`;
+                });
+            }
+            const confirmationPolicy = document.getElementById("confirmationPolicy-container");
+            confirmationPolicy.innerHTML = '';
+            if(data.policies &&  data.policies.confirmation){
+                data.policies.confirmation.forEach(policy => {
+                    confirmationPolicy.innerHTML += `<li>  ${policy}</li>`;
+                });
+            }
+
+            const refundPolicy = document.getElementById("refundPolicy-container");
+            refundPolicy.innerHTML = '';
+            if(data.policies &&  data.policies.refund){
+                data.policies.refund.forEach(policy => {
+                    refundPolicy.innerHTML += `<li>  ${policy}</li>`;
+                });
+            }
+
+            const paymentPolicy = document.getElementById("paymentPolicy-container");
+            paymentPolicy.innerHTML = '';
+            if(data.policies &&  data.policies.payment){
+                data.policies.payment.forEach(policy => {
+                    paymentPolicy.innerHTML += `<li>  ${policy}</li>`;
                 });
             }
          
@@ -996,6 +1019,7 @@ function generateEventDetailsHTML(groupedEventTypes, day) {
                     <div class="rightSection">
                         <div class="eventTitle">${eventType.charAt(0).toUpperCase() + eventType.slice(1).toLowerCase()}s:</div>
                         ${generateMultipleTransferEventHTML(details)}
+                        
                     </div>
                 </div>`;
         } else {
@@ -1022,7 +1046,7 @@ function generateEventDetailsHTML(groupedEventTypes, day) {
     return eventHTML;
 }
 
-function generateMutipleTransferEventHTML(details) {
+function generateMultipleTransferEventHTML(details) {
     let htmlOutput = '<ul class="mutliEvents">';
 
     details.forEach(detail => {
@@ -1514,5 +1538,5 @@ function generateTransferEventHTML(eventData, index, length) {
 function load_index(slug){
     
     loadTourDetails(slug);
-    history.pushState({}, '',  `?slug=${slug}`);
+    history.pushState({}, '',  `/${slug}`);
 }
