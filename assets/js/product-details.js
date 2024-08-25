@@ -219,8 +219,10 @@ function loadTourDetails(slug){
             }  
         
             $(document).ready(function(){
+                var mainSlider = document.getElementById('main-slider');
+                mainSlider.innerHTML = '';
                 var owl = $("#main-slider");
-
+               
                 owl.owlCarousel('destroy').owlCarousel({
                     items: 1,
                     loop: true,
@@ -1538,5 +1540,5 @@ function generateTransferEventHTML(eventData, index, length) {
 function load_index(slug){
     
     loadTourDetails(slug);
-    history.pushState({}, '',  `/${slug}`);
+    history.pushState({}, '',  `/tours/${slug}`);
 }
