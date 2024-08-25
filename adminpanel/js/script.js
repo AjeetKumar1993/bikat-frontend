@@ -1007,7 +1007,9 @@ function populateTable(data) {
         const id = (e.target.getAttribute('data-id'));
         viewTourDate(id);
     }else if (e.target.classList.contains('duplicate-btn')) {
-        duplicateRecord(e.target);
+        const id = (e.target.getAttribute('data-id'));
+        //duplicateRecord(e.target);
+        duplicateTour(id);
     }else if (e.target.classList.contains('addOns-view-btn')) {
         const id = (e.target.getAttribute('data-id'));
         viewTourAddOns(id);
@@ -1015,6 +1017,26 @@ function populateTable(data) {
 
   });
 
+  function duplicateTour(id){
+
+    fetch("https://decent-line-423710-m0.de.r.appspot.com/api/tour/duplicate/"+id, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+    })
+    .then(response => response.json())
+    .then(data => {
+       
+        if(data.errorMessage){
+            alert('Failed: '+ data.errorMessage);
+        }else{
+           alert("Duplicate successfull!");
+        }
+    })
+
+  }
   function duplicateRecord(button) {
     var row = button.closest('tr');
     // Clone the row
