@@ -133,62 +133,62 @@ function removeEditItineryOtherDetails(button, count){
     dayCounts[count]--;
 }
 
-  document.getElementById('save-edit-group-j').addEventListener('click', function() {
-    const id = this.dataset.id;
+//   document.getElementById('save-edit-group-j').addEventListener('click', function() {
+//     const id = this.dataset.id;
    
-    const data = {}
-    let itineryFinalData = {}
-    for(let i = 1 ;i <= editItineraryCount;i++){
-        let itineryData =  {
-            "title": "",
-            "isRequired": true,
-            "heading": "",
-            "description": "",
-            "otherDetails" :[]
-        }
-        const title = document.getElementById(`edit-titleItinerary${i}`).value;
-        if(title){
-            itineryData.title = title;
-        }
-        const heading = document.getElementById(`edit-headingItinerary${i}`).value;
-        if(heading){
-            itineryData.heading = heading;
-        }
-        const description = document.getElementById(`edit-descriptionItinerary${i}`).value;
-        if(description){
-            itineryData.description = description;
-        }
-        const otherDetails = [];
-        let key = "edit-itineraryOtherDetailsDay"+i;
-        allOtherDetails = document.querySelectorAll(`[id^="${key}"]`);
-        allOtherDetails.forEach(details => {
-            otherDetails.push(details.value);
-        });
+//     const data = {}
+//     let itineryFinalData = {}
+//     for(let i = 1 ;i <= editItineraryCount;i++){
+//         let itineryData =  {
+//             "title": "",
+//             "isRequired": true,
+//             "heading": "",
+//             "description": "",
+//             "otherDetails" :[]
+//         }
+//         const title = document.getElementById(`edit-titleItinerary${i}`).value;
+//         if(title){
+//             itineryData.title = title;
+//         }
+//         const heading = document.getElementById(`edit-headingItinerary${i}`).value;
+//         if(heading){
+//             itineryData.heading = heading;
+//         }
+//         const description = document.getElementById(`edit-descriptionItinerary${i}`).value;
+//         if(description){
+//             itineryData.description = description;
+//         }
+//         const otherDetails = [];
+//         let key = "edit-itineraryOtherDetailsDay"+i;
+//         allOtherDetails = document.querySelectorAll(`[id^="${key}"]`);
+//         allOtherDetails.forEach(details => {
+//             otherDetails.push(details.value);
+//         });
        
-        itineryData.otherDetails = otherDetails;
+//         itineryData.otherDetails = otherDetails;
 
-        itineryFinalData['day'+i] = itineryData;
-    }
-    data.itinerary = itineryFinalData;
+//         itineryFinalData['day'+i] = itineryData;
+//     }
+//     data.itinerary = itineryFinalData;
 
-    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
-           },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        console.log('Success:', result);
-        alert('Tour updated successfully!');
-        closeEditPopup();
-    })
-    .catch(error => {
-		console.log('Error:'+ error);
-        console.error('Error:', error);
-        console.log('Error tour updating!');
-        closeEditPopup();
-    });
+//     fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+//            },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(result => {
+//         console.log('Success:', result);
+//         alert('Tour updated successfully!');
+//         closeEditPopup();
+//     })
+//     .catch(error => {
+// 		console.log('Error:'+ error);
+//         console.error('Error:', error);
+//         console.log('Error tour updating!');
+//         closeEditPopup();
+//     });
 
-  });
+//   });

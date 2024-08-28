@@ -403,36 +403,36 @@ function populateTable(data) {
         // }
         
        
-        fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list')
-        .then(response => response.json())
-        .then(data => {
+        // fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list')
+        // .then(response => response.json())
+        // .then(data => {
            
-            const checkboxesContainer = document.getElementById('suggestedTourCheckboxes');
-                checkboxesContainer.innerHTML = '';  // Clear existing content
-                data.forEach(option => {
-                    if(option.id === id){
-                        return;
-                    }
-                    const checkboxDiv = document.createElement('div');
-                    checkboxDiv.classList.add('checkbox-container');
-                    const label = document.createElement('label');
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.value = option.id;
-                    checkbox.name = 'options';
-                    checkbox.classList.add('checkbox');  // Add class for styling
-                    label.appendChild(checkbox);
-                    label.appendChild(document.createTextNode(option.name));
+        //     const checkboxesContainer = document.getElementById('suggestedTourCheckboxes');
+        //         checkboxesContainer.innerHTML = '';  // Clear existing content
+        //         data.forEach(option => {
+        //             if(option.id === id){
+        //                 return;
+        //             }
+        //             const checkboxDiv = document.createElement('div');
+        //             checkboxDiv.classList.add('checkbox-container');
+        //             const label = document.createElement('label');
+        //             const checkbox = document.createElement('input');
+        //             checkbox.type = 'checkbox';
+        //             checkbox.value = option.id;
+        //             checkbox.name = 'options';
+        //             checkbox.classList.add('checkbox');  // Add class for styling
+        //             label.appendChild(checkbox);
+        //             label.appendChild(document.createTextNode(option.name));
 
-                    checkboxDiv.appendChild(label);
-                    checkboxesContainer.appendChild(checkboxDiv);
-                });
-        })
-        .catch(error => {
-            console.error('Error fetching options: 2', error);
-            const checkboxesContainer = document.getElementById('suggestedTourCheckboxes');
-            checkboxesContainer.innerHTML = '<label>Error loading options</label>';
-        }); 
+        //             checkboxDiv.appendChild(label);
+        //             checkboxesContainer.appendChild(checkboxDiv);
+        //         });
+        // })
+        // .catch(error => {
+        //     console.error('Error fetching options: 2', error);
+        //     const checkboxesContainer = document.getElementById('suggestedTourCheckboxes');
+        //     checkboxesContainer.innerHTML = '<label>Error loading options</label>';
+        // }); 
       
 
       const locationId = document.getElementById("edit-location");

@@ -13,7 +13,8 @@ function fetchGalleryItem(){
     })
     .catch(error => {
         alert('Error fetching options: 6', error);
-       
+        console.log('Error:'+ error);
+        console.error('Error:', error);
     });
 }
 
@@ -36,7 +37,8 @@ function fetchImage(){
     })
     .catch(error => {
         alert('Error fetching options: 5', error);
-       
+        console.log('Error:'+ error);
+        console.error('Error:', error);
     });
 }
 function createGallery(data, container_id) {
@@ -92,12 +94,16 @@ function createGallery(data, container_id) {
         locationDiv.appendChild(overlay);
 
         const firstImg = galleryDiv.querySelector('img');
-        firstImg.addEventListener('click', () => {
-            galleryDiv.querySelectorAll('img').forEach(img => {
-                img.style.display = 'block';
+       
+        if(firstImg){
+            firstImg.addEventListener('click', () => {
+                galleryDiv.querySelectorAll('img').forEach(img => {
+                    img.style.display = 'block';
+                });
+                overlay.style.display = 'none';
             });
-            overlay.style.display = 'none';
-        });
+        }
+       
 
         container.appendChild(locationDiv);
     });
