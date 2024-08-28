@@ -441,7 +441,7 @@ function populateTable(data) {
       const tourImageId = document.getElementById("edit-tour-image");
       tourImageId.innerHTML += `
             
-            <img src="https://storage.googleapis.com/bikat_adventure_image/${item.tourImage}" alt="sm" style="width:30%;height:30%" />
+            <img src="https://storage.googleapis.com/fullontravel/${item.tourImage}" alt="sm" style="width:30%;height:30%" />
             
       `;
       const galleryId = document.getElementById("edit-tour-gallery");
@@ -449,7 +449,7 @@ function populateTable(data) {
       if(item.gallery){
         item.gallery.forEach(gallery => {
             galleryId.innerHTML += `
-                                        <img src="https://storage.googleapis.com/bikat_adventure_image/${gallery}" alt="npm" style="width:30%;height:30%" />
+                                        <img src="https://storage.googleapis.com/fullontravel/${gallery}" alt="npm" style="width:30%;height:30%" />
                                    `;
           });
       }

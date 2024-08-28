@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
               redirectHref = `tours/${option.slug}`;
               html += `<div class="comon-items-week">
                   <figure>
-                      <img src="https://storage.googleapis.com/bikat_adventure_image/${option.tourImage}" alt="png2"/>
+                      <img src="https://storage.googleapis.com/fullontravel/${option.tourImage}" alt="png2"/>
                       <span class="price"> 20% off </span>
                   </figure>
                   <a class="wish-list"> <i class="fas fa-heart"></i> </a>
@@ -115,7 +115,7 @@ function popularDistination(data){
         var figure = document.createElement('figure');
         var img = document.createElement('img');
         let imgVal = values[0].tourImage; 
-        img.src = "https://storage.googleapis.com/bikat_adventure_image/"+imgVal;
+        img.src = "https://storage.googleapis.com/fullontravel/"+imgVal;
         img.alt = 'ds';
 
         figure.appendChild(img);

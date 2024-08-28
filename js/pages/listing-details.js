@@ -18,7 +18,7 @@ function fetchData(slug){
 
       let image = "images/bg-how.jpg";
       if(tourDetails.tourImage !== null){
-        image = "https://storage.googleapis.com/bikat_adventure_image/"+tourDetails.tourImage; 
+        image = "https://storage.googleapis.com/fullontravel/"+tourDetails.tourImage; 
       }
       let region = tourDetails.region !== null ? tourDetails.region: "NA";
       let name = tourDetails.name !== null ? tourDetails.name: "NA";
@@ -184,9 +184,9 @@ function fetchData(slug){
       const galleryLIst = tourDetails.gallery;
       galleryLIst.forEach(gallery => {
         galleryId.innerHTML += `<div class="col">
-                            <a class="comon-glry" data-fancybox="gl" href="https://storage.googleapis.com/bikat_adventure_image/${gallery}">
+                            <a class="comon-glry" data-fancybox="gl" href="https://storage.googleapis.com/fullontravel/${gallery}">
                                 <figure>
-                                    <img src="https://storage.googleapis.com/bikat_adventure_image/${gallery}" alt="npm"/>
+                                    <img src="https://storage.googleapis.com/fullontravel/${gallery}" alt="npm"/>
                                 </figure>
                             </a>
                         </div>`;
@@ -456,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
               html +=`<div class="comon-items-week">
 
                         <figure>
-                            <img src="https://storage.googleapis.com/bikat_adventure_image/${item.tourImage}" alt="png2"/>
+                            <img src="https://storage.googleapis.com/fullontravel/${item.tourImage}" alt="png2"/>
                         </figure>
                         <a class="wish-list"><i class="fas fa-heart"></i></a>
                         <div class="div-test1">

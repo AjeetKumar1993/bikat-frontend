@@ -54,7 +54,7 @@ function renderData(tourDetailsList) {
 
         let image = "images/bg-how.jpg";
         if(tourDetails.tourImage !== null){
-          image = "https://storage.googleapis.com/bikat_adventure_image/"+tourDetails.tourImage; 
+          image = "https://storage.googleapis.com/fullontravel/"+tourDetails.tourImage; 
         }
         let region = tourDetails.region !== null ? tourDetails.region: "NA";
         let name = tourDetails.name !== null ? tourDetails.name: "NA";

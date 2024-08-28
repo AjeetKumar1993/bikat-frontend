@@ -76,7 +76,7 @@ function createGallery(data, container_id) {
 
         destination.url.forEach((url, index) => {
             const img = document.createElement('img');
-            img.src = "https://storage.googleapis.com/bikat_adventure_image/"+url;
+            img.src = "https://storage.googleapis.com/fullontravel/"+url;
             img.alt = destination.location;
             if (index > 0) {
                 img.style.display = 'none';

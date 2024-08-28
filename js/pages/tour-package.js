@@ -71,7 +71,7 @@ function generateHTML(tourDetails) {
     var figure = document.createElement('figure');
 
     var img = document.createElement('img');
-    img.src = "https://storage.googleapis.com/bikat_adventure_image/"+tourDetails.tourImage;
+    img.src = "https://storage.googleapis.com/fullontravel/"+tourDetails.tourImage;
     img.alt = 'png2';
     figure.appendChild(img);
 

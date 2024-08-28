@@ -232,7 +232,7 @@ function loadTourDetails(slug){
                 });
                 // Add images to Owl Carousel
                 sliderImages.forEach(function(src) {
-                    var item = `<div class="item"><img src="https://storage.googleapis.com/bikat_adventure_image/${src}" alt=""></div>`;
+                    var item = `<div class="item"><img src="https://storage.googleapis.com/fullontravel/${src}" alt=""></div>`;
                     owl.trigger('add.owl.carousel', [$(item)]).trigger('refresh.owl.carousel');
                 });
             });
@@ -464,7 +464,7 @@ function addImageHeaderWithImgCount(activitiesImgCount, destinationImgCount, pro
 function getMainImageHTML(url, eventType){
     console.log(url);
     let html = `<div class ="item">`;
-    html += ` <img src="https://storage.googleapis.com/bikat_adventure_image/${url}"
+    html += ` <img src="https://storage.googleapis.com/fullontravel/${url}"
                 alt="">`;
 
     if(eventType){
@@ -477,12 +477,12 @@ function getMainImageHTML(url, eventType){
 
 function getSliderImageHTML(url){
 
-    return ` <img src="https://storage.googleapis.com/bikat_adventure_image/${url}" alt="">`;         
+    return ` <img src="https://storage.googleapis.com/fullontravel/${url}" alt="">`;         
 }
 
 function getImageHTML(url, eventType){
     
-    let html = ` <img src="https://storage.googleapis.com/bikat_adventure_image/${url}"
+    let html = ` <img src="https://storage.googleapis.com/fullontravel/${url}"
                 alt="">`;
 
     if(eventType){
@@ -523,7 +523,7 @@ function getImageWithViewAllButton(url){
 function getAllImagesHTML(url, title, type, imgTotal){
 
     let html = ` <div class="imgWrapper">
-            <img src="https://storage.googleapis.com/bikat_adventure_image/${url}?w=1080&h=auto&dpr=1" alt="${title}">`;
+            <img src="https://storage.googleapis.com/fullontravel/${url}?w=1080&h=auto&dpr=1" alt="${title}">`;
     
     if(type != 'allImages'){
         html += ` <div class="imgContent">
@@ -548,7 +548,7 @@ function getAllImagesHTML(url, title, type, imgTotal){
 function getGelleryImagesHTML(url, title){
 
     return  ` <div class="item">
-                            <img src="https://storage.googleapis.com/bikat_adventure_image/${url}" alt="">
+                            <img src="https://storage.googleapis.com/fullontravel/${url}" alt="">
                             <div class="imgInfo">
                                 <div class="imgCap">${title}</div>
                             </div>
@@ -641,7 +641,7 @@ function getFilterHTML(filters){
             }
 
             html += `<div class="tripImg">
-                            <img src="https://storage.googleapis.com/bikat_adventure_image/${trip.tourImage}"
+                            <img src="https://storage.googleapis.com/fullontravel/${trip.tourImage}"
                                 alt="">
                             <div class="days">${trip.numberOfDays} Days</div>
                         </div>
@@ -863,7 +863,7 @@ function mainGallery(mainGalleryContainer){
     function addImageWrapperImages(count) {
         for (let i = 0; i < count; i++) {
             const img = document.createElement('img');
-            img.src = 'https://storage.googleapis.com/bikat_adventure_image/dev/kuala%20hotel%201.jpg-122277.jpg?w=1080&h=auto&dpr=1';
+            img.src = 'https://storage.googleapis.com/fullontravel/dev/kuala%20hotel%201.jpg-122277.jpg?w=1080&h=auto&dpr=1';
             img.alt = '';
             imgWrapper.appendChild(img);
         }
@@ -1103,7 +1103,7 @@ function subStayItineraryHTML(event, dayCountForTour) {
     const eventDataHtml = event.eventData.map(eventData => `
         <div class="hotelCard">
             <div class="hotelImg">
-                <img src="https://storage.googleapis.com/bikat_adventure_image/${eventData.imageUrl}" alt="${eventData.title}">
+                <img src="https://storage.googleapis.com/fullontravel/${eventData.imageUrl}" alt="${eventData.title}">
                 <div class="imgContent">
                     <div class="rating">
                         <img src="/assets/images/svg/whiteStar.svg" alt="Rating"><span>4.5 / 5</span>
@@ -1267,7 +1267,7 @@ function subActivityItineraryHTML(event, activityImageMap) {
             ${event.attachedEvents.map((attachedEvent, index) => `
                 <div class="item">
                     <div class="activityCard">
-                        <img src="https://storage.googleapis.com/bikat_adventure_image/${attachedEvent.imageUrl}" style="height:284.21px" alt="">
+                        <img src="https://storage.googleapis.com/fullontravel/${attachedEvent.imageUrl}" style="height:284.21px" alt="">
                         <p>${index + 1}. ${attachedEvent.title}</p>
                     </div>
                 </div>
@@ -1285,7 +1285,7 @@ function subActivityItineraryHTML(event, activityImageMap) {
         <div class="owl-carousel owl-theme activitySlider">
             ${imageList.map(img => `
             <div class="item">
-                <img src="https://storage.googleapis.com/bikat_adventure_image/${img}" alt="${event.title} Image">
+                <img src="https://storage.googleapis.com/fullontravel/${img}" alt="${event.title} Image">
             </div>`).join('')}
         </div>
         ${attachedEventsHTML}
@@ -1317,7 +1317,7 @@ function getItineraryHTML(itinerary, locationImageMap, activityImageMap) {
                 <div class="owl-carousel owl-theme itinerary-img">
                     ${imageList.map(url => `
                         <div class="item">
-                            <img src="https://storage.googleapis.com/bikat_adventure_image/${url}" alt="">
+                            <img src="https://storage.googleapis.com/fullontravel/${url}" alt="">
                         </div>
                     `).join('')}
                 </div>
@@ -1413,7 +1413,7 @@ function generateEventHTML(event, dayCountForTour, activityImageMap) {
                         ${event.eventData.map(eventData => `
                             <div class="hotelCard">
                                 <div class="hotelImg">
-                                    <img src="https://storage.googleapis.com/bikat_adventure_image/${eventData.imageUrl}" alt="">
+                                    <img src="https://storage.googleapis.com/fullontravel/${eventData.imageUrl}" alt="">
                                     <div class="imgContent">
                                         <div class="rating">
                                             <img src="/assets/images/svg/whiteStar.svg"
@@ -1457,7 +1457,7 @@ function generateEventHTML(event, dayCountForTour, activityImageMap) {
                         
                          ${imageList.map(img => `
                            <div class="item">
-                                <img src="https://storage.googleapis.com/bikat_adventure_image/${img}" alt="">
+                                <img src="https://storage.googleapis.com/fullontravel/${img}" alt="">
                             </div>`).join('')}
                     </div>
                     ${event.attachedEvents ? `
@@ -1467,7 +1467,7 @@ function generateEventHTML(event, dayCountForTour, activityImageMap) {
                             ${event.attachedEvents.map((attachedEvent, index) => `
                                 <div class="item">
                                     <div class="activityCard">
-                                        <img src="https://storage.googleapis.com/bikat_adventure_image/${attachedEvent.imageUrl}" style="height:284.21px" alt="">
+                                        <img src="https://storage.googleapis.com/fullontravel/${attachedEvent.imageUrl}" style="height:284.21px" alt="">
                                         <p>${index + 1}. ${attachedEvent.title}</p>
                                     </div>
                                 </div>

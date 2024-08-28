@@ -233,7 +233,7 @@ let dayCounts = {
          <td data-name="eventType">${item.eventType}</td>
          <td data-name="title">${item.title}</td>
          <td data-name="googleMap"><a href="${item.mapUrl}" target="_blank">Link</a></td>
-         <td data-name="imageUrl"> <img src="https://storage.googleapis.com/bikat_adventure_image/${item.imageUrl}" alt="sm" class="image-preview" /></td>
+         <td data-name="imageUrl"> <img src="https://storage.googleapis.com/fullontravel/${item.imageUrl}" alt="sm" class="image-preview" /></td>
        `;
        tableBody.appendChild(row);
 
