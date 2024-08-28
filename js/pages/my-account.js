@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Fetch user data from the API
     var userId = localStorage.getItem('userId')
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/user/profile/'+userId)
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/user/profile/'+userId)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(formData);
             var userId = localStorage.getItem('userId')
             // Send form data to the API
-            fetch('https://decent-line-423710-m0.de.r.appspot.com/api/user/profile/'+userId, {
+            fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/user/profile/'+userId, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'

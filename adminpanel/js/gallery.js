@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function fetchGalleryItem(){
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/image-items')
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/image-items')
     .then(response => response.json())
     .then(data => {
         filterHtmlRender('gallery-category', data.category);
@@ -27,7 +27,7 @@ function filterHtmlRender(container_id, items){
     });
 }
 function fetchImage(){
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/images')
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/images')
     .then(response => response.json())
     .then(data => {
         createGallery(data.Destinations,'destinations-gallery-container');
@@ -147,7 +147,7 @@ function uploadGallery(containerId) {
         return;
     }
     showLoader();
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/images', {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/images', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -208,7 +208,7 @@ async function uploadImages(containerId, statusId){
     const statusIcon = document.getElementById(statusId);
     try {
         showLoader();
-        const response =  await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/file/upload/images', {
+        const response =  await fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/file/upload/images', {
             method: 'POST',
             body: formData
         });

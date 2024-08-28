@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadTour(event, category){
 
-    fetch("https://decent-line-423710-m0.de.r.appspot.com/api/tour/filter-item",)
+    fetch("https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/filter-item",)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -26,7 +26,7 @@ function loadTour(event, category){
 
     const limit = 100;
     const page = 1;
-    const apiEndpoint = `https://decent-line-423710-m0.de.r.appspot.com/api/tour/list?page=${page}&pageSize=${limit}`;
+    const apiEndpoint = `https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list?page=${page}&pageSize=${limit}`;
     showLoader();
     fetch(apiEndpoint, { 
         method: 'POST',

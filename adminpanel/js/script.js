@@ -116,7 +116,7 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
     }
     data.itinerary = itineryFinalData;
    
-    await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/', {
+    await fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -187,7 +187,7 @@ document.getElementById('productForm').addEventListener('submit', async function
     data.exclusion = exclusionList;
     data.inclusion = inclusionList;
 
-    await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/', {
+    await fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -240,7 +240,7 @@ function removeRule(button, type) {
 function handleCheckboxChange(id) {
     const selectedOptions = Array.from(document.querySelectorAll('.checkbox:checked')).map(cb => cb.value);
     console.log(selectedOptions);
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/tour-suggestion', {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id+'/tour-suggestion', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -256,7 +256,7 @@ let apiData = {};
 
 function edit(){
    // document.getElementById("table-container").innerHTML = "";
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/list')
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list')
         .then(response => response.json())
         .then(result => {
             populateTable(result);
@@ -403,7 +403,7 @@ function populateTable(data) {
         // }
         
        
-        fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/list')
+        fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list')
         .then(response => response.json())
         .then(data => {
            
@@ -553,7 +553,7 @@ function populateTable(data) {
     };
 
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -599,7 +599,7 @@ function populateTable(data) {
    
 //     console.log(data);
 
-//     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+//     fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
 //         method: 'PUT',
 //         headers: {
 //             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -638,7 +638,7 @@ function populateTable(data) {
    
 //     console.log(data);
 
-//     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+//     fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
 //         method: 'PUT',
 //         headers: {
 //             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -675,7 +675,7 @@ function populateTable(data) {
    
    // console.log(data);
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -707,7 +707,7 @@ function populateTable(data) {
    
     console.log(data);
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -797,7 +797,7 @@ function populateTable(data) {
     //     data.packingList = packingList;
     // }
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -831,7 +831,7 @@ function populateTable(data) {
 //         }
 //     });
 
-//     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/tour-suggestion', {
+//     fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id+'/tour-suggestion', {
 //         method: 'POST',
 //         headers: {
 //             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -862,7 +862,7 @@ function populateTable(data) {
         location : newLocation
     }
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -906,7 +906,7 @@ function populateTable(data) {
         return;
     }
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -1019,7 +1019,7 @@ function populateTable(data) {
 
   function duplicateTour(id){
 
-    fetch("https://decent-line-423710-m0.de.r.appspot.com/api/tour/duplicate/"+id, {
+    fetch("https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/duplicate/"+id, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -1079,7 +1079,7 @@ function populateTable(data) {
 
     console.log(data);
     // Send data to the backend
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/', {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -1105,7 +1105,7 @@ function populateTable(data) {
         const data = {
             active: isActive, // Replace with actual ID value
         };
-        fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/date', {
+        fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id+'/date', {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -1131,7 +1131,7 @@ function populateTable(data) {
         const data = {
             active: isActive, // Replace with actual ID value
         };
-        fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/tour-addOns', {
+        fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id+'/tour-addOns', {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
@@ -1153,7 +1153,7 @@ function populateTable(data) {
     }
   function viewTourDate(id) {
    
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/date')
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id+'/date')
     .then(response => response.json())
     .then(result => {
         viewDatePopup(result);
@@ -1164,7 +1164,7 @@ function populateTable(data) {
   }
   function viewTourAddOns(id) {
    
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id+'/tour-addOns')
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id+'/tour-addOns')
     .then(response => response.json())
     .then(result => {
         viewAddOnPopup(result);
@@ -1262,7 +1262,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function fetchOptions() {
         // Replace with your actual backend API endpoint to fetch options
-        const optionsUrl = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/list';
+        const optionsUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list';
 
         fetch(optionsUrl)
             .then(response => response.json())
@@ -1297,7 +1297,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to fetch and display saved dates
     function fetchAndDisplaySavedDates() {
         // Replace with your actual backend API endpoint to fetch saved dates
-        const datesUrl = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/date';
+        const datesUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/date';
 
         fetch(datesUrl)
             .then(response => response.json())
@@ -1362,7 +1362,7 @@ function loadAddOnOptions(data) {
     const selectedDate = document.getElementById('selectedDate').value;
 
     // Replace with your actual backend API endpoint to save date
-    const saveUrl = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/date';
+    const saveUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/date';
 
     // Prepare payload in JSON format
     const payload = {
@@ -1430,7 +1430,7 @@ document.getElementById('date-form-submit').addEventListener('click', function(e
         tourIds: selectedOptions
     };
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/available-date', {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/available-date', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

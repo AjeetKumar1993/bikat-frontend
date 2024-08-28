@@ -29,7 +29,7 @@ document.getElementById('policyForm').addEventListener('submit', async function(
     data.cancellationPolicy = cancellationPolicyList;
     data.paymentPolicy = paymentPolicyList;
 
-    await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/policy', {
+    await fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/policy', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

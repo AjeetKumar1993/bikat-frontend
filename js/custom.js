@@ -609,7 +609,7 @@ document.getElementById('registerBtn').addEventListener('click', function () {
         confirmPassword: confirmPassword
     };
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/user/signup', {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/user/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -644,7 +644,7 @@ document.getElementById('loginBtn').addEventListener('click', function () {
         password: password
     };
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/user/login', {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

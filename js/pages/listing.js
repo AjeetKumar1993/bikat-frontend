@@ -3,7 +3,7 @@ let postDataForLoadMore = JSON.stringify({});
 function fetchData(postData) {
 
     const limit = 10;
-    const apiEndpoint = `https://decent-line-423710-m0.de.r.appspot.com/api/tour/list?page=${page}&pageSize=${limit}`;
+    const apiEndpoint = `https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list?page=${page}&pageSize=${limit}`;
     showLoader();
     fetch(apiEndpoint, { 
         method: 'POST',
@@ -216,7 +216,7 @@ function generateFilter(selectedRegion){
  // const categoryContainer = document.getElementById('category-filter-container');
   regionContainer.innerHTML = '';
   //categoryContainer.innerHTML = '';
-  fetch("https://decent-line-423710-m0.de.r.appspot.com/api/tour/filter-item",)
+  fetch("https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/filter-item",)
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

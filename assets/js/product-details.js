@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadTourDetails(slug){
 
-    const apiUrl = 'https://decent-line-423710-m0.de.r.appspot.com/api/product/'+slug; // Replace with your API URL
+    const apiUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/product/'+slug; // Replace with your API URL
    
     fetch(apiUrl)
         .then(response => {

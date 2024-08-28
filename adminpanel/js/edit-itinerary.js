@@ -171,7 +171,7 @@ function removeEditItineryOtherDetails(button, count){
     }
     data.itinerary = itineryFinalData;
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+id, {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 

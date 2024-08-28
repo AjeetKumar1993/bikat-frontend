@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addOndCheckbox = document.getElementById('addOnsCheckbox');
     addOndCheckbox.innerHTML = "";
     // Replace with your actual backend API endpoint to fetch options
-    const optionsUrl = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/'+tourId+'/tour-addOns';
+    const optionsUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+tourId+'/tour-addOns';
 
     fetch(optionsUrl)
         .then(response => response.json())
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(data);
 
-  fetch('https://decent-line-423710-m0.de.r.appspot.com/api/booking/', {
+  fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/booking/', {
       method: 'POST',
       headers: {
           'Content-type': 'application/json; charset=UTF-8' // Indicates the content 

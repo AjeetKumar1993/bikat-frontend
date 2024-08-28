@@ -114,7 +114,7 @@ let dayCounts = {
     };
  
     
-    await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary', {
+    await fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/itinerary', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -182,7 +182,7 @@ let dayCounts = {
     };
  
     
-    await fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/transfer/event', {
+    await fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/transfer/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -209,7 +209,7 @@ let dayCounts = {
 
   function loadEventDatails(){
     
-     fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/transfer/event')
+     fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/transfer/event')
          .then(response => response.json())
          .then(result => {
             viewEventData(result);
@@ -277,7 +277,7 @@ let dayCounts = {
 
 function fetchItineraryEventCategory(){
 
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/images')
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/images')
     .then(response => response.json())
     .then(data => {
         localStorage.setItem("itinerary_event_data", Json.stringify(data));
@@ -662,7 +662,7 @@ function saveEventInDb(type){
         return;
     }
     
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary/event', {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/itinerary/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -708,7 +708,7 @@ function itineraryEvent(){
     const tourId =slug.options[slug.selectedIndex].value;
 
     
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary/'+tourId)
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/itinerary/'+tourId)
     .then(response => response.json())
     .then(data => {
        
@@ -731,7 +731,7 @@ function itineraryEventDay(){
     const itineraryId = day.options[day.selectedIndex].value;
     const location = day.options[day.selectedIndex].id;
   
-    fetch('https://decent-line-423710-m0.de.r.appspot.com/api/admin/tour/itinerary/event/'+itineraryId)
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/itinerary/event/'+itineraryId)
     .then(response => response.json())
     .then(data => {
        

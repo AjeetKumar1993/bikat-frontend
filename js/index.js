@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('handpickedCollections');
   const popularCollections = document.getElementById('popularCollections');
 
-  const optionsUrl = 'https://decent-line-423710-m0.de.r.appspot.com/api/tour/list';
+  const optionsUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list';
   
   fetch(optionsUrl)
       .then(response => response.json())
