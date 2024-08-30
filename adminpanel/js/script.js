@@ -1267,6 +1267,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(optionsUrl)
             .then(response => response.json())
             .then(data => {
+
                 // Populate options in the dropdown select element
                 const productSlugContainer = document.getElementById('product-slug-container');
                 productSlugContainer.innerHTML = '';
@@ -1277,7 +1278,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const productSlugEditContainer = document.getElementById('product-slug-edit-container');
                 productSlugEditContainer.innerHTML = '';
                 data.forEach(option => {
-                    if(option.stayCategory){
+                    if(option.active && option.stayCategory){
                         productSlugContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
                         productSlugPolicyContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
                         productSlugEventContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
