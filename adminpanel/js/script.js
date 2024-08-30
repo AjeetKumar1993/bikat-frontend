@@ -1274,11 +1274,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 productSlugPolicyContainer.innerHTML = '';
                 const productSlugEventContainer = document.getElementById('product-slug-event-container');
                 productSlugEventContainer.innerHTML = '';
+                const productSlugEditContainer = document.getElementById('product-slug-edit-container');
+                productSlugEditContainer.innerHTML = '';
                 data.forEach(option => {
                     if(option.stayCategory){
                         productSlugContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
                         productSlugPolicyContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
                         productSlugEventContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
+                        productSlugEditContainer.innerHTML += `<option value="${option.id}">${option.slug}</option>`;
                     }
                     
                     const optionElement = document.createElement('option');

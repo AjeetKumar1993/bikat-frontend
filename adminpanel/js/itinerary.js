@@ -725,6 +725,187 @@ function itineraryEvent(){
     });
 }
 
+function editTourItinerary(){
+    const slug = document.getElementById('product-slug-edit-container');
+    const tourId =slug.options[slug.selectedIndex].value;
+
+    
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/itinerary/'+tourId)
+    .then(response => response.json())
+    .then(data => {
+       
+        const tableBody = document.querySelector('#tour-itinerary-data tbody');
+        tableBody.innerHTML = '';
+        data.forEach(item => {
+           
+             const row = document.createElement('tr');
+             row.innerHTML = `
+                 <td data-name="dayNumber">${item.dayNumber}</td>
+                 <td data-name="location">${item.location}</td>
+                 <td data-name="title">${item.title}</td>
+                 <td data-name="isLeisureDay">${item.isLeisureDay}</td>
+                 <td>  
+                    <button id="edit-${item.id}-${item.dayNumber}" class="edit-button"
+                        data-id="${item.id}"
+                        data-day="${item.dayNumber}"
+                        data-location="${item.location}"
+                        data-title="${item.title}"
+                        data-description="${item.description}"
+                        data-wikiParsedDescription="${item.wikiParsedDescription}"
+                        data-is-leisure-day="${item.isLeisureDay}"
+                        onclick="handleEdit(this)">
+                            <i class="fas fa-edit"></i>
+                    </button>
+                    <button id="delete-${tourId}-${item.dayNumber}" class="delete-button"
+                        onclick="handleDelete('${tourId}','${item.dayNumber}')">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                 </td>   
+                 `;
+             tableBody.appendChild(row);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching the tours:', error);
+    });
+}
+// Function to handle the edit operation
+function handleEdit(button) {
+  
+    const id = button.getAttribute('data-id');
+    const dayNumber = button.getAttribute('data-day');
+    const location = button.getAttribute('data-location');
+    const title = button.getAttribute('data-title');
+    const wikiParsedDescription = button.getAttribute('data-wikiParsedDescription');
+    const description = button.getAttribute('data-description');
+    const isLeisureDay = button.getAttribute('data-is-leisure-day') === 'true';
+
+    document.getElementById('tourEdit-dayNumber').value = dayNumber;
+    document.getElementById('tourEdit-location').value = location;
+
+
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/itinerary/event/'+id)
+    .then(response => response.json())
+    .then(data => {
+       
+        const tableBody = document.querySelector('#tour-itinerary-event tbody');
+        tableBody.innerHTML = '';
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+            <td data-name="posotion">${item.position}</td>
+            <td data-name="transferType">${item.eventType}</td>
+            <td data-name="title">${item.title}</td>
+            <td>
+                <button id="delete-${id}-${item.position}" class="delete-button"
+                    onclick="handleEventDelete('${id}','${item.position}')">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+            `;
+             tableBody.appendChild(row);
+        });
+
+        const tableElement = document.getElementById('tour-itinerary-data');
+        if (tableElement) {
+            tableElement.classList.add('hidden');
+        }
+        const element = document.getElementById('tour-itinerary-edit');
+        if (element) {
+            element.classList.remove('hidden');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching the tours:', error);
+    });
+
+
+}
+
+function handleEventDelete(id, position) {
+    // Confirm before deleting
+    if (confirm('Are you sure you want to delete this item?')) {
+        // Perform your delete operation here
+
+        // For demonstration, let's just log the values
+        console.log('Deleting item with ID:', id, 'and position:', position);
+
+        // Example API call (modify URL and method as needed)
+        fetch(`https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/itinerary/event/${id}/${position}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert('Successfully deleted:');
+            // Optionally, update the UI after successful deletion
+            // For example, remove the item from the DOM
+            const button = document.getElementById(`delete-${id}-${position}`);
+            if (button) {
+                button.closest('tr').remove(); // Remove the row from the table
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+}
+
+// Function to handle the delete operation
+function handleDelete(id, dayNumber) {
+    // Confirm before deleting
+    if (confirm('Are you sure you want to delete this item?')) {
+        // Perform your delete operation here
+
+        // For demonstration, let's just log the values
+        console.log('Deleting item with ID:', id, 'and dayNumber:', dayNumber);
+
+        // Example API call (modify URL and method as needed)
+        fetch(`https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/itinerary/${id}/${dayNumber}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert('Successfully deleted:');
+            // Optionally, update the UI after successful deletion
+            // For example, remove the item from the DOM
+            const button = document.getElementById(`delete-${id}-${dayNumber}`);
+            if (button) {
+                button.closest('tr').remove(); // Remove the row from the table
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+}
+
+function cancelTourItineraryEdit(){
+    const tableElement = document.getElementById('tour-itinerary-data');
+    if (tableElement) {
+        tableElement.classList.remove('hidden');
+    }
+    const element = document.getElementById('tour-itinerary-edit');
+    if (element) {
+        element.classList.add('hidden');
+    }
+}
+
 function itineraryEventDay(){
 
     const day = document.getElementById('product-day-container');

@@ -520,3 +520,42 @@ button.close:hover {
     transform: scale(1.1); /* Scale up on hover */
 }
 
+.delete-button {
+    background-color: transparent; /* Remove any background color */
+    color: red; /* Set the text (icon) color to red */
+    border: none; /* Remove any borders */
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    outline: none; /* Remove focus outline */
+}
+
+.delete-button:focus,
+.delete-button:active {
+    background-color: transparent; /* Ensure background stays transparent on click */
+    outline: none; /* Ensure no focus outline */
+}
+
+.delete-button i {
+    color: red; /* Set the icon color to red */
+}
+
+.edit-button {
+    background-color: transparent; /* Remove any background color */
+    color: red; /* Set the text (icon) color to red */
+    border: none; /* Remove any borders */
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    outline: none; /* Remove focus outline */
+}
+
+.edit-button:focus,
+.edit-button:active {
+    background-color: transparent; /* Ensure background stays transparent on click */
+    outline: none; /* Ensure no focus outline */
+}
+
+.edit-button i {
+    color: red; /* Set the icon color to red */
+}

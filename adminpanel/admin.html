@@ -22,7 +22,7 @@
         <a href="#add-itinerary-event" onclick="showTab('add-itinerary-event')">Add Itinerary Event</a>
         <a href="#add-event-point" onclick="showTab('add-event-point')">Add Event Point</a>
         <a href="#view-event-point" onclick="showTab('view-event-point')">View Event Point</a>
-        
+        <a href="#edit-itinerary" onclick="showTab('edit-itinerary')">Edit Itinerary</a>
        <!-- <a href="#delete-tour" onclick="showTab('delete-tour')">Delete Tour</a> -->
     </div>
     <div class="main-content">
@@ -635,6 +635,57 @@
                 <button type="submit">Submit</button><br><br>
             
                 
+            </form>
+        </div>
+        <div id="edit-itinerary" class="tab-content hidden">
+            <form id="editItineraryForm">            
+                <label for="product-slug-edit-container">Select tour:</label>
+                <select id="product-slug-edit-container" name="product-slug-edit-container" onchange="editTourItinerary()"></select>
+                <br><br>
+                <table id="tour-itinerary-data">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Location</th>
+                            <th>Title</th>
+                            <th>Leisure Day</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+                    </tbody>
+                </table>
+                <div id="tour-itinerary-edit" class="hidden">
+                    <h1>Edit Tour itinerary</h1>
+
+                    <form id="edit-itinerary">
+
+                        <label for="dayNumber">Day Number:</label>
+                        <input type="number" id="tourEdit-dayNumber" name="dayNumber" disabled><br>
+
+                        <label for="location">Location:</label>
+                        <input type="text" id="tourEdit-location" name="location" disabled><br>
+                        
+                        <br><br>
+                        <table id="tour-itinerary-event">
+                            <thead>
+                                <tr>
+                                    <th>position</th>
+                                    <th>Event Type</th>
+                                    <th>Title</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                            </tbody>
+                        </table>
+                        <br><br>
+                        
+                        <button type="submit" onclick="cancelTourItineraryEdit()">Back</button>
+                    </form>
+                </div>
+
             </form>
         </div>
         <div id="add-itinerary-event" class="tab-content hidden">
