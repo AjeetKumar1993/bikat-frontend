@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadTour(event, category){
 
-    fetch("https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/filter-item",)
+    fetch("https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/filter-item",)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addOndCheckbox = document.getElementById('addOnsCheckbox');
     addOndCheckbox.innerHTML = "";
     // Replace with your actual backend API endpoint to fetch options
-    const optionsUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+tourId+'/tour-addOns';
+    const optionsUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/'+tourId+'/tour-addOns';
 
     fetch(optionsUrl)
         .then(response => response.json())

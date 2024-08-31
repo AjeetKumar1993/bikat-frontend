@@ -2,7 +2,7 @@
 function fetchData(slug){
   
 
-  const apiEndpoint = `https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/tour-id/${slug}`;
+  const apiEndpoint = `https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/tour-id/${slug}`;
   
   fetch(apiEndpoint, { 
       method: 'GET'
@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
           comment: document.getElementById('reviewText').value
       };
       const id = document.getElementById('reviewForm').dataset.id;
-      fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+id+'/comments', {
+      fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/'+id+'/comments', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function loadCommnets(slug){
 
-    const apiURL = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+slug+'/comments';
+    const apiURL = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/'+slug+'/comments';
 
     // Fetch comments from the backend API
     fetch(apiURL)
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
  function loadCarouselItems(slug) {
 
   try {
-    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/'+slug+'/tour-suggestion', { 
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/'+slug+'/tour-suggestion', { 
       method: 'GET'
     })
     .then(response =>  { 

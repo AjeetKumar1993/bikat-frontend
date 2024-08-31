@@ -2,15 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('handpickedCollections');
   const popularCollections = document.getElementById('popularCollections');
 
-  const optionsUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list';
+  const apiEndpoint = `https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/list?page=1&pageSize=10`;
   
-  fetch(optionsUrl)
+    fetch(apiEndpoint, { 
+      method: 'POST',
+      body: JSON.stringify({}),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+    })
       .then(response => response.json())
-      .then(data => {
+      .then(response => {
          
           let html = ` <div class="service-slider owl-carousel owl-theme">`;
           
-          data.forEach(option => {
+          response.data.forEach(option => {
 
             if(! option.active){
                 return;
@@ -80,11 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 });
 
-function popularDistination(data){
+function popularDistination(response){
 
   const regionMap = new Map();
  
-  data.map((obj) => {
+  response.data.map((obj) => {
     if(! obj.active){
       return;
     }

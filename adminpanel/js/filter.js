@@ -8,7 +8,7 @@ function generateFilter(){
     const selectionFormForLocation = document.getElementById('selectionFormForLocation');
     const selectionFormForPackage = document.getElementById('selectionFormForPackage');
 
-    fetch("https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/filter-item",)
+    fetch("https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/filter-item",)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -146,7 +146,7 @@ function generateFilter(){
       data.payment= compnentList;
     }
     
-    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/filter-item', {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/filter-item', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8' // Indicates the content 

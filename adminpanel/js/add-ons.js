@@ -9,7 +9,7 @@ function fetchAndDisplayAddOns() {
     const addOnsContainer = document.getElementById('savedAddOns');
   
     // Replace with your actual backend API endpoint to fetch saved dates
-    const datesUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/addOns';
+    const datesUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/addOns';
 
     fetch(datesUrl)
         .then(response => response.json())
@@ -34,7 +34,7 @@ function fetchAndDisplayAddOns() {
     const add_addOns = document.getElementById('add_addOns').value;
 
     // Replace with your actual backend API endpoint to save date
-    const saveUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/addOns';
+    const saveUrl = 'https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/addOns';
 
     // Prepare payload in JSON format
     const payload = {
@@ -85,7 +85,7 @@ function addTourAddOns(){
         price: parseInt(price)
     };
 
-    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/tour/tour-addOns', {
+    fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/tour-addOns', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
