@@ -542,7 +542,7 @@ function populateTable(data) {
      
     const data = {
         id: id,
-        tourId: tourId,
+        slug: tourId,
         name: name,
         region: region,
         stayCategory: stayCategory,
