@@ -215,7 +215,8 @@ let countArray = {
      packingList : 0,
      tripHighlight : 0,
      tripInclusion : 0,
-     tripExclusion : 0
+     tripExclusion : 0,
+     regionTag: 0,
 }
 
 function addMore(type) {
@@ -1455,4 +1456,192 @@ document.getElementById('date-form-submit').addEventListener('click', function(e
     });
 
   });
+
+
+  
+document.getElementById('tourForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const tourImage = JSON.parse(localStorage.getItem("images_tourImage"));
+    const tourImageGallery = JSON.parse(localStorage.getItem("images_tourImages"));
+
+    const data = {
+
+        name: formData.get('name'),
+        slug: formData.get('slug'),
+        region: formData.get('region'),
+        category: formData.get('category'),
+        type: formData.get('type'),
+        grade: formData.get('grade'),
+        altitude: parseInt(formData.get('altitude')),
+        day: parseInt(formData.get('day')),
+        night: parseInt(formData.get('night')),
+        distance: parseInt(formData.get('distance')),
+        minimumAge: parseInt(formData.get('minimumAge')),
+        maximumGroupSize: parseInt(formData.get('maximumGroupSize')),
+        price: parseInt(formData.get('price')),
+        gst: parseInt(formData.get('gst')),
+        priceFromTo: formData.get('priceFromTo'),
+        overview: formData.get('overview'),
+        shortOverview: formData.get('shortOverview'),
+
+        location: formData.get('location'),
+        tourImage: tourImage[0],
+        gallery: tourImageGallery,
+        itinerary: JSON.parse(formData.get('itinerary')),
+       // availableDate: JSON.parse(formData.get('availableDate')),
+        active: formData.get('active') === 'on'
+    };
+    
+    const inclusionList = [];
+    const exclusionList = [];
+    const highlightList = [];
+    const cancelPolicyList = [];
+    const packingList = [];
+
+    for (let i = 1; i <= countArray['inclusion']; i++) {
+        const ruleValue = document.getElementById(`inclusion${i}`).value;
+        if (ruleValue) {
+            inclusionList.push(ruleValue);
+        }
+    }
+    for (let i = 1; i <= countArray['exclusion']; i++) {
+    
+        const ruleValue = document.getElementById(`exclusion${i}`).value;
+        if (ruleValue) {
+            exclusionList.push(ruleValue);
+        }
+    }
+    for (let i = 1; i <= countArray['highlight']; i++) {
+    
+        const ruleValue = document.getElementById(`highlight${i}`).value;
+        if (ruleValue) {
+            highlightList.push(ruleValue);
+        }
+    }
+    for (let i = 1; i <= countArray['cancelPolicy']; i++) {
+    
+        const ruleValue = document.getElementById(`cancelPolicy${i}`).value;
+        if (ruleValue) {
+            cancelPolicyList.push(ruleValue);
+        }
+    }
+    for (let i = 1; i <= countArray['packingList']; i++) {
+    
+        const ruleValue = document.getElementById(`packingList${i}`).value;
+        if (ruleValue) {
+            packingList.push(ruleValue);
+        }
+    }
+    data.inclusion = inclusionList;
+    data.exclusion = exclusionList;
+    data.highlight = highlightList;
+    data.cancelPolicy = cancelPolicyList;
+    data.packingList = packingList;
+   
+  
+    let itineryFinalData = {}
+    for(let i = 1 ;i <= itineraryCount;i++){
+        let itineryData =  {
+            "title": "",
+            "isRequired": true,
+            "heading": "",
+            "description": "",
+            "otherDetails" :[]
+        }
+        const title = document.getElementById(`titleItinerary${i}`).value;
+        if(title){
+            itineryData.title = title;
+        }
+        const heading = document.getElementById(`headingItinerary${i}`).value;
+        if(heading){
+            itineryData.heading = heading;
+        }
+        const description = document.getElementById(`descriptionItinerary${i}`).value;
+        if(description){
+            itineryData.description = description;
+        }
+        const otherDetails = [];
+        let key = "edit-itineraryOtherDetailsDay"+i;
+        allOtherDetails = document.querySelectorAll(`[id^="${key}"]`);
+        allOtherDetails.forEach(details => {
+            otherDetails.push(details.value);
+        });
+        itineryData.otherDetails = otherDetails;
+
+        itineryFinalData['day'+i] = itineryData;
+    }
+    data.itinerary = itineryFinalData;
+   
+    await fetch('https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log('Success:', result);
+        alert('Form submitted successfully!');
+        handleCheckboxChange(result.id);
+    })
+    .catch(error => {
+		console.log('Error:'+ error);
+        console.error('Error:', error);
+        console.log('Error submitting form!');
+    });
+});
+
+document.getElementById('regionForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const regionContainer = document.getElementById("region-info");
+    const regionId = regionContainer.options[regionContainer.selectedIndex].value;
+
+    const regionImage = JSON.parse(localStorage.getItem("images_regionImage"));
+
+
+    const data = {
+
+        quote: formData.get('regionQoute'),
+        imageUrl: regionImage[0],
+        startingPrice: parseInt(formData.get('regionStartingPrice'))
+    };
+  
+    const tags = [];
+    for (let i = 1; i <= countArray['regionTag']; i++) {
+    
+        const ruleValue = document.getElementById(`regionTag${i}`).value;
+        if (ruleValue) {
+            tags.push(ruleValue);
+        }
+    }
+    data.tag = tags;
+    
+
+    await fetch(`https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/region/${regionId}/tag`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log('Success:', result);
+        alert('Region updated successfully!');
+       
+    })
+    .catch(error => {
+		console.log('Error:'+ error);
+        console.error('Error:', error);
+        console.log('Error submitting form!');
+    });
+});
+
   

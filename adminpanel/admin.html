@@ -23,6 +23,7 @@
         <a href="#add-event-point" onclick="showTab('add-event-point')">Add Event Point</a>
         <a href="#view-event-point" onclick="showTab('view-event-point')">View Event Point</a>
         <a href="#edit-itinerary" onclick="showTab('edit-itinerary')">Edit Itinerary</a>
+        <a href="#region-info-tab" onclick="showTab('region-info-tab')">Region</a>
        <!-- <a href="#delete-tour" onclick="showTab('delete-tour')">Delete Tour</a> -->
     </div>
     <div class="main-content">
@@ -916,6 +917,48 @@
                 </tbody>
             </table>
         </div>
+        <div id="region-info-tab" class="tab-content hidden">
+            <form id="regionForm">
+                <label>Add region info:</label><br>
+                <div>
+                    <label for="region-info">Select Region:</label>
+                    <select id="region-info" name="region-info" style="width: 500px;"></select>  
+                </div>
+                <br><br> 
+
+                
+                <div class="multi-input-row">
+                    <div>
+                        <label for="regionQoute">Region Qoute:</label>
+                        <input type="text" id="regionQoute" name="regionQoute"/>
+                    </div>
+                    <div>
+                        <label for="regionStartingPrice">Region Starting Price:</label>
+                        <input type="number" id="regionStartingPrice" name="regionStartingPrice"/>
+                    </div>
+                </div>
+                <br>
+
+                <label for="regionImage">Region Image:</label> <span id="regionIcon5" class="status-icon">&#10004;</span>
+                <input type="file" id="regionImage" name="regionImage" accept="image/*" onchange="previewImage(event,'regionImagePreview')" ><br>
+                <img id="regionImagePreview" class="image-preview"><br>
+                <button type="button" onclick="uploadImages('regionImage', 'regionIcon5')">Upload Image</button>
+                
+                <br>
+
+                <label for="regionTag">Add Tags:</label>
+                <div id="regionTag">
+                    <div class="rule">    
+                    </div>
+                </div>
+                <button type="button" onclick="addMore('regionTag')">Add</button><br><br>
+
+                
+                <button type="submit">Submit</button>
+            
+
+            </form>
+        </div>        
         <div id="edit-tour" class="tab-content hidden">
            
             <table id="data-table">

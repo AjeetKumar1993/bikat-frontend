@@ -1,5 +1,30 @@
-document.addEventListener("DOMContentLoaded", generateFilter);
+document.addEventListener("DOMContentLoaded", function() {
+  generateFilter();
+  regionFilter();
 
+});
+
+function regionFilter(){
+  fetch("https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/region",)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(list => {
+
+      const container = document.getElementById('region-info');
+     
+      list.forEach(region => {
+        container.innerHTML += `<option value="${region.id}">${region.region}</option>`;
+      });
+
+    }) .catch(error => {
+      console.error('Fetching error: ', error);
+    });
+
+}
 function generateFilter(){
 
     // const selectionFormForCategory = document.getElementById('selectionFormForCategory');
@@ -29,11 +54,12 @@ function generateFilter(){
       policyHtmlRender('product-refundPolicy', list.refundPolicy);
       policyHtmlRender('product-cancellationPolicy', list.cancellationPolicy);
       policyHtmlRender('product-paymentPolicy', list.paymentPolicy);
-    
+  
 
       filterHtmlRender('region', list.region);
       filterHtmlRender('edit-region', list.region);
       filterHtmlRender('product-region', list.region);
+     
       filterHtmlRender('load_location', list.location);
       filterHtmlRender('itinerary_location', list.location);
       filterHtmlRender('event-point-location', list.location);
