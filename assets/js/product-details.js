@@ -28,6 +28,22 @@ function loadTourDetails(slug){
             const tripNameContainerId = document.getElementById('trip-name-container');
             tripNameContainerId.innerHTML = '';
             tripNameContainerId.textContent  = data.name;
+
+            const tripNameMobile = document.getElementById('tripName_m');
+            tripNameMobile.innerHTML = '';
+            tripNameMobile.textContent  = data.name;
+            const tripDayMobile = document.getElementById('tripDay_m');
+
+            tripDayMobile.innerHTML = '';
+            tripDayMobile.textContent  = data.day+'D/'+data.night+'N';
+
+            const mainPrizeMobile = document.getElementById('mainPrize_m');
+            mainPrizeMobile.textContent = 'INR '+data.price;
+
+            const pizeMobile = document.getElementById('prize_m');
+            pizeMobile.textContent = 'INR '+data.price;
+
+        
             const tripDayContainerId = document.getElementById('trip-day-container');
             tripDayContainerId.innerHTML = '';
             tripDayContainerId.textContent  = data.day+'D/'+data.night+'N';
