@@ -1597,22 +1597,33 @@ document.getElementById('tourForm').addEventListener('submit', async function(ev
 
 document.getElementById('regionForm').addEventListener('submit', async function(event) {
     event.preventDefault();
-
+   
     const formData = new FormData(event.target);
 
     const regionContainer = document.getElementById("region-info");
     const regionId = regionContainer.options[regionContainer.selectedIndex].value;
 
     const regionImage = JSON.parse(localStorage.getItem("images_regionImage"));
+    const regionIcon = JSON.parse(localStorage.getItem("images_regionIcon"));
 
-
-    const data = {
-
-        quote: formData.get('regionQoute'),
-        imageUrl: regionImage[0],
-        startingPrice: parseInt(formData.get('regionStartingPrice'))
-    };
+    const data = {};
   
+    if (formData.get('regionQoute')) {
+        data.quote = formData.get('regionQoute');
+    }
+    
+    if (regionImage && regionImage[0]) {
+        data.imageUrl = regionImage[0];
+    }
+    
+    if (regionIcon && regionIcon[0]) {
+        data.iconImageUrl = regionIcon[0];
+    }
+    
+    if (formData.get('regionStartingPrice')) {
+        data.startingPrice = parseInt(formData.get('regionStartingPrice'));
+    }
+
     const tags = [];
     for (let i = 1; i <= countArray['regionTag']; i++) {
     
@@ -1624,7 +1635,7 @@ document.getElementById('regionForm').addEventListener('submit', async function(
     data.tag = tags;
     
 
-    await fetch(`https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/region/${regionId}/tag`, {
+    await fetch(`http://localhost:8080/api/admin/tour/region/${regionId}/tag`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -1642,6 +1653,9 @@ document.getElementById('regionForm').addEventListener('submit', async function(
         console.error('Error:', error);
         console.log('Error submitting form!');
     });
+
+    localStorage.removeItem("images_regionImage");
+    localStorage.removeItem("images_regionIcon");
 });
 
   

@@ -939,10 +939,17 @@
                 </div>
                 <br>
 
-                <label for="regionImage">Region Image:</label> <span id="regionIcon5" class="status-icon">&#10004;</span>
+                <label for="regionIcon">Region Icon:</label> <span id="regionIconStatus" class="status-icon">&#10004;</span>
+                <input type="file" id="regionIcon" name="regionIcon" accept="image/*" onchange="previewImage(event,'regionIconPreview')" ><br>
+                <img id="regionIconPreview" class="image-preview"><br>
+                <button type="button" onclick="uploadImages('regionIcon', 'regionIconStatus')">Upload Image</button>
+                
+                <br><br>
+
+                <label for="regionImage">Region Image:</label> <span id="regionImageStatus" class="status-icon">&#10004;</span>
                 <input type="file" id="regionImage" name="regionImage" accept="image/*" onchange="previewImage(event,'regionImagePreview')" ><br>
                 <img id="regionImagePreview" class="image-preview"><br>
-                <button type="button" onclick="uploadImages('regionImage', 'regionIcon5')">Upload Image</button>
+                <button type="button" onclick="uploadImages('regionImage', 'regionImageStatus')">Upload Image</button>
                 
                 <br>
 
