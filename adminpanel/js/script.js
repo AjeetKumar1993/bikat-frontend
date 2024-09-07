@@ -1635,7 +1635,7 @@ document.getElementById('regionForm').addEventListener('submit', async function(
     data.tag = tags;
     
 
-    await fetch(`http://localhost:8080/api/admin/tour/region/${regionId}/tag`, {
+    await fetch(`https://optimum-nebula-433205-b3.uc.r.appspot.com/api/admin/tour/region/${regionId}/tag`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
